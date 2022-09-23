@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Momentum: Linear and Angular &#8212; Introduction to Spacecraft Dynamics</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8NCYQHENVD"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-8NCYQHENVD');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Spacecraft Dynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../kinematics/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Kinematics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../kinematics/rigid-bodies1.html">
+   Rigid Body Kinematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inertia
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../inertia/inertia-1.html">
+   Mass/Inertia Scalars
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Forces, Moments, and Momenta
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Week9/Angular_Momentum_Activity3_Solution.html">
+   Problem 3: Angular Momentum of Rigid Body
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dynamics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dynamics/dynamics-1.html">
+   Kinetics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendices
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../kinematics/Week1/NB_Tutorial_string.html">
+   Strings
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/forces-moments-momenta/forces-2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/forces-moments-momenta/forces-2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/forces-moments-momenta/forces-2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-momentum">
+   Linear Momentum
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation">
+     Notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-particles">
+     System of particles
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Notation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rigid-bodies">
+     Rigid bodies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#angular-momentum">
+   Angular Momentum
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#particle">
+     Particle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     System of Particles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rigid-body">
+     Rigid body
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#special-case">
+     Special case
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#composite-theorem-for-angular-momentum">
+     Composite theorem for Angular Momentum
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Momentum: Linear and Angular</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-momentum">
+   Linear Momentum
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation">
+     Notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-particles">
+     System of particles
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Notation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rigid-bodies">
+     Rigid bodies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#angular-momentum">
+   Angular Momentum
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#particle">
+     Particle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     System of Particles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rigid-body">
+     Rigid body
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#special-case">
+     Special case
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#composite-theorem-for-angular-momentum">
+     Composite theorem for Angular Momentum
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="momentum-linear-and-angular">
+<h1>Momentum: Linear and Angular<a class="headerlink" href="#momentum-linear-and-angular" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>This chapter discusses linear momentum and angular momentum of particles and rigid bodies. These are key concepts that:</p>
+<ul class="simple">
+<li><p>merge what we have learned</p></li>
+<li><p>the various aspects knowledge of kinematics and mass/inertia scalars; and</p></li>
+<li><p>underpin Newton’s second law of motion, which is the centerpiece to finally deriving equations that describe the motion of engineering systems using the particle and rigid body approximations.</p></li>
+</ul>
+</section>
+<section id="linear-momentum">
+<h2>Linear Momentum<a class="headerlink" href="#linear-momentum" title="Permalink to this headline">#</a></h2>
+<p>It is a vector quantity.</p>
+<ul class="simple">
+<li><p>Particle: The linear momentum of a single particle is the product of its mass and velocity. As velocity of a prticle (as it is essentially a point with mass) is defined relative to a certain frame, linear momentum is also defined relative in a certain frame.</p></li>
+</ul>
+<section id="notation">
+<h3>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\({}^{N}L^{P}\)</span> is the linear momentum of particle P in frame N. The mathematical definition is:</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/12.png" src="../_images/12.png" />
+</figure>
+</section>
+<section id="system-of-particles">
+<h3>System of particles<a class="headerlink" href="#system-of-particles" title="Permalink to this headline">#</a></h3>
+<p>The linear moemntum for a system of <span class="math notranslate nohighlight">\(n\)</span> particles is the sum of the linear momenta of individual particles.</p>
+<section id="id2">
+<h4>Notation<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p><span class="math notranslate nohighlight">\({}^{N}L^{S}\)</span> is the linear momentum of system of particles <span class="math notranslate nohighlight">\(S\)</span> in frame <span class="math notranslate nohighlight">\(N\)</span>. It is given by:</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/13.png" src="../_images/13.png" />
+</figure>
+<p>By virtue of mass center definition, this reduces to a much simpler equation.</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/14.png" src="../_images/14.png" />
+</figure>
+<p><span class="math notranslate nohighlight">\({}^{N}L^{S} = m^{N}v^{S^{*}}\)</span></p>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the mass of the system given by <span class="math notranslate nohighlight">\(\sum_{i} m_{i}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(v^{S^{*}}\)</span> is the velocity of the system’s mass center <span class="math notranslate nohighlight">\(S^{*}\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="rigid-bodies">
+<h3>Rigid bodies<a class="headerlink" href="#rigid-bodies" title="Permalink to this headline">#</a></h3>
+<p>The linear momentum of a rigid body (or, more generally, a continua) is similar to that of a system of particles; except we make use of the integral in its definition.</p>
+<figure class="align-default" id="id5">
+<img alt="../_images/15.png" src="../_images/15.png" />
+</figure>
+<p>where,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the mass of the body.</p></li>
+<li><p><span class="math notranslate nohighlight">\(^{N}v^{B^{*}}\)</span> is the velocity of the body’s mass center <span class="math notranslate nohighlight">\(B^{*}\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="angular-momentum">
+<h2>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Permalink to this headline">#</a></h2>
+<p>Angular momentum is also a vector quantity. It is quite generally defined as the moment of the linear momentum vector. The letter <span class="math notranslate nohighlight">\(\text{H}\)</span> (boldface is vector, when typed) to represent this quantity.</p>
+<section id="particle">
+<h3>Particle<a class="headerlink" href="#particle" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\(^{N}H^{P/O}\)</span> is the angular momentum of the particle <span class="math notranslate nohighlight">\(P\)</span> with respect to the point <span class="math notranslate nohighlight">\(O\)</span> in frame <span class="math notranslate nohighlight">\(N\)</span>. It is quite simply the moment of about <span class="math notranslate nohighlight">\(O\)</span> of the linear momentum of <span class="math notranslate nohighlight">\(P\)</span> in <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<figure class="align-default" id="id6">
+<img alt="../_images/16.png" src="../_images/16.png" />
+</figure>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The moment of a bound vector is defined relative to a certain point. In this case, we are taking moment of the <em>linear momentum</em> of <span class="math notranslate nohighlight">\(P\)</span> defined in frame <span class="math notranslate nohighlight">\(N\)</span> (a bound vector) relative to the point <span class="math notranslate nohighlight">\(O\)</span>.</p>
+</div>
+</section>
+<section id="id7">
+<h3>System of Particles<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>The angular momentum of a system of particles is quite simply the vector sum of the angular momentum of each particle in the system. For the figure below, for a system of particles <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(n\)</span> particles, the system’s angular momentum can be defined about the point <span class="math notranslate nohighlight">\(O\)</span> as:</p>
+<figure class="align-default" id="id8">
+<img alt="../_images/17.png" src="../_images/17.png" />
+</figure>
+</section>
+<section id="rigid-body">
+<h3>Rigid body<a class="headerlink" href="#rigid-body" title="Permalink to this headline">#</a></h3>
+<p>We can derive the angular momentum of a rigid body (or, more generally, a continuum) relative to <span class="math notranslate nohighlight">\(O\)</span> in a similar fashion. This is done using <span class="math notranslate nohighlight">\(P\)</span>, a generic point of <span class="math notranslate nohighlight">\(B\)</span> with an elementary mass <span class="math notranslate nohighlight">\(dm\)</span>.</p>
+<figure class="align-default" id="id9">
+<img alt="../_images/18.png" src="../_images/18.png" />
+</figure>
+<p>Now, evaluating this integral is quite challenging. So can we come up with a much simpler expression for evaluations the angular momentum of a body? Indeed, this is possible. Let’s see how we can do this<span class="math notranslate nohighlight">\(\ldots\)</span></p>
+<p>First, we make use of the two-point theorem to rewrite the velocity of P in terms of the mass centre of the body:</p>
+<figure class="align-default" id="id10">
+<img alt="../_images/19.png" src="../_images/19.png" />
+</figure>
+<p>So, we can see that the angular momentum is now the vector sum of two integrals. We will now examine the implication of each of these terms. We start with the term in green</p>
+<figure class="align-default" id="id11">
+<img alt="../_images/20.png" src="../_images/20.png" />
+</figure>
+<p>Now, we can quite easily observer that this cross product is, in fact, the angular momentum of the mass centre <span class="math notranslate nohighlight">\(B^*\)</span> about the point <span class="math notranslate nohighlight">\(O\)</span> in the frame <span class="math notranslate nohighlight">\(N\)</span>. In other words,</p>
+<figure class="align-default" id="id12">
+<img alt="../_images/21.png" src="../_images/21.png" />
+</figure>
+<p>Now, we examine the term that was highlighted in pink:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_m{\vec{r}dm} = 0
+\]</div>
+<p>So,</p>
+<figure class="align-default" id="id13">
+<img alt="../_images/22.png" src="../_images/22.png" />
+</figure>
+<p>By definition of a mass centre</p>
+<figure class="align-default" id="id14">
+<img alt="../_images/23.png" src="../_images/23.png" />
+</figure>
+<p>Now, if we examine the above cross product on the right-hand side and compare it to the definition of angular momentum of a rigid body, we can see that this is the angular momentum of the body B <strong>about the mass centre <span class="math notranslate nohighlight">\(B^{*}\)</span></strong>. In other words,</p>
+<figure class="align-default" id="id15">
+<img alt="../_images/24.png" src="../_images/24.png" />
+</figure>
+<p><span class="math notranslate nohighlight">\(^{N}H^{B/B^{*}}\)</span> is frequently called the central angular momentum; central refers to the calculation of angular momentum being done about the mass centre. Further, it can also be shown that the central angular momentum is easily calculated by the following formula:</p>
+<figure class="align-default" id="id16">
+<img alt="../_images/25.png" src="../_images/25.png" />
+</figure>
+<p>This says that the central angular momentum is given by the product of the inertia matrix of <span class="math notranslate nohighlight">\(B\)</span> about <span class="math notranslate nohighlight">\(B^*\)</span> and the angular velocity of <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(N\)</span>; this proof is not shown here. In summary, we can see that this second integral highlighted in pink eventually yields:</p>
+<figure class="align-default" id="id17">
+<img alt="../_images/26.png" src="../_images/26.png" />
+</figure>
+<p><span class="math notranslate nohighlight">\([I]^{B/B^{*}}\)</span> is the inertia matrix of <span class="math notranslate nohighlight">\(B\)</span> about <span class="math notranslate nohighlight">\(B^*\)</span>; it is also called the <strong>central inertia matrix</strong>.</p>
+<p>Indeed, one must be careful in ensuring that the the inertia matrix and the angular velocity were expressed in the same reference frames BEFORE taking the product.</p>
+<p>Finally, we now return to Equation <span class="math notranslate nohighlight">\(10.1\)</span> to write it in its most concise form as:</p>
+<figure class="align-default" id="id18">
+<img alt="../_images/27.png" src="../_images/27.png" />
+</figure>
+<p>Equation <span class="math notranslate nohighlight">\(10.4\)</span> is called the <strong>Transfer theorem for angular momentum</strong>. This is because it allows us to calculate the angular momentum of a body about any point external to the body by transferring to its centre of mass and then to the point of interest.</p>
+</section>
+<section id="special-case">
+<h3>Special case<a class="headerlink" href="#special-case" title="Permalink to this headline">#</a></h3>
+<p>Say that we want to evaluate <span class="math notranslate nohighlight">\(^{N}H^{B/Q}\)</span>, where <span class="math notranslate nohighlight">\(Q\)</span> is an arbitrary point rigidly fixed on the rigid body. <span class="math notranslate nohighlight">\(Q\)</span> is not an elementary particle.</p>
+<figure class="align-default" id="id19">
+<img alt="../_images/28.png" src="../_images/28.png" />
+</figure>
+<p>Again, we make use of the two-point theorem to rewrite the velocity of P in terms of Q. So, the
+expression for angular momentum above is now:</p>
+<figure class="align-default" id="id20">
+<img alt="../_images/29.png" src="../_images/29.png" />
+</figure>
+<p>which then becomes,</p>
+<figure class="align-default" id="id21">
+<img alt="../_images/30.png" src="../_images/30.png" />
+</figure>
+<p>Now, it can be shown that the integral highlighted in pink reduces to the simpler result; it is the product of the inertia matrix of <span class="math notranslate nohighlight">\(B\)</span> about <span class="math notranslate nohighlight">\(Q\)</span> and the angular velocity of <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(N\)</span>; as before, this proof is not shown here but can be easily derived. So, the above equation is written in short hand as,</p>
+<figure class="align-default" id="id22">
+<img alt="../_images/31.png" src="../_images/31.png" />
+</figure>
+<p>Two key observations may now be made that make 10.5 far simpler:</p>
+<p><strong>Observation 1</strong>: If <span class="math notranslate nohighlight">\(Q\)</span> is coincident with the mass centre <span class="math notranslate nohighlight">\(B^*\)</span>, then <span class="math notranslate nohighlight">\(r^{*} = 0\)</span>. Thus,</p>
+<figure class="align-default" id="id23">
+<img alt="../_images/32.png" src="../_images/32.png" />
+</figure>
+<p><strong>Observation 2</strong>: If Q is not the mass centre, but is a point that is fixed in both B and N, then we have the following circumstance where,</p>
+<div class="math notranslate nohighlight">
+\[
+^{N}v^{Q}=0
+\]</div>
+<p>In this case, as well, we end up with the same result as case 1, where,</p>
+<figure class="align-default" id="id24">
+<img alt="../_images/32.png" src="../_images/32.png" />
+</figure>
+</section>
+<section id="composite-theorem-for-angular-momentum">
+<h3>Composite theorem for Angular Momentum<a class="headerlink" href="#composite-theorem-for-angular-momentum" title="Permalink to this headline">#</a></h3>
+<p>Consider a system, <span class="math notranslate nohighlight">\(S\)</span>, is composed of a set of many smaller subsystems i.e., <span class="math notranslate nohighlight">\(&lt;S_1, S_2, S_3,\ldots, S_n&gt;\)</span> as shown below.</p>
+<figure class="align-default" id="id25">
+<img alt="../_images/33.png" src="../_images/33.png" />
+</figure>
+<p>The angular momentum of this system, <span class="math notranslate nohighlight">\(S\)</span>, about an arbitrary point <span class="math notranslate nohighlight">\(O\)</span> is given by:</p>
+<figure class="align-default" id="id26">
+<img alt="../_images/34.png" src="../_images/34.png" />
+</figure>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./forces-moments-momenta"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angadh Nanjangud<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

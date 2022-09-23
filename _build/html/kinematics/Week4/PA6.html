@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>JN7: Practice Activity 6 &#8212; Introduction to Spacecraft Dynamics</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8NCYQHENVD"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-8NCYQHENVD');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Spacecraft Dynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Kinematics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../rigid-bodies1.html">
+   Rigid Body Kinematics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inertia
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../inertia/inertia-1.html">
+   Mass/Inertia Scalars
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Forces, Moments, and Momenta
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../forces-moments-momenta/Week9/Angular_Momentum_Activity3_Solution.html">
+   Problem 3: Angular Momentum of Rigid Body
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dynamics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../dynamics/dynamics-1.html">
+   Kinetics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendices
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Week1/NB_Tutorial_string.html">
+   Strings
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/kinematics/Week4/PA6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/kinematics/Week4/PA6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/kinematics/Week4/PA6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   JN7: Practice Activity 6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-time-varying-scalars-using-dynamicsymbols">
+   Create time-varying scalars using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dynamicsymbols
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-reference-frames-for-a-b-and-c">
+   Creating Reference Frames for
+   <span class="math notranslate nohighlight">
+    \(A, B,\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(C\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computing-a-alpha-c">
+   Computing
+   <span class="math notranslate nohighlight">
+    \(^A\alpha^C\)
+   </span>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approach-1-a-alpha-c-triangleq-frac-a-d-dt-bf-a-omega-c">
+     Approach 1:
+     <span class="math notranslate nohighlight">
+      \(^A\alpha^C \triangleq \frac{^A d}{dt}\bf ^A\omega^C\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approach-2-using-key-result-2-from-lecture-notes">
+     Approach 2: Using key result 2 from lecture notes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>JN7: Practice Activity 6</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   JN7: Practice Activity 6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-time-varying-scalars-using-dynamicsymbols">
+   Create time-varying scalars using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dynamicsymbols
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-reference-frames-for-a-b-and-c">
+   Creating Reference Frames for
+   <span class="math notranslate nohighlight">
+    \(A, B,\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(C\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computing-a-alpha-c">
+   Computing
+   <span class="math notranslate nohighlight">
+    \(^A\alpha^C\)
+   </span>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approach-1-a-alpha-c-triangleq-frac-a-d-dt-bf-a-omega-c">
+     Approach 1:
+     <span class="math notranslate nohighlight">
+      \(^A\alpha^C \triangleq \frac{^A d}{dt}\bf ^A\omega^C\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approach-2-using-key-result-2-from-lecture-notes">
+     Approach 2: Using key result 2 from lecture notes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="jn7-practice-activity-6">
+<h1>JN7: Practice Activity 6<a class="headerlink" href="#jn7-practice-activity-6" title="Permalink to this headline">#</a></h1>
+<!-- <img src="Figures/CatFlap_Door_Wall.png" height=500 width=500> -->
+<figure class="align-default" id="catflap-door-wall">
+<img alt="../../_images/CatFlap_Door_Wall.png" src="../../_images/CatFlap_Door_Wall.png" />
+<figcaption>
+<p><span class="caption-text">Motion of catflap <span class="math notranslate nohighlight">\(C\)</span> relative to the door <span class="math notranslate nohighlight">\(B\)</span> and wall <span class="math notranslate nohighlight">\(A\)</span>.</span><a class="headerlink" href="#catflap-door-wall" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This notebook extends the the door-wall example (see <code class="xref std std-numref docutils literal notranslate"><span class="pre">catflap-door-wall</span></code>) by introducing a cat flap <span class="math notranslate nohighlight">\(C\)</span>. It is attached to the door <span class="math notranslate nohighlight">\(B\)</span> and makes an angle of <span class="math notranslate nohighlight">\(\theta\)</span> with the vertical of <span class="math notranslate nohighlight">\(B\)</span> (i.e. <span class="math notranslate nohighlight">\(\hat{\bf b}_y\)</span>). Activity L3PA4  is to find angular acceleration of the cat flap C with respect to A, i.e., <span class="math notranslate nohighlight">\(^A\alpha^C\)</span>. Which is also shown at the very end of the file “6 Rigid body kinematics: angular velocities and angular accelerations.pdf”</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="create-time-varying-scalars-using-dynamicsymbols">
+<h1>Create time-varying scalars using <code class="docutils literal notranslate"><span class="pre">dynamicsymbols</span></code><a class="headerlink" href="#create-time-varying-scalars-using-dynamicsymbols" title="Permalink to this headline">#</a></h1>
+<p>As was explained in L3PA1, the angle <span class="math notranslate nohighlight">\(\theta\)</span> between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> changes with time. Similarly, the angle <span class="math notranslate nohighlight">\(\phi\)</span> between <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> also changes with time. Thus, we create both using <code class="docutils literal notranslate"><span class="pre">dynamicsymbols</span></code> as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.physics.mechanics</span> <span class="kn">import</span> <span class="n">dynamicsymbols</span><span class="p">,</span> <span class="n">ReferenceFrame</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">dynamicsymbols</span><span class="p">(</span><span class="s1">&#39;theta phi&#39;</span><span class="p">)</span>
+<span class="n">thetadot</span><span class="p">,</span> <span class="n">phidot</span> <span class="o">=</span> <span class="n">dynamicsymbols</span><span class="p">(</span><span class="s1">&#39;theta phi&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># gives the first time derivative of the angles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy.physics.mechanics</span> <span class="kn">import</span> <span class="n">dynamicsymbols</span><span class="p">,</span> <span class="n">ReferenceFrame</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">dynamicsymbols</span><span class="p">(</span><span class="s1">&#39;theta phi&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can examine the variables <code class="docutils literal notranslate"><span class="pre">thetadot</span></code> and <code class="docutils literal notranslate"><span class="pre">phidot</span></code> to ensure that they are time derivatives of <code class="docutils literal notranslate"><span class="pre">theta</span></code> and <code class="docutils literal notranslate"><span class="pre">phi</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thetadot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{d}{d t} \theta{\left(t \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phidot</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="creating-reference-frames-for-a-b-and-c">
+<h1>Creating Reference Frames for <span class="math notranslate nohighlight">\(A, B,\)</span> and <span class="math notranslate nohighlight">\(C\)</span><a class="headerlink" href="#creating-reference-frames-for-a-b-and-c" title="Permalink to this headline">#</a></h1>
+<p>This is a trivial step at this point as we have learned how to create reference frames:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">ReferenceFrame</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="c1"># wall frame</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">ReferenceFrame</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span> <span class="c1"># door frame</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">ReferenceFrame</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="c1"># cat flap frame</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="computing-a-alpha-c">
+<h1>Computing <span class="math notranslate nohighlight">\(^A\alpha^C\)</span><a class="headerlink" href="#computing-a-alpha-c" title="Permalink to this headline">#</a></h1>
+<section id="approach-1-a-alpha-c-triangleq-frac-a-d-dt-bf-a-omega-c">
+<h2>Approach 1: <span class="math notranslate nohighlight">\(^A\alpha^C \triangleq \frac{^A d}{dt}\bf ^A\omega^C\)</span><a class="headerlink" href="#approach-1-a-alpha-c-triangleq-frac-a-d-dt-bf-a-omega-c" title="Permalink to this headline">#</a></h2>
+<p>This subsection implements the first approach of computing <span class="math notranslate nohighlight">\(^A\alpha^C\)</span> using <span class="math notranslate nohighlight">\(^A\omega^C\)</span>, which must expressed in the A-frame so that the derivative can be computed.</p>
+<p>First, we must compute  <span class="math notranslate nohighlight">\(^A\omega^C\)</span> using the chain rule:</p>
+<!-- <img src="Figures/ChainRule.png" width ="250" height=250> -->
+<figure class="align-default">
+<img alt="../../_images/ChainRule.png" src="../../_images/ChainRule.png" />
+</figure>
+<p>The table below shows the  mapping used between math symbols and their equivalent variable names for computing with <code class="docutils literal notranslate"><span class="pre">sympy</span></code>. <strong>Please note that we append <code class="docutils literal notranslate"><span class="pre">_approach1</span></code> for good bookkeeping as we are going to use other approaches</strong>:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mathematical Symbol</p></th>
+<th class="head"><p>Equivalent Variable Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(^A\omega^B\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A_omega_B_approach1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(^B\omega^C\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B_omega_C_approach1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(^A\omega^C\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A_omega_C_approach1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(^A\omega^C\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B_alpha_C_approach1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>From the lecture notes, we have the following:</p>
+<!-- <img src="Figures/AwB_Approach_1.png" width ="250" height=250> -->
+<figure class="align-default">
+<img alt="../../_images/AwB_Approach_1.png" src="../../_images/AwB_Approach_1.png" />
+</figure>
+<!-- <img src="Figures/BwC_Approach_1.png" width ="500" height=500> -->
+<figure class="align-default">
+<img alt="../../_images/BwC_Approach_1.png" src="../../_images/BwC_Approach_1.png" />
+</figure>
+<p>which can both be written in code form below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_omega_B_approach1</span> <span class="o">=</span> <span class="o">-</span> <span class="n">thetadot</span><span class="o">*</span><span class="n">A</span><span class="o">.</span><span class="n">y</span>
+<span class="n">B_omega_C_approach1</span> <span class="o">=</span> <span class="o">-</span> <span class="n">phidot</span> <span class="o">*</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we compute the <span class="math notranslate nohighlight">\(^A\omega^C\)</span> by the aforementioned chain rule:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_omega_C_approach1</span> <span class="o">=</span> <span class="n">A_omega_B_approach1</span> <span class="o">+</span> <span class="n">B_omega_C_approach1</span> <span class="c1"># Chain rule</span>
+<span class="n">A_omega_C_approach1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Taking the time derivative from <span class="math notranslate nohighlight">\(A\)</span> (i.e., <span class="math notranslate nohighlight">\(\frac{^Ad}{dt}\)</span>) of <code class="docutils literal notranslate"><span class="pre">A_omega_C_approach1</span></code> will give us <span class="math notranslate nohighlight">\(^A\alpha^C\)</span>, as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_alpha_C_approach1</span> <span class="o">=</span> <span class="n">A_omega_C_approach1</span><span class="o">.</span><span class="n">dt</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A_alpha_C_approach1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="approach-2-using-key-result-2-from-lecture-notes">
+<h2>Approach 2: Using key result 2 from lecture notes<a class="headerlink" href="#approach-2-using-key-result-2-from-lecture-notes" title="Permalink to this headline">#</a></h2>
+<p>Our goal in this subsection is to use an alternate approach to computing <span class="math notranslate nohighlight">\(^A\alpha^C\)</span>: by using key rule 2 as shown below:</p>
+<!-- <img src="Figures/KeyRule2.png" width ="500" height=500> -->
+<figure class="align-default">
+<img alt="../../_images/KeyRule2.png" src="../../_images/KeyRule2.png" />
+</figure>
+<p>In the second approach, we again make use of chain rule to compute the <span class="math notranslate nohighlight">\(^A\omega^C\)</span>; however, we express all the angular velocities in the B-frame (as done in the notes):</p>
+<!-- <img src="Figures/Omega_Approach_2.png" height=250 width=250> -->
+<figure class="align-default">
+<img alt="../../_images/Omega_Approach_2.png" src="../../_images/Omega_Approach_2.png" />
+</figure>
+<p>This is implemented below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_omega_B_approach2</span> <span class="o">=</span> <span class="o">-</span> <span class="n">thetadot</span><span class="o">*</span><span class="n">B</span><span class="o">.</span><span class="n">y</span>
+<span class="n">B_omega_C_approach2</span> <span class="o">=</span> <span class="o">-</span> <span class="n">phidot</span> <span class="o">*</span> <span class="n">B</span><span class="o">.</span><span class="n">x</span>
+<span class="n">A_omega_C_approach2</span> <span class="o">=</span> <span class="n">A_omega_B_approach2</span> <span class="o">+</span> <span class="n">B_omega_C_approach2</span> <span class="c1"># Chain rule again</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we implement key result 2 to compute <span class="math notranslate nohighlight">\(^A\alpha^C\)</span> as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_alpha_C_approach2</span> <span class="o">=</span> <span class="n">A_omega_C_approach2</span><span class="o">.</span><span class="n">dt</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">+</span> <span class="n">A_omega_B_approach2</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">A_omega_C_approach2</span><span class="p">)</span>
+<span class="n">A_alpha_C_approach2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./kinematics/Week4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angadh Nanjangud<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

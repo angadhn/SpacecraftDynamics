@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mass/Inertia Scalars &#8212; Introduction to Spacecraft Dynamics</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Problem 3: Angular Momentum of Rigid Body" href="../forces-moments-momenta/Week9/Angular_Momentum_Activity3_Solution.html" />
+    <link rel="prev" title="Fundamental concepts" href="../kinematics/vector.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8NCYQHENVD"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-8NCYQHENVD');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Spacecraft Dynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../kinematics/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Kinematics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../kinematics/vector.html">
+   Fundamental concepts
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inertia
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mass/Inertia Scalars
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Forces, Moments, and Momenta
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../forces-moments-momenta/Week9/Angular_Momentum_Activity3_Solution.html">
+   Problem 3: Angular Momentum of Rigid Body
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dynamics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dynamics/dynamics-1.html">
+   Kinetics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendices
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../kinematics/Week1/NB_Tutorial_string.html">
+   Strings
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/inertia/inertia-1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/inertia/inertia-1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/inertia/inertia-1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composite-theorem-for-mass-centre">
+   Composite theorem for mass centre
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     Example #1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     Example #2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inertia-scalar">
+   Inertia scalar
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#product-of-inertia">
+     1. Product of inertia
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#notation">
+       Notation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#product-of-inertia-of-system-particles">
+       Product of inertia of system particles
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#product-of-inertia-of-continua">
+       Product of inertia of continua
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moment-of-inertia">
+     2. Moment of inertia
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Notation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-of-inertia-of-system-of-particles">
+       Moment of inertia of system of particles
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id21">
+       Moment of inertia of system of particles
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-inertia-scalars-to-inertia-matrix">
+   From inertia scalars to inertia matrix
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mass/Inertia Scalars</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composite-theorem-for-mass-centre">
+   Composite theorem for mass centre
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     Example #1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     Example #2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inertia-scalar">
+   Inertia scalar
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#product-of-inertia">
+     1. Product of inertia
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#notation">
+       Notation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#product-of-inertia-of-system-particles">
+       Product of inertia of system particles
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#product-of-inertia-of-continua">
+       Product of inertia of continua
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moment-of-inertia">
+     2. Moment of inertia
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Notation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-of-inertia-of-system-of-particles">
+       Moment of inertia of system of particles
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id21">
+       Moment of inertia of system of particles
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-inertia-scalars-to-inertia-matrix">
+   From inertia scalars to inertia matrix
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="mass-inertia-scalars">
+<h1>Mass/Inertia Scalars<a class="headerlink" href="#mass-inertia-scalars" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Mass</strong>: measure of amount of materia in a body. Units of measurement: <span class="math notranslate nohighlight">\(kg\)</span>, <span class="math notranslate nohighlight">\(lb\)</span>.</p></li>
+<li><p><strong>Mass center</strong>: consider a set of particles as shown below which together make up the system of particles <span class="math notranslate nohighlight">\(S\)</span>:</p></li>
+</ul>
+<p>The <span class="math notranslate nohighlight">\(i^{\text{th}}\)</span> particle has a mass <span class="math notranslate nohighlight">\(m_i\)</span></p>
+<figure class="align-default" id="id1">
+<img alt="../_images/110.png" src="../_images/110.png" />
+</figure>
+<p><span class="math notranslate nohighlight">\(S^*\)</span> is a fictitious particle such that:</p>
+<!--
+```{figure} ./images/2.png
+---
+name: 2
+width: 400px
+---
+```
+-->
+<div class="math notranslate nohighlight" id="equation-masscenter-1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-masscenter-1" title="Permalink to this equation">#</a></span>\[\sum_{i} m_i {\bf p}_i = 0\]</div>
+<p>This fictitious particle is called <strong>mass center</strong>. So, how does one locate the mass centre from a point <span class="math notranslate nohighlight">\(O\)</span>?</p>
+<figure class="align-default" id="id2">
+<img alt="../_images/35.png" src="../_images/35.png" />
+</figure>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf r}^*\)</span>; position  vector from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(S^*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf q}_n\)</span>; position  vector from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(P_n\)</span></p></li>
+</ul>
+<p>So, the position vector to locate the <span class="math notranslate nohighlight">\(n^{th}\)</span> particle is:</p>
+<div class="math notranslate nohighlight">
+\[
+{\bf p}_n = {\bf r}^* - {\bf q}_n
+\]</div>
+<p>Thus, expanding <a class="reference internal" href="#equation-masscenter-1">(1)</a></p>
+<figure class="align-default" id="id3">
+<img alt="../_images/41.png" src="../_images/41.png" />
+</figure>
+<p>For a continuum:</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/51.png" src="../_images/51.png" />
+</figure>
+<figure class="align-default" id="id5">
+<img alt="../_images/61.png" src="../_images/61.png" />
+</figure>
+<p>where, <span class="math notranslate nohighlight">\(dm\)</span> is elemental mass that can be obtained from density <span class="math notranslate nohighlight">\(\rho\)</span> and elementar volume <span class="math notranslate nohighlight">\(dV\)</span>.</p>
+<section id="composite-theorem-for-mass-centre">
+<h2>Composite theorem for mass centre<a class="headerlink" href="#composite-theorem-for-mass-centre" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="id6">
+<img alt="../_images/71.png" src="../_images/71.png" />
+</figure>
+<figure class="align-default" id="id7">
+<img alt="../_images/81.png" src="../_images/81.png" />
+</figure>
+<p>where,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r^*_i\)</span> is the position vector locating the mass centre of <span class="math notranslate nohighlight">\(S_i\)</span>, the <span class="math notranslate nohighlight">\(i^{\text{th}}\)</span> system of particles.</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_{s_{i}}\)</span> is the mass of <span class="math notranslate nohighlight">\(i^{\text{th}}\)</span> system.</p></li>
+<li><p><span class="math notranslate nohighlight">\(r^*\)</span> is the mass centre of the composite system <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+</ul>
+<section id="example-1">
+<h3>Example #1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="id8">
+<img alt="../_images/91.png" src="../_images/91.png" />
+</figure>
+<p><strong>Given</strong>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(R\)</span> are the bodies of mass density <span class="math notranslate nohighlight">\(\rho\; kgm^{-2}\)</span> and <span class="math notranslate nohighlight">\(\sigma\;kgm^{-1}\)</span> respectively.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span> is a particle of mass <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ul>
+<p><strong>Find</strong>:</p>
+<ul class="simple">
+<li><p>Mass centre of the combined system.</p></li>
+</ul>
+</section>
+<section id="example-2">
+<h3>Example #2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\(F\)</span> is split into two: <span class="math notranslate nohighlight">\(F_1\)</span> and <span class="math notranslate nohighlight">\(F_2\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(m_{F_{1}}\)</span> = <span class="math notranslate nohighlight">\(\rho H_a\)</span>, is mass of <span class="math notranslate nohighlight">\(F_1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(m_{F_{2}}\)</span> = <span class="math notranslate nohighlight">\(\rho B_a\)</span>, is mass of <span class="math notranslate nohighlight">\(F_2\)</span>.</p>
+<p>Also,</p>
+<p><span class="math notranslate nohighlight">\(m_{R}\)</span> = <span class="math notranslate nohighlight">\(\sigma L\)</span>, is mass of <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>Then,</p>
+<figure class="align-default" id="id9">
+<img alt="../_images/101.png" src="../_images/101.png" />
+</figure>
+<p>Similarly,</p>
+<figure class="align-default" id="id10">
+<img alt="../_images/111.png" src="../_images/111.png" />
+</figure>
+<p>and</p>
+<figure class="align-default" id="id11">
+<img alt="../_images/121.png" src="../_images/121.png" />
+</figure>
+</section>
+</section>
+<section id="inertia-scalar">
+<h2>Inertia scalar<a class="headerlink" href="#inertia-scalar" title="Permalink to this headline">#</a></h2>
+<p>For a particle <span class="math notranslate nohighlight">\(P\)</span> of mass <span class="math notranslate nohighlight">\(m\)</span>, we can define a parameter called the inertia scalar. This is defined relative to an arbitrary point <span class="math notranslate nohighlight">\(O\)</span>. There are two such inertia scalars:</p>
+<figure class="align-default" id="id12">
+<img alt="../_images/131.png" src="../_images/131.png" />
+</figure>
+<section id="product-of-inertia">
+<h3>1. Product of inertia<a class="headerlink" href="#product-of-inertia" title="Permalink to this headline">#</a></h3>
+<section id="notation">
+<h4>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">#</a></h4>
+<p><span class="math notranslate nohighlight">\(I^{P/O}_{ab}\)</span> is the product of inertia of <span class="math notranslate nohighlight">\(P\)</span> along two lines through point <span class="math notranslate nohighlight">\(O\)</span> that are parallel to unit vectors <span class="math notranslate nohighlight">\(\hat{n}_a\)</span> and <span class="math notranslate nohighlight">\(\hat{n}_b\)</span>.</p>
+<figure class="align-default" id="id13">
+<img alt="../_images/141.png" src="../_images/141.png" />
+</figure>
+<p><strong>8.5</strong> can be extended for both systems of particles and continua.</p>
+</section>
+<section id="product-of-inertia-of-system-particles">
+<h4>Product of inertia of system particles<a class="headerlink" href="#product-of-inertia-of-system-particles" title="Permalink to this headline">#</a></h4>
+<figure class="align-default" id="id14">
+<img alt="../_images/151.png" src="../_images/151.png" />
+</figure>
+</section>
+<section id="product-of-inertia-of-continua">
+<h4>Product of inertia of continua<a class="headerlink" href="#product-of-inertia-of-continua" title="Permalink to this headline">#</a></h4>
+<figure class="align-default" id="id15">
+<img alt="../_images/161.png" src="../_images/161.png" />
+</figure>
+<figure class="align-default" id="id16">
+<img alt="../_images/171.png" src="../_images/171.png" />
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In all cases, <span class="math notranslate nohighlight">\(I_{ab} = I_{ba}\)</span> because the formula relies on the dot product of vectors.</p>
+</div>
+</section>
+</section>
+<section id="moment-of-inertia">
+<h3>2. Moment of inertia<a class="headerlink" href="#moment-of-inertia" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="id17">
+<img alt="../_images/181.png" src="../_images/181.png" />
+</figure>
+<section id="id18">
+<h4>Notation<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h4>
+<p><span class="math notranslate nohighlight">\(I^{P/O}_{aa}\)</span> is the moment of inertia of P about a line through point <span class="math notranslate nohighlight">\(O\)</span> which is parallel to the unit vector <span class="math notranslate nohighlight">\(\hat{n}_a\)</span>.</p>
+<figure class="align-default" id="id19">
+<img alt="../_images/191.png" src="../_images/191.png" />
+</figure>
+<p><strong>8.8</strong> can be extended to both systems of particles and continua.</p>
+</section>
+<section id="moment-of-inertia-of-system-of-particles">
+<h4>Moment of inertia of system of particles<a class="headerlink" href="#moment-of-inertia-of-system-of-particles" title="Permalink to this headline">#</a></h4>
+<figure class="align-default" id="id20">
+<img alt="../_images/201.png" src="../_images/201.png" />
+</figure>
+</section>
+<section id="id21">
+<h4>Moment of inertia of system of particles<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h4>
+<figure class="align-default" id="id22">
+<img alt="../_images/211.png" src="../_images/211.png" />
+</figure>
+<figure class="align-default" id="id23">
+<img alt="../_images/221.png" src="../_images/221.png" />
+</figure>
+</section>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h4>
+<figure class="align-default" id="id24">
+<img alt="../_images/231.png" src="../_images/231.png" />
+</figure>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> is a particle of mass <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{n}_x,\;\hat{n}_y,\;\hat{n}_z\)</span> are unit vectors that are mutually orthogonal.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{r} = x\hat{n}_x + y\hat{n}_y + z\hat{n}_z\)</span></p></li>
+</ul>
+<p><strong>Find</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+I^{P/O}_{xx} \qquad I^{P/O}_{yy} \qquad I^{P/O}_{zz}
+\]</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<figure class="align-default" id="id25">
+<img alt="../_images/241.png" src="../_images/241.png" />
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="from-inertia-scalars-to-inertia-matrix">
+<h2>From inertia scalars to inertia matrix<a class="headerlink" href="#from-inertia-scalars-to-inertia-matrix" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>From the previous example, we now have some insight that we will be interested in computing the moments of inertia and products of inertia about a set of unit vectors that make up a reference frame.</p></li>
+<li><p>For this discussion, we assume that the unit vectors are: <span class="math notranslate nohighlight">\(\hat{n}_x,\;\hat{n}_y,\;\hat{n}_z\)</span>.</p></li>
+<li><p>The inertia scalars can be used to define a square matrix called the inertia matrix.</p></li>
+</ul>
+<p><strong>Notation</strong>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\left[I\right]^{S/O}\)</span> is the inertia matrix of <span class="math notranslate nohighlight">\(S\)</span>, a system of particles about the point <span class="math notranslate nohighlight">\(O\)</span>.</p></li>
+<li><p>The diagonal elements of this matrix are the moments of inertia.</p></li>
+<li><p>The off-diagonal elements are the products of inertia.</p></li>
+<li><p>So, the inertia matrix is represented as:</p></li>
+</ul>
+<figure class="align-default" id="id26">
+<img alt="../_images/251.png" src="../_images/251.png" />
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In all cases, <span class="math notranslate nohighlight">\(I_{ab} = I_{ba}\)</span> because the formula relies on the dot product of vectors.</p>
+<ul class="simple">
+<li><p>Rigid body/ continua: The inertia scalars of a rigid body can also be arranged into an inertia matrix.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./inertia"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../kinematics/vector.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Fundamental concepts</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../forces-moments-momenta/Week9/Angular_Momentum_Activity3_Solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Problem 3: Angular Momentum of Rigid Body</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angadh Nanjangud<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
