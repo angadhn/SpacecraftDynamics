@@ -1,51 +1,24 @@
 format: jb-book
-root: kinematics/introduction
+root: introduction
 parts:
-  - caption: Kinematics
+  - caption: Orbital Dynamics
     chapters:
     - file: kinematics/vector
-#    - file: kinematics/vectors-revision
-#    - file: kinematics/Week1/NB_Tutorial_Vectors_ReferenceFrames.ipynb
-#    - file: kinematics/reference-frame
-#    - file: kinematics/Week2/PA1
-#    - file: kinematics/rigid-bodies1
-#      sections:
-#      - file: kinematics/Week2/PA2
-#      - file: kinematics/DCM
-#      - file: kinematics/Week3/PA3
-#      - file: kinematics/vector-calculus
-#      - file: kinematics/Week3/PA4
-#      - file: kinematics/rigid-bodies2
-#      - file: kinematics/Week4/PA5
-#      - file: kinematics/Week4/PA6
-#    - file: kinematics/particle-kinematics
-#    - file: kinematics/theorems
-#    - file: kinematics/Week5/PA7
-  - caption: Inertia
-    chapters:
-    - file: inertia/inertia-1
-#    - file: inertia/inertia-2
-#     - file: inertia/Week7/Mass_Inertia_Activity
-#    - file: inertia/Week7/Mass_Inertia_Activity_Solution
-  - caption: Forces, Moments, and Momenta
-    chapters:
-#    - file: forces-moments-momenta/forces-1
-#    - file: forces-moments-momenta/forces-2
-#     - file: forces-moments-momenta/Week9/Angular_Momentum_Activity1
-#    - file: forces-moments-momenta/Week9/Angular_Momentum_Activity1_Solution
-#     - file: forces-moments-momenta/Week9/Angular_Momentum_Activity2
-#    - file: forces-moments-momenta/Week9/Angular_Momentum_Activity2_Solution
-#     - file: forces-moments-momenta/Week9/Angular_Momentum_Activity3
-    - file: forces-moments-momenta/Week9/Angular_Momentum_Activity3_Solution
-  - caption: Dynamics
+  - caption: Attitude Dynamics
     chapters:
     - file: dynamics/dynamics-1
-#     - file: dynamics/Week10/Activity1_Single_Particle_Kinetics
-#    - file: dynamics/Week10/Activity1_Single_Particle_Kinetics_Solution
-#     - file: dynamics/Week10/Activity2_System_Of_Particles_Kinetics
-#    - file: dynamics/Week10/Activity2_System_Of_Particles_Kinetics_Solution
-#    - file: dynamics/Week10/Activity3_Rigid_Body_Kinetic_Energy
-  - caption: Appendices
+  - caption: Problem Sets
     chapters:
-    - file: kinematics/Week1/NB_Tutorial_string
-#    - file: kinematics/Week1/NB_Tutorial_variable
+    - file: unsolved_problems/PS1/PS1
+    - file: unsolved_problems/PS2/PS2
+    - file: unsolved_problems/PS3/PS3
+    - file: unsolved_problems/PS4/PS4
+  - caption: Plotting Tutorial
+    chapters: 
+    - file: unsolved_problems/PS5/plotting_tutorial.ipynb
+  - caption: Solutions
+    chapters:
+    - file: solutions/PS1/Answer_PS1
+    - file: solutions/PS2/Answer_PS2
+    - file: solutions/PS3/Answer_PS3
+    - file: solutions/PS4/Answer_PS4      
