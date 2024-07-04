@@ -1,4 +1,4 @@
-# EMS418U: [Computational Dynamics book](https://angadhn.github.io/ComputationalDynamics/kinematics/introduction.html)
+# EMS515U: [Spacecraft Dynamics book](https://angadhn.github.io/ComputationalDynamics/kinematics/introduction.html)
 
 ## Introduction
 
@@ -7,7 +7,7 @@ Welcome to Computational Dynamics. 👋
 This educational resource was built
 with [![Jupyter Book Badge](https://raw.githubusercontent.com/cooperrc/computational-mechanics/8789a7efef5b6178f6e4a1f05e69babdb1438fc4/images/badge.svg)](https://angadhn.github.io/ComputationalDynamics/kinematics/introduction.html)
 to support the study
-of [EMS418U: Computational Dynamics](https://www.sems.qmul.ac.uk/ugadmissions/programmes/2021/yr1modules/#Computational%20mathematical%20modelling%202)
+of [EMS515U: Introduction to Spacecraft Dynamics ](https://www.sems.qmul.ac.uk/ugadmissions/programmes/2021/yr1modules/#Computational%20mathematical%20modelling%202)
 at
 the [School of Eningeering and Material Sciences](https://www.sems.qmul.ac.uk/)
 within
@@ -48,12 +48,8 @@ If you would like to work with a clean build, you can empty the build folder by 
 
 Run `ghp-import -n -p -f _build/html`
 
-## Active Contributors:
+## Instructor/Author:
 
 - [Dr. Angadh Nanjangud](https://www.sems.qmul.ac.uk/staff/a.nanjangud)
-- Simone Asci
-- Mughees Asif
 
-
-
-
+## Student Contributors:
