@@ -17,5 +17,6 @@ sphinx:
 launch_buttons:
   binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
+  thebe: true
 html:
   google_analytics_id: G-8NCYQHENVD
