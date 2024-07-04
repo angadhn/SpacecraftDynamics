@@ -3,10 +3,10 @@ root: introduction
 parts:
   - caption: Orbital Mechanics
     chapters:
-    - file: orbital-mechanics/vector
+    - file: orbital-mechanics/Lecture1/vector
   - caption: Attitude Dynamics
     chapters:
-    - file: attitude-dynamics/dynamics-1
+    - file: attitude-dynamics/Lecture14/dynamics-1
   - caption: Problem Sets
     chapters:
     - file: unsolved_problems/PS1/PS1
