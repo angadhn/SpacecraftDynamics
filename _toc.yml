@@ -4,9 +4,6 @@ parts:
   - caption: Orbital Mechanics
     chapters:
     - file: orbital-mechanics/vector
-  - caption: Attitude Kinematics
-    chapters:
-    - file: attitude-kinematics/dynamics-1
   - caption: Attitude Dynamics
     chapters:
     - file: attitude-dynamics/dynamics-1
