@@ -1,12 +1,15 @@
 format: jb-book
 root: introduction
 parts:
-  - caption: Orbital Dynamics
+  - caption: Orbital Mechanics
     chapters:
-    - file: kinematics/vector
+    - file: orbital-mechanics/vector
+  - caption: Attitude Kinematics
+    chapters:
+    - file: attitude-kinematics/dynamics-1
   - caption: Attitude Dynamics
     chapters:
-    - file: dynamics/dynamics-1
+    - file: attitude-dynamics/dynamics-1
   - caption: Problem Sets
     chapters:
     - file: unsolved_problems/PS1/PS1
