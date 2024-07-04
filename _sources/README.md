@@ -1,4 +1,4 @@
-# EMS515U: [Spacecraft Dynamics book](https://angadhn.github.io/ComputationalDynamics/kinematics/introduction.html)
+# [Introduction to Spacecraft Dynamics book](http://www.angadhn.com/SpacecraftDynamics/)
 
 ## Introduction
 
@@ -7,7 +7,7 @@ Welcome to Computational Dynamics. 👋
 This educational resource was built
 with [![Jupyter Book Badge](https://raw.githubusercontent.com/cooperrc/computational-mechanics/8789a7efef5b6178f6e4a1f05e69babdb1438fc4/images/badge.svg)](https://angadhn.github.io/ComputationalDynamics/kinematics/introduction.html)
 to support the study
-of [EMS515U: Introduction to Spacecraft Dynamics ](https://www.sems.qmul.ac.uk/ugadmissions/programmes/2021/yr1modules/#Computational%20mathematical%20modelling%202)
+of EMS515U: Introduction to Spacecraft Dynamics
 at
 the [School of Eningeering and Material Sciences](https://www.sems.qmul.ac.uk/)
 within
@@ -23,10 +23,7 @@ problems as computational methods.
 
 ## Content
 
-- [Kinematics](https://angadhn.github.io/ComputationalDynamics/kinematics/introduction.html)
-- [Inertia](https://angadhn.github.io/ComputationalDynamics/inertia/inertia-1.html)
-- [Forces, Moments and Momenta](https://angadhn.github.io/ComputationalDynamics/forces-moments-momenta/forces-1.html)
-- [Dynamics](https://angadhn.github.io/ComputationalDynamics/dynamics/dynamics-1.html)
+TBC.
 
 ## Notes
 
@@ -34,7 +31,8 @@ problems as computational methods.
   so [contributions](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
   and [suggestions](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) are welcome.
 
-## How to create this Jupyter Book
+
+## Only for Instructors (How to create this Jupyter Book)
 
 ### Creating an environment
 1. `conda env create -f environment.yml`
