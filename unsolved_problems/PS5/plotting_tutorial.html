@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Tutorial: Python-based plot generation &#8212; Introduction to Spacecraft Dynamics</title>
   
@@ -180,6 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture7/Lecture7.html">Lecture 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics</span></p>
 <ul class="nav bd-sidenav">
@@ -500,7 +501,7 @@ document.write(`
 <p>Let’s say I want to plot the <span class="math notranslate nohighlight">\(\sin\)</span> of an angle <span class="math notranslate nohighlight">\(\theta\)</span>, how can I do that? Well, first, I suggest you attempt doing this with a pencil and paper- see if you are able to answer to yourself how many axes you need and what each axis represents. Give this a go before reading further.</p>
 <p>Now, if you tried the above, you would have seen that you need to have a numerical value for <span class="math notranslate nohighlight">\(\theta\)</span> to compute <span class="math notranslate nohighlight">\(\sin(\theta)\)</span>; if you have one value for <span class="math notranslate nohighlight">\(\theta\)</span> then you get a single numerical value for <span class="math notranslate nohighlight">\(\sin(\theta)\)</span>. However, a plot should typically allow us to know what the value might be for several values of <span class="math notranslate nohighlight">\(\theta\)</span>. So, we should probably have a two-dimensional plot where the x-axis captures the different values of <span class="math notranslate nohighlight">\(\theta\)</span> and the y-axis shows the rage of values for <span class="math notranslate nohighlight">\(\sin\theta\)</span>. In the context of our class, we know that a satellite in an elliptical or circular orbit traces a closed curve where <span class="math notranslate nohighlight">\(\theta\)</span> can take values between <span class="math notranslate nohighlight">\(0^o\)</span> and <span class="math notranslate nohighlight">\(360^o\)</span>.</p>
 <p>Now, try to generate a hand-drawn plot for theta going from <span class="math notranslate nohighlight">\(0^o\)</span> to <span class="math notranslate nohighlight">\(360^o\)</span> for values of theta increasing by <span class="math notranslate nohighlight">\(90^o\)</span> (i.e. for a total of 5-values of <span class="math notranslate nohighlight">\(\theta\)</span>). This will involve generating a table such as this one:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Theta (degrees)</p></th>
 <th class="head"><p>sin(Theta)</p></th>
