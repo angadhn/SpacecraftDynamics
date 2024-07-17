@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Problem Set 1 &#8212; Introduction to Spacecraft Dynamics</title>
   
@@ -551,11 +551,18 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>E.x is 
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">sympy.physics.mechanics</span> <span class="kn">import</span> <span class="n">ReferenceFrame</span><span class="p">,</span> <span class="n">dynamicsymbols</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># from sympy.physics.mechanics import init_vprinting</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># init_vprinting()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">dynamicsymbols</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
 </pre></div>
 </div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \cos{\left(\theta{\left(t \right)} \right)}\mathbf{\hat{n}_x} + \sin{\left(\theta{\left(t \right)} \right)}\mathbf{\hat{n}_y}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
