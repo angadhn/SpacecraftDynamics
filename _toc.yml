@@ -6,7 +6,7 @@ parts:
     - file: orbital-mechanics/Lecture1/vector
   - caption: Attitude Dynamics
     chapters:
-    - file: attitude-dynamics/Lecture14/dynamics-1
+    - file: attitude-dynamics/Lecture14/Lecture14
   - caption: Problem Sets
     chapters:
     - file: unsolved_problems/PS1/PS1
