@@ -14,14 +14,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Fetch all history for all branches and tags
 
     - name: Fetch all branches
-      run: git fetch --all
+      run: |
+        git fetch origin +refs/heads/*:refs/remotes/origin/*
 
     - name: Check if branch is up-to-date with main
       run: |
         git checkout ${{ github.event.pull_request.head.ref }}
-        git merge-base --is-ancestor main HEAD
+        git fetch origin main
+        git merge-base --is-ancestor origin/main HEAD
     - name: Fail if not up-to-date
       if: failure()
       run: |
