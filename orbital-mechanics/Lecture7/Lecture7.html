@@ -468,13 +468,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-angular-momentum">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer"><span class="xref myst">Hohmann Transfer</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bi-elliptic-transfer">Bi-elliptic transfer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-tangential-transfers">Non - tangential transfers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-change-maneuvers">Plane Change Maneuvers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-tangential-transfer">Non tangential transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-change-maneuver">Plane Change maneuver</a></li>
 </ul>
             </nav>
         </div>
@@ -490,15 +490,14 @@ document.write(`
 <h1>Orbit Maneuvers and Transfers<a class="headerlink" href="#orbit-maneuvers-and-transfers" title="Permalink to this heading">#</a></h1>
 <p>In this lecture we aim to cover the following topics:</p>
 <ol class="arabic simple">
-<li><p><span class="xref myst">Orbit Maneuvers</span></p></li>
-<li><p><span class="xref myst">Hohmann Transfer</span></p></li>
-<li><p><a class="reference internal" href="#content-bi-elliptic-transfer"><span class="std std-ref">Bi-Elliptic Transfer</span></a></p></li>
-<li><p><span class="xref myst"></span></p></li>
-<li><p><span class="xref myst"></span></p></li>
+<li><p><a class="reference internal" href="#content-orbit-maneuvers"><span class="std std-ref">Orbit Maneuvers</span></a></p></li>
+<li><p><a class="reference internal" href="#content-hohmann-transfer"><span class="std std-ref">Hohmann Transfer</span></a></p></li>
+<li><p><a class="reference internal" href="#content-bi-elliptic-transfer"><span class="std std-ref">Bi-elliptic transfer</span></a></p></li>
+<li><p><a class="reference internal" href="#content-non-tangential-transfer"><span class="std std-ref">Non tangential transfer</span></a></p></li>
+<li><p><a class="reference internal" href="#content-plane-change-maneuver"><span class="std std-ref">Plane Change maneuver</span></a></p></li>
 </ol>
-<p><a name = "orbit-maneuvers"></a></p>
 <section id="orbit-maneuvers">
-<h2>Orbit Maneuvers<a class="headerlink" href="#orbit-maneuvers" title="Permalink to this heading">#</a></h2>
+<span id="content-orbit-maneuvers"></span><h2>Orbit Maneuvers<a class="headerlink" href="#orbit-maneuvers" title="Permalink to this heading">#</a></h2>
 <p>Manuevers are implemented to transfer the spacecraft from one orbit to another.
 Orbital changes can have different objectives:</p>
 <ul class="simple">
@@ -509,11 +508,7 @@ Orbital changes can have different objectives:</p>
 </ul>
 <p>Manuevers are implemented by firing the propulsion system, we can see this as an addtional term in the equations of motion:</p>
 <div class="math notranslate nohighlight" id="equation-l7-1">
-<span class="eqno">(2)<a class="headerlink" href="#equation-l7-1" title="Permalink to this equation">#</a></span>\[
-\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + c(\mathbf{r}, \dot{\mathbf{r}}, t)
-\]</div>
-<div class="math notranslate nohighlight" id="equation-l7-1">
-<span class="eqno">(2)<a class="headerlink" href="#equation-l7-1" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + c(\mathbf{r}, \dot{\mathbf{r}}, t)\]</div>
+<span class="eqno">(1)<a class="headerlink" href="#equation-l7-1" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + c(\mathbf{r}, \dot{\mathbf{r}}, t)\]</div>
 <ul class="simple">
 <li><p>Firing the propulsion system means need propellant. As launching mass is expensive we need to design control laws that allow the operator to implement the transfer with <strong>minimum propellant</strong>: optimal control theory</p></li>
 <li><p>With <u>high thrust rocket</u> engines the firing time is short and the maneuver can be modelled as an <u>instantaneous change in the velocity</u>: impulsive <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span></p></li>
@@ -526,34 +521,28 @@ Orbital changes can have different objectives:</p>
 <ul class="simple">
 <li><p><em>Before</em> the maneuver:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[E_0 = \frac{1}{2}v_0^2 - \frac{\mu}{r}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-l7-2" title="Permalink to this equation">#</a></span>\[E_0 = \frac{1}{2}v_0^2 - \frac{\mu}{r}\]</div>
 <ul class="simple">
 <li><p><em>After</em> the maneuver:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
-E_1 = \frac{1}{2}(\mathbf {v_0^2}+\Delta \mathbf{v}) \cdot(\mathbf{v_0} + \Delta \mathbf{v}) - \frac{\mu}{r}
-\]</div>
-<div class="math notranslate nohighlight">
-\[= \frac{1}{2} v_0^2 - \Delta \mathbf{v}+ {\frac{1}{2} \Delta v^2 - \frac{\mu}{r}}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-3">
+<span class="eqno">(3)<a class="headerlink" href="#equation-l7-3" title="Permalink to this equation">#</a></span>\[E_1 = \frac{1}{2}(\mathbf {v_0^2}+\Delta \mathbf{v}) \cdot(\mathbf{v_0} + \Delta \mathbf{v}) - \frac{\mu}{r} = \frac{1}{2} v_0^2 - \Delta \mathbf{v} + {\frac{1}{2} \Delta v^2 - \frac{\mu}{r}}\]</div>
 <ul class="simple">
 <li><p><em>Change</em> in Energy</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
-\Delta E = E_1 - E_0 = \frac{1}{2}\Delta v^2 + v_0\Delta v cos(\alpha)
-\]</div>
-<p>Here <span class="math notranslate nohighlight">\(v_0\Delta v cos(\alpha)\)</span> is the dominant term.</p>
+<div class="math notranslate nohighlight" id="equation-l7-4">
+<span class="eqno">(4)<a class="headerlink" href="#equation-l7-4" title="Permalink to this equation">#</a></span>\[\Delta E = E_1 - E_0 = \frac{1}{2}\Delta v^2 + v_0\Delta v \cos(\alpha)\]</div>
+<p>Here <span class="math notranslate nohighlight">\(v_0\Delta v \cos(\alpha)\)</span> is the dominant term.</p>
 <p>For a given <span class="math notranslate nohighlight">\(\Delta V\)</span> (i.e. propellant) how can we maximise the energy change <span class="math notranslate nohighlight">\(\Delta E\)</span>?</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Delta E\)</span> is maximised when:</p></li>
 </ul>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(v_0\)</span> is high <span class="math notranslate nohighlight">\(\mathbf{\rightarrow}\)</span> applying the maneuver when <span class="math notranslate nohighlight">\(v_0\)</span> is high (e.g. at perigee)</p></li>
-<li><p><span class="math notranslate nohighlight">\(cos(\alpha) = 1\)</span> <span class="math notranslate nohighlight">\( \rightarrow\)</span> <span class="math notranslate nohighlight">\(\alpha = 0\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\Delta v}\)</span> are aligned <span class="math notranslate nohighlight">\(\rightarrow\)</span> tangential burn</p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos(\alpha) = 1\)</span> <span class="math notranslate nohighlight">\( \rightarrow\)</span> <span class="math notranslate nohighlight">\(\alpha = 0\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\Delta v}\)</span> are aligned <span class="math notranslate nohighlight">\(\rightarrow\)</span> tangential burn</p></li>
 </ol>
-<p><span class="math notranslate nohighlight">\(\bf Note\)</span>: <span class="math notranslate nohighlight">\(v_0\Delta v cos(\alpha)\)</span> can be negative <span class="math notranslate nohighlight">\(\rightarrow\)</span> it is possible to reduce E</p>
+<p><span class="math notranslate nohighlight">\(\bf Note\)</span>: <span class="math notranslate nohighlight">\(v_0\Delta v \cos(\alpha)\)</span> can be negative <span class="math notranslate nohighlight">\(\rightarrow\)</span> it is possible to reduce E</p>
 </section>
 <section id="effect-of-a-delta-mathbf-v-on-angular-momentum">
 <h3>Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum<a class="headerlink" href="#effect-of-a-delta-mathbf-v-on-angular-momentum" title="Permalink to this heading">#</a></h3>
@@ -561,35 +550,32 @@ E_1 = \frac{1}{2}(\mathbf {v_0^2}+\Delta \mathbf{v}) \cdot(\mathbf{v_0} + \Delta
 <ul class="simple">
 <li><p><em>Before</em> the maneuver:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\mathbf{h_0} = \mathbf{r} \times \mathbf{v_0}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-5">
+<span class="eqno">(5)<a class="headerlink" href="#equation-l7-5" title="Permalink to this equation">#</a></span>\[\mathbf{h_0} = \mathbf{r} \times \mathbf{v_0}\]</div>
 <ul class="simple">
 <li><p><em>After</em> the maneuver:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
-\mathbf{h_1} = \mathbf{r} \times (\mathbf{v_0} + \Delta \mathbf{v})
-\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-6">
+<span class="eqno">(6)<a class="headerlink" href="#equation-l7-6" title="Permalink to this equation">#</a></span>\[\mathbf{h_1} = \mathbf{r} \times (\mathbf{v_0} + \Delta \mathbf{v})\]</div>
 <ul class="simple">
 <li><p><em>Change in angular momentum</em></p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
-\Delta \mathbf{h} = \mathbf{h_1} - \mathbf{h_0} = \mathbf{r} \times \Delta \mathbf{v}
-\]</div>
-<div class="math notranslate nohighlight">
-\[\Delta h = r \Delta v \sin(\beta)=r \Delta V_{\theta}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-7">
+<span class="eqno">(7)<a class="headerlink" href="#equation-l7-7" title="Permalink to this equation">#</a></span>\[\Delta \mathbf{h} = \mathbf{h_1} - \mathbf{h_0} = \mathbf{r} \times \Delta \mathbf{v}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-8">
+<span class="eqno">(8)<a class="headerlink" href="#equation-l7-8" title="Permalink to this equation">#</a></span>\[\Delta h = r \Delta v \sin(\beta)=r \Delta V_{\theta}\]</div>
 <p>For a given <span class="math notranslate nohighlight">\(\Delta v\)</span> (i.e. propellant) how can we maximise <span class="math notranslate nohighlight">\(\Delta\)</span> h?</p>
 <ol class="arabic simple">
 <li><p>Execute the maneuver when r is big (e.g. at the apogee)</p></li>
-<li><p>Change the transverse velocity: <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> aligned with <span class="math notranslate nohighlight">\(\mathbf v_{\theta}\)</span></p></li>
+<li><p>Change the transverse velocity: <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> aligned with <span class="math notranslate nohighlight">\(\mathbf {v_{\theta}}\)</span></p></li>
 </ol>
-<p><span class="math notranslate nohighlight">\(\mathbf{Note}\)</span>: A radial maneuver does not change the angular momentum as <span class="math notranslate nohighlight">\(\beta = 0^{\circ}\)</span>
-$<span class="math notranslate nohighlight">\(\Delta h = r \Delta v \sin(0)=0\)</span>$</p>
+<p><strong>Note</strong>: A radial maneuver does not change the angular momentum as <span class="math notranslate nohighlight">\(\beta = 0^{\circ}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-l7-9">
+<span class="eqno">(9)<a class="headerlink" href="#equation-l7-9" title="Permalink to this equation">#</a></span>\[\Delta h = r \Delta v \sin(0)=0\]</div>
 </section>
 </section>
 <section id="hohmann-transfer">
-<h2><span class="xref myst">Hohmann Transfer</span><a class="headerlink" href="#hohmann-transfer" title="Permalink to this heading">#</a></h2>
+<span id="content-hohmann-transfer"></span><h2>Hohmann Transfer<a class="headerlink" href="#hohmann-transfer" title="Permalink to this heading">#</a></h2>
 <p><img alt="Figure 3" src="../../_images/L7img3.png" /></p>
 <p>The problem is that we need the <strong>most efficient</strong>, <strong>bi-impulsive</strong> transfer between <strong>two circular coplanar</strong> orbits.</p>
 <p><strong>Problem</strong></p>
@@ -601,22 +587,22 @@ $<span class="math notranslate nohighlight">\(\Delta h = r \Delta v \sin(0)=0\)<
 <p>Form <span class="math notranslate nohighlight">\(a_2\)</span>, <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span> the eccentricity of the transfer orbit can be found to be: <span class="math notranslate nohighlight">\(e_2  = \frac{r_a - r_p}{r_a+r_p}\)</span></p>
 <section id="hohmann-transfer-delta-v-and-transfer-time">
 <h3>Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time<a class="headerlink" href="#hohmann-transfer-delta-v-and-transfer-time" title="Permalink to this heading">#</a></h3>
-<p>We use the Vis-Viva equation: <span class="math notranslate nohighlight">\(\frac{1}{2}v^2-\frac{\mu}{2a}\)</span> (<strong>Hint: We ALWAYS use this to compute</strong><span class="math notranslate nohighlight">\(\Delta V\)</span>). The steps for calcualting <span class="math notranslate nohighlight">\(\Delta V\)</span> are:</p>
+<p>We use the Vis-Viva equation: <span class="math notranslate nohighlight">\(\frac{1}{2}v^2-\frac{\mu}{2a}\)</span> (<strong>Hint: We ALWAYS use this to compute</strong> <span class="math notranslate nohighlight">\(\Delta V\)</span>). The steps for calcualting <span class="math notranslate nohighlight">\(\Delta V\)</span> are:</p>
 <ol class="arabic simple">
 <li><p>Initial circular velocity : <span class="math notranslate nohighlight">\(v_{A_1} = \sqrt{\frac{\mu}{a1}}\)</span></p></li>
 <li><p>Final circular velocity : <span class="math notranslate nohighlight">\(v_{B_3} = \sqrt{\frac{\mu}{a3}}\)</span></p></li>
 <li><p>Initial transfer velocity: <span class="math notranslate nohighlight">\(\frac{1}{2}v_{A2}^2-\frac{\mu}{a_1} = -\frac{\mu}{2a_2} \rightarrow v_{A_2} = \sqrt{\frac{2\mu}{a_1}-\frac{\mu}{a_2}} \rightarrow v_{A_2} = \sqrt{\frac{\mu}{a_1}}\sqrt{2-\frac{a1} {a_2}} \rightarrow \)</span> <span class="math notranslate nohighlight">\(v_{A_2} = v_{A_1}\sqrt{\frac{a_3 + a_1 - a_1}{a_2}} = v_{A_1}\sqrt{\frac{a_3}{a_2}} \)</span> <span class="math notranslate nohighlight">\(&gt;v_{A_1}\)</span></p></li>
 <li><p>Final Transfer Velocity: <span class="math notranslate nohighlight">\(\frac{1}{2}v_{B_2}^2-\frac{\mu}{a_3} = -\frac{\mu}{2a_2} \rightarrow v_{B_2}\sqrt{\frac{2\mu}{a_3}-\frac{\mu}{a_2}} \rightarrow v_{B_2} = \sqrt{\frac{\mu}{a_3}}\sqrt{2-\frac{a3} {a_2}} \rightarrow \)</span> <span class="math notranslate nohighlight">\(v_{B_2} = v_{B_3}\sqrt{\frac{a_1}{a_2}} \)</span> <span class="math notranslate nohighlight">\(&lt;v_{B_3}\)</span></p></li>
 </ol>
-<ul class="simple">
-<li><p>Total <span class="math notranslate nohighlight">\(\Delta v\)</span> (Both maneuvers to increase the velocity):
-$<span class="math notranslate nohighlight">\(
-  \Delta v  = \Delta v_1 + \Delta v_2 = (v_{A2}- v_{A1})+(v_{B3}-v_{B2}) = v_{A1}(\sqrt{\frac{a_3}{a_2}}-1)+ v_{B3}(1-\sqrt{\frac{a_1}{a_2}})
-  \)</span>$</p></li>
-<li><p>Time of flight (ToF) =
-<span class="math notranslate nohighlight">\(
-  \frac{1}{2}T_2 = \frac{1}{2}2 \pi \sqrt{\frac{a_2^3}{\mu}} = \pi \sqrt{\frac{a_2^3}{\mu}}
-  \)</span></p></li>
+<ul>
+<li><p>Total <span class="math notranslate nohighlight">\(\Delta v\)</span> (Both maneuvers to increase the velocity):</p>
+<div class="math notranslate nohighlight" id="equation-l7-10">
+<span class="eqno">(10)<a class="headerlink" href="#equation-l7-10" title="Permalink to this equation">#</a></span>\[\Delta v  = \Delta v_1 + \Delta v_2 = (v_{A2}- v_{A1})+(v_{B3}-v_{B2}) = v_{A1}(\sqrt{\frac{a_3}{a_2}}-1)+ v_{B3}(1-\sqrt{\frac{a_1}{a_2}})\]</div>
+</li>
+<li><p>Time of flight (ToF) =</p>
+<div class="math notranslate nohighlight" id="equation-l7-11">
+<span class="eqno">(11)<a class="headerlink" href="#equation-l7-11" title="Permalink to this equation">#</a></span>\[\frac{1}{2}T_2 = \frac{1}{2}2 \pi \sqrt{\frac{a_2^3}{\mu}} = \pi \sqrt{\frac{a_2^3}{\mu}}\]</div>
+</li>
 </ul>
 </section>
 </section>
@@ -626,7 +612,7 @@ $<span class="math notranslate nohighlight">\(
 <p>A bi-elliptic transfer is a <em>three-impulse</em> transfer in which first we inject the spacecraft into an ellipse with a very high apogee.</p>
 <p>Let us look at the figure below:</p>
 <p><img alt="Figure 4" src="../../_images/L7img4.png" /></p>
-<p>The figure shows a bi-elliptic transfer. The spacecraft starts at point <strong>A</strong>, with orbit <strong>1</strong>, then a tangential velocity is applied at A which causes the spacecradt to transfer into elliptic orbit <strong>2</strong>, when it reaches point <strong>B</strong> another tangential velocity is applied which causes the spacecraft to enter orbit <strong>3</strong>. As it reaches point <strong>C</strong>, reverse velocity is applied to enter stable orbit <strong>4</strong>.</p>
+<p>The figure shows a bi-elliptic transfer. The spacecraft starts at point <strong>A</strong>, with orbit <strong>1</strong>, then a tangential velocity is applied at A which causes the spacecraft to transfer into elliptic orbit <strong>2</strong>, when it reaches point <strong>B</strong> another tangential velocity is applied which causes the spacecraft to enter orbit <strong>3</strong>. As it reaches point <strong>C</strong>, reverse velocity is applied to enter stable orbit <strong>4</strong>.</p>
 <p>The dotted line from <strong>A</strong> to <strong>D</strong> shows the transfer if a Hohmann Transfer was to be used.</p>
 <ul class="simple">
 <li><p>If B is very far then the velocuty in B is very low and <em><span class="math notranslate nohighlight">\(\Delta V_{B} \approx 0\)</span></em></p></li>
@@ -635,21 +621,21 @@ $<span class="math notranslate nohighlight">\(
 <p>The downside to a bi-elliptic transfer is the long transfer time. This raises the question, why use bi-elliptic transfer at all?</p>
 <p>The reason we use bi-elliptic transfer is when the ratio between semi-major axes between the starting and ending point is high it is more fuel efficient to use a Hohmann transfer. For longer missions where time is not of the essence it makes more sense to use the most fuel efficient method for transfering spacecraft.</p>
 </section>
-<section id="non-tangential-transfers">
-<h2>Non - tangential transfers<a class="headerlink" href="#non-tangential-transfers" title="Permalink to this heading">#</a></h2>
+<section id="non-tangential-transfer">
+<span id="content-non-tangential-transfer"></span><h2>Non tangential transfer<a class="headerlink" href="#non-tangential-transfer" title="Permalink to this heading">#</a></h2>
 <p>Having looked at fuel efficient transfers we now look to time efficient transfers. To reduce the Time of Flight we need to use more propellant and this involves a non-tangential <strong><span class="math notranslate nohighlight">\(\Delta \mathbf{V}\)</span></strong>.</p>
 <p>Have a look at the figure below:</p>
 <p><img alt="Figure 5" src="../../_images/L7img5.png" /></p>
 <p>Solution Procedure:</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>Take the selected <span class="math notranslate nohighlight">\(r_{a_2}\)</span> and calculate <span class="math notranslate nohighlight">\(a_2 = \frac{r_{a_2} + a_1}{2}\)</span> and <span class="math notranslate nohighlight">\(e_2 = \frac{r_{a_2}-a_1}{r_{a_2}+a_1}\)</span></p></li>
-<li><p>Use the <strong>orbit equation</strong> (see below) to compute <span class="math notranslate nohighlight">\(\theta_2\)</span>
-$<span class="math notranslate nohighlight">\(
-r_2 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta}
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-r_2(\theta_2) = a_3 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta_2}
-\)</span>$</p></li>
+<li><p>Use the <strong>orbit equation</strong> (see below) to compute <span class="math notranslate nohighlight">\(\theta_2\)</span></p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-l7-12">
+<span class="eqno">(12)<a class="headerlink" href="#equation-l7-12" title="Permalink to this equation">#</a></span>\[r_2 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-13">
+<span class="eqno">(13)<a class="headerlink" href="#equation-l7-13" title="Permalink to this equation">#</a></span>\[r_2(\theta_2) = a_3 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta_2}\]</div>
+<ol class="arabic" start="3">
 <li><p>From <span class="math notranslate nohighlight">\(\theta_2\)</span> compute TOF with Kepler’s Equation</p></li>
 <li><p>Calculate <span class="math notranslate nohighlight">\(\Delta v_{A_2}\)</span> from <span class="math notranslate nohighlight">\(\frac{1}{2} v_{A_2}^2 -\frac{\mu}{a_1} = \frac{-\mu}{2a_2}\)</span> and <span class="math notranslate nohighlight">\(\Delta v_A = v_{A_2}-v_{A_2}\)</span> <em>(a scalar value)</em></p></li>
 <li><p>Calculate <span class="math notranslate nohighlight">\(\mathbf{v_{B_2}}=\frac{\mu}{h_2} (e_2 \sin(\theta_2))\mathbf{e_r} + \frac{\mu}{h_2} (1+\cos(\theta_2)) \mathbf{e_{\theta}}\)</span></p>
@@ -657,8 +643,8 @@ r_2(\theta_2) = a_3 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta_2}
 </li>
 </ol>
 </section>
-<section id="plane-change-maneuvers">
-<h2>Plane Change Maneuvers<a class="headerlink" href="#plane-change-maneuvers" title="Permalink to this heading">#</a></h2>
+<section id="plane-change-maneuver">
+<span id="content-plane-change-maneuver"></span><h2>Plane Change maneuver<a class="headerlink" href="#plane-change-maneuver" title="Permalink to this heading">#</a></h2>
 <p>For plane change maneuvers we are interested in two things:</p>
 <ol class="arabic simple">
 <li><p>We need a change in the orbital inclination <em>i</em></p></li>
@@ -755,13 +741,13 @@ r_2(\theta_2) = a_3 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta_2}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-angular-momentum">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer"><span class="xref myst">Hohmann Transfer</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bi-elliptic-transfer">Bi-elliptic transfer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-tangential-transfers">Non - tangential transfers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-change-maneuvers">Plane Change Maneuvers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-tangential-transfer">Non tangential transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-change-maneuver">Plane Change maneuver</a></li>
 </ul>
   </nav></div>
 
