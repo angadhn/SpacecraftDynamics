@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 7 Orbit Maneuvers and Transfers &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Orbit Maneuvers and Transfers &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -180,7 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 7 Orbit Maneuvers and Transfers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Orbit Maneuvers and Transfers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics</span></p>
 <ul class="nav bd-sidenav">
@@ -453,7 +453,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 7 Orbit Maneuvers and Transfers</h1>
+    <h1>Orbit Maneuvers and Transfers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -468,7 +468,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-angular-momentum">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer"><span class="xref myst">Hohmann Transfer</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time</a></li>
 </ul>
 </li>
@@ -486,16 +486,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-7-orbit-maneuvers-and-transfers">
-<h1>Lecture 7 Orbit Maneuvers and Transfers<a class="headerlink" href="#lecture-7-orbit-maneuvers-and-transfers" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="orbit-maneuvers-and-transfers">
+<h1>Orbit Maneuvers and Transfers<a class="headerlink" href="#orbit-maneuvers-and-transfers" title="Permalink to this heading">#</a></h1>
 <p>In this lecture we aim to cover the following topics:</p>
 <ol class="arabic simple">
-<li><p><span class="xref myst">Oribt Maneuvers</span></p></li>
+<li><p><span class="xref myst">Orbit Maneuvers</span></p></li>
 <li><p><span class="xref myst">Hohmann Transfer</span></p></li>
-<li><p><span class="xref myst">Bi-elliptic transfer</span></p></li>
-<li><p><span class="xref myst">Non tangential transfer</span></p></li>
-<li><p><span class="xref myst">Plane Change maneuver</span></p></li>
+<li><p><a class="reference internal" href="#content-bi-elliptic-transfer"><span class="std std-ref">Bi-Elliptic Transfer</span></a></p></li>
+<li><p><span class="xref myst"></span></p></li>
+<li><p><span class="xref myst"></span></p></li>
 </ol>
+<p><a name = "orbit-maneuvers"></a></p>
 <section id="orbit-maneuvers">
 <h2>Orbit Maneuvers<a class="headerlink" href="#orbit-maneuvers" title="Permalink to this heading">#</a></h2>
 <p>Manuevers are implemented to transfer the spacecraft from one orbit to another.
@@ -506,12 +507,15 @@ Orbital changes can have different objectives:</p>
 <li><p>Rendezvous end dock with another spececraft ( e.g. with the ISS)</p></li>
 <li><p>Compensate for the effect of perturbations (e.g. N-S, E-W station keeping of GEO)</p></li>
 </ul>
-<p>Manuevers are implemented by firing the propulsion system, we can see this as an addtional term in the equations of motion:
-$<span class="math notranslate nohighlight">\(
+<p>Manuevers are implemented by firing the propulsion system, we can see this as an addtional term in the equations of motion:</p>
+<div class="math notranslate nohighlight" id="equation-l7-1">
+<span class="eqno">(2)<a class="headerlink" href="#equation-l7-1" title="Permalink to this equation">#</a></span>\[
 \ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + c(\mathbf{r}, \dot{\mathbf{r}}, t)
-\)</span>$</p>
+\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-1">
+<span class="eqno">(2)<a class="headerlink" href="#equation-l7-1" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + c(\mathbf{r}, \dot{\mathbf{r}}, t)\]</div>
 <ul class="simple">
-<li><p>Firing the propulsion system means need propellant. As launching mass is expensive we need to design control laws that allow the operator to implement the transfer with <span class="math notranslate nohighlight">\(\mathbf {minimum\space propellant}\)</span>: optimal control theory</p></li>
+<li><p>Firing the propulsion system means need propellant. As launching mass is expensive we need to design control laws that allow the operator to implement the transfer with <strong>minimum propellant</strong>: optimal control theory</p></li>
 <li><p>With <u>high thrust rocket</u> engines the firing time is short and the maneuver can be modelled as an <u>instantaneous change in the velocity</u>: impulsive <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span></p></li>
 <li><p>We search for minimum <span class="math notranslate nohighlight">\(|{\Delta \mathbf{v}}|\)</span> maneuver because they require minimum propellant mass!</p></li>
 <li><p>Frequently an orbital maneuver has the objective of changing (increasing) the orbital energy (e.g. moving from a Low-Earth orbit to a GEO, compensate for atmospheric drag,…)</p></li>
@@ -585,15 +589,14 @@ $<span class="math notranslate nohighlight">\(\Delta h = r \Delta v \sin(0)=0\)<
 </section>
 </section>
 <section id="hohmann-transfer">
-<h2>Hohmann Transfer<a class="headerlink" href="#hohmann-transfer" title="Permalink to this heading">#</a></h2>
+<h2><span class="xref myst">Hohmann Transfer</span><a class="headerlink" href="#hohmann-transfer" title="Permalink to this heading">#</a></h2>
 <p><img alt="Figure 3" src="../../_images/L7img3.png" /></p>
-<p>The problem is that we need the <span class="math notranslate nohighlight">\(\bf{most\space efficient}\)</span>, <span class="math notranslate nohighlight">\(\bf{bi-impulsive}\)</span> transfer between <span class="math notranslate nohighlight">\(\bf{two \space circular \space coplanar}\)</span> orbits. $<span class="math notranslate nohighlight">\(\bf Problem:\)</span>$</p>
+<p>The problem is that we need the <strong>most efficient</strong>, <strong>bi-impulsive</strong> transfer between <strong>two circular coplanar</strong> orbits.</p>
+<p><strong>Problem</strong></p>
 <p>We need to transfer the spacecraft from an initial orbit with semi-major axis <span class="math notranslate nohighlight">\(a_1\)</span> to a final orbit with semi-major axis <span class="math notranslate nohighlight">\(a_3\)</span>. The most optimal solution for <span class="math notranslate nohighlight">\(\Delta E\)</span> are tangential maneuvers.</p>
-<div class="math notranslate nohighlight">
-\[\bf Solution:\]</div>
+<p><strong>Solution:</strong></p>
 <p>We draw an ellipse tangent to both the circular orbits and compute the <span class="math notranslate nohighlight">\(\Delta \mathbf{v}_{s}\)</span>!</p>
-<div class="math notranslate nohighlight">
-\[\bf Transfer\space Orbit:\]</div>
+<p><strong>Transfer Orbit:</strong></p>
 <p>The transfer orbit <span class="math notranslate nohighlight">\(2\)</span> has perigee radius <span class="math notranslate nohighlight">\(r_p = a_1\)</span> and apogee radius <span class="math notranslate nohighlight">\(r_a  = a_3\)</span>. The semi-major axis is: <span class="math notranslate nohighlight">\(a_2 = \frac{r_p+r_a}{2}\)</span>.</p>
 <p>Form <span class="math notranslate nohighlight">\(a_2\)</span>, <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span> the eccentricity of the transfer orbit can be found to be: <span class="math notranslate nohighlight">\(e_2  = \frac{r_a - r_p}{r_a+r_p}\)</span></p>
 <section id="hohmann-transfer-delta-v-and-transfer-time">
@@ -618,7 +621,7 @@ $<span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section id="bi-elliptic-transfer">
-<h2>Bi-elliptic transfer<a class="headerlink" href="#bi-elliptic-transfer" title="Permalink to this heading">#</a></h2>
+<span id="content-bi-elliptic-transfer"></span><h2>Bi-elliptic transfer<a class="headerlink" href="#bi-elliptic-transfer" title="Permalink to this heading">#</a></h2>
 <p>When the ratio etween the final and starting semi-major axes is high (approximately <strong>11.94</strong>) we use a bi-elliptic transfer to reduce the <span class="math notranslate nohighlight">\(\Delta V\)</span></p>
 <p>A bi-elliptic transfer is a <em>three-impulse</em> transfer in which first we inject the spacecraft into an ellipse with a very high apogee.</p>
 <p>Let us look at the figure below:</p>
@@ -752,7 +755,7 @@ r_2(\theta_2) = a_3 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta_2}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-angular-momentum">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer"><span class="xref myst">Hohmann Transfer</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time</a></li>
 </ul>
 </li>

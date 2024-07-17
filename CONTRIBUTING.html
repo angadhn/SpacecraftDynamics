@@ -7,8 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Introduction to Spacecraft Dynamics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Contributing to SpacecraftDynamics &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -68,8 +69,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CONTRIBUTING';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -287,6 +288,54 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/CONTRIBUTING.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
@@ -320,7 +369,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -331,11 +382,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Contributing to SpacecraftDynamics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-your-fork-updated">Keeping Your Fork Updated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-protection">Branch Protection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-review-and-merge">Code Review and Merge</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -345,13 +408,165 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <section class="tex2jax_ignore mathjax_ignore" id="contributing-to-spacecraftdynamics">
+<h1>Contributing to SpacecraftDynamics<a class="headerlink" href="#contributing-to-spacecraftdynamics" title="Permalink to this heading">#</a></h1>
+<p>Thank you for your interest in contributing to the SpacecraftDynamics repository! We appreciate your help in improving the project. Please follow the guidelines below to ensure a smooth collaboration.</p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Fork the Repository:</strong></p>
+<ul class="simple">
+<li><p>Navigate to the <a class="reference external" href="https://github.com/angadhn/SpacecraftDynamics">SpacecraftDynamics repository</a>.</p></li>
+<li><p>Click on the “Fork” button to create your own copy of the repository.</p></li>
+</ul>
+</li>
+<li><p><strong>Clone Your Fork:</strong></p>
+<ul>
+<li><p>Clone your fork to your local machine using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/SpacecraftDynamics.git
+</pre></div>
 </div>
+</li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">your-username</span></code> with your GitHub username.</p></li>
+</ul>
+</li>
+<li><p><strong>Add the Main Repository as a Remote:</strong></p>
+<ul>
+<li><p>Navigate to your local repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>SpacecraftDynamics
+</pre></div>
+</div>
+</li>
+<li><p>Add the main repository as a remote named <code class="docutils literal notranslate"><span class="pre">upstream</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/angadhn/SpacecraftDynamics.git
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="making-changes">
+<h2>Making Changes<a class="headerlink" href="#making-changes" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Create a New Branch:</strong></p>
+<ul>
+<li><p>Create a new branch for your changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>your-branch-name
+</pre></div>
+</div>
+</li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">your-branch-name</span></code> with a descriptive name for your branch.</p></li>
+</ul>
+</li>
+<li><p><strong>Make Your Changes:</strong></p>
+<ul>
+<li><p>Make your changes to the code or documentation.</p></li>
+<li><p>Commit your changes with a descriptive commit message:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Description of the changes made&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Push to Your Fork:</strong></p>
+<ul>
+<li><p>Push your changes to your fork on GitHub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>your-branch-name
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Create a Pull Request:</strong></p>
+<ul class="simple">
+<li><p>Navigate to your fork on GitHub.</p></li>
+<li><p>Click on the “New pull request” button.</p></li>
+<li><p>Ensure the base repository is <code class="docutils literal notranslate"><span class="pre">angadhn/SpacecraftDynamics</span></code> and the base branch is <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+<li><p>Select your branch as the compare branch.</p></li>
+<li><p>Add a title and description for your pull request, then click “Create pull request”.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="keeping-your-fork-updated">
+<h2>Keeping Your Fork Updated<a class="headerlink" href="#keeping-your-fork-updated" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Fetch and Merge Updates from Upstream:</strong></p>
+<ul>
+<li><p>Fetch the latest changes from the main repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+</pre></div>
+</div>
+</li>
+<li><p>Merge the changes into your local <code class="docutils literal notranslate"><span class="pre">main</span></code> branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>upstream/main
+</pre></div>
+</div>
+</li>
+<li><p>Push the updated <code class="docutils literal notranslate"><span class="pre">main</span></code> branch to your fork:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Update Your Working Branch:</strong></p>
+<ul>
+<li><p>If you are working on a different branch, merge the latest <code class="docutils literal notranslate"><span class="pre">main</span></code> branch into your working branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>your-branch-name
+git<span class="w"> </span>merge<span class="w"> </span>main
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="branch-protection">
+<h2>Branch Protection<a class="headerlink" href="#branch-protection" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> branch is protected to ensure the stability and integrity of the codebase. The following rules are in place:</p>
+<ul class="simple">
+<li><p><strong>Require pull request reviews before merging:</strong> All changes must be reviewed.</p></li>
+<li><p><strong>Require status checks to pass before merging:</strong> All CI/CD checks must pass.</p></li>
+<li><p><strong>Require branch to be up-to-date before merging:</strong> Branch must be up-to-date with <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+<li><p><strong>Prevent force pushes:</strong> Force pushes are not allowed.</p></li>
+<li><p><strong>Prevent deletions:</strong> The <code class="docutils literal notranslate"><span class="pre">main</span></code> branch cannot be deleted.</p></li>
+</ul>
+</section>
+<section id="code-review-and-merge">
+<h2>Code Review and Merge<a class="headerlink" href="#code-review-and-merge" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Review:</strong> Your pull request will be reviewed by other contributors. They may suggest changes or ask questions.</p></li>
+<li><p><strong>Merge:</strong> Once approved, your pull request will be merged into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch by a repository maintainer.</p></li>
+</ol>
+<p>Thank you for your contributions! Your help is greatly appreciated.</p>
+<p>If you have any questions or need further assistance, feel free to open an issue in the repository.</p>
+<p>Happy coding!</p>
+</section>
+</section>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -369,6 +584,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-your-fork-updated">Keeping Your Fork Updated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-protection">Branch Protection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-review-and-merge">Code Review and Merge</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
