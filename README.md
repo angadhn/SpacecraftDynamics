@@ -48,4 +48,5 @@ Run `ghp-import -n -p -f _build/html`
 
 - [Dr. Angadh Nanjangud](https://www.sems.qmul.ac.uk/staff/a.nanjangud)
 
-## Student Contributors:
+## QMUL Student Contributors:
+- [Mitansh Choksi](https://github.com/mitanshc)
