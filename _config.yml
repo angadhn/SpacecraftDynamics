@@ -1,0 +1,22 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Introduction to Spacecraft Dynamics
+author: Angadh Nanjangud
+logo: logo.png
+# Add a bibtex file so that we can create citations
+# bibtex_bibfiles:
+#   - references.bib
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+launch_buttons:
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+html:
+  google_analytics_id: G-8NCYQHENVD
