@@ -50,3 +50,6 @@ Run `ghp-import -n -p -f _build/html`
 
 ## QMUL Student Contributors:
 - [Mitansh Choksi](https://github.com/mitanshc)
+- [Emmanuel Airiofolo](https://www.angadhn.com/SpacecraftDynamics/orbital-mechanics/Lecture12/Lecture12.html)
+- [Ilanthiraiyan Sivagnanamoorthy](https://github.com/thedukeofeelam)
+- [Joost Hubbard](https://github.com/Joosty) (Reviewer)
