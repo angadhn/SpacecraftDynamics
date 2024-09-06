@@ -1,11 +1,8 @@
-name: Check Sync with Main
+name: Check Sync with Master
 
 on:
   pull_request:
     types: [synchronize, opened, reopened]
-  push:
-    branches:
-      - main
 
 jobs:
   check-sync:
@@ -15,19 +12,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        ref: ${{ github.event.pull_request.head.ref }}
-        repository: ${{ github.event.pull_request.head.repo.full_name }}
         fetch-depth: 0  # Fetch all history for all branches and tags
 
-    - name: Fetch main branch
-      run: |
-        git fetch origin main
+    - name: Fetch master branch
+      run: git fetch origin master
 
-    - name: Check if branch is up-to-date with main
+    - name: Check if branch is up-to-date with master
+      id: check_sync
       run: |
-        git merge-base --is-ancestor origin/main HEAD
+        git merge-base --is-ancestor origin/master HEAD
+      continue-on-error: true
+
     - name: Fail if not up-to-date
-      if: failure()
+      if: steps.check_sync.outcome == 'failure'
       run: |
-        echo "The branch is not up-to-date with main. Please rebase or merge main into your branch."
+        echo "The branch is not up-to-date with master. Please rebase or merge master into your branch."
         exit 1
