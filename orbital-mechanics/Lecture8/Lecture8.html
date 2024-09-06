@@ -181,6 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Angular Momentum and Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Introduction to Orbital Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Elliptical and Circular Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbit Maneuvers and Transfers</a></li>
@@ -501,34 +502,34 @@ document.write(`
 <li><p>When <span class="math notranslate nohighlight">\(e&gt;1\)</span> the equation of the orbit describes a hyperbola:</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l8-1">
-<span class="eqno">(116)<a class="headerlink" href="#equation-l8-1" title="Permalink to this equation">#</a></span>\[r=\frac{h^2/\mu}{1+e\cos\theta}\]</div>
+<span class="eqno">(126)<a class="headerlink" href="#equation-l8-1" title="Permalink to this equation">#</a></span>\[r=\frac{h^2/\mu}{1+e\cos\theta}\]</div>
 <ul class="simple">
 <li><p>The orbit radius must be <span class="math notranslate nohighlight">\(&gt;0\)</span> thus <span class="math notranslate nohighlight">\(1+e\cos\theta\ge0\Rightarrow\cos\theta\ge-\frac{1}{e}\)</span> for <span class="math notranslate nohighlight">\(-\theta_{Max}\le\theta\le\theta_{Max}\)</span></p></li>
 <li><p>When <span class="math notranslate nohighlight">\(\theta=\theta_{Max}\Rightarrow r\rightarrow\infty\)</span>, we call <span class="math notranslate nohighlight">\(\theta_{Max}=\theta_{\infty}\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l8-2">
-<span class="eqno">(117)<a class="headerlink" href="#equation-l8-2" title="Permalink to this equation">#</a></span>\[\theta_{\infty}=\arccos\frac{1}{e}\]</div>
+<span class="eqno">(127)<a class="headerlink" href="#equation-l8-2" title="Permalink to this equation">#</a></span>\[\theta_{\infty}=\arccos\frac{1}{e}\]</div>
 <ul class="simple">
 <li><p>When <span class="math notranslate nohighlight">\(r=r_{\infty}\)</span>, <span class="math notranslate nohighlight">\(v=v_{\infty}\)</span> and</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l8-3">
-<span class="eqno">(118)<a class="headerlink" href="#equation-l8-3" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v_{\infty}^2 - \frac{\mu}{r_{\infty}} =E\]</div>
+<span class="eqno">(128)<a class="headerlink" href="#equation-l8-3" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v_{\infty}^2 - \frac{\mu}{r_{\infty}} =E\]</div>
 <p>but</p>
 <div class="math notranslate nohighlight" id="equation-l8-4">
-<span class="eqno">(119)<a class="headerlink" href="#equation-l8-4" title="Permalink to this equation">#</a></span>\[\frac{\mu}{r_{\infty}} = 0\]</div>
+<span class="eqno">(129)<a class="headerlink" href="#equation-l8-4" title="Permalink to this equation">#</a></span>\[\frac{\mu}{r_{\infty}} = 0\]</div>
 <p>hence;</p>
 <div class="math notranslate nohighlight" id="equation-l8-5">
-<span class="eqno">(120)<a class="headerlink" href="#equation-l8-5" title="Permalink to this equation">#</a></span>\[ E= \frac{1}{2}v_{\infty}^2\ge0\]</div>
+<span class="eqno">(130)<a class="headerlink" href="#equation-l8-5" title="Permalink to this equation">#</a></span>\[ E= \frac{1}{2}v_{\infty}^2\ge0\]</div>
 <ul class="simple">
 <li><p>The hyperbola is the locus of points for which the difference of the distance from the two foci is constant <span class="math notranslate nohighlight">\(=2a\)</span>.</p></li>
 <li><p>If we work with negative <span class="math notranslate nohighlight">\(a\)</span> we can use the same formulae of the ellipse:</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l8-6">
-<span class="eqno">(121)<a class="headerlink" href="#equation-l8-6" title="Permalink to this equation">#</a></span>\[\rightarrow\theta=90^\circ \Rightarrow r=p=\frac{h^2}{\mu}=a(1-e^2)\]</div>
+<span class="eqno">(131)<a class="headerlink" href="#equation-l8-6" title="Permalink to this equation">#</a></span>\[\rightarrow\theta=90^\circ \Rightarrow r=p=\frac{h^2}{\mu}=a(1-e^2)\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-7">
-<span class="eqno">(122)<a class="headerlink" href="#equation-l8-7" title="Permalink to this equation">#</a></span>\[\rightarrow\theta=0^\circ \Rightarrow r_p=\frac{\frac{h^2}{\mu}}{1+e}=\frac{p}{1+e}=a(1-e)\]</div>
+<span class="eqno">(132)<a class="headerlink" href="#equation-l8-7" title="Permalink to this equation">#</a></span>\[\rightarrow\theta=0^\circ \Rightarrow r_p=\frac{\frac{h^2}{\mu}}{1+e}=\frac{p}{1+e}=a(1-e)\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-8">
-<span class="eqno">(123)<a class="headerlink" href="#equation-l8-8" title="Permalink to this equation">#</a></span>\[\rightarrow E=\frac{1}{2}v_{\infty}^2=-\frac{\mu}{2a}\]</div>
+<span class="eqno">(133)<a class="headerlink" href="#equation-l8-8" title="Permalink to this equation">#</a></span>\[\rightarrow E=\frac{1}{2}v_{\infty}^2=-\frac{\mu}{2a}\]</div>
 <p><img alt="Figure 1" src="../../_images/L8_1.png" /></p>
 </section>
 <section id="interplanetary-missions-patched-conics-model">
@@ -564,7 +565,7 @@ document.write(`
 <li><p>As the planetary sphere of influence is infinitely large it follows, hence a hyperbolic arc!</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l8-9">
-<span class="eqno">(124)<a class="headerlink" href="#equation-l8-9" title="Permalink to this equation">#</a></span>\[\frac{1}{2}(v_{\infty}^-)^2 - \frac{\mu}{r_{\infty}} = \frac{1}{2}(v_{\infty}^-)^2&gt;0 \Rightarrow E&gt;0\]</div>
+<span class="eqno">(134)<a class="headerlink" href="#equation-l8-9" title="Permalink to this equation">#</a></span>\[\frac{1}{2}(v_{\infty}^-)^2 - \frac{\mu}{r_{\infty}} = \frac{1}{2}(v_{\infty}^-)^2&gt;0 \Rightarrow E&gt;0\]</div>
 <blockquote>
 <div><p>Note <span class="math notranslate nohighlight">\(\frac{\mu}{r_{\infty}} = 0\)</span></p>
 </div></blockquote>
@@ -572,11 +573,11 @@ document.write(`
 <li><p>In the two-body problem:</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l8-10">
-<span class="eqno">(125)<a class="headerlink" href="#equation-l8-10" title="Permalink to this equation">#</a></span>\[E=constant \Rightarrow \frac{1}{2}(v_{\infty}^-)^2 - \frac{\mu}{r_{\infty}} = \frac{1}{2}(v_{\infty}^+)^2 - \frac{\mu}{r_{\infty}}\]</div>
+<span class="eqno">(135)<a class="headerlink" href="#equation-l8-10" title="Permalink to this equation">#</a></span>\[E=constant \Rightarrow \frac{1}{2}(v_{\infty}^-)^2 - \frac{\mu}{r_{\infty}} = \frac{1}{2}(v_{\infty}^+)^2 - \frac{\mu}{r_{\infty}}\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-11">
-<span class="eqno">(126)<a class="headerlink" href="#equation-l8-11" title="Permalink to this equation">#</a></span>\[\frac{\mu}{r_{\infty}} = 0\]</div>
+<span class="eqno">(136)<a class="headerlink" href="#equation-l8-11" title="Permalink to this equation">#</a></span>\[\frac{\mu}{r_{\infty}} = 0\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-12">
-<span class="eqno">(127)<a class="headerlink" href="#equation-l8-12" title="Permalink to this equation">#</a></span>\[\Rightarrow v_\infty^+ = v_\infty^-\]</div>
+<span class="eqno">(137)<a class="headerlink" href="#equation-l8-12" title="Permalink to this equation">#</a></span>\[\Rightarrow v_\infty^+ = v_\infty^-\]</div>
 <ul class="simple">
 <li><p>The absolute velocity <span class="math notranslate nohighlight">\(\bf{V^-}\)</span> and <span class="math notranslate nohighlight">\(\bf{V^+}\)</span> are different because the gravity assist steers the velocity <span class="math notranslate nohighlight">\(\bf{v_{\infty}^-}\)</span></p></li>
 <li><p>The turn angle <span class="math notranslate nohighlight">\(\delta\)</span> determines the velocity change <span class="math notranslate nohighlight">\(\Delta\bf{v}=\bf{V^+}-\bf{V^-}\)</span></p></li>
@@ -591,12 +592,12 @@ document.write(`
 </ul>
 <p><strong>NOTE That:</strong></p>
 <div class="math notranslate nohighlight" id="equation-l8-13">
-<span class="eqno">(128)<a class="headerlink" href="#equation-l8-13" title="Permalink to this equation">#</a></span>\[\theta_{\infty}=90^\circ + \delta\]</div>
+<span class="eqno">(138)<a class="headerlink" href="#equation-l8-13" title="Permalink to this equation">#</a></span>\[\theta_{\infty}=90^\circ + \delta\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-l8-14">
-<span class="eqno">(129)<a class="headerlink" href="#equation-l8-14" title="Permalink to this equation">#</a></span>\[1+e\cos\theta_{\infty}=0 \Rightarrow 1+e\cos(90+\delta)=0 \Rightarrow 1-e\sin\delta = 0\]</div>
+<span class="eqno">(139)<a class="headerlink" href="#equation-l8-14" title="Permalink to this equation">#</a></span>\[1+e\cos\theta_{\infty}=0 \Rightarrow 1+e\cos(90+\delta)=0 \Rightarrow 1-e\sin\delta = 0\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-15">
-<span class="eqno">(130)<a class="headerlink" href="#equation-l8-15" title="Permalink to this equation">#</a></span>\[\sin\delta=\frac{1}{e}\]</div>
+<span class="eqno">(140)<a class="headerlink" href="#equation-l8-15" title="Permalink to this equation">#</a></span>\[\sin\delta=\frac{1}{e}\]</div>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>We get a parabola when <span class="math notranslate nohighlight">\(e\rightarrow 1\)</span> , <span class="math notranslate nohighlight">\(\delta\Rightarrow 90^\circ \Rightarrow 2\delta \rightarrow 180^\circ\)</span> maximum turn!</p></li>
@@ -607,13 +608,13 @@ document.write(`
 <li><p>With <span class="math notranslate nohighlight">\(v_\infty\)</span> and <span class="math notranslate nohighlight">\(e\)</span> the gravity assist is fully determined.</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l8-16">
-<span class="eqno">(131)<a class="headerlink" href="#equation-l8-16" title="Permalink to this equation">#</a></span>\[\rightarrow \frac{1}{2}v_{\infty}^2 - \frac{\mu}{r_{\infty}} = -\frac{\mu}{2a}\]</div>
+<span class="eqno">(141)<a class="headerlink" href="#equation-l8-16" title="Permalink to this equation">#</a></span>\[\rightarrow \frac{1}{2}v_{\infty}^2 - \frac{\mu}{r_{\infty}} = -\frac{\mu}{2a}\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-17">
-<span class="eqno">(132)<a class="headerlink" href="#equation-l8-17" title="Permalink to this equation">#</a></span>\[\frac{\mu}{r_{\infty}} = 0\]</div>
+<span class="eqno">(142)<a class="headerlink" href="#equation-l8-17" title="Permalink to this equation">#</a></span>\[\frac{\mu}{r_{\infty}} = 0\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-18">
-<span class="eqno">(133)<a class="headerlink" href="#equation-l8-18" title="Permalink to this equation">#</a></span>\[\Rightarrow a=-\frac{\mu}{v_{\infty}^2}\]</div>
+<span class="eqno">(143)<a class="headerlink" href="#equation-l8-18" title="Permalink to this equation">#</a></span>\[\Rightarrow a=-\frac{\mu}{v_{\infty}^2}\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-19">
-<span class="eqno">(134)<a class="headerlink" href="#equation-l8-19" title="Permalink to this equation">#</a></span>\[r_p=a(1-e)=-\frac{\mu}{v_{\infty}^2}(1-e)\Rightarrow e=1+\frac{r_{p}v_{\infty}^2}{\mu}\]</div>
+<span class="eqno">(144)<a class="headerlink" href="#equation-l8-19" title="Permalink to this equation">#</a></span>\[r_p=a(1-e)=-\frac{\mu}{v_{\infty}^2}(1-e)\Rightarrow e=1+\frac{r_{p}v_{\infty}^2}{\mu}\]</div>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(r_p\)</span> is the main design parameter</p>
 </div></blockquote>
@@ -625,27 +626,27 @@ document.write(`
 </ul>
 <p><strong>Velocity at perigee <span class="math notranslate nohighlight">\(v_p\)</span></strong></p>
 <div class="math notranslate nohighlight" id="equation-l8-20">
-<span class="eqno">(135)<a class="headerlink" href="#equation-l8-20" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v_{p}^2 - \frac{\mu}{r_{p}} = \frac{1}{2}v_{\infty}^2\]</div>
+<span class="eqno">(145)<a class="headerlink" href="#equation-l8-20" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v_{p}^2 - \frac{\mu}{r_{p}} = \frac{1}{2}v_{\infty}^2\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-21">
-<span class="eqno">(136)<a class="headerlink" href="#equation-l8-21" title="Permalink to this equation">#</a></span>\[r_p=\frac{\mu}{v_{\infty}^2}(e-1)\]</div>
+<span class="eqno">(146)<a class="headerlink" href="#equation-l8-21" title="Permalink to this equation">#</a></span>\[r_p=\frac{\mu}{v_{\infty}^2}(e-1)\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-22">
-<span class="eqno">(137)<a class="headerlink" href="#equation-l8-22" title="Permalink to this equation">#</a></span>\[\Rightarrow v_p^2=v_{\infty}^2+\frac{2\mu v_{\infty}^2}{\mu (e-1)} \Rightarrow v_p=v_{\infty}\sqrt{\frac{e-1+2}{e-1}} \]</div>
+<span class="eqno">(147)<a class="headerlink" href="#equation-l8-22" title="Permalink to this equation">#</a></span>\[\Rightarrow v_p^2=v_{\infty}^2+\frac{2\mu v_{\infty}^2}{\mu (e-1)} \Rightarrow v_p=v_{\infty}\sqrt{\frac{e-1+2}{e-1}} \]</div>
 <div class="math notranslate nohighlight" id="equation-l8-23">
-<span class="eqno">(138)<a class="headerlink" href="#equation-l8-23" title="Permalink to this equation">#</a></span>\[\Rightarrow v_p=v_{\infty}\sqrt{\frac{e+1}{e-1}} \]</div>
+<span class="eqno">(148)<a class="headerlink" href="#equation-l8-23" title="Permalink to this equation">#</a></span>\[\Rightarrow v_p=v_{\infty}\sqrt{\frac{e+1}{e-1}} \]</div>
 <p><strong>Sometimes it is more practical to work with the aiming distance <span class="math notranslate nohighlight">\(\Delta\)</span> as design parameter</strong></p>
 <p><img alt="Figure 7" src="../../_images/L8_7.png" /></p>
 <div class="math notranslate nohighlight" id="equation-l8-24">
-<span class="eqno">(139)<a class="headerlink" href="#equation-l8-24" title="Permalink to this equation">#</a></span>\[h=v_{\infty}\Delta = r_p v_p\]</div>
+<span class="eqno">(149)<a class="headerlink" href="#equation-l8-24" title="Permalink to this equation">#</a></span>\[h=v_{\infty}\Delta = r_p v_p\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-25">
-<span class="eqno">(140)<a class="headerlink" href="#equation-l8-25" title="Permalink to this equation">#</a></span>\[\rightarrow r_p=\frac{\mu}{v_{\infty}^2}(e-1)\]</div>
+<span class="eqno">(150)<a class="headerlink" href="#equation-l8-25" title="Permalink to this equation">#</a></span>\[\rightarrow r_p=\frac{\mu}{v_{\infty}^2}(e-1)\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-26">
-<span class="eqno">(141)<a class="headerlink" href="#equation-l8-26" title="Permalink to this equation">#</a></span>\[\rightarrow v_p = v_{\infty}\sqrt{\frac{e+1}{e-1}}\]</div>
+<span class="eqno">(151)<a class="headerlink" href="#equation-l8-26" title="Permalink to this equation">#</a></span>\[\rightarrow v_p = v_{\infty}\sqrt{\frac{e+1}{e-1}}\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-27">
-<span class="eqno">(142)<a class="headerlink" href="#equation-l8-27" title="Permalink to this equation">#</a></span>\[h = \frac{\mu}{v_{\infty}^2} (e-1) \cdot v_{\infty}\sqrt{\frac{e+1}{e-1}} = \frac{\mu}{v_{\infty}} \sqrt{e^2-1}\]</div>
+<span class="eqno">(152)<a class="headerlink" href="#equation-l8-27" title="Permalink to this equation">#</a></span>\[h = \frac{\mu}{v_{\infty}^2} (e-1) \cdot v_{\infty}\sqrt{\frac{e+1}{e-1}} = \frac{\mu}{v_{\infty}} \sqrt{e^2-1}\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-28">
-<span class="eqno">(143)<a class="headerlink" href="#equation-l8-28" title="Permalink to this equation">#</a></span>\[\Rightarrow \Delta = \frac{\mu}{v_{\infty}^2}\sqrt{e^2-1}\]</div>
+<span class="eqno">(153)<a class="headerlink" href="#equation-l8-28" title="Permalink to this equation">#</a></span>\[\Rightarrow \Delta = \frac{\mu}{v_{\infty}^2}\sqrt{e^2-1}\]</div>
 <div class="math notranslate nohighlight" id="equation-l8-29">
-<span class="eqno">(144)<a class="headerlink" href="#equation-l8-29" title="Permalink to this equation">#</a></span>\[e^2=1+\frac{\Delta^2 v_{\infty}^4}{\mu^2} \]</div>
+<span class="eqno">(154)<a class="headerlink" href="#equation-l8-29" title="Permalink to this equation">#</a></span>\[e^2=1+\frac{\Delta^2 v_{\infty}^4}{\mu^2} \]</div>
 <p><strong>To Maximise <span class="math notranslate nohighlight">\(\delta\)</span></strong></p>
 <ul class="simple">
 <li><p>Low <span class="math notranslate nohighlight">\(\Delta\)</span> (limited by planetary radius)</p></li>
