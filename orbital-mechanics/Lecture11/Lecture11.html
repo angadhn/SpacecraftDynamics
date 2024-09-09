@@ -75,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Special Orbits" href="../Lecture12/Lecture12.html" />
-    <link rel="prev" title="Orbital Manuevers and Transfers 2" href="../Lecture8/Lecture8.html" />
+    <link rel="prev" title="Time, Calendars and Launch Windows" href="../Lecture10/Lecture10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbit Maneuvers and Transfers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Orbital Manuevers and Transfers 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ground Tracks and Orbit Perturbations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
 </ul>
@@ -517,7 +518,7 @@ document.write(`
 <ul>
 <li><p>The earth rotates counterclockwise so we see the <u>groundtrack drifting west</u> with each revolution by an amount <span class="math notranslate nohighlight">\(\Delta \lambda\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-l11-1">
-<span class="eqno">(155)<a class="headerlink" href="#equation-l11-1" title="Permalink to this equation">#</a></span>\[\Delta \lambda = T \cdot \omega_{e} = T \frac{2 \pi}{T_{\gamma}}\]</div>
+<span class="eqno">(179)<a class="headerlink" href="#equation-l11-1" title="Permalink to this equation">#</a></span>\[\Delta \lambda = T \cdot \omega_{e} = T \frac{2 \pi}{T_{\gamma}}\]</div>
 </li>
 </ul>
 <p></br> Here, <span class="math notranslate nohighlight">\(T\)</span> is the orbital period, <span class="math notranslate nohighlight">\(T_{\gamma}\)</span> is the sidereal day and <span class="math notranslate nohighlight">\(\omega_{e}\)</span> is the angular velocity of the earth. </br></p>
@@ -571,14 +572,14 @@ document.write(`
 <span id="content-orbit-perturbations"></span><h2>Orbit Perturbations<a class="headerlink" href="#orbit-perturbations" title="Permalink to this heading">#</a></h2>
 <p>Let us come back to our favourite two body dynamics equation:</p>
 <div class="math notranslate nohighlight" id="equation-l11-2">
-<span class="eqno">(156)<a class="headerlink" href="#equation-l11-2" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r}\]</div>
+<span class="eqno">(180)<a class="headerlink" href="#equation-l11-2" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are constant.
 </br>
 If <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are constant then in an ideal world <span class="math notranslate nohighlight">\(a,e, i,  \Omega, \omega \)</span> (recall Lecture 5) are all a constant.
 </br>
 The motion of a spacecraft around the Earth is much more complex!</p>
 <div class="math notranslate nohighlight" id="equation-l11-3">
-<span class="eqno">(157)<a class="headerlink" href="#equation-l11-3" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + \mathbf{p}(\mathbf{r}, \dot{\mathbf{r}}, t)\]</div>
+<span class="eqno">(181)<a class="headerlink" href="#equation-l11-3" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + \mathbf{p}(\mathbf{r}, \dot{\mathbf{r}}, t)\]</div>
 <p><span class="math notranslate nohighlight">\(\mathbf{p}\)</span> is a perturbation acceleration</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{p}\)</span> can occur due to:</p>
 <ol class="arabic simple">
@@ -654,7 +655,7 @@ The motion of a spacecraft around the Earth is much more complex!</p>
 <ol class="arabic">
 <li><p>Drag: Force in the orbit plane in the opposite direction of the velocity</br></p>
 <div class="math notranslate nohighlight" id="equation-l11-4">
-<span class="eqno">(158)<a class="headerlink" href="#equation-l11-4" title="Permalink to this equation">#</a></span>\[\mathbf{F_D} = \frac{1}{2}\rho s c_D v \mathbf{v}\]</div>
+<span class="eqno">(182)<a class="headerlink" href="#equation-l11-4" title="Permalink to this equation">#</a></span>\[\mathbf{F_D} = \frac{1}{2}\rho s c_D v \mathbf{v}\]</div>
 <p>with <span class="math notranslate nohighlight">\(\rho\)</span> as atmospheric density, <em>s</em> as the reference surface, <span class="math notranslate nohighlight">\(c_D\)</span> as the drag coefficient. A <u>secular decrease</u> of <u>a</u> and <u>e</u> results in spiralling down towards Earth’s surface.</p>
 </li>
 <li><p><u>Earth’s Oblateness</u> <span class="math notranslate nohighlight">\(J_2\)</span>:</p>
@@ -667,9 +668,9 @@ The motion of a spacecraft around the Earth is much more complex!</p>
 <p><img alt="Figure 7" src="../../_images/L11img7.png" /></p>
 <p>As seen in the agove figure, the graviational pull is no longer aligned with <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> at the blue arrows.</p>
 <div class="math notranslate nohighlight" id="equation-l11-5">
-<span class="eqno">(159)<a class="headerlink" href="#equation-l11-5" title="Permalink to this equation">#</a></span>\[\dot \Omega =- \frac{3}{2} \frac{\sqrt{\mu}J_2 R_E}{(1-e^2)^2 a^{7/2}} \cos {i}\]</div>
+<span class="eqno">(183)<a class="headerlink" href="#equation-l11-5" title="Permalink to this equation">#</a></span>\[\dot \Omega =- \frac{3}{2} \frac{\sqrt{\mu}J_2 R_E}{(1-e^2)^2 a^{7/2}} \cos {i}\]</div>
 <div class="math notranslate nohighlight" id="equation-l11-6">
-<span class="eqno">(160)<a class="headerlink" href="#equation-l11-6" title="Permalink to this equation">#</a></span>\[\dot \omega = -\frac{3}{2} \frac{\sqrt{\mu}J_2 R_E}{(1-e^2)^2 a^{7/2}} (\frac{5}{2} \sin^2{i} -2)\]</div>
+<span class="eqno">(184)<a class="headerlink" href="#equation-l11-6" title="Permalink to this equation">#</a></span>\[\dot \omega = -\frac{3}{2} \frac{\sqrt{\mu}J_2 R_E}{(1-e^2)^2 a^{7/2}} (\frac{5}{2} \sin^2{i} -2)\]</div>
 <p></br>Here <span class="math notranslate nohighlight">\(R_E = 6378.14\)</span> km (earth’s radius) and <span class="math notranslate nohighlight">\(J_2 = 1.082 \times 10^{-3}\)</span></p>
 <ul class="simple">
 <li><p>Secular variation of <span class="math notranslate nohighlight">\(\Omega\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> due to <span class="math notranslate nohighlight">\(J_2\)</span> (as a function of the inclination)</p></li>
@@ -725,12 +726,12 @@ The motion of a spacecraft around the Earth is much more complex!</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Lecture8/Lecture8.html"
+       href="../Lecture10/Lecture10.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Orbital Manuevers and Transfers 2</p>
+        <p class="prev-next-title">Time, Calendars and Launch Windows</p>
       </div>
     </a>
     <a class="right-next"

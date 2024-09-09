@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Fundamental concepts &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Determining Orbital Paths &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -71,11 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture1/vector';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture6/Lecture6';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Angular Momentum and Energy" href="../Lecture2/Lecture2.html" />
-    <link rel="prev" title="Introduction" href="../../introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,8 +176,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamental concepts</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Angular Momentum and Energy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Introduction to Orbital Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Elliptical and Circular Orbits</a></li>
@@ -310,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/orbital-mechanics/Lecture1/vector.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/orbital-mechanics/Lecture6/Lecture6.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +326,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/orbital-mechanics/Lecture1/vector.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/orbital-mechanics/Lecture6/Lecture6.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +375,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/orbital-mechanics/Lecture1/vector.ipynb" target="_blank"
+      <li><a href="../../_sources/orbital-mechanics/Lecture6/Lecture6.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -448,7 +446,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -459,11 +459,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fundamental concepts</h1>
+    <h1>Determining Orbital Paths</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-from-position-and-velocity-vectors">Orbital Elements from Position and Velocity Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-matrix-elements">Rotation Matrix Elements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eci-to-perifocal-frame">ECI to Perifocal Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris-position-and-velocity-vector-as-function-of-time">Ephemeris: Position and Velocity Vector as Function of Time</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -473,39 +484,184 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="fundamental-concepts">
-<span id="content-fundamentals"></span><h1>Fundamental concepts<a class="headerlink" href="#fundamental-concepts" title="Permalink to this heading">#</a></h1>
-<p>The following definitions are used in kinematics:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="determining-orbital-paths">
+<h1>Determining Orbital Paths<a class="headerlink" href="#determining-orbital-paths" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by <a class="reference external" href="https://github.com/nozzington">Noah Leigh</a> and <a class="reference external" href="https://www.angadh.com/">Angadh Nanjangud</a></em></br></p>
+<p>In this lecture we aim to cover the following topics:</br></p>
 <ol class="arabic simple">
-<li><p><strong>Particles</strong>: Objects that can be modeled as point masses, having negligible dimension.</p></li>
-<li><p><strong>Point</strong>: A massless particle.</p></li>
-<li><p><strong>Rigid bodies</strong>: These are objects that have some predefined constant shape and a mass. The distances between all points of a rigid body remain constant for all time, even when a force is applied to them. Also, these objects do not deform when a force is applied to them.</p></li>
-<li><p><strong>Reference frame</strong>: Essentially, these frames serve as a reference with respect to which an analyst chooses to observe and measure the motion of other objects. Reference frames can be thought of as massless rigid bodies, thus they are the analog of what a point is to a particle. As you will come to infer (or may already know from other readings), this also implies that the mass moment of inertia is zero for massless bodies.</p></li>
+<li><p><a class="reference internal" href="#content-orbital-elements-from-position-and-velocity-vectors"><span class="std std-ref">Orbital Elements from Position and Velocity Vectors</span></a></br></p></li>
+<li><p><a class="reference internal" href="#content-rotation-matrix-elements"><span class="std std-ref">Rotation Matrix Elements:</span></a></br></p></li>
+<li><p><a class="reference internal" href="#content-eci-to-perifocal-frame"><span class="std std-ref">ECI to Perifocal Frame</span></a></br></p></li>
+<li><p><a class="reference internal" href="#content-ephemeris-position-and-velocity-vector-as-function-of-time"><span class="std std-ref">Ephemeris: Position and Velocity Vector as Function of Time</span></a></p></li>
 </ol>
-<figure class="align-default" id="id1">
-<img alt="../../_images/2.png" src="../../_images/2.png" />
-</figure>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>In rigid body kinematics, we aim to mathematically describe the motion of <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(P\)</span> in <span class="math notranslate nohighlight">\(R\)</span>.</p>
-</div>
-<ul class="simple">
-<li><p>This requires pre-requisite knowledge on:<br>
-(i) <strong>vectors</strong>: unit vector, general vector, component form<br>
-(ii) <strong>vector algebra</strong>: addition of vectors and multiplication of vectors<br>
-(iii) <strong>vector calculus</strong>: vector differentiation<br></p></li>
+<section id="orbital-elements-from-position-and-velocity-vectors">
+<span id="content-orbital-elements-from-position-and-velocity-vectors"></span><h2>Orbital Elements from Position and Velocity Vectors<a class="headerlink" href="#orbital-elements-from-position-and-velocity-vectors" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Orbital Parameters</strong></p></li>
+</ol>
+<ul>
+<li><p>Calculate the semi-major axis <span class="math notranslate nohighlight">\(a\)</span> from the Vis-Viva equation <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-10">(52)</a>:</p>
+<div class="math notranslate nohighlight">
+\[a = \frac{\mu}{2\epsilon}
+\]</div>
+</li>
 </ul>
-<p>Topics (i) and (ii) above are revisited in the following YouTube playlists, which I recommend watching.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The below is a <strong>playlist comprising eleven videos</strong>. They should automatically play one after another.</p>
-<iframe width="656" height="551" src="https://www.youtube.com/embed/dd-PXs9bKH4?list=PLiZ4Kv-hA48VTFBQSCBFi542T6KChtX65" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The below is a <strong>playlist comprising two videos</strong>. They should automatically play one after another.</p>
-<iframe width="656" height="551" src="https://www.youtube.com/embed/7LyPdUVZuho?list=PLiZ4Kv-hA48VngnZnGzn17dmZjgEgnUXa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+<ul>
+<li><p>Compute the eccentricity <span class="math notranslate nohighlight">\(e\)</span> <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-2">(44)</a> from:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{e} = \frac{\mathbf{v} \times \mathbf{h}}{\mu} - \frac{\mathbf{r}}{|\mathbf{r}|}\]</div>
+</li>
+</ul>
+<ul>
+<li><p>Compute the inclination <span class="math notranslate nohighlight">\(i\)</span> from:</p>
+<div class="math notranslate nohighlight" id="equation-l6-1">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-1" title="Permalink to this equation">#</a></span>\[\mathbf{h_z}=\mathbf{h}\cos \left( i \right)\]</div>
+</li>
+</ul>
+<ul>
+<li><p>Compute the right ascension of the ascending node <span class="math notranslate nohighlight">\(\Omega\)</span> from:</p>
+<div class="math notranslate nohighlight" id="equation-l6-2">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-2" title="Permalink to this equation">#</a></span>\[\cos \left(\Omega\right)= \frac{n_y}{|\mathbf{n}|}\]</div>
+<p>Determine the correct quadrant:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(n_y \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega \in [0, 180^\circ]\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(n_y &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega = 360^\circ - \cos^{-1} \left( \frac{n_x}{|\mathbf{n}|} \right)\)</span></p></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Compute the argument of perigee <span class="math notranslate nohighlight">\(\omega\)</span> from:</p>
+<div class="math notranslate nohighlight" id="equation-l6-3">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-3" title="Permalink to this equation">#</a></span>\[\cos \left(\omega\right) = \frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}| |\mathbf{e}|}\]</div>
+<p>Determine the correct quadrant:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(e_z \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\omega \in [0, 180^\circ]\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(e_z &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\omega = 360^\circ - \cos^{-1}\left(\frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}||\mathbf{e}|}\right)\)</span></p></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Compute the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> from:</p>
+<div class="math notranslate nohighlight" id="equation-l6-4">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-4" title="Permalink to this equation">#</a></span>\[\mathbf{r}\cdot\mathbf{e} = |\mathbf{r}||\mathbf{e}|\cos \left( \theta \right)\]</div>
+<p>Determine the correct quadrant:
+Need to calculate <span class="math notranslate nohighlight">\(v_r = \mathbf{v}\cdot\hat{r}\)</span></p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(v_r \geq 0, \theta = \cos^{-1}\left(\frac{\mathbf{r}\cdot\mathbf{e}}{|\mathbf{r}||\mathbf{e}|}\right)\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(v_r &lt; 0, \theta = 360^\circ - \cos^{-1}\left(\frac{\mathbf{r} \cdot \mathbf{e}} {|\mathbf{e}||\mathbf{r}|}\right)\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong> Orbital parameters can be singular in certain conditions!</p>
+</section>
+<section id="rotation-matrix-elements">
+<span id="content-rotation-matrix-elements"></span><h2>Rotation Matrix Elements:<a class="headerlink" href="#rotation-matrix-elements" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>Consider unit vectors <span class="math notranslate nohighlight">\(\mathbf{I}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> of a reference frame and their transformation to another frame <span class="math notranslate nohighlight">\(\mathbf{I'}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{J'}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{K'}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{F'} = A \mathbf{F}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the rotation matrix. Each column of <span class="math notranslate nohighlight">\(A\)</span> contains the components of <span class="math notranslate nohighlight">\(\mathbf{I}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> in the new reference frame.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>Inverse Transformation:</strong></p>
+<ul>
+<li><p>To compute the original vector from the transformed one:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{F} = A^T \mathbf{F'}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A^T\)</span> is the transpose of the rotation matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Successive Rotations:</strong></p>
+<ul>
+<li><p>Given two successive rotations <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span>, the net rotation <span class="math notranslate nohighlight">\(A\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[A = A_2 A_1\]</div>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Rotation about a Single Axis:</strong></p>
+<ul class="simple">
+<li><p>Rotation about <span class="math notranslate nohighlight">\(\mathbf{I}\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ A = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos \left( \theta \right) &amp; -\sin \left( \theta \right) \\ 0 &amp; \sin \left( \theta \right) &amp; \cos \left( \theta \right) \end{bmatrix}
+ \end{split}\]</div>
+<ul class="simple">
+<li><p>Rotation about <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \begin{bmatrix} \cos \left( \theta \right) &amp; 0 &amp; \sin \left( \theta \right) \\ 0 &amp; 1 &amp; 0 \\ -\sin \left( \theta \right) &amp; 0 &amp; \cos \left( \theta \right) \end{bmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Rotation about <span class="math notranslate nohighlight">\(\mathbf{K}\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \begin{bmatrix} \cos \left( \theta \right) &amp; -\sin \left( \theta \right) &amp; 0 \\ \sin \left( \theta \right) &amp; \cos \left( \theta \right) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="eci-to-perifocal-frame">
+<span id="content-eci-to-perifocal-frame"></span><h2>ECI to Perifocal Frame<a class="headerlink" href="#eci-to-perifocal-frame" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p><strong>Transformation:</strong></p>
+<ul>
+<li><p>Passage from the ECI frame to the perifocal frame is given by the composition of three rotations:</p>
+<div class="math notranslate nohighlight" id="equation-l6-5">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-5" title="Permalink to this equation">#</a></span>\[\mathbf{F}_{perifocal} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{F}_{ECI}\]</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Inverse Transformation:</strong></p>
+<ul>
+<li><p>To transform from the perifocal frame back to ECI:</p>
+<div class="math notranslate nohighlight" id="equation-l6-6">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-6" title="Permalink to this equation">#</a></span>\[\mathbf{F}_{ECI} = A_1^T(\Omega) A_2^T(i) A_3^T(\omega) \mathbf{F}_{perifocal}\]</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="ephemeris-position-and-velocity-vector-as-function-of-time">
+<span id="content-ephemeris-position-and-velocity-vector-as-function-of-time"></span><h2>Ephemeris: Position and Velocity Vector as Function of Time<a class="headerlink" href="#ephemeris-position-and-velocity-vector-as-function-of-time" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Procedure:</strong></p></li>
+</ul>
+<ol class="arabic">
+<li><p>Compute the mean anomaly <span class="math notranslate nohighlight">\(M = n(t - t_0) + M_0\)</span>.</p></li>
+<li><p>Solve Kepler’s equation <span class="math notranslate nohighlight">\(M = E - e\sin(E)\)</span> for <span class="math notranslate nohighlight">\(E\)</span> (the eccentric anomaly).</p></li>
+<li><p>Find the true anomaly <span class="math notranslate nohighlight">\(\nu\)</span> from:</p>
+<div class="math notranslate nohighlight" id="equation-l6-7">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-7" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{\nu}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan \frac{E}{2}\]</div>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p>Compute the position vector in the perifocal frame:</p>
+<div class="math notranslate nohighlight" id="equation-l6-8">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{r}_{perifocal} = \frac{a(1 - e^2)}{1 + e \cos \left( \nu \right)} \begin{bmatrix} \cos (\nu) \\ \sin (\nu) \\ 0 \end{bmatrix}\end{split}\]</div>
+</li>
+</ol>
+<ol class="arabic" start="5">
+<li><p>Compute the velocity vector in the perifocal frame:</p>
+<div class="math notranslate nohighlight" id="equation-l6-9">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-9" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{v}_{perifocal} = \sqrt{\frac{\mu}{a(1 - e^2)}} \begin{bmatrix} -\sin (\nu) \\ e + \cos (\nu) \\ 0 \end{bmatrix}\end{split}\]</div>
+</li>
+</ol>
+<ol class="arabic" start="6">
+<li><p>Transform the position and velocity vectors from the perifocal frame to the ECI frame using the inverse rotation matrices:</p>
+<div class="math notranslate nohighlight" id="equation-l6-10">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-10" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{r}_{perifocal}\]</div>
+<div class="math notranslate nohighlight" id="equation-l6-11">
+<span class="eqno">()<a class="headerlink" href="#equation-l6-11" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{v}_{perifocal}\]</div>
+</li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -521,7 +677,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./orbital-mechanics/Lecture1"
+            path: "./orbital-mechanics/Lecture6"
         },
         predefinedOutput: true
     }
@@ -538,30 +694,29 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../../introduction.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../Lecture2/Lecture2.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Angular Momentum and Energy</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-from-position-and-velocity-vectors">Orbital Elements from Position and Velocity Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-matrix-elements">Rotation Matrix Elements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eci-to-perifocal-frame">ECI to Perifocal Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris-position-and-velocity-vector-as-function-of-time">Ephemeris: Position and Velocity Vector as Function of Time</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
