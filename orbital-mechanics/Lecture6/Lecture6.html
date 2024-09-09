@@ -74,6 +74,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture6/Lecture6';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Orbit Maneuvers and Transfers" href="../Lecture7/Lecture7.html" />
+    <link rel="prev" title="Orbital Elements" href="../Lecture5/Lecture5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
 
@@ -184,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Introduction to Orbital Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Elliptical and Circular Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Determining Orbital Paths</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbit Maneuvers and Transfers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Orbital Manuevers and Transfers 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
@@ -517,13 +520,13 @@ document.write(`
 <ul>
 <li><p>Compute the inclination <span class="math notranslate nohighlight">\(i\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-1">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-1" title="Permalink to this equation">#</a></span>\[\mathbf{h_z}=\mathbf{h}\cos \left( i \right)\]</div>
+<span class="eqno">(133)<a class="headerlink" href="#equation-l6-1" title="Permalink to this equation">#</a></span>\[\mathbf{h_z}=\mathbf{h}\cos \left( i \right)\]</div>
 </li>
 </ul>
 <ul>
 <li><p>Compute the right ascension of the ascending node <span class="math notranslate nohighlight">\(\Omega\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-2">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-2" title="Permalink to this equation">#</a></span>\[\cos \left(\Omega\right)= \frac{n_y}{|\mathbf{n}|}\]</div>
+<span class="eqno">(134)<a class="headerlink" href="#equation-l6-2" title="Permalink to this equation">#</a></span>\[\cos \left(\Omega\right)= \frac{n_y}{|\mathbf{n}|}\]</div>
 <p>Determine the correct quadrant:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(n_y \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega \in [0, 180^\circ]\)</span></p></li>
@@ -534,7 +537,7 @@ document.write(`
 <ul>
 <li><p>Compute the argument of perigee <span class="math notranslate nohighlight">\(\omega\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-3">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-3" title="Permalink to this equation">#</a></span>\[\cos \left(\omega\right) = \frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}| |\mathbf{e}|}\]</div>
+<span class="eqno">(135)<a class="headerlink" href="#equation-l6-3" title="Permalink to this equation">#</a></span>\[\cos \left(\omega\right) = \frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}| |\mathbf{e}|}\]</div>
 <p>Determine the correct quadrant:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(e_z \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\omega \in [0, 180^\circ]\)</span></p></li>
@@ -545,7 +548,7 @@ document.write(`
 <ul>
 <li><p>Compute the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-4">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-4" title="Permalink to this equation">#</a></span>\[\mathbf{r}\cdot\mathbf{e} = |\mathbf{r}||\mathbf{e}|\cos \left( \theta \right)\]</div>
+<span class="eqno">(136)<a class="headerlink" href="#equation-l6-4" title="Permalink to this equation">#</a></span>\[\mathbf{r}\cdot\mathbf{e} = |\mathbf{r}||\mathbf{e}|\cos \left( \theta \right)\]</div>
 <p>Determine the correct quadrant:
 Need to calculate <span class="math notranslate nohighlight">\(v_r = \mathbf{v}\cdot\hat{r}\)</span></p>
 <ul class="simple">
@@ -614,7 +617,7 @@ A = \begin{bmatrix} \cos \left( \theta \right) &amp; -\sin \left( \theta \right)
 <ul>
 <li><p>Passage from the ECI frame to the perifocal frame is given by the composition of three rotations:</p>
 <div class="math notranslate nohighlight" id="equation-l6-5">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-5" title="Permalink to this equation">#</a></span>\[\mathbf{F}_{perifocal} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{F}_{ECI}\]</div>
+<span class="eqno">(137)<a class="headerlink" href="#equation-l6-5" title="Permalink to this equation">#</a></span>\[\mathbf{F}_{perifocal} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{F}_{ECI}\]</div>
 </li>
 </ul>
 </li>
@@ -624,7 +627,7 @@ A = \begin{bmatrix} \cos \left( \theta \right) &amp; -\sin \left( \theta \right)
 <ul>
 <li><p>To transform from the perifocal frame back to ECI:</p>
 <div class="math notranslate nohighlight" id="equation-l6-6">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-6" title="Permalink to this equation">#</a></span>\[\mathbf{F}_{ECI} = A_1^T(\Omega) A_2^T(i) A_3^T(\omega) \mathbf{F}_{perifocal}\]</div>
+<span class="eqno">(138)<a class="headerlink" href="#equation-l6-6" title="Permalink to this equation">#</a></span>\[\mathbf{F}_{ECI} = A_1^T(\Omega) A_2^T(i) A_3^T(\omega) \mathbf{F}_{perifocal}\]</div>
 </li>
 </ul>
 </li>
@@ -640,27 +643,27 @@ A = \begin{bmatrix} \cos \left( \theta \right) &amp; -\sin \left( \theta \right)
 <li><p>Solve Kepler’s equation <span class="math notranslate nohighlight">\(M = E - e\sin(E)\)</span> for <span class="math notranslate nohighlight">\(E\)</span> (the eccentric anomaly).</p></li>
 <li><p>Find the true anomaly <span class="math notranslate nohighlight">\(\nu\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-7">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-7" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{\nu}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan \frac{E}{2}\]</div>
+<span class="eqno">(139)<a class="headerlink" href="#equation-l6-7" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{\nu}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan \frac{E}{2}\]</div>
 </li>
 </ol>
 <ol class="arabic" start="4">
 <li><p>Compute the position vector in the perifocal frame:</p>
 <div class="math notranslate nohighlight" id="equation-l6-8">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{r}_{perifocal} = \frac{a(1 - e^2)}{1 + e \cos \left( \nu \right)} \begin{bmatrix} \cos (\nu) \\ \sin (\nu) \\ 0 \end{bmatrix}\end{split}\]</div>
+<span class="eqno">(140)<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{r}_{perifocal} = \frac{a(1 - e^2)}{1 + e \cos \left( \nu \right)} \begin{bmatrix} \cos (\nu) \\ \sin (\nu) \\ 0 \end{bmatrix}\end{split}\]</div>
 </li>
 </ol>
 <ol class="arabic" start="5">
 <li><p>Compute the velocity vector in the perifocal frame:</p>
 <div class="math notranslate nohighlight" id="equation-l6-9">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-9" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{v}_{perifocal} = \sqrt{\frac{\mu}{a(1 - e^2)}} \begin{bmatrix} -\sin (\nu) \\ e + \cos (\nu) \\ 0 \end{bmatrix}\end{split}\]</div>
+<span class="eqno">(141)<a class="headerlink" href="#equation-l6-9" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{v}_{perifocal} = \sqrt{\frac{\mu}{a(1 - e^2)}} \begin{bmatrix} -\sin (\nu) \\ e + \cos (\nu) \\ 0 \end{bmatrix}\end{split}\]</div>
 </li>
 </ol>
 <ol class="arabic" start="6">
 <li><p>Transform the position and velocity vectors from the perifocal frame to the ECI frame using the inverse rotation matrices:</p>
 <div class="math notranslate nohighlight" id="equation-l6-10">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-10" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{r}_{perifocal}\]</div>
+<span class="eqno">(142)<a class="headerlink" href="#equation-l6-10" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{r}_{perifocal}\]</div>
 <div class="math notranslate nohighlight" id="equation-l6-11">
-<span class="eqno">()<a class="headerlink" href="#equation-l6-11" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{v}_{perifocal}\]</div>
+<span class="eqno">(143)<a class="headerlink" href="#equation-l6-11" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{v}_{perifocal}\]</div>
 </li>
 </ol>
 </section>
@@ -696,6 +699,24 @@ A = \begin{bmatrix} \cos \left( \theta \right) &amp; -\sin \left( \theta \right)
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture5/Lecture5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Orbital Elements</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture7/Lecture7.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Orbit Maneuvers and Transfers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
