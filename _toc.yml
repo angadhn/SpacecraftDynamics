@@ -4,6 +4,7 @@ parts:
   - caption: Orbital Mechanics
     chapters:
     - file: orbital-mechanics/Lecture1/vector
+    - file: orbital-mechanics/Lecture1/Lecture1      
     - file: orbital-mechanics/Lecture2/Lecture2
     - file: orbital-mechanics/Lecture3/Lecture3      
     - file: orbital-mechanics/Lecture4/Lecture4
