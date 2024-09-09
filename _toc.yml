@@ -10,6 +10,7 @@ parts:
     - file: orbital-mechanics/Lecture5/Lecture5
     - file: orbital-mechanics/Lecture7/Lecture7
     - file: orbital-mechanics/Lecture8/Lecture8
+    - file: orbital-mechanics/Lecture10/Lecture10      
     - file: orbital-mechanics/Lecture11/Lecture11
     - file: orbital-mechanics/Lecture12/Lecture12
   - caption: Attitude Dynamics
