@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to Orbital Dynamics &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Elliptic Orbits &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -74,8 +74,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture3/Lecture3';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Elliptical and Circular Orbits" href="../Lecture4/Lecture4.html" />
-    <link rel="prev" title="Angular Momentum and Energy" href="../Lecture2/Lecture2.html" />
+    <link rel="next" title="Circular Orbits" href="../Lecture4/Lecture4.html" />
+    <link rel="prev" title="Two-Body Dynamics" href="../Lecture2/Lecture2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,13 +182,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Angular Momentum and Energy</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Elliptical and Circular Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Determining Orbital Paths</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbit Maneuvers and Transfers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Orbital Manuevers and Transfers 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
@@ -464,7 +464,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Orbital Dynamics</h1>
+    <h1>Elliptic Orbits</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -480,7 +480,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-the-orbit">The Equation of the Orbit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elliptic-orbits">Elliptic Orbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-elliptic-orbits">Elliptic Orbits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-orbit">Determination of the Orbit</a></li>
 </ul>
@@ -498,9 +498,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-orbital-dynamics">
-<h1>Introduction to Orbital Dynamics<a class="headerlink" href="#introduction-to-orbital-dynamics" title="Permalink to this heading">#</a></h1>
-<p><em>Prepared by <a class="reference external" href="https://github.com/nozzington">Noah Leigh</a>, <a class="reference external" href="https://github.com/thedukeofeelam">Ilanthiraiyan Sivaganamoorthy</a>, and <a class="reference external" href="https://www.angadh.com">Angadh Nanjangud</a></em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="elliptic-orbits">
+<h1>Elliptic Orbits<a class="headerlink" href="#elliptic-orbits" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by</em>: <a class="reference external" href="https://github.com/nozzington">Noah Leigh</a>, <a class="reference external" href="https://github.com/thedukeofeelam">Ilanthiraiyan Sivaganamoorthy</a>, and <a class="reference external" href="https://www.angadh.com">Angadh Nanjangud</a></p>
 <p>In this lecture we aim to cover the following topics:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#content-the-eccentricity-vector"><span class="std std-ref">The Eccentricity Vector</span></a></p></li>
@@ -585,8 +585,8 @@ document.write(`
 <li><p>Hyperbolic orbits are maneuvers used on interplanetary missions to reduce propellant use by using the gravity of a body to reach another target body.</p></li>
 </ul>
 </section>
-<section id="elliptic-orbits">
-<span id="content-elliptic-orbits"></span><h2>Elliptic Orbits<a class="headerlink" href="#elliptic-orbits" title="Permalink to this heading">#</a></h2>
+<section id="content-elliptic-orbits">
+<span id="id1"></span><h2>Elliptic Orbits<a class="headerlink" href="#content-elliptic-orbits" title="Permalink to this heading">#</a></h2>
 <figure class="align-center" id="fig1">
 <a class="reference internal image-reference" href="../../_images/L3_ellipse_drawing.png"><img alt="../../_images/L3_ellipse_drawing.png" src="../../_images/L3_ellipse_drawing.png" style="width: 75%;" /></a>
 <figcaption>
@@ -698,7 +698,7 @@ E= \frac 1 2 v^2-\frac{\mu}{r} = \frac 1 2 \dot{r^2} + \frac 1 2 \frac{h^2}{r^2}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Angular Momentum and Energy</p>
+        <p class="prev-next-title">Two-Body Dynamics</p>
       </div>
     </a>
     <a class="right-next"
@@ -706,7 +706,7 @@ E= \frac 1 2 v^2-\frac{\mu}{r} = \frac 1 2 \dot{r^2} + \frac 1 2 \frac{h^2}{r^2}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Elliptical and Circular Orbits</p>
+        <p class="prev-next-title">Circular Orbits</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -731,7 +731,7 @@ E= \frac 1 2 v^2-\frac{\mu}{r} = \frac 1 2 \dot{r^2} + \frac 1 2 \frac{h^2}{r^2}
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-the-orbit">The Equation of the Orbit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elliptic-orbits">Elliptic Orbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-elliptic-orbits">Elliptic Orbits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-orbit">Determination of the Orbit</a></li>
 </ul>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Determining Orbital Paths &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Orbital Elements &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -74,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture6/Lecture6';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Orbit Maneuvers and Transfers" href="../Lecture7/Lecture7.html" />
+    <link rel="next" title="Orbital Maneuvers" href="../Lecture7/Lecture7.html" />
     <link rel="prev" title="Orbital Elements" href="../Lecture5/Lecture5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,13 +182,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Angular Momentum and Energy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Introduction to Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Elliptical and Circular Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Determining Orbital Paths</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbit Maneuvers and Transfers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Orbital Manuevers and Transfers 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Orbital Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
@@ -464,7 +464,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Determining Orbital Paths</h1>
+    <h1>Orbital Elements</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -475,7 +475,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-from-position-and-velocity-vectors">Orbital Elements from Position and Velocity Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-matrix-elements">Rotation Matrix Elements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-matrix">Rotation Matrix</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eci-to-perifocal-frame">ECI to Perifocal Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris-position-and-velocity-vector-as-function-of-time">Ephemeris: Position and Velocity Vector as Function of Time</a></li>
 </ul>
@@ -489,13 +489,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="determining-orbital-paths">
-<h1>Determining Orbital Paths<a class="headerlink" href="#determining-orbital-paths" title="Permalink to this heading">#</a></h1>
-<p><em>Prepared by <a class="reference external" href="https://github.com/nozzington">Noah Leigh</a> and <a class="reference external" href="https://www.angadh.com/">Angadh Nanjangud</a></em></br></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="orbital-elements">
+<h1>Orbital Elements<a class="headerlink" href="#orbital-elements" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by</em>: <a class="reference external" href="https://github.com/nozzington">Noah Leigh</a>, <a class="reference external" href="https://github.com/thedukeofeelam">Ilanthiraiyan Sivaganamoorthy</a>, and <a class="reference external" href="https://www.angadh.com">Angadh Nanjangud</a></p>
 <p>In this lecture we aim to cover the following topics:</br></p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#content-orbital-elements-from-position-and-velocity-vectors"><span class="std std-ref">Orbital Elements from Position and Velocity Vectors</span></a></br></p></li>
-<li><p><a class="reference internal" href="#content-rotation-matrix-elements"><span class="std std-ref">Rotation Matrix Elements:</span></a></br></p></li>
+<li><p><a class="reference internal" href="#content-rotation-matrix"><span class="std std-ref">Rotation Matrix</span></a></br></p></li>
 <li><p><a class="reference internal" href="#content-eci-to-perifocal-frame"><span class="std std-ref">ECI to Perifocal Frame</span></a></br></p></li>
 <li><p><a class="reference internal" href="#content-ephemeris-position-and-velocity-vector-as-function-of-time"><span class="std std-ref">Ephemeris: Position and Velocity Vector as Function of Time</span></a></p></li>
 </ol>
@@ -559,8 +559,8 @@ Need to calculate <span class="math notranslate nohighlight">\(v_r = \mathbf{v}\
 </ul>
 <p><strong>Note:</strong> Orbital parameters can be singular in certain conditions!</p>
 </section>
-<section id="rotation-matrix-elements">
-<span id="content-rotation-matrix-elements"></span><h2>Rotation Matrix Elements:<a class="headerlink" href="#rotation-matrix-elements" title="Permalink to this heading">#</a></h2>
+<section id="rotation-matrix">
+<span id="content-rotation-matrix"></span><h2>Rotation Matrix<a class="headerlink" href="#rotation-matrix" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>Consider unit vectors <span class="math notranslate nohighlight">\(\mathbf{I}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> of a reference frame and their transformation to another frame <span class="math notranslate nohighlight">\(\mathbf{I'}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{J'}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{K'}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -713,7 +713,7 @@ A = \begin{bmatrix} \cos \left( \theta \right) &amp; -\sin \left( \theta \right)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Orbit Maneuvers and Transfers</p>
+        <p class="prev-next-title">Orbital Maneuvers</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -733,7 +733,7 @@ A = \begin{bmatrix} \cos \left( \theta \right) &amp; -\sin \left( \theta \right)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-from-position-and-velocity-vectors">Orbital Elements from Position and Velocity Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-matrix-elements">Rotation Matrix Elements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-matrix">Rotation Matrix</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eci-to-perifocal-frame">ECI to Perifocal Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris-position-and-velocity-vector-as-function-of-time">Ephemeris: Position and Velocity Vector as Function of Time</a></li>
 </ul>

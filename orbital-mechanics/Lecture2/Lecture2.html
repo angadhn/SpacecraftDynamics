@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Angular Momentum and Energy &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Two-Body Dynamics &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -74,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture2/Lecture2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to Orbital Dynamics" href="../Lecture3/Lecture3.html" />
+    <link rel="next" title="Elliptic Orbits" href="../Lecture3/Lecture3.html" />
     <link rel="prev" title="Vectors (Brief Recap)" href="../Lecture1/Lecture1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,13 +182,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Angular Momentum and Energy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Introduction to Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Elliptical and Circular Orbits</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Determining Orbital Paths</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbit Maneuvers and Transfers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Orbital Manuevers and Transfers 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
@@ -464,7 +464,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Angular Momentum and Energy</h1>
+    <h1>Two-Body Dynamics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -474,7 +474,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force-and-newton-s-second-law">Gravitational Force and Newton’s Second Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force">Gravitational Force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-g">Center of Mass ( G )</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-second-law">Newton’s Second Law</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-specific-angular-momentum">The Specific Angular Momentum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-of-specific-angular-momentum-constant">Consequences of Specific Angular Momentum = constant</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a></li>
@@ -492,11 +501,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="angular-momentum-and-energy">
-<h1>Angular Momentum and Energy<a class="headerlink" href="#angular-momentum-and-energy" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="two-body-dynamics">
+<h1>Two-Body Dynamics<a class="headerlink" href="#two-body-dynamics" title="Permalink to this heading">#</a></h1>
 <p>Prepared by: <a class="reference external" href="https://github.com/Emma-airi">Emmanuel Airiofolo</a>, <a class="reference external" href="https://github.com/Joosty">Joost Hubbard</a>, <a class="reference external" href="https://github.com/calan04">Ceyda Alan</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
 <p>In this lecture we cover the following topics:</p>
 <ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-gravitational-force-and-newton-s-second-law"><span class="std std-ref">Gravitational Force and Newton’s Second Law</span></a></p></li>
 <li><p><a class="reference internal" href="#content-two-body-relative-dynamics"><span class="std std-ref">Two-Body Relative Dynamics</span></a></p></li>
 <li><p><a class="reference internal" href="#content-the-specific-angular-momentum"><span class="std std-ref">The Specific Angular Momentum</span></a></p></li>
 <li><p><a class="reference internal" href="#content-consequences-of-specific-angular-momentum-constant"><span class="std std-ref">Consequences of Specific Angular Momentum = constant</span></a></p></li>
@@ -505,8 +515,74 @@ document.write(`
 <li><p><a class="reference internal" href="#content-conservation-of-specific-orbital-energy-e"><span class="std std-ref">Conservation of Specific Orbital Energy: E</span></a></p></li>
 <li><p><a class="reference internal" href="#content-admissible-orbital-radius"><span class="std std-ref">Admissible Orbital Radius</span></a></p></li>
 </ol>
+<section id="gravitational-force-and-newton-s-second-law">
+<span id="content-gravitational-force-and-newton-s-second-law"></span><h2>Gravitational Force and Newton’s Second Law<a class="headerlink" href="#gravitational-force-and-newton-s-second-law" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The gravitational force between two masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> is given by:</p></li>
+</ul>
+<section id="gravitational-force">
+<h3>Gravitational Force<a class="headerlink" href="#gravitational-force" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-l1-20">
+<span class="eqno">(20)<a class="headerlink" href="#equation-l1-20" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+{\bf{F}}_{12} &amp;= \frac{G m_1 m_2}{r^2} \hat{\bf{r}} = \frac{G m_1 m_2}{r^3} {\bf{r}} \\
+{\bf{F}}_{21} &amp;= -\frac{G m_1 m_2}{r^2} \hat{\bf{r}} = -\frac{G m_1 m_2}{r^3} {\bf{r}}
+\end{aligned}\end{split}\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(G = 6.672 \times 10^{-11} \ \text{kg}^{-1} \ \text{m}^3 \ \text{s}^{-2}\)</span> (Universal gravitational constant) and
+<span class="math notranslate nohighlight">\(\hat{\bf{r}} = \frac{{\bf{r}}}{|\bf{r}|}\)</span> is the unit vector.</p>
+<p><img alt="Figure 6" src="../../_images/L1_6.png" /></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> represents the force on <span class="math notranslate nohighlight">\(m_1\)</span> exerted by <span class="math notranslate nohighlight">\(m_2\)</span>’s gravitational attraction.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf{F}}_{21}\)</span> represents the force on <span class="math notranslate nohighlight">\(m_2\)</span> exerted by <span class="math notranslate nohighlight">\(m_1\)</span>’s gravitational attraction.</p></li>
+</ul>
+</section>
+<section id="center-of-mass-g">
+<h3>Center of Mass ( G )<a class="headerlink" href="#center-of-mass-g" title="Permalink to this heading">#</a></h3>
+<p>The center of mass <span class="math notranslate nohighlight">\({\bf{r}}_G\)</span> of the system is given by:</p>
+<div class="math notranslate nohighlight" id="equation-l1-21">
+<span class="eqno">(21)<a class="headerlink" href="#equation-l1-21" title="Permalink to this equation">#</a></span>\[{\bf{r}}_G = \frac{m_1 {\bf{r}}_1 + m_2 {\bf{r}}_2}{m_1 + m_2}\]</div>
+<p>Newton’s Second Law (F = ma)</p>
+<div class="math notranslate nohighlight" id="equation-l1-22">
+<span class="eqno">(22)<a class="headerlink" href="#equation-l1-22" title="Permalink to this equation">#</a></span>\[m_1 \ddot{\bf{r}}_1 = {\bf{F}}_{12}\]</div>
+<div class="math notranslate nohighlight" id="equation-l1-23">
+<span class="eqno">(23)<a class="headerlink" href="#equation-l1-23" title="Permalink to this equation">#</a></span>\[m_2 \ddot{\bf{r}}_2 = {\bf{F}}_{21}\]</div>
+<p>Substituting <a class="reference internal" href="../Lecture6/Lecture6.html#equation-l6-1">(133)</a> into equations <a class="reference internal" href="../Lecture7/Lecture7.html#equation-l7-2">(145)</a> + <a class="reference internal" href="../Lecture7/Lecture7.html#equation-l7-3">(146)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-l1-24">
+<span class="eqno">(24)<a class="headerlink" href="#equation-l1-24" title="Permalink to this equation">#</a></span>\[m_1 \ddot{\bf{r}}_1 + m_2 \ddot{\bf{r}}_2 = {\bf{F}}_{12} + {\bf{F}}_{21} = \frac{G m_1 m_2 {\bf{r}}}{r^3} - \frac{G m_1 m_2 {\bf{r}}}{r^3} = 0 \]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight" id="equation-l1-25">
+<span class="eqno">(25)<a class="headerlink" href="#equation-l1-25" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}}_G = 0, \quad \dot{\bf{r}}_G = \text{constant}\]</div>
+<p>This implies that <span class="math notranslate nohighlight">\(G\)</span> can be chosen as the origin of the inertial frame.</p>
+</section>
 <section id="two-body-relative-dynamics">
-<span id="content-two-body-relative-dynamics"></span><h2>Two-Body Relative Dynamics<a class="headerlink" href="#two-body-relative-dynamics" title="Permalink to this heading">#</a></h2>
+<h3>Two-Body Relative Dynamics<a class="headerlink" href="#two-body-relative-dynamics" title="Permalink to this heading">#</a></h3>
+<section id="newton-s-second-law">
+<h4>Newton’s Second Law<a class="headerlink" href="#newton-s-second-law" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight" id="equation-l1-26">
+<span class="eqno">(26)<a class="headerlink" href="#equation-l1-26" title="Permalink to this equation">#</a></span>\[m_2 \ddot{\bf{r}}_2 = {\bf{F}}_{21} = - \frac{G m_1 m_2 {\bf{r}}}{r^3} \rightarrow \ddot{\bf{r}}_2 = - \frac{G m_1 {\bf{r}}}{r^3}\]</div>
+<div class="math notranslate nohighlight" id="equation-l1-27">
+<span class="eqno">(27)<a class="headerlink" href="#equation-l1-27" title="Permalink to this equation">#</a></span>\[m_1 \ddot{\bf{r}}_1 = {\bf{F}}_{12} = \frac{G m_1 m_2 {\bf{r}}}{r^3} \rightarrow \ddot{\bf{r}}_1 = \frac{G m_2 {\bf{r}}}{r^3}\]</div>
+<p><a class="reference internal" href="../Lecture8/Lecture8.html#equation-l8-1">(169)</a> - <a class="reference internal" href="../Lecture8/Lecture8.html#equation-l8-2">(170)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-l1-28">
+<span class="eqno">(28)<a class="headerlink" href="#equation-l1-28" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = \ddot{\bf{r}}_2 - \ddot{\bf{r}}_1 = - \frac{G m_1 {\bf{r}}}{r^3} - \frac{G m_2 {\bf{r}}}{r^3} = - \frac{G (m_1 + m_2) {\bf{r}}}{r^3}\]</div>
+<div class="math notranslate nohighlight" id="equation-l1-29">
+<span class="eqno">(29)<a class="headerlink" href="#equation-l1-29" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = - \frac{G (m_1 + m_2)}{r^3} {\bf{r}}\]</div>
+<div class="math notranslate nohighlight" id="equation-l1-30">
+<span class="eqno">(30)<a class="headerlink" href="#equation-l1-30" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = - \frac{\mu {\bf{r}}}{r^3}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the gravitational parameter.</p>
+<p>Implications of the Equation of Motion
+If <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span></p>
+<p>e.g., <span class="math notranslate nohighlight">\(m_1\)</span> is <span class="math notranslate nohighlight">\(m_\oplus = 5.974 \times 10^{24} \ \text{kg}\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> is a spacecraft, <span class="math notranslate nohighlight">\(m_2 \approx 1000 \ \text{kg}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-l1-31">
+<span class="eqno">(31)<a class="headerlink" href="#equation-l1-31" title="Permalink to this equation">#</a></span>\[{\bf{r}}_G \approx {\bf{r}}_1\]</div>
+<div class="math notranslate nohighlight" id="equation-l1-32">
+<span class="eqno">(32)<a class="headerlink" href="#equation-l1-32" title="Permalink to this equation">#</a></span>\[\mu \approx G m_1\]</div>
+<p>This is referred to as a restricted two-body problem.</p>
+</section>
+</section>
+</section>
+<section id="content-two-body-relative-dynamics">
+<span id="id1"></span><h2>Two-Body Relative Dynamics<a class="headerlink" href="#content-two-body-relative-dynamics" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[{\bf{r}} (t_0) = \bf{r_0}\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-1">
@@ -770,7 +846,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Orbital Dynamics</p>
+        <p class="prev-next-title">Elliptic Orbits</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -789,7 +865,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force-and-newton-s-second-law">Gravitational Force and Newton’s Second Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force">Gravitational Force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-g">Center of Mass ( G )</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-second-law">Newton’s Second Law</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-specific-angular-momentum">The Specific Angular Momentum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-of-specific-angular-momentum-constant">Consequences of Specific Angular Momentum = constant</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a></li>
