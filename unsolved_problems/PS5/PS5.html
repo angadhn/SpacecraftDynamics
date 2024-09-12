@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Problem Set 4 &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Problem Set 5 &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -71,11 +71,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unsolved_problems/PS4/PS4';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unsolved_problems/PS5/PS5';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Problem Set 5" href="../PS5/PS5.html" />
-    <link rel="prev" title="Problem Set 3" href="../PS3/PS3.html" />
+    <link rel="next" title="Problem Set 4" href="../PS6/PS6.html" />
+    <link rel="prev" title="Problem Set 4" href="../PS4/PS4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -218,13 +218,13 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Set 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PS4/PS4.html">Problem Set 4</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Set 5</a></li>
 
 
 
@@ -244,7 +244,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
@@ -330,7 +330,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/unsolved_problems/PS4/PS4.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/unsolved_problems/PS5/PS5.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -348,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/unsolved_problems/PS4/PS4.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/unsolved_problems/PS5/PS5.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,7 +397,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/unsolved_problems/PS4/PS4.ipynb" target="_blank"
+      <li><a href="../../_sources/unsolved_problems/PS5/PS5.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -481,7 +481,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Problem Set 4</h1>
+    <h1>Problem Set 5</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -491,15 +491,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 5</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#note-2">Note 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-1">Problem 5.1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-2">Problem 5.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-3">Problem 5.3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-4">Problem 5.4</a></li>
 </ul>
 
             </nav>
@@ -512,103 +511,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="problem-set-4">
-<h1>Problem Set 4<a class="headerlink" href="#problem-set-4" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="problem-set-5">
+<h1>Problem Set 5<a class="headerlink" href="#problem-set-5" title="Permalink to this heading">#</a></h1>
 <section id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
-<p>You may find the following data useful to complete this assessment:</p>
-<ul class="simple">
-<li><p>Radius of the Moon, <span class="math notranslate nohighlight">\(R_M\)</span> = <span class="math notranslate nohighlight">\(1738\)</span> <span class="math notranslate nohighlight">\(km\)</span></p></li>
-<li><p>Moon’s gravitational parameter <span class="math notranslate nohighlight">\(\mu_M = 4903\)</span> <span class="math notranslate nohighlight">\(km^3 s^{-2}\)</span></p></li>
-</ul>
-<p>These constants have been defined in the variables <code class="docutils literal notranslate"><span class="pre">R_m</span></code>, and <code class="docutils literal notranslate"><span class="pre">mu_m</span></code> for you in the code-cell below. Please make use of these variables in your calculations/formulae.</p>
-<p>In the same code cell, we have also provided access to the constant for <span class="math notranslate nohighlight">\(\pi\)</span> (<code class="docutils literal notranslate"><span class="pre">pi</span></code> in computing font), and access to the sine and cosine functions (<code class="docutils literal notranslate"><span class="pre">sin</span></code> and <code class="docutils literal notranslate"><span class="pre">cos</span></code> respectively). As an example, we also demonstrate how to use <code class="docutils literal notranslate"><span class="pre">sin</span></code> and <code class="docutils literal notranslate"><span class="pre">pi</span></code>.</p>
-<p>Lastly, we also demonstrate how to use <code class="docutils literal notranslate"><span class="pre">abs</span></code> to get the absolute value of a number (or function). You may find you need this in various calculations.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_m</span> <span class="o">=</span> <span class="mi">1738</span>
-<span class="n">mu_m</span> <span class="o">=</span> <span class="mi">4903</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can see the result for sin(pi) is&quot;</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The absolute value of -1 is:&quot;</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You can see the result for sin(pi) is 1.2246467991473532e-16
-The absolute value of -1 is: 1
-</pre></div>
-</div>
-</div>
-</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\mu_{\odot} &amp;= 1.327 \times 10^{11} \, \text{km}^3 \, \text{s}^{-2} \\
+\mu_{\oplus} &amp;= 3.986 \times 10^{5} \, \text{km}^3 \, \text{s}^{-2} \\
+\mu_{venus} &amp;= 3.249 \times 10^{5} \, \text{km}^3 \, \text{s}^{-2} \\
+\text{Earth orbital radius} \, r_{\oplus} &amp;= 1.496 \times 10^{8} \, \text{km} \\
+\text{Venus orbital radius} \, r_{venus} &amp;= 1.082 \times 10^{8} \, \text{km} \\
+\text{Radius of Earth} \, R_{\oplus} &amp;= 6378 \, \text{km} \\
+\text{Radius of Venus} \, R_{venus} &amp;= 6052 \, \text{km} \\
+\end{align*}
+\end{split}\]</div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="note-2">
-<h1>Note 2<a class="headerlink" href="#note-2" title="Permalink to this heading">#</a></h1>
-<p>In developing your solutions for various orbits in this problem set, you will need to create more variables to explain your work and thinking. We will be checking the values of some of these symbols to gauge your understanding of the material. The below table describes some examples of how you should choose variable names.</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameters</p></th>
-<th class="head"><p>Math symbol</p></th>
-<th class="head"><p>Equivalent computer symbol</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>semi-major axis of Lunar Orbit</p></td>
-<td><p><span class="math notranslate nohighlight">\(a_{lo}\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">a_lunar_orbit</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>semi-minor axis of Lunar Orbit</p></td>
-<td><p><span class="math notranslate nohighlight">\(b_{lo}\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">b_lunar_orbit</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>Lunar Orbit apoapsis</p></td>
-<td><p><span class="math notranslate nohighlight">\(r_{al}\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">r_a_lunar_orbit</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>Lunar Orbit periapsis</p></td>
-<td><p><span class="math notranslate nohighlight">\(r_{pl}\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">r_p_lunar_orbit</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>Lunar Orbit eccentricity</p></td>
-<td><p><span class="math notranslate nohighlight">\(e_{lo}\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">e_lunar_orbit</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>change in the inclination angle</p></td>
-<td><p><span class="math notranslate nohighlight">\(\Delta i\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">delta_i</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>velocity impulse (magnitude only)</p></td>
-<td><p><span class="math notranslate nohighlight">\(\Delta v\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">delta_v</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>Orbital period</p></td>
-<td><p><span class="math notranslate nohighlight">\(T\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">T</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>escape velocity (magnitude only)</p></td>
-<td><p><span class="math notranslate nohighlight">\(v_e\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">v_e</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>Velocity at apolune (magnitude only)</p></td>
-<td><p><span class="math notranslate nohighlight">\(v_a\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">v_a_lunar_orbit</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>Velocity at perilune (magnitude only)</p></td>
-<td><p><span class="math notranslate nohighlight">\(v_p\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">v_p_lunar_orbit</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>Circular velocity (magnitude only)</p></td>
-<td><p><span class="math notranslate nohighlight">\(v_c\)</span></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">v_c_lunar_orbit</span></code></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="problem-1">
-<h1>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h1>
-<p>The first spacecraft to orbit the Moon was Luna <span class="math notranslate nohighlight">\(10\)</span>, launched by the former Soviet Union in <span class="math notranslate nohighlight">\(1966\)</span>. The orbit of the satellite about the Moon took it from <span class="math notranslate nohighlight">\(350\)</span> <span class="math notranslate nohighlight">\(km\)</span> above the lunar surface out to <span class="math notranslate nohighlight">\(1017\)</span> km.</p>
-<p>Compute the semi-major axis and hence orbital period (in hours) of Luna <span class="math notranslate nohighlight">\(10\)</span>. These answers are to be stored in variables name <code class="docutils literal notranslate"><span class="pre">a_lunar_orbit</span></code> and <code class="docutils literal notranslate"><span class="pre">T</span></code>, respectively. Create other variables, as needed, for your answers.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="problem-5-1">
+<h1>Problem 5.1<a class="headerlink" href="#problem-5-1" title="Permalink to this heading">#</a></h1>
+<p>A satellite is to travel from the Earth to Venus using a Hohmann transfer. Calculate the semi-major axis of the transfer orbit. Using the vis-viva equation, compute the heliocentric velocity of the satellite as it leaves the Earth. Compute the orbital velocity of the Earth and hence show that the satellite leaves the Earth with velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_\infty^+ = 2.50 \, \text{km} \, \text{s}^{-1}
+\]</div>
+<p>in the opposite direction to the Earth’s orbital motion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
@@ -617,9 +545,9 @@ The absolute value of -1 is: 1
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="problem-2">
-<h1>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h1>
-<p>What is the velocity impulse (i.e., <span class="math notranslate nohighlight">\(\Delta v\)</span>) required at pericentre to escape the lunar gravitational influence? You may neglect the Earth’s gravitational influence. Stored your answer under the variable name <code class="docutils literal notranslate"><span class="pre">delta_v</span></code>. Create other variables, as needed, for your answers.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="problem-5-2">
+<h1>Problem 5.2<a class="headerlink" href="#problem-5-2" title="Permalink to this heading">#</a></h1>
+<p>The satellite is launched into a circular parking orbit of altitude <span class="math notranslate nohighlight">\(200\)</span> <span class="math notranslate nohighlight">\(\text{km}\)</span>. From here, it fires an upper stage to put it into a hyperbolic escape trajectory to Venus. Use the result above to compute the semi-major axis and eccentricity of this hyperbolic orbit and hence the velocity at perigee the satellite needs to have. Show that the satellite needs to be accelerated by <span class="math notranslate nohighlight">\(\Delta v = 3.50 \, \text{km} \, \text{s}^{-1}\)</span> from its circular parking orbit. Compute the turning angle <span class="math notranslate nohighlight">\(\delta\)</span> and the angle between the Earth’s orbital vector and the phase of the parking orbit at which this acceleration needs to be applied. Draw a diagram of this transfer orbit indicating the direction of the Earth’s orbital motion and the direction of the Sun.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
@@ -628,9 +556,9 @@ The absolute value of -1 is: 1
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="problem-3">
-<h1>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h1>
-<p>Having analysed the parabolic orbit, you are now asked to study a rotational maneuver to change the inclination of the satellite’s elliptical orbit by <span class="math notranslate nohighlight">\(60^o\)</span>. What is the <span class="math notranslate nohighlight">\(\Delta v\)</span> required for this plane change? Store your answer in variable called <code class="docutils literal notranslate"><span class="pre">delta_v_plane_change</span></code>. Create other variables, as needed, for your answers.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="problem-5-3">
+<h1>Problem 5.3<a class="headerlink" href="#problem-5-3" title="Permalink to this heading">#</a></h1>
+<p>Compute the orbital velocities of the Earth and Venus. Using the result from question <span class="math notranslate nohighlight">\(5.1\)</span>, find the heliocentric velocity of the spacecraft when it leaves the Earth. Use conservation of angular momentum to compute the approach velocity at Venus. Hence, show that the relative velocity at approach will be <span class="math notranslate nohighlight">\(v_\infty = 2.71 \, \text{km} \, \text{s}^{-1}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
@@ -639,12 +567,11 @@ The absolute value of -1 is: 1
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="problem-4">
-<h1>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h1>
-<p>A lunar module (LM) lifts off the surface of the Moon and flies in a powered trajectory to its burnout point at an altitude of 30 km. At this point the LM is travelling purely transversal and coasts around the Moon for half an orbit, at which point it is to rendezvous with the orbiting command module (CM), which is in a circular orbit of altitude 250 km.</p>
-<p>What is the burnout speed of the LM? Store your answer in a variable named <code class="docutils literal notranslate"><span class="pre">v_burnout_of_lunar_module</span></code>.</p>
-<p>What is the magnitude of the final impulse manoeuvre at rendezvous? Store your answer in the variable named <code class="docutils literal notranslate"><span class="pre">delta_v_rendezvous</span></code>.</p>
-<p><strong>Hint</strong>: For this problem, you will need to create variables with naming conventions that allow us to distinguish between the orbit parameters of the LM from that of the CM. As one example, I recommend using <code class="docutils literal notranslate"><span class="pre">r_p_lunar_orbit_of_lunar_module</span></code> for the perilune of the lunar module. As another example, <code class="docutils literal notranslate"><span class="pre">r_c_lunar_orbit_of_command_module</span></code> for the circular radius of the command module (remember, it is in a circular orbit). This hint is important because there are two satellites involved in the maneuvers described here.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="problem-5-4">
+<h1>Problem 5.4<a class="headerlink" href="#problem-5-4" title="Permalink to this heading">#</a></h1>
+<p>The spacecraft is adjusted so that it will pass within <span class="math notranslate nohighlight">\(500\)</span> <span class="math notranslate nohighlight">\(\text{km}\)</span> of the surface of Venus just ahead of it in its orbit. Calculate the eccentricity of the hyperbolic flyby orbit and hence show that the deflection angle <span class="math notranslate nohighlight">\(\delta = 60.60^\circ\)</span>.</p>
+<p>The approach of the spacecraft is on the sunward side of Venus. Draw a diagram from the Venus frame of the approach and swingby of the spacecraft. Compute the angle between the approach and pericentre passage of this orbit.</p>
+<p>At pericentre passage, the spacecraft fires a thruster to reduce its transverse velocity by <span class="math notranslate nohighlight">\(2\)</span> <span class="math notranslate nohighlight">\(\text{km} \text{s}^{-1}\)</span>. Compute the energy of the new orbit and show that it is bound, and hence show that the semi-major axis of this orbit is <span class="math notranslate nohighlight">\(a_B = 10,847.70 \, \text{km}\)</span>. Use the fact that the pericentre passage of this new orbit is the same as for the hyperbolic inbound trajectory to show that the eccentricity of the orbit is <span class="math notranslate nohighlight">\(e_B = 0.4\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
@@ -667,7 +594,7 @@ The absolute value of -1 is: 1
         },
         kernelOptions: {
             name: "python3",
-            path: "./unsolved_problems/PS4"
+            path: "./unsolved_problems/PS5"
         },
         predefinedOutput: true
     }
@@ -685,20 +612,20 @@ The absolute value of -1 is: 1
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../PS3/PS3.html"
+       href="../PS4/PS4.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Problem Set 3</p>
+        <p class="prev-next-title">Problem Set 4</p>
       </div>
     </a>
     <a class="right-next"
-       href="../PS5/PS5.html"
+       href="../PS6/PS6.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Problem Set 5</p>
+        <p class="prev-next-title">Problem Set 4</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -717,15 +644,14 @@ The absolute value of -1 is: 1
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 5</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#note-2">Note 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-1">Problem 5.1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-2">Problem 5.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-3">Problem 5.3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-4">Problem 5.4</a></li>
 </ul>
 
   </nav></div>
