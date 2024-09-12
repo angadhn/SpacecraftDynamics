@@ -24,6 +24,9 @@ parts:
     - file: unsolved_problems/PS2/PS2
     - file: unsolved_problems/PS3/PS3
     - file: unsolved_problems/PS4/PS4
+    - file: unsolved_problems/PS5/PS5
+    - file: unsolved_problems/PS6/PS6
+    - file: unsolved_problems/PS7/PS7
   - caption: Plotting Tutorial
     chapters: 
     - file: unsolved_problems/PS5/plotting_tutorial.ipynb
