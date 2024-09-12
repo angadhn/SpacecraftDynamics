@@ -1,5 +1,5 @@
 format: jb-book
-root: introduction
+root: weekly-outline
 parts:
   - caption: Orbital Mechanics
     chapters:
