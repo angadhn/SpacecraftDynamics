@@ -18,5 +18,12 @@ launch_buttons:
   binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
   thebe: true
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/angadhn/SpacecraftDynamics  # Online location of your book
+
 html:
   google_analytics_id: G-8NCYQHENVD
+  use_issues_button: true
+  use_repository_button: true
