@@ -1,0 +1,20 @@
+# Designate yourself as the owner for the entire repository
+* @angadhn
+
+# Specify ownership for specific directories
+.github/workflows/ @angadhn      # All files in the '.github/workflows' directory
+attitude-dynamics/ @angadhn      # All files in the 'attitude-dynamics' directory
+orbital-mechanics/ @angadhn      # All files in the 'orbital-mechanics' directory
+solutions/ @angadhn              # All files in the 'solutions' directory
+unsolved_problems/ @angadhn      # All files in the 'unsolved_problems' directory
+
+# Specify ownership for specific files
+CONTRIBUTING.md @angadhn         # Specific file: CONTRIBUTING.md
+README.md @angadhn               # Specific file: README.md
+_config.yml @angadhn             # Specific file: _config.yml
+_toc.yml @angadhn                # Specific file: _toc.yml
+environment.yml @angadhn         # Specific file: environment.yml
+introduction.ipynb @angadhn      # Specific file: introduction.ipynb
+logo.png @angadhn                # Specific file: logo.png
+paper.bib @angadhn               # Specific file: paper.bib
+paper.md @angadhn                # Specific file: paper.md

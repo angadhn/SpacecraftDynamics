@@ -1,9 +1,20 @@
 format: jb-book
-root: introduction
+root: weekly-outline
 parts:
   - caption: Orbital Mechanics
     chapters:
     - file: orbital-mechanics/Lecture1/vector
+    - file: orbital-mechanics/Lecture1/Lecture1      
+    - file: orbital-mechanics/Lecture2/Lecture2
+    - file: orbital-mechanics/Lecture3/Lecture3      
+    - file: orbital-mechanics/Lecture4/Lecture4
+    - file: orbital-mechanics/Lecture5/Lecture5
+    - file: orbital-mechanics/Lecture6/Lecture6      
+    - file: orbital-mechanics/Lecture7/Lecture7
+    - file: orbital-mechanics/Lecture8/Lecture8
+    - file: orbital-mechanics/Lecture10/Lecture10      
+    - file: orbital-mechanics/Lecture11/Lecture11
+    - file: orbital-mechanics/Lecture12/Lecture12
   - caption: Attitude Dynamics
     chapters:
     - file: attitude-dynamics/Lecture14/dynamics-1
@@ -13,6 +24,9 @@ parts:
     - file: unsolved_problems/PS2/PS2
     - file: unsolved_problems/PS3/PS3
     - file: unsolved_problems/PS4/PS4
+    - file: unsolved_problems/PS5/PS5
+    - file: unsolved_problems/PS6/PS6
+    - file: unsolved_problems/PS7/PS7
   - caption: Plotting Tutorial
     chapters: 
     - file: unsolved_problems/PS5/plotting_tutorial.ipynb
