@@ -524,14 +524,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-gravitational-force-and-newton-s-second-law">Two-Body Dynamics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-g-and-its-derivatives">Center of Mass ( G ) and its derivatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force">Gravitational Force</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-specific-angular-momentum">The Specific Angular Momentum</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-of-specific-angular-momentum-constant">Consequences of Specific Angular Momentum = constant</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polar-coordinates">Polar Coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-angular-momentum">Specific Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direction">Direction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude">Magnitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-velocity-and-kepler-s-second-law">Areal velocity and Kepler’s Second Law</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-dynamics-in-polar-coordinates">Two-body Dynamics in Polar Coordinates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-specific-orbital-energy-e">Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-orbital-radius">Admissible Orbital Radius</a></li>
 </ul>
@@ -552,10 +555,9 @@ document.write(`
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#content-gravitational-force-and-newton-s-second-law"><span class="std std-ref">Two-Body Dynamics</span></a></p></li>
 <li><p><a class="reference internal" href="#content-two-body-relative-dynamics"><span class="std std-ref">Two-Body Relative Dynamics</span></a></p></li>
-<li><p><a class="reference internal" href="#content-the-specific-angular-momentum"><span class="std std-ref">The Specific Angular Momentum</span></a></p></li>
-<li><p><a class="reference internal" href="#content-consequences-of-specific-angular-momentum-constant"><span class="std std-ref">Consequences of Specific Angular Momentum = constant</span></a></p></li>
+<li><p><a class="reference internal" href="#content-the-specific-angular-momentum"><span class="std std-ref">Specific Angular Momentum</span></a></p></li>
 <li><p><a class="reference internal" href="#content-kepler-s-second-law"><span class="std std-ref">Kepler’s Second Law</span></a></p></li>
-<li><p><a class="reference internal" href="#content-polar-coordinates"><span class="std std-ref">Polar Coordinates</span></a></p></li>
+<li><p><a class="reference internal" href="#content-polar-coordinates"><span class="std std-ref">Two-body Dynamics in Polar Coordinates</span></a></p></li>
 <li><p><a class="reference internal" href="#content-conservation-of-specific-orbital-energy-e"><span class="std std-ref">Conservation of Specific Orbital Energy: E</span></a></p></li>
 <li><p><a class="reference internal" href="#content-admissible-orbital-radius"><span class="std std-ref">Admissible Orbital Radius</span></a></p></li>
 </ol>
@@ -576,15 +578,20 @@ The unit vectors <span class="math notranslate nohighlight">\(\hat{\bf{i}}\)</sp
 <h3>Center of Mass ( G ) and its derivatives<a class="headerlink" href="#center-of-mass-g-and-its-derivatives" title="Permalink to this heading">#</a></h3>
 <p>The center of mass <span class="math notranslate nohighlight">\({\bf{r}}_G\)</span> of the system is given by:</p>
 <div class="math notranslate nohighlight" id="equation-l1-21">
-<span class="eqno">(20)<a class="headerlink" href="#equation-l1-21" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf{r}}_G = \frac{m_1 {\bf{r}}_1 + m_2 {\bf{r}}_2}{m_1 + m_2}\\
-{\bf{v}}_G = \frac{m_1 {\dot{\bf{r}}}_1 + m_2 {\dot{\bf{r}}}_2}{m_1 + m_2}\\
-{\bf{a}}_G = \frac{m_1 {\ddot{\bf{r}}}_1 + m_2 {\ddot{\bf{r}}}_2}{m_1 + m_2}\\\end{split}\]</div>
+<span class="eqno">(20)<a class="headerlink" href="#equation-l1-21" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf{r}}_G &amp;= \frac{m_1 {\bf{r}}_1 + m_2 {\bf{r}}_2}{m_1 + m_2}\\
+\Rightarrow {\bf{v}}_G &amp;= \frac{m_1 {\dot{\bf{r}}}_1 + m_2 {\dot{\bf{r}}}_2}{m_1 + m_2}\\
+\Rightarrow {\bf{a}}_G &amp;= \frac{m_1 {\ddot{\bf{r}}}_1 + m_2 {\ddot{\bf{r}}}_2}{m_1 + m_2}\\\end{split}\]</div>
 </section>
 <section id="gravitational-force">
 <h3>Gravitational Force<a class="headerlink" href="#gravitational-force" title="Permalink to this heading">#</a></h3>
 <p>Gravitational forces exists due to the two masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> and they act on each of the particles.
-These forces are shown in the figure below as <span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> and <span class="math notranslate nohighlight">\({\bf{F}}_{21}\)</span> acting on each of the particles.</p>
-<p><img alt="Figure 6" src="../../_images/L1_6.png" /></p>
+These forces are shown in the <a class="reference internal" href="#l1-6"><span class="std std-numref">Fig. 2</span></a> below as <span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> and <span class="math notranslate nohighlight">\({\bf{F}}_{21}\)</span> acting on each of the particles.</p>
+<figure class="align-default" id="l1-6">
+<a class="reference internal image-reference" href="../../_images/L1_6.png"><img alt="../../_images/L1_6.png" src="../../_images/L1_6.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Free-body diagram showing gravitational force in relative two-body dynamics of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>.</span><a class="headerlink" href="#l1-6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Here:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> represents the force on <span class="math notranslate nohighlight">\(m_1\)</span> exerted by <span class="math notranslate nohighlight">\(m_2\)</span>’s gravitational attraction.</p></li>
@@ -596,12 +603,16 @@ These forces are shown in the figure below as <span class="math notranslate nohi
 {\bf{F}}_{12} &amp;= \frac{G m_1 m_2}{r^2} \hat{\bf{r}} = \frac{G m_1 m_2}{r^3} {\bf{r}} \\
 {\bf{F}}_{21} &amp;= -\frac{G m_1 m_2}{r^2} \hat{\bf{r}} = -\frac{G m_1 m_2}{r^3} {\bf{r}}
 \end{aligned}\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(G = 6.672 \times 10^{-11} \ \text{kg}^{-1} \ \text{m}^3 \ \text{s}^{-2}\)</span> (Universal gravitational constant) and
-<span class="math notranslate nohighlight">\(\hat{\bf{r}} = \frac{{\bf{r}}}{|\bf{r}|}\)</span> is the unit vector.</p>
-<p>Newton’s Second Law (F = ma) for <span class="math notranslate nohighlight">\(m_1\)</span> is given by:</p>
+<p><span class="math notranslate nohighlight">\(G = 6.672 \times 10^{-11} \ \text{kg}^{-1} \ \text{m}^3 \ \text{s}^{-2}\)</span> (Universal gravitational constant). Note that in <a class="reference internal" href="#equation-l1-20">(21)</a>, <span class="math notranslate nohighlight">\({\bf{r}}\)</span> is relative position vector and can be used to rewrite
+a position vector along itself as:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\bf{r}} = \frac{{\bf{r}}}{|\bf{r}|}.
+\]</div>
+<p>Newton’s Second Law (<span class="math notranslate nohighlight">\({\bf F} = m{\bf a}\)</span>) for <span class="math notranslate nohighlight">\(m_1\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-l1-22">
 <span class="eqno">(22)<a class="headerlink" href="#equation-l1-22" title="Permalink to this equation">#</a></span>\[m_1 \ddot{\bf{r}}_1 = {\bf{F}}_{12}\]</div>
-<p>Newton’s Second Law (F = ma) for <span class="math notranslate nohighlight">\(m_2\)</span> is given by:</p>
+<p>Newton’s Second Law for <span class="math notranslate nohighlight">\(m_2\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-l1-23">
 <span class="eqno">(23)<a class="headerlink" href="#equation-l1-23" title="Permalink to this equation">#</a></span>\[m_2 \ddot{\bf{r}}_2 = {\bf{F}}_{21}\]</div>
 <p>Adding equations <a class="reference internal" href="#equation-l1-22">(22)</a> and <a class="reference internal" href="#equation-l1-23">(23)</a>, then substituting for <span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> and <span class="math notranslate nohighlight">\({\bf{F}}_{21}\)</span> from <a class="reference internal" href="#equation-l1-20">(21)</a> gives us:</p>
@@ -621,8 +632,9 @@ frame (this is diffefrent from the one written in green in <a class="reference i
 <span class="eqno">(26)<a class="headerlink" href="#equation-l1-25-a" title="Permalink to this equation">#</a></span>\[\begin{split}\bf{a}_G &amp;= 0\\
 \bf{v}_G &amp;= \text{constant}\end{split}\]</div>
 </section>
+</section>
 <section id="two-body-relative-dynamics">
-<h3>Two-Body Relative Dynamics<a class="headerlink" href="#two-body-relative-dynamics" title="Permalink to this heading">#</a></h3>
+<span id="content-two-body-relative-dynamics"></span><h2>Two-Body Relative Dynamics<a class="headerlink" href="#two-body-relative-dynamics" title="Permalink to this heading">#</a></h2>
 <p>To study the relative motion of the two particles, we can subtract the equations of motion for each of the particles as given by <a class="reference internal" href="#equation-l1-22">(22)</a> and <a class="reference internal" href="#equation-l1-23">(23)</a>. Before doing that, let’s rewrite the equations of motion for each of the particles. Newton’s Second Law for <span class="math notranslate nohighlight">\(m_2\)</span> is given by <a class="reference internal" href="#equation-l1-23">(23)</a></p>
 <div class="math notranslate nohighlight" id="equation-l1-26">
 <span class="eqno">(27)<a class="headerlink" href="#equation-l1-26" title="Permalink to this equation">#</a></span>\[m_2 \ddot{\bf{r}}_2 = {\bf{F}}_{21} = - \frac{G m_1 m_2 {\bf{r}}}{r^3} \rightarrow \ddot{\bf{r}}_2 = - \frac{G m_1 {\bf{r}}}{r^3}\]</div>
@@ -634,167 +646,206 @@ frame (this is diffefrent from the one written in green in <a class="reference i
 <span class="eqno">(29)<a class="headerlink" href="#equation-l1-28" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = \ddot{\bf{r}}_2 - \ddot{\bf{r}}_1 = - \frac{G m_1 {\bf{r}}}{r^3} - \frac{G m_2 {\bf{r}}}{r^3} = - \frac{G (m_1 + m_2) {\bf{r}}}{r^3}\]</div>
 <div class="math notranslate nohighlight" id="equation-l1-29">
 <span class="eqno">(30)<a class="headerlink" href="#equation-l1-29" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = - \frac{G (m_1 + m_2)}{r^3} {\bf{r}}\]</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Equation <a class="reference internal" href="#equation-l1-29">(30)</a> is written more commonly in shorthand using <span class="math notranslate nohighlight">\(\mu\)</span>, the gravitational parameter, and gives the relative two-body dynamics equation</p>
 <div class="math notranslate nohighlight" id="equation-l1-30">
-<span class="eqno">(31)<a class="headerlink" href="#equation-l1-30" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = - \frac{\mu {\bf{r}}}{r^3}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the gravitational parameter.</p>
-<p>Implications of the Equation of Motion
-If <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span></p>
-<p>e.g., <span class="math notranslate nohighlight">\(m_1\)</span> is <span class="math notranslate nohighlight">\(m_\oplus = 5.974 \times 10^{24} \ \text{kg}\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> is a spacecraft, <span class="math notranslate nohighlight">\(m_2 \approx 1000 \ \text{kg}\)</span></p>
+<span class="eqno">(31)<a class="headerlink" href="#equation-l1-30" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = - \frac{\mu}{r^3}{\bf{r}}\]</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Implications of this equation of motion</p>
+<p>In most common cases of study/in this text, <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span>. For example, <span class="math notranslate nohighlight">\(m_1\)</span> is <span class="math notranslate nohighlight">\(m_\oplus = 5.974 \times 10^{24} \ \text{kg}\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> is a spacecraft, <span class="math notranslate nohighlight">\(m_2 \approx 1000 \ \text{kg}\)</span></p>
 <div class="math notranslate nohighlight" id="equation-l1-31">
 <span class="eqno">(32)<a class="headerlink" href="#equation-l1-31" title="Permalink to this equation">#</a></span>\[{\bf{r}}_G \approx {\bf{r}}_1\]</div>
 <div class="math notranslate nohighlight" id="equation-l1-32">
 <span class="eqno">(33)<a class="headerlink" href="#equation-l1-32" title="Permalink to this equation">#</a></span>\[\mu \approx G m_1\]</div>
 <p>This is referred to as a restricted two-body problem.</p>
-</section>
-</section>
-<section id="content-two-body-relative-dynamics">
-<span id="id2"></span><h2>Two-Body Relative Dynamics<a class="headerlink" href="#content-two-body-relative-dynamics" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[{\bf{r}} (t_0) = \bf{r_0}\]</div>
-<div class="math notranslate nohighlight" id="equation-l2-1">
-<span class="eqno">(34)<a class="headerlink" href="#equation-l2-1" title="Permalink to this equation">#</a></span>\[\bf{\ddot r} = -\frac{\mu}{r^3}\bf{r}\]</div>
-<ul class="simple">
-<li><p>System of 3 scalar second order differential equations</p></li>
-<li><p>It can be reduced to a system of 6 first order equations</p></li>
-</ul>
+</div>
+<p>Equation <a class="reference internal" href="#equation-l1-29">(30)</a> is a vector ordinary differential equation (ODE). As we are studying the motion in a 3-dimensional coordinate system, this can also be written as a system of 3 <strong>scalar</strong> second-order ODE. However, they can be further reduced to a system of 6 <strong>first-order</strong> scalar ODEs
+or, as shown below, <strong>2 first-order scalar</strong> ODEs:</p>
 <div class="math notranslate nohighlight" id="equation-l2-2">
-<span class="eqno">(35)<a class="headerlink" href="#equation-l2-2" title="Permalink to this equation">#</a></span>\[\bf{\dot r} = \bf{v}\]</div>
+<span class="eqno">(34)<a class="headerlink" href="#equation-l2-2" title="Permalink to this equation">#</a></span>\[\bf{\dot r} = \bf{v}\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-3">
-<span class="eqno">(36)<a class="headerlink" href="#equation-l2-3" title="Permalink to this equation">#</a></span>\[\bf{\dot v} = -\frac{\mu}{r^3}\bf{r}\]</div>
-<ul class="simple">
-<li><p>To solve this system we need 6 initial conditions with <span class="math notranslate nohighlight">\(\bf{r_0}\)</span> and <span class="math notranslate nohighlight">\(\bf{v_0}\)</span> as known intial values</p></li>
-</ul>
+<span class="eqno">(35)<a class="headerlink" href="#equation-l2-3" title="Permalink to this equation">#</a></span>\[\bf{\dot v} = -\frac{\mu}{r^3}\bf{r}\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To solve a differential equation , we must know the intial values of the parameter
+we are solving for</p>
+</div>
+</aside>
+<p>To solve this system as a set of scalar ODEs, we need 6 initial conditions with <span class="math notranslate nohighlight">\(\bf{r_0}\)</span> and
+<span class="math notranslate nohighlight">\(\bf{v_0}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-l2-4">
-<span class="eqno">(37)<a class="headerlink" href="#equation-l2-4" title="Permalink to this equation">#</a></span>\[{\bf{r}} (t_0) = \bf{r_0}\]</div>
+<span class="eqno">(36)<a class="headerlink" href="#equation-l2-4" title="Permalink to this equation">#</a></span>\[{\bf{r}} (t_0) = \bf{r_0}\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-5">
-<span class="eqno">(38)<a class="headerlink" href="#equation-l2-5" title="Permalink to this equation">#</a></span>\[{\bf{v}} (t_0) = \bf{v_0}\]</div>
-<ul class="simple">
-<li><p>The system admits at maximum 6 independent integrals of motion</p></li>
-</ul>
-<blockquote>
-<div><p>An Integral of Motion is a function <span class="math notranslate nohighlight">\(f({\bf{r}} , {\bf{v}} , t )\)</span> that is constant for all times, t</p>
-</div></blockquote>
+<span class="eqno">(37)<a class="headerlink" href="#equation-l2-5" title="Permalink to this equation">#</a></span>\[{\bf{v}} (t_0) = \bf{v_0}\]</div>
+<p>This system of equations can admit, at maximum, 6 independent integrals of motion</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An Integral of Motion is a function, say <span class="math notranslate nohighlight">\(f({\bf{r}} , {\bf{v}} , t )\)</span>, that is constant for all times, <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</div>
+</aside>
 <div class="math notranslate nohighlight" id="equation-l2-6">
-<span class="eqno">(39)<a class="headerlink" href="#equation-l2-6" title="Permalink to this equation">#</a></span>\[f({\bf{r}} , {\bf{v}} , t) = constant\]</div>
-<ul class="simple">
-<li><p>The value of the constant is determined by the intial conditions</p></li>
-<li><p>An integral of motion reduces the degree of freedom of our problem</p></li>
-</ul>
+<span class="eqno">(38)<a class="headerlink" href="#equation-l2-6" title="Permalink to this equation">#</a></span>\[f({\bf{r}} , {\bf{v}} , t) = constant\]</div>
+<p>The value of the constant is determined by the intial conditions that permit us to solve the ODEs.
+An integral of motion reduces the degrees-of-freedom of a problem.</p>
 </section>
-<section id="the-specific-angular-momentum">
-<span id="content-the-specific-angular-momentum"></span><h2>The Specific Angular Momentum<a class="headerlink" href="#the-specific-angular-momentum" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>The relative angular momentum of <span class="math notranslate nohighlight">\(m_2\)</span> with respect <span class="math notranslate nohighlight">\(m_1\)</span> is</p></li>
-</ul>
+<section id="specific-angular-momentum">
+<span id="content-the-specific-angular-momentum"></span><h2>Specific Angular Momentum<a class="headerlink" href="#specific-angular-momentum" title="Permalink to this heading">#</a></h2>
+<p>The relative angular momentum of <span class="math notranslate nohighlight">\(m_2\)</span> with respect <span class="math notranslate nohighlight">\(m_1\)</span> is</p>
 <div class="math notranslate nohighlight" id="equation-l2-7">
-<span class="eqno">(40)<a class="headerlink" href="#equation-l2-7" title="Permalink to this equation">#</a></span>\[{\bf H}_{2/1} = {\bf{r}}\times( m_2 {\bf{v}}) = {\bf{r}}\times( m_2 {\bf{\dot r}})\]</div>
-<ul class="simple">
-<li><p>per unit mass gives the specific angular momentum</p></li>
-</ul>
+<span class="eqno">(39)<a class="headerlink" href="#equation-l2-7" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf H}_{2/1} = {\bf{r}}\times( m_2 {\bf{v}})\\
+\Rightarrow {\bf H}_{2/1} = {\bf{r}}\times( m_2 {\bf{\dot r}})\end{split}\]</div>
+<p>and specific angular momentum is obtained by dividing a body’s relative angular moemntum from its mass. In case of <span class="math notranslate nohighlight">\(m_2\)</span>, the specific angular momentum is givent by</p>
 <div class="math notranslate nohighlight" id="equation-l2-8">
-<span class="eqno">(41)<a class="headerlink" href="#equation-l2-8" title="Permalink to this equation">#</a></span>\[{\bf{h}}=\frac{{\bf H}_{2/1}} {m_2} = \bf{r}\times\bf{\dot r}\]</div>
-<ul class="simple">
-<li><p>the time derivative of <span class="math notranslate nohighlight">\(\bf{h}\)</span> is</p></li>
-</ul>
+<span class="eqno">(40)<a class="headerlink" href="#equation-l2-8" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf{h}} &amp;= \frac{{\bf H}_{2/1}} {m_2}\\
+{\bf{h}} &amp;= \bf{r} \times \bf{v}
+{\bf{h}} &amp;= \bf{r} \times \bf{\dot r}\end{split}\]</div>
+<p>The time derivative of <span class="math notranslate nohighlight">\(\bf{h}\)</span> is</p>
 <div class="math notranslate nohighlight" id="equation-l2-9">
-<span class="eqno">(42)<a class="headerlink" href="#equation-l2-9" title="Permalink to this equation">#</a></span>\[\frac{d\bf{h}}{dt} =\frac{d}{dt}(\bf{r}\times\bf{\dot r}) = \bf{\dot r}\times\bf{\dot r} + \bf{r}\times\bf{\ddot r} =  \bf{r}\times\bf{\ddot r}\]</div>
-<ul class="simple">
-<li><p>From the dynamics <span class="math notranslate nohighlight">\(\bf{\ddot r}=-\frac{\mu}{r^3}\bf{r}\)</span>, thus;</p></li>
-</ul>
+<span class="eqno">(41)<a class="headerlink" href="#equation-l2-9" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{d\bf{h}}{dt} &amp;=\frac{d}{dt}(\bf{r}\times\bf{\dot r})\\
+\Rightarrow \frac{d\bf{h}}{dt} &amp;= \bf{\dot r}\times\bf{\dot r} + \bf{r}\times\bf{\ddot r}\\
+\Rightarrow \frac{d\bf{h}}{dt} &amp;=  \bf{r}\times\bf{\ddot r}\end{split}\]</div>
+<p>From the two-body dynamics equation <a class="reference internal" href="#equation-l1-29">(30)</a>, we can rewrite the RHS of <a class="reference internal" href="#equation-l2-9">(41)</a> as:</p>
 <div class="math notranslate nohighlight" id="equation-l2-10">
-<span class="eqno">(43)<a class="headerlink" href="#equation-l2-10" title="Permalink to this equation">#</a></span>\[\frac{d\bf{h}}{dt}=\bf{r}\times\bf{\ddot r}=\bf{r}\times-\frac{\mu}{r^3}\bf{r}=0\]</div>
+<span class="eqno">(42)<a class="headerlink" href="#equation-l2-10" title="Permalink to this equation">#</a></span>\[\begin{split}\Rightarrow \frac{d\bf{h}}{dt} &amp;=\bf{r}\times-\frac{\mu}{r^3}\bf{r}\\
+\Rightarrow \frac{d\bf{h}}{dt} &amp;=0\end{split}\]</div>
+<p>which tells us that specific angular momentum is a constant.</p>
 <div class="math notranslate nohighlight" id="equation-l2-11">
-<span class="eqno">(44)<a class="headerlink" href="#equation-l2-11" title="Permalink to this equation">#</a></span>\[\frac{d\bf{h}}{dt}=0\]</div>
-<div class="math notranslate nohighlight" id="equation-l2-12">
-<span class="eqno">(45)<a class="headerlink" href="#equation-l2-12" title="Permalink to this equation">#</a></span>\[\bf{h} = constant\]</div>
-<p>This result has the following implications:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\({\bf{h}}({\bf{r}} , {\bf{\dot r}} , t)\)</span> = constant.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\bf{h}\)</span> is an integral of motion.</p></li>
-<li><p>All 3 scalar quantities are constants: <span class="math notranslate nohighlight">\(h_x({\bf{r}} , {\bf{\dot r}} , t)\)</span> = constant, <span class="math notranslate nohighlight">\(h_y({\bf{r}} , {\bf{\dot r}} , t)\)</span> = constant, <span class="math notranslate nohighlight">\(h_z({\bf{r}} , {\bf{\dot r}} , t)\)</span> = constant.</p></li>
-</ul>
-</section>
-<section id="consequences-of-specific-angular-momentum-constant">
-<span id="content-consequences-of-specific-angular-momentum-constant"></span><h2>Consequences of Specific Angular Momentum = constant<a class="headerlink" href="#consequences-of-specific-angular-momentum-constant" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-l2-13">
-<span class="eqno">(46)<a class="headerlink" href="#equation-l2-13" title="Permalink to this equation">#</a></span>\[\bf{h} = \bf{r}\times\bf{v}\]</div>
-<p>hence:</p>
-<div class="math notranslate nohighlight" id="equation-l2-14">
-<span class="eqno">(47)<a class="headerlink" href="#equation-l2-14" title="Permalink to this equation">#</a></span>\[\bf{h}\perp\bf{r}\times\bf{v} \]</div>
-<p><strong>Direction</strong></p>
-<p><img alt="Figure 1" src="../../_images/L2_1.png" /></p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\bf{r}\)</span> and <span class="math notranslate nohighlight">\(\bf{v}\)</span> must at all times lie in a plane perpendicular to <span class="math notranslate nohighlight">\(\bf{h}\)</span></p></li>
-<li><p>The motion is planar</p></li>
-</ul>
-<p><strong>Magnitude</strong></p>
-<p><img alt="Figure 2" src="../../_images/L2_2.png" /></p>
-<div class="math notranslate nohighlight" id="equation-l2-15">
-<span class="eqno">(48)<a class="headerlink" href="#equation-l2-15" title="Permalink to this equation">#</a></span>\[\bf{h} = \bf{r}\times\bf{v} = \bf{r}\times(v_r\bf{e_r} + v_\theta\bf{e_\theta})\]</div>
-<div class="math notranslate nohighlight" id="equation-l2-16">
-<span class="eqno">(49)<a class="headerlink" href="#equation-l2-16" title="Permalink to this equation">#</a></span>\[=\bf{r}\times(v_r\bf{e_r}) + \bf{r}\times(v_\theta\bf{e_\theta})\]</div>
-<div class="math notranslate nohighlight" id="equation-l2-17">
-<span class="eqno">(50)<a class="headerlink" href="#equation-l2-17" title="Permalink to this equation">#</a></span>\[=rv_\theta{\bf{\hat{h}}} ⇒ rv_\theta = constant\]</div>
-<div class="math notranslate nohighlight" id="equation-l2-18">
-<span class="eqno">(51)<a class="headerlink" href="#equation-l2-18" title="Permalink to this equation">#</a></span>\[dA = \frac{1}{2}rvdt\sin(\phi)\]</div>
-<div class="math notranslate nohighlight" id="equation-l2-19">
-<span class="eqno">(52)<a class="headerlink" href="#equation-l2-19" title="Permalink to this equation">#</a></span>\[\frac{dA}{dt} = \frac{1}{2}rv\sin(\phi) = \frac{1}{2}rv_\theta \]</div>
-<div class="math notranslate nohighlight" id="equation-l2-20">
-<span class="eqno">(54)<a class="headerlink" href="#equation-l2-20" title="Permalink to this equation">#</a></span>\[⇒ \frac{dA}{dt}=\frac{1}{2}h = constant\]</div>
-<blockquote>
-<div><p><em>Kepler’s Second Law: Areal velocity is constant</em></p>
-</div></blockquote>
+<span class="eqno">(43)<a class="headerlink" href="#equation-l2-11" title="Permalink to this equation">#</a></span>\[{\bf h} = \textbf{constant}\]</div>
+<p>The implication of constant specific angular momentum is that:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\({\bf{h}}({\bf{r}} , {\bf{\dot r}} , t)\)</span> = <span class="math notranslate nohighlight">\(\textbf{constant}\)</span>, which means that <span class="math notranslate nohighlight">\(\bf{h}\)</span> is an integral of motion.</p></li>
+<li><p>The 3 scalar components of <span class="math notranslate nohighlight">\(\bf h\)</span> are also constants. Or, in mathetmical terminology, we write:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}h_x({\bf{r}} , {\bf{\dot r}} , t) &amp;= \textit{constant}\\
+h_y({\bf{r}} , {\bf{\dot r}} , t) &amp;= \textit{constant}\\
+h_z({\bf{r}} , {\bf{\dot r}} , t) &amp;= \textit{constant}\end{split}\]</div>
 </section>
 <section id="kepler-s-second-law">
 <span id="content-kepler-s-second-law"></span><h2>Kepler’s Second Law<a class="headerlink" href="#kepler-s-second-law" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-l2-20">
-<span class="eqno">(54)<a class="headerlink" href="#equation-l2-20" title="Permalink to this equation">#</a></span>\[⇒ \frac{dA}{dt}=\frac{1}{2}h = constant\]</div>
+<p>We infer Kepler’s second law based on consequences relating to the nature of
+constant specific angular momentum vector; specifically, we examine the direction
+and then the magnitude of the specific angular momentum.</p>
+<section id="direction">
+<h3>Direction<a class="headerlink" href="#direction" title="Permalink to this heading">#</a></h3>
+<p>Firstly, from</p>
+<div class="math notranslate nohighlight" id="equation-l2-13">
+<span class="eqno">(44)<a class="headerlink" href="#equation-l2-13" title="Permalink to this equation">#</a></span>\[\bf{h} = \bf{r}\times\bf{v}\]</div>
+<p>we can determine that</p>
+<div class="math notranslate nohighlight" id="equation-l2-14">
+<span class="eqno">(45)<a class="headerlink" href="#equation-l2-14" title="Permalink to this equation">#</a></span>\[\bf{h}\perp\bf{r}, \bf{v} \]</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Recall: why is <span class="math notranslate nohighlight">\(\bf{h}\)</span> prependicular to both <span class="math notranslate nohighlight">\(\bf{r}\)</span> and <span class="math notranslate nohighlight">\(\bf{v}\)</span>?</p>
+<p>This is because the result of cross-product between two vectors is a third vector
+that is orthogonal to both vectors.</p>
+</div>
+<p>Thus, <span class="math notranslate nohighlight">\(\bf{r}\)</span> and <span class="math notranslate nohighlight">\(\bf{v}\)</span> are at all times lie in a plane that is perpendicular to <span class="math notranslate nohighlight">\(\bf{h}\)</span>. This also means that the motion is planar.</p>
 </section>
-<section id="polar-coordinates">
-<span id="content-polar-coordinates"></span><h2>Polar Coordinates<a class="headerlink" href="#polar-coordinates" title="Permalink to this heading">#</a></h2>
+<section id="magnitude">
+<h3>Magnitude<a class="headerlink" href="#magnitude" title="Permalink to this heading">#</a></h3>
+<figure class="align-default" id="magnitude-angmom">
+<a class="reference internal image-reference" href="../../_images/L2_1.png"><img alt="../../_images/L2_1.png" src="../../_images/L2_1.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Magnitude and direction of specific angular momentum.</span><a class="headerlink" href="#magnitude-angmom" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<aside class="margin sidebar">
+<p class="sidebar-title">Polar coordinates</p>
+<p><span class="math notranslate nohighlight">\({\bf e}_r\)</span> is directled along the position vector <span class="math notranslate nohighlight">\(\bf r\)</span> and <span class="math notranslate nohighlight">\({\bf e}_{\theta}\)</span> is
+perpendicular to it. The pair of vectors lie in the plane of the paper (or screen, in this case)
+and a third unit vector is directed orthogonal to them. This set of unit vectors make up
+a polar coordinate system.</p>
+</aside>
+<p>From <a class="reference internal" href="#magnitude-angmom"><span class="std std-numref">Fig. 3</span></a>, we can make use of the polar coordinates <span class="math notranslate nohighlight">\({\bf e}_r\)</span> and
+<span class="math notranslate nohighlight">\({\bf e}_{\theta}\)</span> to write the component form of specific angular momentum.</p>
+<div class="math notranslate nohighlight" id="equation-l2-15">
+<span class="eqno">(46)<a class="headerlink" href="#equation-l2-15" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf h} &amp;= {\bf r}\times\bf{v}\\
+\Rightarrow {\bf h} &amp;= {\bf r}\times(v_{r} {\bf e}_r + v_{\theta}{\bf e}_{\theta})\\
+\Rightarrow {\bf h} &amp;={\bf r}\times(v_r{\bf e}_{r}) + {\bf r}\times(v_\theta {\bf e}_{\theta})\end{split}\]</div>
+<p>The first term on the RHS of the last of Equations <a class="reference internal" href="#equation-l2-15">(46)</a> is zero because <span class="math notranslate nohighlight">\(\bf{r}\)</span> and <span class="math notranslate nohighlight">\(\bf{v_r}\)</span> are parallel; thus the second term is the only term remaining. As a result, this must be directed along the angular momentum vector <span class="math notranslate nohighlight">\(\bf{h}\)</span>. It can also be written along a unit vector along the direction of <span class="math notranslate nohighlight">\(\bf{h}\)</span>, called <span class="math notranslate nohighlight">\(\bf{\hat{h}}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-l2-16">
+<span class="eqno">(47)<a class="headerlink" href="#equation-l2-16" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf h} &amp;=rv_\theta{\hat{\bf{h}}}\\
+\Rightarrow {\bf h} &amp;= h {\hat{\bf{h}}}\end{split}\]</div>
+<p>From Equation <a class="reference internal" href="#equation-l2-11">(43)</a>, we know that the angular momentum <span class="math notranslate nohighlight">\(\bf h\)</span> is constant, which further implies that <span class="math notranslate nohighlight">\(r v_\theta\)</span> is constant. Or, in other words, the scalar <span class="math notranslate nohighlight">\(h\)</span> denoting the magnitude of the specific angular momentum is a constant.</p>
+<div class="math notranslate nohighlight" id="equation-l2-17">
+<span class="eqno">(48)<a class="headerlink" href="#equation-l2-17" title="Permalink to this equation">#</a></span>\[h = rv_\theta = \textit{constant}\]</div>
+</section>
+<section id="areal-velocity-and-kepler-s-second-law">
+<h3>Areal velocity and Kepler’s Second Law<a class="headerlink" href="#areal-velocity-and-kepler-s-second-law" title="Permalink to this heading">#</a></h3>
+<figure class="align-default" id="direction-angmom">
+<a class="reference internal image-reference" href="../../_images/L2_2.png"><img alt="../../_images/L2_2.png" src="../../_images/L2_2.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The grey area is swept by the positon vector in a small interval of time <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>.</span><a class="headerlink" href="#direction-angmom" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From <a class="reference internal" href="#direction-angmom"><span class="std std-numref">Fig. 4</span></a>, we can write the infinitesimal area <span class="math notranslate nohighlight">\(\mathrm{d}A\)</span> swept by
+<span class="math notranslate nohighlight">\(\bf r\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-l2-18">
+<span class="eqno">(49)<a class="headerlink" href="#equation-l2-18" title="Permalink to this equation">#</a></span>\[dA = \frac{1}{2}r\, v\, \mathrm{d}t\sin(\phi)\]</div>
+<p>wihch can be further rewritten</p>
+<div class="math notranslate nohighlight" id="equation-l2-19">
+<span class="eqno">(50)<a class="headerlink" href="#equation-l2-19" title="Permalink to this equation">#</a></span>\[\frac{dA}{dt} &amp;= \frac{1}{2}r\, v\, \sin(\phi)\
+&amp;= \frac{1}{2}r\, v_\theta \]</div>
+<p>or</p>
+<div class="math notranslate nohighlight" id="equation-l2-20">
+<span class="eqno">(51)<a class="headerlink" href="#equation-l2-20" title="Permalink to this equation">#</a></span>\[\frac{dA}{dt}=\frac{1}{2}h = constant\]</div>
+<p>This is essentially giving us <em>Kepler’s Second Law</em>, which tells us that areal velocity is
+constant. In other words, it tells us that equal areas are swept in equal intervals of
+time along the orbit in a body whose dynamics are governed by the simple two-body system described
+by Equation <a class="reference internal" href="#equation-l1-30">(31)</a>.</p>
+</section>
+</section>
+<section id="two-body-dynamics-in-polar-coordinates">
+<span id="content-polar-coordinates"></span><h2>Two-body Dynamics in Polar Coordinates<a class="headerlink" href="#two-body-dynamics-in-polar-coordinates" title="Permalink to this heading">#</a></h2>
 <p>If the motion is planar we can use polar coordinates to fully describe it.</p>
 <p><img alt="Figure 3" src="../../_images/L2_3.png" /></p>
 <ul class="simple">
 <li><p>In polar coordinates <span class="math notranslate nohighlight">\(\bf{r} = r\bf{e_r}\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l2-21">
-<span class="eqno">(55)<a class="headerlink" href="#equation-l2-21" title="Permalink to this equation">#</a></span>\[\frac{d\bf{r}}{dt} = \bf{v} = {\dot r}\bf{e_r} + {r}\bf{e_\theta}\dot \theta \]</div>
+<span class="eqno">(52)<a class="headerlink" href="#equation-l2-21" title="Permalink to this equation">#</a></span>\[\frac{d\bf{r}}{dt} = \bf{v} = {\dot r}\bf{e_r} + {r}\bf{e_\theta}\dot \theta \]</div>
 <div class="math notranslate nohighlight" id="equation-l2-22">
-<span class="eqno">(56)<a class="headerlink" href="#equation-l2-22" title="Permalink to this equation">#</a></span>\[\bf{h}=\bf{r}\times\bf{v}=r\bf{e_r}\times({\dot r}\bf{e_r} + {r}\bf{e_\theta}\dot \theta)\]</div>
+<span class="eqno">(53)<a class="headerlink" href="#equation-l2-22" title="Permalink to this equation">#</a></span>\[\bf{h}=\bf{r}\times\bf{v}=r\bf{e_r}\times({\dot r}\bf{e_r} + {r}\bf{e_\theta}\dot \theta)\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-23">
-<span class="eqno">(57)<a class="headerlink" href="#equation-l2-23" title="Permalink to this equation">#</a></span>\[⇒r^2\dot \theta{\bf{k}} = rv_\theta {\bf{k}} = constant\]</div>
+<span class="eqno">(54)<a class="headerlink" href="#equation-l2-23" title="Permalink to this equation">#</a></span>\[⇒r^2\dot \theta{\bf{k}} = rv_\theta {\bf{k}} = constant\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-24">
-<span class="eqno">(58)<a class="headerlink" href="#equation-l2-24" title="Permalink to this equation">#</a></span>\[\frac{dA}{dt}=\frac{1}{2}h=\frac{1}{2}r^2\dot \theta\]</div>
+<span class="eqno">(55)<a class="headerlink" href="#equation-l2-24" title="Permalink to this equation">#</a></span>\[\frac{dA}{dt}=\frac{1}{2}h=\frac{1}{2}r^2\dot \theta\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-25">
-<span class="eqno">(59)<a class="headerlink" href="#equation-l2-25" title="Permalink to this equation">#</a></span>\[{\frac{d^2\bf{r}}{dt}} = {\bf{a}} = ({\ddot r} - r\dot\theta^2) {\bf{e_r}} + (r\ddot \theta+2\dot r\dot \theta) {\bf{e_\theta}}\]</div>
+<span class="eqno">(56)<a class="headerlink" href="#equation-l2-25" title="Permalink to this equation">#</a></span>\[{\frac{d^2\bf{r}}{dt}} = {\bf{a}} = ({\ddot r} - r\dot\theta^2) {\bf{e_r}} + (r\ddot \theta+2\dot r\dot \theta) {\bf{e_\theta}}\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-26">
-<span class="eqno">(60)<a class="headerlink" href="#equation-l2-26" title="Permalink to this equation">#</a></span>\[\frac{-\mu}{r^2}\bf{e_r}\]</div>
+<span class="eqno">(57)<a class="headerlink" href="#equation-l2-26" title="Permalink to this equation">#</a></span>\[\frac{-\mu}{r^2}\bf{e_r}\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-27">
-<span class="eqno">(61)<a class="headerlink" href="#equation-l2-27" title="Permalink to this equation">#</a></span>\[{\ddot r} - r\dot \theta^2 = \frac{-\mu}{r^2}\]</div>
+<span class="eqno">(58)<a class="headerlink" href="#equation-l2-27" title="Permalink to this equation">#</a></span>\[{\ddot r} - r\dot \theta^2 = \frac{-\mu}{r^2}\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-28">
-<span class="eqno">(62)<a class="headerlink" href="#equation-l2-28" title="Permalink to this equation">#</a></span>\[r\ddot \theta + 2{\dot r}\dot \theta = 0 ↔ \frac{d}{dt}(r^2\dot \theta)=2r{\dot r}\dot \theta+r^2\ddot \theta=r(r\ddot \theta+2{\dot r}\dot \theta) =0\]</div>
+<span class="eqno">(59)<a class="headerlink" href="#equation-l2-28" title="Permalink to this equation">#</a></span>\[r\ddot \theta + 2{\dot r}\dot \theta = 0 ↔ \frac{d}{dt}(r^2\dot \theta)=2r{\dot r}\dot \theta+r^2\ddot \theta=r(r\ddot \theta+2{\dot r}\dot \theta) =0\]</div>
 <ul class="simple">
-<li><p><a class="reference internal" href="#equation-l2-28">(62)</a> is equivalent to <span class="math notranslate nohighlight">\(\bf{h}\)</span> = constant which is a scalar</p></li>
+<li><p><a class="reference internal" href="#equation-l2-28">(59)</a> is equivalent to <span class="math notranslate nohighlight">\(\bf{h}\)</span> = constant which is a scalar</p></li>
 </ul>
 </section>
 <section id="conservation-of-specific-orbital-energy-e">
 <span id="content-conservation-of-specific-orbital-energy-e"></span><h2>Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span><a class="headerlink" href="#conservation-of-specific-orbital-energy-e" title="Permalink to this heading">#</a></h2>
 <p>Take the two-body dynamics and the dot product with <span class="math notranslate nohighlight">\(\bf{\dot r}\)</span>;</p>
 <div class="math notranslate nohighlight" id="equation-l2-29">
-<span class="eqno">(63)<a class="headerlink" href="#equation-l2-29" title="Permalink to this equation">#</a></span>\[\bf{\dot r}\cdot\bf{\ddot r}=\frac{-\mu}{r^2}\bf{\hat{r}}\cdot\bf{\dot r}\]</div>
+<span class="eqno">(60)<a class="headerlink" href="#equation-l2-29" title="Permalink to this equation">#</a></span>\[\bf{\dot r}\cdot\bf{\ddot r}=\frac{-\mu}{r^2}\bf{\hat{r}}\cdot\bf{\dot r}\]</div>
 <ol class="arabic simple">
 <li><p>Note that:</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-l2-30">
-<span class="eqno">(64)<a class="headerlink" href="#equation-l2-30" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{1}{2}v^2)=\frac{1}{2}\frac{d}{dt}(\bf{\dot r\cdot\dot r})\]</div>
+<span class="eqno">(61)<a class="headerlink" href="#equation-l2-30" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{1}{2}v^2)=\frac{1}{2}\frac{d}{dt}(\bf{\dot r\cdot\dot r})\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-31">
-<span class="eqno">(65)<a class="headerlink" href="#equation-l2-31" title="Permalink to this equation">#</a></span>\[⇒\frac{1}{2}{\bf{\ddot r}} {\cdot\bf{\dot r}} + {\frac{1}{2}\bf{\dot r}}{\cdot\bf{\ddot r}} = {\bf{\dot r}}{\cdot\bf{\ddot r}}\]</div>
+<span class="eqno">(62)<a class="headerlink" href="#equation-l2-31" title="Permalink to this equation">#</a></span>\[⇒\frac{1}{2}{\bf{\ddot r}} {\cdot\bf{\dot r}} + {\frac{1}{2}\bf{\dot r}}{\cdot\bf{\ddot r}} = {\bf{\dot r}}{\cdot\bf{\ddot r}}\]</div>
 <p>thus;</p>
 <ul class="simple">
 <li></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l2-32">
-<span class="eqno">(66)<a class="headerlink" href="#equation-l2-32" title="Permalink to this equation">#</a></span>\[⇒({\bf{\dot r}}\cdot{\bf{\ddot r}}) = \frac{d}{dt}(\frac{1}{2}v^2)\]</div>
+<span class="eqno">(63)<a class="headerlink" href="#equation-l2-32" title="Permalink to this equation">#</a></span>\[⇒({\bf{\dot r}}\cdot{\bf{\ddot r}}) = \frac{d}{dt}(\frac{1}{2}v^2)\]</div>
 <blockquote>
 <div><p>Notice that this is the derivative of the kinetic energy</p>
 </div></blockquote>
@@ -805,18 +856,18 @@ If <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span></p>
 <li><p>Note that:</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-l2-33">
-<span class="eqno">(67)<a class="headerlink" href="#equation-l2-33" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{\mu}{r})=\frac{\partial}{\partial r}\frac{\mu}{r}\frac{dr}{dt} = -\frac{\mu}{r^2}{\dot r}\]</div>
+<span class="eqno">(64)<a class="headerlink" href="#equation-l2-33" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{\mu}{r})=\frac{\partial}{\partial r}\frac{\mu}{r}\frac{dr}{dt} = -\frac{\mu}{r^2}{\dot r}\]</div>
 <p>thus</p>
 <div class="math notranslate nohighlight" id="equation-l2-34">
-<span class="eqno">(68)<a class="headerlink" href="#equation-l2-34" title="Permalink to this equation">#</a></span>\[-\frac{\mu}{r^2}{\bf{\hat{r}}}{\cdot\bf{\dot r}} = \frac{\mu}{r^2}\dot r = \frac{d}{dt}(\frac{\mu}{r})\]</div>
+<span class="eqno">(65)<a class="headerlink" href="#equation-l2-34" title="Permalink to this equation">#</a></span>\[-\frac{\mu}{r^2}{\bf{\hat{r}}}{\cdot\bf{\dot r}} = \frac{\mu}{r^2}\dot r = \frac{d}{dt}(\frac{\mu}{r})\]</div>
 <blockquote>
 <div><p>Notice that this is the derivative of the potential of the gravotational force</p>
 </div></blockquote>
-<p>Combining the Derivatives of the Kinetic Energy <a class="reference internal" href="#equation-l2-32">(66)</a> and Potential of Gravitationl Force <a class="reference internal" href="#equation-l2-34">(68)</a>, we get the Conservation of Specific Orbital Energy <a class="reference internal" href="#equation-l2-36">(70)</a>.</p>
+<p>Combining the Derivatives of the Kinetic Energy <a class="reference internal" href="#equation-l2-32">(63)</a> and Potential of Gravitationl Force <a class="reference internal" href="#equation-l2-34">(65)</a>, we get the Conservation of Specific Orbital Energy <a class="reference internal" href="#equation-l2-36">(67)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-l2-35">
-<span class="eqno">(69)<a class="headerlink" href="#equation-l2-35" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{1}{2}v^2-\frac{\mu}{r})=0\]</div>
+<span class="eqno">(66)<a class="headerlink" href="#equation-l2-35" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{1}{2}v^2-\frac{\mu}{r})=0\]</div>
 <div class="math notranslate nohighlight" id="equation-l2-36">
-<span class="eqno">(70)<a class="headerlink" href="#equation-l2-36" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2-\frac{\mu}{r} = constant\]</div>
+<span class="eqno">(67)<a class="headerlink" href="#equation-l2-36" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2-\frac{\mu}{r} = constant\]</div>
 <blockquote>
 <div><p>Notice that this is the conservation of specific orbital energy</p>
 </div></blockquote>
@@ -824,7 +875,7 @@ If <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span></p>
 <section id="admissible-orbital-radius">
 <span id="content-admissible-orbital-radius"></span><h2>Admissible Orbital Radius<a class="headerlink" href="#admissible-orbital-radius" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight" id="equation-l2-37">
-<span class="eqno">(71)<a class="headerlink" href="#equation-l2-37" title="Permalink to this equation">#</a></span>\[E=\frac{1}{2}v^2-\frac{\mu}{r}=\frac{1}{2}{\dot r}^2+\frac{1}{2}r^2\dot \theta-\frac{\mu}{r}=\frac{1}{2}{\dot r}^2+\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\]</div>
+<span class="eqno">(68)<a class="headerlink" href="#equation-l2-37" title="Permalink to this equation">#</a></span>\[E=\frac{1}{2}v^2-\frac{\mu}{r}=\frac{1}{2}{\dot r}^2+\frac{1}{2}r^2\dot \theta-\frac{\mu}{r}=\frac{1}{2}{\dot r}^2+\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\)</span> is the effective potential <span class="math notranslate nohighlight">\(\phi(r)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}\)</span> is the potential of the contributed force</p></li>
@@ -844,7 +895,7 @@ If <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span></p>
 <li><p>Compute</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l2-38">
-<span class="eqno">(72)<a class="headerlink" href="#equation-l2-38" title="Permalink to this equation">#</a></span>\[\bf{h}=\bf{h_0}=constant\]</div>
+<span class="eqno">(69)<a class="headerlink" href="#equation-l2-38" title="Permalink to this equation">#</a></span>\[\bf{h}=\bf{h_0}=constant\]</div>
 <blockquote>
 <div><p>orbital plane</p>
 </div></blockquote>
@@ -855,16 +906,16 @@ If <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span></p>
 <li><p>Compute</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l2-39">
-<span class="eqno">(73)<a class="headerlink" href="#equation-l2-39" title="Permalink to this equation">#</a></span>\[E_0=\frac{1}{2}v_0^2 - \frac{\mu}{r_0}\]</div>
+<span class="eqno">(70)<a class="headerlink" href="#equation-l2-39" title="Permalink to this equation">#</a></span>\[E_0=\frac{1}{2}v_0^2 - \frac{\mu}{r_0}\]</div>
 <p>if <span class="math notranslate nohighlight">\(E&lt;0\)</span> bounded motion and <span class="math notranslate nohighlight">\(E\geq0\)</span> unbounded motion</p>
 <ul class="simple">
 <li><p>Compute</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l2-40">
-<span class="eqno">(74)<a class="headerlink" href="#equation-l2-40" title="Permalink to this equation">#</a></span>\[r_{min/max}\]</div>
+<span class="eqno">(71)<a class="headerlink" href="#equation-l2-40" title="Permalink to this equation">#</a></span>\[r_{min/max}\]</div>
 <p>when</p>
 <div class="math notranslate nohighlight" id="equation-l2-41">
-<span class="eqno">(75)<a class="headerlink" href="#equation-l2-41" title="Permalink to this equation">#</a></span>\[\phi_{eff}=E=E_0\]</div>
+<span class="eqno">(72)<a class="headerlink" href="#equation-l2-41" title="Permalink to this equation">#</a></span>\[\phi_{eff}=E=E_0\]</div>
 </section>
 </section>
 
@@ -934,14 +985,17 @@ If <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span></p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-gravitational-force-and-newton-s-second-law">Two-Body Dynamics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-g-and-its-derivatives">Center of Mass ( G ) and its derivatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force">Gravitational Force</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-specific-angular-momentum">The Specific Angular Momentum</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-of-specific-angular-momentum-constant">Consequences of Specific Angular Momentum = constant</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polar-coordinates">Polar Coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-angular-momentum">Specific Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direction">Direction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude">Magnitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-velocity-and-kepler-s-second-law">Areal velocity and Kepler’s Second Law</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-dynamics-in-polar-coordinates">Two-body Dynamics in Polar Coordinates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-specific-orbital-energy-e">Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-orbital-radius">Admissible Orbital Radius</a></li>
 </ul>
