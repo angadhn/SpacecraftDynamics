@@ -707,13 +707,13 @@ An integral of motion reduces the degrees-of-freedom of a problem.</p>
 {\bf{h}} &amp;= \bf{r} \times \bf{\dot r}\end{split}\]</div>
 <p>The time derivative of <span class="math notranslate nohighlight">\(\bf{h}\)</span> is</p>
 <div class="math notranslate nohighlight" id="equation-l2-9">
-<span class="eqno">(41)<a class="headerlink" href="#equation-l2-9" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{d\bf{h}}{dt} &amp;=\frac{d}{dt}(\bf{r}\times\bf{\dot r})\\
-\Rightarrow \frac{d\bf{h}}{dt} &amp;= \bf{\dot r}\times\bf{\dot r} + \bf{r}\times\bf{\ddot r}\\
-\Rightarrow \frac{d\bf{h}}{dt} &amp;=  \bf{r}\times\bf{\ddot r}\end{split}\]</div>
+<span class="eqno">(41)<a class="headerlink" href="#equation-l2-9" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=\frac{\mathrm{d}}{\mathrm{d}t}(\bf{r}\times\bf{\dot r})\\
+\Rightarrow \frac{d\bf{h}}{\mathrm{d}t} &amp;= \bf{\dot r}\times\bf{\dot r} + \bf{r}\times\bf{\ddot r}\\
+\Rightarrow \frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=  \bf{r}\times\bf{\ddot r}\end{split}\]</div>
 <p>From the two-body dynamics equation <a class="reference internal" href="#equation-l1-29">(30)</a>, we can rewrite the RHS of <a class="reference internal" href="#equation-l2-9">(41)</a> as:</p>
 <div class="math notranslate nohighlight" id="equation-l2-10">
-<span class="eqno">(42)<a class="headerlink" href="#equation-l2-10" title="Permalink to this equation">#</a></span>\[\begin{split}\Rightarrow \frac{d\bf{h}}{dt} &amp;=\bf{r}\times-\frac{\mu}{r^3}\bf{r}\\
-\Rightarrow \frac{d\bf{h}}{dt} &amp;=0\end{split}\]</div>
+<span class="eqno">(42)<a class="headerlink" href="#equation-l2-10" title="Permalink to this equation">#</a></span>\[\begin{split}\Rightarrow \frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=\bf{r}\times-\frac{\mu}{r^3}\bf{r}\\
+\Rightarrow \frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=0\end{split}\]</div>
 <p>which tells us that specific angular momentum is a constant.</p>
 <div class="math notranslate nohighlight" id="equation-l2-11">
 <span class="eqno">(43)<a class="headerlink" href="#equation-l2-11" title="Permalink to this equation">#</a></span>\[{\bf h} = \textbf{constant}\]</div>
@@ -787,14 +787,14 @@ a polar coordinate system.</p>
 <p>From <a class="reference internal" href="#direction-angmom"><span class="std std-numref">Fig. 4</span></a>, we can write the infinitesimal area <span class="math notranslate nohighlight">\(\mathrm{d}A\)</span> swept by
 <span class="math notranslate nohighlight">\(\bf r\)</span> as</p>
 <div class="math notranslate nohighlight" id="equation-l2-18">
-<span class="eqno">(49)<a class="headerlink" href="#equation-l2-18" title="Permalink to this equation">#</a></span>\[dA = \frac{1}{2}r\, v\, \mathrm{d}t\sin(\phi)\]</div>
+<span class="eqno">(49)<a class="headerlink" href="#equation-l2-18" title="Permalink to this equation">#</a></span>\[\mathrm{d}A = \frac{1}{2}r\, v\, \mathrm{d}t\sin(\phi)\]</div>
 <p>wihch can be further rewritten</p>
 <div class="math notranslate nohighlight" id="equation-l2-19">
-<span class="eqno">(50)<a class="headerlink" href="#equation-l2-19" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{dA}{dt} &amp;= \frac{1}{2}r\, v\, \sin(\phi)\\
-\Rightarrow \frac{dA}{dt}&amp;= \frac{1}{2}r\, v_\theta \end{split}\]</div>
+<span class="eqno">(50)<a class="headerlink" href="#equation-l2-19" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{\mathrm{d}A}{\mathrm{d}t} &amp;= \frac{1}{2}r\, v\, \sin(\phi)\\
+\Rightarrow \frac{\mathrm{d}A}{\mathrm{d}t}&amp;= \frac{1}{2}r\, v_\theta \end{split}\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight" id="equation-l2-20">
-<span class="eqno">(51)<a class="headerlink" href="#equation-l2-20" title="Permalink to this equation">#</a></span>\[\frac{dA}{dt}=\frac{1}{2}h = constant\]</div>
+<span class="eqno">(51)<a class="headerlink" href="#equation-l2-20" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d}A}{\mathrm{d}t}=\frac{1}{2}h = constant\]</div>
 <p>This is essentially giving us <em>Kepler’s Second Law</em>, which tells us that areal velocity is
 constant. In other words, it tells us that equal areas are swept in equal intervals of
 time along the orbit in a body whose dynamics are governed by the simple two-body system described
@@ -803,30 +803,49 @@ by Equation <a class="reference internal" href="#equation-l1-30">(31)</a>.</p>
 </section>
 <section id="two-body-dynamics-in-polar-coordinates">
 <span id="content-polar-coordinates"></span><h2>Two-body Dynamics in Polar Coordinates<a class="headerlink" href="#two-body-dynamics-in-polar-coordinates" title="Permalink to this heading">#</a></h2>
-<p>If the motion is planar we can use polar coordinates to fully describe it.</p>
-<p><img alt="Figure 3" src="../../_images/L2_3.png" /></p>
-<ul class="simple">
-<li><p>In polar coordinates <span class="math notranslate nohighlight">\(\bf{r} = r\bf{e_r}\)</span></p></li>
-</ul>
+<p>If the motion is planar, we can use polar coordinates to fully describe it.
+Consider a situation where this planar motion lies in the x-y plane shown in
+<a class="reference internal" href="#polar-twobody"><span class="std std-numref">Fig. 5</span></a>.</p>
+<figure class="align-default" id="polar-twobody">
+<a class="reference internal image-reference" href="../../_images/L2_3.png"><img alt="../../_images/L2_3.png" src="../../_images/L2_3.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Polar coordinate system (in blue) to study the two-body problem.</span><a class="headerlink" href="#polar-twobody" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Using polar coordinates shown in <a class="reference internal" href="#polar-twobody"><span class="std std-numref">Fig. 5</span></a>, we can see that <span class="math notranslate nohighlight">\(\bf{r} = r\bf{e_r}\)</span>. Thus</p>
 <div class="math notranslate nohighlight" id="equation-l2-21">
-<span class="eqno">(52)<a class="headerlink" href="#equation-l2-21" title="Permalink to this equation">#</a></span>\[\frac{d\bf{r}}{dt} = \bf{v} = {\dot r}\bf{e_r} + {r}\bf{e_\theta}\dot \theta \]</div>
+<span class="eqno">(52)<a class="headerlink" href="#equation-l2-21" title="Permalink to this equation">#</a></span>\[\frac{d\bf{r}}{dt} = {\bf v} = {\dot r}{ \bf e}_r + {r}{\dot \theta}{\bf e}_\theta \]</div>
+<p>which allows us to write</p>
 <div class="math notranslate nohighlight" id="equation-l2-22">
-<span class="eqno">(53)<a class="headerlink" href="#equation-l2-22" title="Permalink to this equation">#</a></span>\[\bf{h}=\bf{r}\times\bf{v}=r\bf{e_r}\times({\dot r}\bf{e_r} + {r}\bf{e_\theta}\dot \theta)\]</div>
+<span class="eqno">(53)<a class="headerlink" href="#equation-l2-22" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf h} &amp;= {\bf r} \times {\bf v}\\
+&amp;=r {\bf e}_r \times ({\dot r} {\bf e}_r + {r} \dot \theta {\bf e}_\theta)\end{split}\]</div>
+<p>or</p>
 <div class="math notranslate nohighlight" id="equation-l2-23">
-<span class="eqno">(54)<a class="headerlink" href="#equation-l2-23" title="Permalink to this equation">#</a></span>\[⇒r^2\dot \theta{\bf{k}} = rv_\theta {\bf{k}} = constant\]</div>
+<span class="eqno">(54)<a class="headerlink" href="#equation-l2-23" title="Permalink to this equation">#</a></span>\[\begin{split} {\bf h} &amp;= r^2\dot \theta \hat{\bf{k}}\\ &amp;= rv_\theta \hat{\bf{k}} = constant\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{\bf{k}}\)</span> is a unit vector orthogonal to <span class="math notranslate nohighlight">\({\bf e}_r\)</span> and <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span>.
+Further, we can substitute for <span class="math notranslate nohighlight">\(h\)</span> from <a class="reference internal" href="#equation-l2-23">(54)</a> into to <a class="reference internal" href="#equation-l2-20">(51)</a>, which gives</p>
 <div class="math notranslate nohighlight" id="equation-l2-24">
-<span class="eqno">(55)<a class="headerlink" href="#equation-l2-24" title="Permalink to this equation">#</a></span>\[\frac{dA}{dt}=\frac{1}{2}h=\frac{1}{2}r^2\dot \theta\]</div>
+<span class="eqno">(55)<a class="headerlink" href="#equation-l2-24" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{\mathrm{d}A}{\mathrm{d}t} &amp;= \frac{1}{2}h\\
+\frac{\mathrm{d}A}{\mathrm{d}t} &amp;= \frac{1}{2}r^2\dot \theta\end{split}\]</div>
+<p>Taking the second derivatibe of <span class="math notranslate nohighlight">\(\bf r\)</span> using <a class="reference internal" href="#equation-l2-21">(52)</a>, we get</p>
 <div class="math notranslate nohighlight" id="equation-l2-25">
-<span class="eqno">(56)<a class="headerlink" href="#equation-l2-25" title="Permalink to this equation">#</a></span>\[{\frac{d^2\bf{r}}{dt}} = {\bf{a}} = ({\ddot r} - r\dot\theta^2) {\bf{e_r}} + (r\ddot \theta+2\dot r\dot \theta) {\bf{e_\theta}}\]</div>
+<span class="eqno">(56)<a class="headerlink" href="#equation-l2-25" title="Permalink to this equation">#</a></span>\[{\frac{d^2\bf{r}}{\mathrm{d}t^2}} = \ddot{\bf r}
+= ({\ddot r} - r\dot\theta^2) {\bf{e_r}} + (r\ddot \theta+2\dot r\dot \theta) {\bf{e_\theta}}.\]</div>
+<p>We can also write the RHS of <a class="reference internal" href="#equation-l1-30">(31)</a> in polar coordinates as</p>
 <div class="math notranslate nohighlight" id="equation-l2-26">
 <span class="eqno">(57)<a class="headerlink" href="#equation-l2-26" title="Permalink to this equation">#</a></span>\[\frac{-\mu}{r^2}\bf{e_r}\]</div>
+<p>which upon comparing to <a class="reference internal" href="#equation-l2-25">(56)</a> gives the following two scalar ODEs along the <span class="math notranslate nohighlight">\({\bf e}_r\)</span> and <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span> directions, respectively:</p>
 <div class="math notranslate nohighlight" id="equation-l2-27">
-<span class="eqno">(58)<a class="headerlink" href="#equation-l2-27" title="Permalink to this equation">#</a></span>\[{\ddot r} - r\dot \theta^2 = \frac{-\mu}{r^2}\]</div>
+<span class="eqno">(58)<a class="headerlink" href="#equation-l2-27" title="Permalink to this equation">#</a></span>\[\begin{split}{\ddot r} - r\dot \theta^2 &amp;= \frac{-\mu}{r^2}\\
+r\ddot \theta + 2{\dot r}\dot \theta &amp;= 0\end{split}\]</div>
+<p>Note that the second of Equations <a class="reference internal" href="#equation-l2-27">(58)</a> can also obtained from differentiating
+the specific angular momentum</p>
 <div class="math notranslate nohighlight" id="equation-l2-28">
-<span class="eqno">(59)<a class="headerlink" href="#equation-l2-28" title="Permalink to this equation">#</a></span>\[r\ddot \theta + 2{\dot r}\dot \theta = 0 ↔ \frac{d}{dt}(r^2\dot \theta)=2r{\dot r}\dot \theta+r^2\ddot \theta=r(r\ddot \theta+2{\dot r}\dot \theta) =0\]</div>
-<ul class="simple">
-<li><p><a class="reference internal" href="#equation-l2-28">(59)</a> is equivalent to <span class="math notranslate nohighlight">\(\bf{h}\)</span> = constant which is a scalar</p></li>
-</ul>
+<span class="eqno">(59)<a class="headerlink" href="#equation-l2-28" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{d}{dt}(h) &amp;= \frac{d}{dt}(r^2\dot \theta)\\
+\Rightarrow &amp;=2r{\dot r}\dot \theta+r^2\ddot \theta\\
+\Rightarrow &amp;=r(r\ddot \theta+2{\dot r}\dot \theta)\\
+\Rightarrow &amp;=0\end{split}\]</div>
+<p>In other words, the second of Equations <a class="reference internal" href="#equation-l2-27">(58)</a> is equivalent to <span class="math notranslate nohighlight">\(h = constant\)</span>.</p>
 </section>
 <section id="conservation-of-specific-orbital-energy-e">
 <span id="content-conservation-of-specific-orbital-energy-e"></span><h2>Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span><a class="headerlink" href="#conservation-of-specific-orbital-energy-e" title="Permalink to this heading">#</a></h2>
