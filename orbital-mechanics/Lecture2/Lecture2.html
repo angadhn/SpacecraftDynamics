@@ -184,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Two-Body Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Determining Orbital Paths</a></li>
 
@@ -855,7 +855,7 @@ the specific angular momentum</p>
 <span id="content-conservation-of-specific-orbital-energy-e"></span><h2>Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span><a class="headerlink" href="#conservation-of-specific-orbital-energy-e" title="Permalink to this heading">#</a></h2>
 <p>In this section we show that specific energies of orbits are constant, under two-body dynamics.
 To do so, we begin by computing dot product between <span class="math notranslate nohighlight">\(\bf{\dot r}\)</span> and both sides of the two-body
-dynamics equation (Equation <code class="xref eq docutils literal notranslate"><span class="pre">1-30</span></code>):</p>
+dynamics equation (Equation <a class="reference internal" href="#equation-l1-30">(31)</a>):</p>
 <div class="math notranslate nohighlight" id="equation-l2-29">
 <span class="eqno">(61)<a class="headerlink" href="#equation-l2-29" title="Permalink to this equation">#</a></span>\[{\dot{\bf r}} \cdot \ddot{\bf r} = \frac{-\mu}{r^2} \hat{\bf r} \cdot{\dot{\bf r}}\]</div>
 <p>Further, we note the following</p>
@@ -897,51 +897,83 @@ the derivative of the potential of the gravitational force.</p>
 <p>from which follows the Conservation of Specific Orbital Energy <a class="reference internal" href="#equation-l2-36">(68)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-l2-36">
 <span class="eqno">(68)<a class="headerlink" href="#equation-l2-36" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2-\frac{\mu}{r} = constant\]</div>
+<p>where <span class="math notranslate nohighlight">\(E\)</span> the specific orbital energy is given by</p>
+<div class="math notranslate nohighlight" id="equation-l2-36a">
+<span class="eqno">(69)<a class="headerlink" href="#equation-l2-36a" title="Permalink to this equation">#</a></span>\[E = \frac{1}{2}v^2-\frac{\mu}{r}\]</div>
 </section>
 <section id="admissible-orbital-radius">
 <span id="content-admissible-orbital-radius"></span><h2>Admissible Orbital Radius<a class="headerlink" href="#admissible-orbital-radius" title="Permalink to this heading">#</a></h2>
+<p>Starting from Equation <a class="reference internal" href="#equation-l2-36a">(69)</a>, we can rewrite <span class="math notranslate nohighlight">\(E\)</span> as</p>
 <div class="math notranslate nohighlight" id="equation-l2-37">
-<span class="eqno">(69)<a class="headerlink" href="#equation-l2-37" title="Permalink to this equation">#</a></span>\[E=\frac{1}{2}v^2-\frac{\mu}{r}=\frac{1}{2}{\dot r}^2+\frac{1}{2}r^2\dot \theta-\frac{\mu}{r}=\frac{1}{2}{\dot r}^2+\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\]</div>
+<span class="eqno">(70)<a class="headerlink" href="#equation-l2-37" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2}v^2- \Bigl(\frac{\mu}{r}\Bigr)\\
+\Rightarrow E &amp;= \frac{1}{2}{\dot r}^2+\frac{1}{2}r^2\dot \theta-\Bigl(\frac{\mu}{r}\Bigr)\\
+\Rightarrow E &amp;= \frac{1}{2}{\dot r}^2+\Bigl(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\Bigr)\end{split}\]</div>
+<p>Focusing on the terms within the brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(70)</a>, we can define a few terms:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\)</span> is the effective potential <span class="math notranslate nohighlight">\(\phi(r)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}\)</span> is the potential of the contributed force</p></li>
-<li><p><span class="math notranslate nohighlight">\(\frac{\mu}{r}\)</span> is the potential gravitational force</p></li>
+<li><p>the entire collection of terms <span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\)</span> is called the effective potential and denoted by <span class="math notranslate nohighlight">\(\phi_{eff}(r)\)</span>.</p></li>
+<li><p>the first of these terms, <span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}\)</span>, is known as the potential of the centrifugal force; and</p></li>
+<li><p>the second of these terms, <span class="math notranslate nohighlight">\(-\frac{\mu}{r}\)</span>, is referred to as the potential of the gravitational force.</p></li>
 </ul>
-<p><img alt="Figure 4" src="../../_images/L2_4.png" /></p>
-<p>The motion is only possible for those values of <span class="math notranslate nohighlight">\(r\)</span> such that <span class="math notranslate nohighlight">\(E\geq\phi_{eff}\)</span></p>
-<p><img alt="Figure 5" src="../../_images/L2_5.png" /></p>
+<p><a class="reference internal" href="#admissible-radius"><span class="std std-numref">Fig. 6</span></a> shows a qualitative depiction of the contribution
+of each of these terms to the effective potential separately and how their sum
+shapes the effective potential.</p>
+<figure class="align-default" id="admissible-radius">
+<a class="reference internal image-reference" href="../../_images/L2_4.png"><img alt="../../_images/L2_4.png" src="../../_images/L2_4.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Qualitative depiction of <span class="math notranslate nohighlight">\(\phi_{eff}(r)\)</span> and its contributions from the two terms in brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(70)</a>.</span><a class="headerlink" href="#admissible-radius" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The effective potential can take positive or negative values over a range of values of <span class="math notranslate nohighlight">\(r\)</span> given its definition.</p>
+<p>Now, Equation <a class="reference internal" href="#equation-l2-37">(70)</a> can be written as</p>
+<div class="math notranslate nohighlight" id="equation-l2-37b">
+<span class="eqno">(71)<a class="headerlink" href="#equation-l2-37b" title="Permalink to this equation">#</a></span>\[E = \frac{1}{2}{\dot r}^2 + \phi_{eff}(r) = constant\]</div>
+<p>From this equation, we can infer that:</p>
 <ul class="simple">
-<li><p>For <span class="math notranslate nohighlight">\(E&lt;0\)</span> the motion occurs between <span class="math notranslate nohighlight">\(r_{min}-r_{max}\)</span></p></li>
-<li><p>For <span class="math notranslate nohighlight">\(E\geq0\)</span> the motion is unbounded</p></li>
-<li><p>For <span class="math notranslate nohighlight">\(E=min\phi(r), r_{min}=r_{max}\)</span> hence we have a circular orbit</p></li>
+<li><p>the kinetic energy term <span class="math notranslate nohighlight">\(\frac{1}{2}{\dot r}^2 \geq 0\)</span>.</p></li>
+<li><p>therefore <span class="math notranslate nohighlight">\(E\geq\phi_{eff}(r)\)</span>.</p></li>
 </ul>
-<p><img alt="Figure 6" src="../../_images/L2_6.png" /></p>
-<p>Given initial position <span class="math notranslate nohighlight">\(\bf{r_0}\)</span> and velocity <span class="math notranslate nohighlight">\(\bf{v_0}\)</span> we can</p>
+<p>Thus motion is only possible for those values of <span class="math notranslate nohighlight">\(r\)</span> such that <span class="math notranslate nohighlight">\(E\geq\phi_{eff}\)</span>.</p>
+<p><a class="reference internal" href="#admissible-radius2"><span class="std std-numref">Fig. 7</span></a> is a qualitative depiction of the <span class="math notranslate nohighlight">\(\phi_{eff}\)</span> as a function of <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<figure class="align-default" id="admissible-radius2">
+<a class="reference internal image-reference" href="../../_images/L2_5.png"><img alt="../../_images/L2_5.png" src="../../_images/L2_5.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text"><span class="math notranslate nohighlight">\(\phi_{eff}\)</span> as a function of <span class="math notranslate nohighlight">\(r\)</span>.</span><a class="headerlink" href="#admissible-radius2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This is a more detailed depiction of <a class="reference internal" href="#admissible-radius"><span class="std std-numref">Fig. 6</span></a>, which also shows the
+constant specific energy <span class="math notranslate nohighlight">\(E\)</span> as a blue horizontal line. Indeed, as <span class="math notranslate nohighlight">\(E\)</span> is constant, it
+can easily be computed from the initial conditions of the system.
+<span class="math notranslate nohighlight">\(E\)</span> can take on various values, each corresponding to a different orbit:</p>
 <ul class="simple">
-<li><p>Compute</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(E&lt;0\)</span>, the motion occurs between <span class="math notranslate nohighlight">\(r_{min}\)</span> and <span class="math notranslate nohighlight">\(r_{max}\)</span> telling us that the motion is bounded. More specifically, it is an elliptical orbit; this condition is shown clearly in <a class="reference internal" href="#admissible-radius2"><span class="std std-numref">Fig. 7</span></a>.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(E\geq0\)</span> the motion is unbounded; this case is shown in the right side of <a class="reference internal" href="#admissible-radius3"><span class="std std-numref">Fig. 8</span></a>.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(E=\min{\phi(r)}\)</span>, we get the condition that <span class="math notranslate nohighlight">\(r_{min}=r_{max}\)</span> resulting in a circular orbit. This case is shown in the left side of<a class="reference internal" href="#admissible-radius3"><span class="std std-numref">Fig. 8</span></a>.</p></li>
 </ul>
+<figure class="align-default" id="admissible-radius3">
+<a class="reference internal image-reference" href="../../_images/L2_6.png"><img alt="../../_images/L2_6.png" src="../../_images/L2_6.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">On the left plot, we see that <span class="math notranslate nohighlight">\(E\)</span> aligns with the minimum value of <span class="math notranslate nohighlight">\(\phi_{eff}\)</span> at <span class="math notranslate nohighlight">\(r_{min}\)</span> and <span class="math notranslate nohighlight">\(r_{max}\)</span>. On the right plot, we see that for <span class="math notranslate nohighlight">\(E\geq0\)</span>, the motion is unbounded.</span><a class="headerlink" href="#admissible-radius3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-key-points admonition">
+<p class="admonition-title">Key points</p>
+<p>Key takeaways from the discussion so far are that when we are given the initial position <span class="math notranslate nohighlight">\(\bf{r_0}\)</span> and velocity <span class="math notranslate nohighlight">\(\bf{v_0}\)</span> we can compute:</p>
+<ol class="arabic simple">
+<li><p>Specific angular momentum <span class="math notranslate nohighlight">\(\bf{h}\)</span> as shown below:</p></li>
+</ol>
 <div class="math notranslate nohighlight" id="equation-l2-38">
-<span class="eqno">(70)<a class="headerlink" href="#equation-l2-38" title="Permalink to this equation">#</a></span>\[\bf{h}=\bf{h_0}=constant\]</div>
-<blockquote>
-<div><p>orbital plane</p>
-</div></blockquote>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(r_0^2\dot \theta_0^2\rightarrow\)</span> Areal velocity</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>Compute</p></li>
-</ul>
+<span class="eqno">(72)<a class="headerlink" href="#equation-l2-38" title="Permalink to this equation">#</a></span>\[{\bf h}={\bf h_0}=constant\]</div>
+<p>which is orthogonal to the orbital plane. The intial values also tells us that the constant areal velocity is <span class="math notranslate nohighlight">\(r_0^2\dot \theta_0\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Specific orbital energy <span class="math notranslate nohighlight">\(E\)</span> as shown below</p></li>
+</ol>
 <div class="math notranslate nohighlight" id="equation-l2-39">
-<span class="eqno">(71)<a class="headerlink" href="#equation-l2-39" title="Permalink to this equation">#</a></span>\[E_0=\frac{1}{2}v_0^2 - \frac{\mu}{r_0}\]</div>
-<p>if <span class="math notranslate nohighlight">\(E&lt;0\)</span> bounded motion and <span class="math notranslate nohighlight">\(E\geq0\)</span> unbounded motion</p>
-<ul class="simple">
-<li><p>Compute</p></li>
-</ul>
-<div class="math notranslate nohighlight" id="equation-l2-40">
-<span class="eqno">(72)<a class="headerlink" href="#equation-l2-40" title="Permalink to this equation">#</a></span>\[r_{min/max}\]</div>
-<p>when</p>
-<div class="math notranslate nohighlight" id="equation-l2-41">
-<span class="eqno">(73)<a class="headerlink" href="#equation-l2-41" title="Permalink to this equation">#</a></span>\[\phi_{eff}=E=E_0\]</div>
+<span class="eqno">(73)<a class="headerlink" href="#equation-l2-39" title="Permalink to this equation">#</a></span>\[E_0=\frac{1}{2}v_0^2 - \frac{\mu}{r_0}\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_0\)</span> is the specific orbital energy at computed from the initial conditions. If <span class="math notranslate nohighlight">\(E&lt;0\)</span>, we have a bounded orbit but if <span class="math notranslate nohighlight">\(E\geq0\)</span> we have unbounded motion.</p>
+<ol class="arabic simple" start="3">
+<li><p>Compute the minimum or maximum values of <span class="math notranslate nohighlight">\(r\)</span> when <span class="math notranslate nohighlight">\(\phi_{eff}=E=E_0\)</span>.</p></li>
+</ol>
+</div>
 </section>
 </section>
 

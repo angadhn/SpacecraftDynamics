@@ -74,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture3/Lecture3';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Circular Orbits" href="../Lecture4/Lecture4.html" />
+    <link rel="next" title="Circular and More Results on Elliptical Orbits" href="../Lecture4/Lecture4.html" />
     <link rel="prev" title="Two-Body Dynamics" href="../Lecture2/Lecture2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Elliptic Orbits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Determining Orbital Paths</a></li>
 
@@ -672,7 +672,7 @@ gravity of a body to reach another target body (also known as gravity assist man
 <figure class="align-center" id="figl3-2">
 <a class="reference internal image-reference" href="../../_images/L3_ellipse_drawing.png"><img alt="../../_images/L3_ellipse_drawing.png" src="../../_images/L3_ellipse_drawing.png" style="width: 75%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">An ellipse demostrating the different properties of an elliptical orbit, all shown in different colours.</span><a class="headerlink" href="#figl3-2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">An ellipse demostrating the different properties of an elliptical orbit, all shown in different colours.</span><a class="headerlink" href="#figl3-2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><span style="color:#6A73D9">a = semi-major axis</span> <br>
@@ -681,7 +681,7 @@ gravity of a body to reach another target body (also known as gravity assist man
 <span class="math notranslate nohighlight">\(\textcolor{#646464}{{\bf e}}\)</span><span style="color:#646464"> is aligned with the apsides and point towards the perigee</span></p>
 <section id="key-parameters-of-elliptic-orbits">
 <h3>Key Parameters of Elliptic Orbits<a class="headerlink" href="#key-parameters-of-elliptic-orbits" title="Permalink to this heading">#</a></h3>
-<p>Aside from the equations shown within <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 6</span></a>, we also can determine three other parameters:</p>
+<p>Aside from the equations shown within <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 9</span></a>, we also can determine three other parameters:</p>
 <ol class="arabic">
 <li><p><strong>Semi-latus rectum</strong>(<span class="math notranslate nohighlight">\(p\)</span>):
 This is the distance from the foci (orbitted body) to the orbit measured perpendicular to the semi-major axis.
@@ -700,7 +700,7 @@ It can be computed from Equation <a class="reference internal" href="#equation-l
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If a satellite is orbiting the moon (mass <span class="math notranslate nohighlight">\(m_2\)</span> in <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 6</span></a>), then we specifically use terms perilune and apolune instead of periapsis and apoapsis. If <span class="math notranslate nohighlight">\(m_2\)</span> is the Earth, then we use the terms perigee and apogee.</p>
+<p>If a satellite is orbiting the moon (mass <span class="math notranslate nohighlight">\(m_2\)</span> in <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 9</span></a>), then we specifically use terms perilune and apolune instead of periapsis and apoapsis. If <span class="math notranslate nohighlight">\(m_2\)</span> is the Earth, then we use the terms perigee and apogee.</p>
 </div>
 </aside>
 <ol class="arabic" start="2">
@@ -722,7 +722,7 @@ It can be computed from Equation <a class="reference internal" href="#equation-l
 for doing so is:</p>
 <ol class="arabic simple">
 <li><p>Compute the semi-latus rectum <span class="math notranslate nohighlight">\(p\)</span> from Equation <a class="reference internal" href="#equation-l3-5">(82)</a>.</p></li>
-<li><p>Compute the semi-major axis, <span class="math notranslate nohighlight">\(a\)</span>, using <span class="math notranslate nohighlight">\(a=\frac{p}{1-e^2}\)</span> (shown in <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 6</span></a>).</p></li>
+<li><p>Compute the semi-major axis, <span class="math notranslate nohighlight">\(a\)</span>, using <span class="math notranslate nohighlight">\(a=\frac{p}{1-e^2}\)</span> (shown in <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 9</span></a>).</p></li>
 <li><p>Compute the apsides points (most extreme points in the orbit) using <a class="reference internal" href="#equation-l3-6">(85)</a> and <a class="reference internal" href="#equation-l3-7">(86)</a> .</p></li>
 </ol>
 </section>
@@ -821,7 +821,7 @@ E&amp;=-\frac{\mu}{2a}\end{split}\]</div>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Circular Orbits</p>
+        <p class="prev-next-title">Circular and More Results on Elliptical Orbits</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
