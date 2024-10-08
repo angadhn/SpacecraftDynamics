@@ -561,15 +561,15 @@ document.write(`
 <h3>Deriving The Eccentricity Vector<a class="headerlink" href="#deriving-the-eccentricity-vector" title="Permalink to this heading">#</a></h3>
 <p>The Eccentricity vector <span class="math notranslate nohighlight">\({\bf e}\)</span> helps us describe the shape of an orbit and its direction. We can find it by taking the cross product of Equation <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l1-30">(31)</a> with the specific angular momentum <span class="math notranslate nohighlight">\(\bf h\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-l3-1">
-<span class="eqno">(73)<a class="headerlink" href="#equation-l3-1" title="Permalink to this equation">#</a></span>\[\ddot{{\bf r}}\times{\bf h} = - \frac{\mu}{r^3} {\bf r}\times{\bf h}\]</div>
+<span class="eqno">(74)<a class="headerlink" href="#equation-l3-1" title="Permalink to this equation">#</a></span>\[\ddot{{\bf r}}\times{\bf h} = - \frac{\mu}{r^3} {\bf r}\times{\bf h}\]</div>
 <p>Using the product rule for differentiation, we see that</p>
 <div class="math notranslate nohighlight" id="equation-l3-1a">
-<span class="eqno">(74)<a class="headerlink" href="#equation-l3-1a" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{d}{dt}(\dot{{\bf r}} \times {\bf h}) &amp;= \ddot{{\bf r}} \times {\bf h} + \dot{{\bf r}} \times \dot{{\bf h}} \\
+<span class="eqno">(75)<a class="headerlink" href="#equation-l3-1a" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{d}{dt}(\dot{{\bf r}} \times {\bf h}) &amp;= \ddot{{\bf r}} \times {\bf h} + \dot{{\bf r}} \times \dot{{\bf h}} \\
 &amp;= \ddot{{\bf r}} \times {\bf h},\end{split}\]</div>
-<p>where we note that <span class="math notranslate nohighlight">\(\dot{\bf{h}} = 0\)</span> because <span class="math notranslate nohighlight">\(\bf{h}\)</span> is constant, as shown previously. Therefore, we have shown that the left-hand side of Equation <a class="reference internal" href="#equation-l3-1">(73)</a> can be written as:</p>
+<p>where we note that <span class="math notranslate nohighlight">\(\dot{\bf{h}} = 0\)</span> because <span class="math notranslate nohighlight">\(\bf{h}\)</span> is constant, as shown previously. Therefore, we have shown that the left-hand side of Equation <a class="reference internal" href="#equation-l3-1">(74)</a> can be written as:</p>
 <div class="math notranslate nohighlight">
 \[\ddot{{\bf r}} \times {\bf h} = \frac{d}{dt}(\dot{{\bf r}} \times {\bf h})\]</div>
-<p>Now, we focus on the RHS of Equation <a class="reference internal" href="#equation-l3-1">(73)</a>, which can be written as a vector triple product and then massaged to yield:</p>
+<p>Now, we focus on the RHS of Equation <a class="reference internal" href="#equation-l3-1">(74)</a>, which can be written as a vector triple product and then massaged to yield:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -578,30 +578,30 @@ document.write(`
 </div>
 </aside>
 <div class="math notranslate nohighlight" id="equation-l3-1b">
-<span class="eqno">(75)<a class="headerlink" href="#equation-l3-1b" title="Permalink to this equation">#</a></span>\[\begin{split}- \frac{\mu}{r^3} {\bf r}\times{\bf h} &amp;= - \frac{\mu}{r^3} {\bf r} \times\Bigl( {\bf r} \times \dot{\bf r}\Bigr)\\
+<span class="eqno">(76)<a class="headerlink" href="#equation-l3-1b" title="Permalink to this equation">#</a></span>\[\begin{split}- \frac{\mu}{r^3} {\bf r}\times{\bf h} &amp;= - \frac{\mu}{r^3} {\bf r} \times\Bigl( {\bf r} \times \dot{\bf r}\Bigr)\\
 &amp;=-\frac{\mu}{r^3} \Bigl[ (\dot{{\bf r}}\cdot{\bf r}){\bf r}-({\bf r}\cdot{\bf r})\dot{{\bf r}} \Bigr]\\
 &amp;=-\frac{\mu}{r^3}(\dot{r}r{\bf r}-r^2\dot{{\bf r}})\\
 &amp;=-\frac{\mu}{r^2}(\dot{r}{\bf r}-r\dot{{\bf r}})\end{split}\]</div>
-<p>Now, take a moment to consider the time derivative of the RHS of Equation <a class="reference internal" href="#equation-l3-1">(73)</a> (and remembering that <span class="math notranslate nohighlight">\(\mu\)</span> is
-constant) gives the same result as Equation <a class="reference internal" href="#equation-l3-1b">(75)</a></p>
+<p>Now, take a moment to consider the time derivative of the RHS of Equation <a class="reference internal" href="#equation-l3-1">(74)</a> (and remembering that <span class="math notranslate nohighlight">\(\mu\)</span> is
+constant) gives the same result as Equation <a class="reference internal" href="#equation-l3-1b">(76)</a></p>
 <div class="math notranslate nohighlight" id="equation-l3-1c">
-<span class="eqno">(76)<a class="headerlink" href="#equation-l3-1c" title="Permalink to this equation">#</a></span>\[\frac{d}{dt} (\mu \frac{\bf r}{r} ) = - \frac{\mu}{r^2}(\dot{r}{\bf r} - r\dot{\bf r})\]</div>
-<p>thus showing that the RHS of Equation <a class="reference internal" href="#equation-l3-1">(73)</a> is the same as the LHS of Equation <a class="reference internal" href="#equation-l3-1b">(75)</a>. That is:</p>
+<span class="eqno">(77)<a class="headerlink" href="#equation-l3-1c" title="Permalink to this equation">#</a></span>\[\frac{d}{dt} (\mu \frac{\bf r}{r} ) = - \frac{\mu}{r^2}(\dot{r}{\bf r} - r\dot{\bf r})\]</div>
+<p>thus showing that the RHS of Equation <a class="reference internal" href="#equation-l3-1">(74)</a> is the same as the LHS of Equation <a class="reference internal" href="#equation-l3-1b">(76)</a>. That is:</p>
 <div class="math notranslate nohighlight">
 \[\frac{d}{dt}(\dot{{\bf r}} \times {\bf h}) = \frac{d}{dt} (\mu \frac{\bf r}{r} )\]</div>
 <p>or that</p>
 <div class="math notranslate nohighlight" id="equation-l3-1d">
-<span class="eqno">(77)<a class="headerlink" href="#equation-l3-1d" title="Permalink to this equation">#</a></span>\[\dot{{\bf r}}\times{\bf h} - \mu\frac{{\bf r}}{r} = constant.\]</div>
-<p>We call this entire vectors that results on the LHS of Equation <a class="reference internal" href="#equation-l3-1d">(77)</a> as the eccentricty vector <span class="math notranslate nohighlight">\(\bf e\)</span>, which can also be written as:</p>
+<span class="eqno">(78)<a class="headerlink" href="#equation-l3-1d" title="Permalink to this equation">#</a></span>\[\dot{{\bf r}}\times{\bf h} - \mu\frac{{\bf r}}{r} = constant.\]</div>
+<p>We call this entire vectors that results on the LHS of Equation <a class="reference internal" href="#equation-l3-1d">(78)</a> as the eccentricty vector <span class="math notranslate nohighlight">\(\bf e\)</span>, which can also be written as:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We have divided throughout Equation <a class="reference internal" href="#equation-l3-1d">(77)</a> by <span class="math notranslate nohighlight">\(\mu\)</span>, as this doesn’t really affect things on either side of the equation.</p>
+<p>We have divided throughout Equation <a class="reference internal" href="#equation-l3-1d">(78)</a> by <span class="math notranslate nohighlight">\(\mu\)</span>, as this doesn’t really affect things on either side of the equation.</p>
 </div>
 </aside>
 <div class="math notranslate nohighlight" id="equation-l3-2">
-<span class="eqno">(78)<a class="headerlink" href="#equation-l3-2" title="Permalink to this equation">#</a></span>\[{\bf e}=\frac{\dot{{\bf r}}\times{\bf h}}{\mu}-\frac{{\bf r}}{r} \]</div>
+<span class="eqno">(79)<a class="headerlink" href="#equation-l3-2" title="Permalink to this equation">#</a></span>\[{\bf e}=\frac{\dot{{\bf r}}\times{\bf h}}{\mu}-\frac{{\bf r}}{r} \]</div>
 </section>
 <section id="properties-of-bf-e">
 <h3>Properties of <span class="math notranslate nohighlight">\(\bf e\)</span><a class="headerlink" href="#properties-of-bf-e" title="Permalink to this heading">#</a></h3>
@@ -630,11 +630,11 @@ constant) gives the same result as Equation <a class="reference internal" href="
 </div>
 </aside>
 <div class="math notranslate nohighlight" id="equation-l3-3">
-<span class="eqno">(79)<a class="headerlink" href="#equation-l3-3" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf r}\cdot{\bf e} &amp;= \frac{{\bf r}\cdot(\dot{{\bf r}}\times\dot{{\bf h}})}{\mu}-\frac{{\bf r}\cdot{\bf r}}{r}\\
+<span class="eqno">(80)<a class="headerlink" href="#equation-l3-3" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf r}\cdot{\bf e} &amp;= \frac{{\bf r}\cdot(\dot{{\bf r}}\times\dot{{\bf h}})}{\mu}-\frac{{\bf r}\cdot{\bf r}}{r}\\
 &amp;=\frac{({\bf r}\times\dot{{\bf r}})\cdot{\bf h}}{\mu} - \frac{r^2}{r}\\
 &amp;= \frac{h^2}{\mu}-r\end{split}\]</div>
 <p>But we also know that <span class="math notranslate nohighlight">\({\bf r}\cdot{\bf e}= r e \cos(\theta)\)</span>, where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\({\bf r}\)</span> and <span class="math notranslate nohighlight">\({\bf e}\)</span>
-and is called the true anomaly. Then, we can rewrite Equation <a class="reference internal" href="#equation-l3-3">(79)</a> as</p>
+and is called the true anomaly. Then, we can rewrite Equation <a class="reference internal" href="#equation-l3-3">(80)</a> as</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -646,11 +646,11 @@ and is called the true anomaly. Then, we can rewrite Equation <a class="referenc
 \[r e \cos(\theta) = \frac{h^2}{\mu}-r\]</div>
 <p>or we can solve for <span class="math notranslate nohighlight">\(r\)</span> as</p>
 <div class="math notranslate nohighlight" id="equation-l3-4">
-<span class="eqno">(80)<a class="headerlink" href="#equation-l3-4" title="Permalink to this equation">#</a></span>\[r = \frac{\frac{h^2}{\mu}}{1+ e \cos\left(\theta\right)}\]</div>
+<span class="eqno">(81)<a class="headerlink" href="#equation-l3-4" title="Permalink to this equation">#</a></span>\[r = \frac{\frac{h^2}{\mu}}{1+ e \cos\left(\theta\right)}\]</div>
 <p>This shows that <span class="math notranslate nohighlight">\(r\)</span> is the equation to an ellipse and, in fact, yields <strong>Kepler’s 1st Law</strong> which states that
 the orbit of a planet is an ellipse with the sun at one of the two focii.</p>
 <p>Actually, <span class="math notranslate nohighlight">\(r\)</span> describes a different conic depending on the eccentricity (a constant that is determined by initial conditions). The eccentricity, <span class="math notranslate nohighlight">\(e=|{\bf e}| \geq 0\)</span>, determines the shape of the orbit. Substituting for the different
-values of <span class="math notranslate nohighlight">\(e\)</span>, as given below, into Equation <a class="reference internal" href="#equation-l3-4">(80)</a> can yield different orbits:</p>
+values of <span class="math notranslate nohighlight">\(e\)</span>, as given below, into Equation <a class="reference internal" href="#equation-l3-4">(81)</a> can yield different orbits:</p>
 <ul class="simple">
 <li><p><strong>Circular orbit</strong>: <span class="math notranslate nohighlight">\(e = 0 \Rightarrow r = h^2/\mu = const\)</span></p></li>
 <li><p><strong>Elliptic orbit</strong>: <span class="math notranslate nohighlight">\(0 &lt; e &lt; 1 \Rightarrow r_{min} &lt; r &lt; r_{max} \)</span></p></li>
@@ -685,15 +685,15 @@ gravity of a body to reach another target body (also known as gravity assist man
 <ol class="arabic">
 <li><p><strong>Semi-latus rectum</strong>(<span class="math notranslate nohighlight">\(p\)</span>):
 This is the distance from the foci (orbitted body) to the orbit measured perpendicular to the semi-major axis.
-It can be computed from Equation <a class="reference internal" href="#equation-l3-4">(80)</a> by setting <span class="math notranslate nohighlight">\(theta = 90^\circ\)</span></p>
+It can be computed from Equation <a class="reference internal" href="#equation-l3-4">(81)</a> by setting <span class="math notranslate nohighlight">\(theta = 90^\circ\)</span></p>
 <div class="math notranslate nohighlight" id="equation-l3-5">
-<span class="eqno">(81)<a class="headerlink" href="#equation-l3-5" title="Permalink to this equation">#</a></span>\[r = \frac{h^2}{\mu} = p\]</div>
-<p>More generally, we can then rewrite Equation <a class="reference internal" href="#equation-l3-4">(80)</a> using <span class="math notranslate nohighlight">\(p\)</span> as</p>
+<span class="eqno">(82)<a class="headerlink" href="#equation-l3-5" title="Permalink to this equation">#</a></span>\[r = \frac{h^2}{\mu} = p\]</div>
+<p>More generally, we can then rewrite Equation <a class="reference internal" href="#equation-l3-4">(81)</a> using <span class="math notranslate nohighlight">\(p\)</span> as</p>
 <div class="math notranslate nohighlight" id="equation-l3-5a">
-<span class="eqno">(82)<a class="headerlink" href="#equation-l3-5a" title="Permalink to this equation">#</a></span>\[r = \frac{p}{1 + e \cos\theta} = \frac{a(1 - e^2)}{1 + e \cos\theta}\]</div>
+<span class="eqno">(83)<a class="headerlink" href="#equation-l3-5a" title="Permalink to this equation">#</a></span>\[r = \frac{p}{1 + e \cos\theta} = \frac{a(1 - e^2)}{1 + e \cos\theta}\]</div>
 <p>where,</p>
 <div class="math notranslate nohighlight" id="equation-l3-5b">
-<span class="eqno">(83)<a class="headerlink" href="#equation-l3-5b" title="Permalink to this equation">#</a></span>\[p = a(1 - e^2)\]</div>
+<span class="eqno">(84)<a class="headerlink" href="#equation-l3-5b" title="Permalink to this equation">#</a></span>\[p = a(1 - e^2)\]</div>
 </li>
 </ol>
 <aside class="margin sidebar">
@@ -705,14 +705,14 @@ It can be computed from Equation <a class="reference internal" href="#equation-l
 </aside>
 <ol class="arabic" start="2">
 <li><p><strong>Periapsis</strong> is the value of <span class="math notranslate nohighlight">\(r\)</span> at <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> and is denoted <span class="math notranslate nohighlight">\(r_p\)</span>. It can be obtained from Equation
-<a class="reference internal" href="#equation-l3-5a">(82)</a> as</p>
+<a class="reference internal" href="#equation-l3-5a">(83)</a> as</p>
 <div class="math notranslate nohighlight" id="equation-l3-6">
-<span class="eqno">(84)<a class="headerlink" href="#equation-l3-6" title="Permalink to this equation">#</a></span>\[r_p = \frac{p}{1+e}= a(1 - e)\]</div>
+<span class="eqno">(85)<a class="headerlink" href="#equation-l3-6" title="Permalink to this equation">#</a></span>\[r_p = \frac{p}{1+e}= a(1 - e)\]</div>
 </li>
 <li><p><strong>Apoapsis</strong> is the value of <span class="math notranslate nohighlight">\(r\)</span> at <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> and is denoted <span class="math notranslate nohighlight">\(r_a\)</span>. . It can be obtained from Equation
-<a class="reference internal" href="#equation-l3-5a">(82)</a> as</p>
+<a class="reference internal" href="#equation-l3-5a">(83)</a> as</p>
 <div class="math notranslate nohighlight" id="equation-l3-7">
-<span class="eqno">(85)<a class="headerlink" href="#equation-l3-7" title="Permalink to this equation">#</a></span>\[r_a = a(1 + e)\]</div>
+<span class="eqno">(86)<a class="headerlink" href="#equation-l3-7" title="Permalink to this equation">#</a></span>\[r_a = a(1 + e)\]</div>
 </li>
 </ol>
 </section>
@@ -721,9 +721,9 @@ It can be computed from Equation <a class="reference internal" href="#equation-l
 <p>Typically you will be given <span class="math notranslate nohighlight">\({\bf r_o}\)</span> and <span class="math notranslate nohighlight">\({\bf v_o}\)</span> and will be asked to compute <span class="math notranslate nohighlight">\({\bf h}\)</span> and <span class="math notranslate nohighlight">\({\bf e}\)</span>. The process
 for doing so is:</p>
 <ol class="arabic simple">
-<li><p>Compute the semi-latus rectum <span class="math notranslate nohighlight">\(p\)</span> from Equation <a class="reference internal" href="#equation-l3-5">(81)</a>.</p></li>
+<li><p>Compute the semi-latus rectum <span class="math notranslate nohighlight">\(p\)</span> from Equation <a class="reference internal" href="#equation-l3-5">(82)</a>.</p></li>
 <li><p>Compute the semi-major axis, <span class="math notranslate nohighlight">\(a\)</span>, using <span class="math notranslate nohighlight">\(a=\frac{p}{1-e^2}\)</span> (shown in <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 6</span></a>).</p></li>
-<li><p>Compute the apsides points (most extreme points in the orbit) using <a class="reference internal" href="#equation-l3-6">(84)</a> and <a class="reference internal" href="#equation-l3-7">(85)</a> .</p></li>
+<li><p>Compute the apsides points (most extreme points in the orbit) using <a class="reference internal" href="#equation-l3-6">(85)</a> and <a class="reference internal" href="#equation-l3-7">(86)</a> .</p></li>
 </ol>
 </section>
 </section>
@@ -741,30 +741,30 @@ The sum of the potential energies is the effective potential energy, <span class
 </div>
 </aside>
 <div class="math notranslate nohighlight" id="equation-l3-7a">
-<span class="eqno">(86)<a class="headerlink" href="#equation-l3-7a" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2} v^2-\frac{\mu}{r}\\
+<span class="eqno">(87)<a class="headerlink" href="#equation-l3-7a" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2} v^2-\frac{\mu}{r}\\
 &amp;= \frac{1}{2} \dot{r^2} + \frac{1}{2}  \frac{h^2}{r^2} - \frac{\mu}{r}\\
 &amp;= \frac{1}{2} \dot{r^2} + \phi_{eff}\end{split}\]</div>
-<p>At perigee, <span class="math notranslate nohighlight">\(r_p\)</span>, and apogee, <span class="math notranslate nohighlight">\(r_a\)</span>, the velocity term (in Equation <a class="reference internal" href="#equation-l3-7a">(86)</a>) <span class="math notranslate nohighlight">\(\dot r = 0\)</span> so
+<p>At perigee, <span class="math notranslate nohighlight">\(r_p\)</span>, and apogee, <span class="math notranslate nohighlight">\(r_a\)</span>, the velocity term (in Equation <a class="reference internal" href="#equation-l3-7a">(87)</a>) <span class="math notranslate nohighlight">\(\dot r = 0\)</span> so
 <span class="math notranslate nohighlight">\(E=\phi_{eff}\)</span>. Thus, we can derive an equation for the specific orbital energy as a function of <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>We make use of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(p\)</span> defined in Equations <a class="reference internal" href="#equation-l3-7">(85)</a> and <a class="reference internal" href="#equation-l3-5b">(83)</a>, respectively.</p>
+<p>We make use of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(p\)</span> defined in Equations <a class="reference internal" href="#equation-l3-7">(86)</a> and <a class="reference internal" href="#equation-l3-5b">(84)</a>, respectively.</p>
 </div>
 </aside>
 <div class="math notranslate nohighlight" id="equation-l3-8">
-<span class="eqno">(87)<a class="headerlink" href="#equation-l3-8" title="Permalink to this equation">#</a></span>\[\begin{split}E({r_p})&amp;=\phi_{eff}({r_p})\\
+<span class="eqno">(88)<a class="headerlink" href="#equation-l3-8" title="Permalink to this equation">#</a></span>\[\begin{split}E({r_p})&amp;=\phi_{eff}({r_p})\\
 &amp;= \frac{1}{2} \frac{h^2}{r_p^2} - \frac{\mu}{r_p}\\
 &amp;= \frac{1}{2} \frac{\mu p}{r_p^2} - \frac{\mu}{r_p}\\
 &amp;= -\frac{\mu(1-e)}{2a (1-e)}\\
 E&amp;=-\frac{\mu}{2a}\end{split}\]</div>
 <p>The specific orbital energy is thus solely a function of <span class="math notranslate nohighlight">\(a\)</span>. Orbits with the same semi-major axis have the same specific orbital energy.</p>
-<p>The <strong>Vis-Viva Equation</strong> is  obtained by equating Equations <a class="reference internal" href="#equation-l3-7">(85)</a> and <a class="reference internal" href="#equation-l3-8">(87)</a> as</p>
+<p>The <strong>Vis-Viva Equation</strong> is  obtained by equating Equations <a class="reference internal" href="#equation-l3-7">(86)</a> and <a class="reference internal" href="#equation-l3-8">(88)</a> as</p>
 <div class="important admonition">
 <p class="admonition-title">Vis Viva Equation</p>
 <div class="math notranslate nohighlight" id="equation-l3-9">
-<span class="eqno">(88)<a class="headerlink" href="#equation-l3-9" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2 - \frac{\mu}{r}= -\frac{\mu}{2a}\]</div>
+<span class="eqno">(89)<a class="headerlink" href="#equation-l3-9" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2 - \frac{\mu}{r}= -\frac{\mu}{2a}\]</div>
 </div>
 </section>
 <section id="conclusion">
@@ -772,7 +772,7 @@ E&amp;=-\frac{\mu}{2a}\end{split}\]</div>
 <ul class="simple">
 <li><p>The eccentricity vector is a constant vector in orbital mechanics.</p></li>
 <li><p>The orbit equation describes different conic sections based on the magnitude of the eccentricity vector.</p></li>
-<li><p>The Vis Viva equation <a class="reference internal" href="#equation-l3-9">(88)</a> is a crucial tool in mission planning for calculating velocities at various points in an orbit.</p></li>
+<li><p>The Vis Viva equation <a class="reference internal" href="#equation-l3-9">(89)</a> is a crucial tool in mission planning for calculating velocities at various points in an orbit.</p></li>
 </ul>
 </section>
 </section>
