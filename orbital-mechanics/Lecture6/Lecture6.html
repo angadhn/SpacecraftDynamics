@@ -568,14 +568,14 @@ document.write(`
 <li><p><strong>Orbital Parameters</strong></p></li>
 </ol>
 <ul>
-<li><p>Calculate the semi-major axis <span class="math notranslate nohighlight">\(a\)</span> from the Vis-Viva equation <code class="xref eq docutils literal notranslate"><span class="pre">L3_10</span></code>:</p>
+<li><p>Calculate the semi-major axis <span class="math notranslate nohighlight">\(a\)</span> from the Vis-Viva equation, given by Equation <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-9">(89)</a>:</p>
 <div class="math notranslate nohighlight">
-\[a = \frac{\mu}{2\epsilon}
-\]</div>
+\[\frac{1}{2}v^2 - \frac{\mu}{r}= -\frac{\mu}{2a}
+&lt;!-- a = \frac{\mu}{2\epsilon} --&gt;\]</div>
 </li>
 </ul>
 <ul>
-<li><p>Compute the eccentricity <span class="math notranslate nohighlight">\(e\)</span> <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-2">(79)</a> from:</p>
+<li><p>Compute the eccentricity <span class="math notranslate nohighlight">\(e\)</span> (see Equation <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-2">(79)</a>):</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{e} = \frac{\mathbf{v} \times \mathbf{h}}{\mu} - \frac{\mathbf{r}}{|\mathbf{r}|}\]</div>
 </li>
@@ -583,17 +583,17 @@ document.write(`
 <ul>
 <li><p>Compute the inclination <span class="math notranslate nohighlight">\(i\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-1">
-<span class="eqno">(147)<a class="headerlink" href="#equation-l6-1" title="Permalink to this equation">#</a></span>\[\mathbf{h_z}=\mathbf{h}\cos \left( i \right)\]</div>
+<span class="eqno">(147)<a class="headerlink" href="#equation-l6-1" title="Permalink to this equation">#</a></span>\[h_z=h \cos i\]</div>
 </li>
 </ul>
 <ul>
-<li><p>Compute the right ascension of the ascending node <span class="math notranslate nohighlight">\(\Omega\)</span> from:</p>
+<li><p>Compute the line of nodes from <span class="math notranslate nohighlight">\({\mathbf{n}} = \hat{\mathbf k} \times {\mathbf h}\)</span> and then the right ascension of the ascending node <span class="math notranslate nohighlight">\(\Omega\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-2">
-<span class="eqno">(148)<a class="headerlink" href="#equation-l6-2" title="Permalink to this equation">#</a></span>\[\cos \left(\Omega\right)= \frac{n_y}{|\mathbf{n}|}\]</div>
-<p>Determine the correct quadrant:</p>
+<span class="eqno">(148)<a class="headerlink" href="#equation-l6-2" title="Permalink to this equation">#</a></span>\[n_x = n \cos \Omega\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_x\)</span> is the x-component of <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> and <span class="math notranslate nohighlight">\(n\)</span> is the magnitude of <span class="math notranslate nohighlight">\(\mathbf{n}\)</span>. The following logic determines the correct quadrant for <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
 <ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(n_y \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega \in [0, 180^\circ]\)</span></p></li>
-<li><p>If <span class="math notranslate nohighlight">\(n_y &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega = 360^\circ - \cos^{-1} \left( \frac{n_x}{|\mathbf{n}|} \right)\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(n_y \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega = \cos^{-1} \left( \frac{n_x}{n} \right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\Omega \in [0, 180^\circ]\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(n_y &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega = 360^\circ - \cos^{-1} \left( \frac{n_x}{n} \right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\Omega \in (180^\circ, 360^\circ)\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -601,10 +601,10 @@ document.write(`
 <li><p>Compute the argument of perigee <span class="math notranslate nohighlight">\(\omega\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-3">
 <span class="eqno">(149)<a class="headerlink" href="#equation-l6-3" title="Permalink to this equation">#</a></span>\[\cos \left(\omega\right) = \frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}| |\mathbf{e}|}\]</div>
-<p>Determine the correct quadrant:</p>
+<p>To determine the correct quadrant for <span class="math notranslate nohighlight">\(\omega\)</span>, one examines the sign of <span class="math notranslate nohighlight">\(e_z\)</span>, the z-component of the eccentricity vector <span class="math notranslate nohighlight">\(\mathbf{e}\)</span>:</p>
 <ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(e_z \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\omega \in [0, 180^\circ]\)</span></p></li>
-<li><p>If <span class="math notranslate nohighlight">\(e_z &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\omega = 360^\circ - \cos^{-1}\left(\frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}||\mathbf{e}|}\right)\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(e_z \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\omega = \cos^{-1}\left(\frac{\mathbf{n} \cdot \mathbf{e}}{ne}\right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\omega \in [0, 180^\circ]\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(e_z &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\omega = 360^\circ - \cos^{-1}\left(\frac{\mathbf{n} \cdot \mathbf{e}}{ne}\right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\omega \in (180^\circ, 360^\circ)\)</span>.</p></li>
 </ul>
 </li>
 </ul>
@@ -612,21 +612,23 @@ document.write(`
 <li><p>Compute the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-4">
 <span class="eqno">(150)<a class="headerlink" href="#equation-l6-4" title="Permalink to this equation">#</a></span>\[\mathbf{r}\cdot\mathbf{e} = |\mathbf{r}||\mathbf{e}|\cos \left( \theta \right)\]</div>
-<p>Determine the correct quadrant:
-Need to calculate <span class="math notranslate nohighlight">\(v_r = \mathbf{v}\cdot\hat{r}\)</span></p>
+<p>To determine the correct quadrant for <span class="math notranslate nohighlight">\(\theta\)</span>, one needs to calculate <span class="math notranslate nohighlight">\(v_r = \mathbf{v}\cdot\hat{\mathbf{r}}\)</span>:</p>
 <ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(v_r \geq 0, \theta = \cos^{-1}\left(\frac{\mathbf{r}\cdot\mathbf{e}}{|\mathbf{r}||\mathbf{e}|}\right)\)</span></p></li>
-<li><p>If <span class="math notranslate nohighlight">\(v_r &lt; 0, \theta = 360^\circ - \cos^{-1}\left(\frac{\mathbf{r} \cdot \mathbf{e}} {|\mathbf{e}||\mathbf{r}|}\right)\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(v_r \geq 0, \theta = \cos^{-1}\left(\frac{\mathbf{r}\cdot\mathbf{e}}{|\mathbf{r}||\mathbf{e}|}\right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\theta \in [0, 180^\circ]\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(v_r &lt; 0, \theta = 360^\circ - \cos^{-1}\left(\frac{\mathbf{r} \cdot \mathbf{e}} {|\mathbf{e}||\mathbf{r}|}\right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\theta \in (180^\circ, 360^\circ)\)</span>.</p></li>
 </ul>
 </li>
 </ul>
-<p><strong>Note:</strong> Orbital parameters can be singular in certain conditions!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Orbital parameters can be singular in certain conditions!</p>
+</div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="rotation-matrix-direction-cosines-matrix">
 <span id="content-rotation-matrix-elements"></span><h1>Rotation Matrix (Direction Cosines Matrix)<a class="headerlink" href="#rotation-matrix-direction-cosines-matrix" title="Permalink to this heading">#</a></h1>
 <figure class="align-center" id="fig1">
-<a class="reference internal image-reference" href="../../_images/reference_frames_L6.png"><img alt="../../_images/reference_frames_L6.png" src="../../_images/reference_frames_L6.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../../_images/reference_frames_L6.png"><img alt="../../_images/reference_frames_L6.png" src="../../_images/reference_frames_L6.png" style="width: 50%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 19 </span><span class="caption-text">Shows the two different reference frames, before transformation in black and after in green.</span><a class="headerlink" href="#fig1" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -704,7 +706,7 @@ A_x(\alpha) =
 <li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\mathbf{\omega}=\alpha\mathbf{\hat{I}}\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="fig2">
-<a class="reference internal image-reference" href="../../_images/rotation_about_I_L6.png"><img alt="../../_images/rotation_about_I_L6.png" src="../../_images/rotation_about_I_L6.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../../_images/rotation_about_I_L6.png"><img alt="../../_images/rotation_about_I_L6.png" src="../../_images/rotation_about_I_L6.png" style="width: 45%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 20 </span><span class="caption-text">Shows a rotation about x-axis, before transformation in black and after in green.</span><a class="headerlink" href="#fig2" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -725,7 +727,7 @@ A_y(\alpha) =
 <li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\mathbf{\omega}=\alpha\mathbf{\hat{J}}\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="fig3">
-<a class="reference internal image-reference" href="../../_images/rotation_about_J_L6.png"><img alt="../../_images/rotation_about_J_L6.png" src="../../_images/rotation_about_J_L6.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../../_images/rotation_about_J_L6.png"><img alt="../../_images/rotation_about_J_L6.png" src="../../_images/rotation_about_J_L6.png" style="width: 45%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 21 </span><span class="caption-text">Shows a rotation about y-axis, before transformation in black and after in green.</span><a class="headerlink" href="#fig3" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -746,7 +748,7 @@ A_z(\alpha) =
 <li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\mathbf{\omega}=\alpha\mathbf{\hat{K}}\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="fig4">
-<a class="reference internal image-reference" href="../../_images/rotation_about_K_L6.png"><img alt="../../_images/rotation_about_K_L6.png" src="../../_images/rotation_about_K_L6.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="../../_images/rotation_about_K_L6.png"><img alt="../../_images/rotation_about_K_L6.png" src="../../_images/rotation_about_K_L6.png" style="width: 45%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 22 </span><span class="caption-text">Shows a rotation about z-axis, before transformation in black and after in green.</span><a class="headerlink" href="#fig4" title="Permalink to this image">#</a></p>
 </figcaption>
