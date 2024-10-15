@@ -185,6 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Orbital Elements (Part 1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Determining Orbital Paths</a></li>
 
@@ -521,13 +522,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-velocity-component">Determination of Velocity Component</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flight-path-angle">Flight Path Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-velocity-component">Determination of Velocity Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flight-path-angle">Flight Path Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perifocal-frame">The Perifocal Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-vector-in-the-perifocal-frame">Position Vector in the Perifocal Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-vector-in-the-perifocal-frame">Velocity Vector in the Perifocal Frame</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perifocal-frame">The Perifocal Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eci-reference-frame">The ECI Reference Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-orbital-parameters">Classical Orbital Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-orbital-parameters">Classical Orbital Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-orientiation-of-the-plane">1. The Orientiation of the Plane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-direction-of-perigee">2. The Direction of Perigee</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -551,150 +558,193 @@ document.write(`
 </ol>
 <section id="determination-of-velocity-component">
 <span id="content-determination-of-velocity-component"></span><h2>Determination of Velocity Component<a class="headerlink" href="#determination-of-velocity-component" title="Permalink to this heading">#</a></h2>
-<p>In polar coordinates, the velocity vector is expressed as:</p>
+<p>Recall from Equations <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l2-polar-velocity-vectors">(47)</a> and <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l2-21">(53)</a> that, the polar coordinate form of the velocity vector can be written in various forms:</p>
 <div class="math notranslate nohighlight" id="equation-l5-1">
-<span class="eqno">(128)<a class="headerlink" href="#equation-l5-1" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \dot{\mathbf{r}} = v_r \mathbf{e}_r + v_\theta \mathbf{e}_\theta = \dot{r} \mathbf{e}_r + r \dot{\theta} \mathbf{e}_\theta\]</div>
-<p>Recalling the <strong>equation of the orbit</strong> based on the semi-latus rectum (<span class="math notranslate nohighlight">\(p\)</span>) is:</p>
+<span class="eqno">(128)<a class="headerlink" href="#equation-l5-1" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{v} &amp;= \dot{\mathbf{r}}\\ 
+&amp;= v_r \mathbf{e}_r + v_\theta \mathbf{e}_\theta\\
+&amp;= \dot{r} \mathbf{e}_r + r \dot{\theta} \mathbf{e}_\theta\end{split}\]</div>
+<p>Also recall that the <strong>equation of the orbit</strong> when given the semi-latus rectum (<span class="math notranslate nohighlight">\(p\)</span>), is given by Equation <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-5a">(83)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-l5-2">
-<span class="eqno">(129)<a class="headerlink" href="#equation-l5-2" title="Permalink to this equation">#</a></span>\[r = \frac{p}{1 + e \cos \left(\theta\right)}\]</div>
-<p>To find its derivative, we first differentiate <span class="math notranslate nohighlight">\(r\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span> and then multiply by <span class="math notranslate nohighlight">\(\dot \theta\)</span> (using the the chain rule):</p>
+<span class="eqno">(129)<a class="headerlink" href="#equation-l5-2" title="Permalink to this equation">#</a></span>\[r = \frac{p}{1 + e \cos\theta}\]</div>
+<p>which can also be used to compute velocity (its magnitude). We do so using the chain rule, differentating <span class="math notranslate nohighlight">\(r\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span> and then multiplying by <span class="math notranslate nohighlight">\(\dot \theta\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\dot{r} = \frac{dr}{dt} = \frac{dr}{d\theta} \frac{d\theta}{dt}\]</div>
-<p>To differentiate <span class="math notranslate nohighlight">\(r\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span>, we substitute <span class="math notranslate nohighlight">\(u= 1 + e \cos (\theta)\)</span>, so <span class="math notranslate nohighlight">\(r\)</span> becomes:</p>
+\[\begin{split}\dot{r} &amp;= \frac{dr}{dt}\\
+&amp;= \frac{\mathrm{d} r}{\mathrm{d} \theta} \frac{\mathrm{d} \theta}{\mathrm{d} t}\end{split}\]</div>
+<p>To differentiate <span class="math notranslate nohighlight">\(r\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span>, we define <span class="math notranslate nohighlight">\(u \triangleq 1 + e \cos \theta\)</span> which allows us to rewrite <span class="math notranslate nohighlight">\(r\)</span> as:</p>
 <div class="math notranslate nohighlight">
 \[r = \frac{p}{u}\]</div>
-<p>Applying chain rule:</p>
+<p>that allows us to again apply the chain rule:</p>
+<div class="math notranslate nohighlight" id="equation-l5-2a">
+<span class="eqno">(130)<a class="headerlink" href="#equation-l5-2a" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} r}{\mathrm{d} \theta} = \frac{\mathrm{d} r}{\mathrm{d} u} \frac{\mathrm{d} u}{\mathrm{d} \theta}\]</div>
+<p>where:</p>
 <div class="math notranslate nohighlight">
-\[\frac{dr}{d\theta} = \frac{dr}{du} \frac{du}{d\theta}\]</div>
+\[\frac{\mathrm{d} r}{\mathrm{d} u} = \frac{-p}{u^2}\]</div>
+<p>and:</p>
 <div class="math notranslate nohighlight">
-\[\frac{dr}{du} = \frac{-p}{u^2}\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{du}{d\theta} = -e \sin(\theta)\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{dr}{d\theta} = \left[\frac{-p}{u^2}\right] \left[-e \sin(\theta)\right]\]</div>
-<p>Substituting back <span class="math notranslate nohighlight">\(u = 1 + e \cos \left(\theta\right)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dr}{d\theta} = \left[\frac{-p}{\left(1 + e \cos \left(\theta\right)\right)^2}\right] \left[-e \sin \left(\theta\right)\right] = \frac{pe \sin \left(\theta\right)}{\left(1 + e \cos \left(\theta\right)\right)^2}\]</div>
+\[\frac{\mathrm{d} u}{\mathrm{d} \theta} = -e \sin\theta\]</div>
+<p>thus giving us in Equation <a class="reference internal" href="#equation-l5-2a">(130)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-l5-2b">
+<span class="eqno">(131)<a class="headerlink" href="#equation-l5-2b" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} r}{\mathrm{d} \theta} = \frac{p}{u^2} e \sin\theta\]</div>
+<p>which, after substituting back <span class="math notranslate nohighlight">\(u = 1 + e \cos \theta\)</span>, gives us:</p>
+<div class="math notranslate nohighlight" id="equation-l5-2c">
+<span class="eqno">(132)<a class="headerlink" href="#equation-l5-2c" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} r}{\mathrm{d} \theta} = \frac{pe \sin \theta}{\left(1 + e \cos \theta\right)^2}\]</div>
 <p>This results in the following derivative of Equation <a class="reference internal" href="#equation-l5-2">(129)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-l5-3">
-<span class="eqno">(130)<a class="headerlink" href="#equation-l5-3" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{pe \sin \left(\theta\right)}{\left(1 + e \cos \left(\theta\right)\right)^2} \dot{\theta}\]</div>
-<p>By substituting Equation <a class="reference internal" href="#equation-l5-2">(129)</a> into <a class="reference internal" href="#equation-l5-3">(130)</a>,</p>
+<span class="eqno">(133)<a class="headerlink" href="#equation-l5-3" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{pe \sin \theta}{\left(1 + e \cos \theta\right)^2} \dot{\theta}\]</div>
+<p>Substituting Equation <a class="reference internal" href="#equation-l5-2">(129)</a> into <a class="reference internal" href="#equation-l5-3">(133)</a> gives us:</p>
 <div class="math notranslate nohighlight" id="equation-l5-4">
-<span class="eqno">(131)<a class="headerlink" href="#equation-l5-4" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{r^2 \dot{\theta}}{p} e \sin \left(\theta\right)\]</div>
-<p>Since <span class="math notranslate nohighlight">\(h = r^2\dot\theta\)</span> and <span class="math notranslate nohighlight">\(p = h^2/\mu\)</span>, the above can be expressed as:</p>
+<span class="eqno">(134)<a class="headerlink" href="#equation-l5-4" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{r^2 \dot{\theta}}{p} e \sin \theta\]</div>
+<p>which, given <span class="math notranslate nohighlight">\(h = r^2\dot\theta\)</span> and <span class="math notranslate nohighlight">\(p = h^2/\mu\)</span>, can be expressed as:</p>
 <div class="math notranslate nohighlight" id="equation-l5-5">
-<span class="eqno">(132)<a class="headerlink" href="#equation-l5-5" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{h}{\frac{h^2}{\mu}} e \sin \left(\theta\right) = \frac{\mu}{h} e \sin \left(\theta\right)\]</div>
-<p>From Equation <a class="reference internal" href="#equation-l5-1">(128)</a>, the radial component of velocity is simply <span class="math notranslate nohighlight">\(\dot r\)</span>:</p>
+<span class="eqno">(135)<a class="headerlink" href="#equation-l5-5" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{\mu}{h} e \sin \theta\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Expressions for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span></p>
+<p>From Equation <a class="reference internal" href="#equation-l5-1">(128)</a>, the radial component of velocity is simply <span class="math notranslate nohighlight">\(\dot r\)</span>. So:</p>
 <div class="math notranslate nohighlight" id="equation-l5-6">
-<span class="eqno">(133)<a class="headerlink" href="#equation-l5-6" title="Permalink to this equation">#</a></span>\[v_r = \dot{r} = \frac{\mu}{h} e \sin \left(\theta\right)\]</div>
-<p>Likewise, the tangential component is simply <span class="math notranslate nohighlight">\(r \dot{\theta}\)</span> and since <span class="math notranslate nohighlight">\(h = r^2 \dot{\theta}\)</span>:</p>
+<span class="eqno">(136)<a class="headerlink" href="#equation-l5-6" title="Permalink to this equation">#</a></span>\[v_r = \dot{r} = \frac{\mu}{h} e \sin \theta\]</div>
+<p>Similarly, the tangential component is simply <span class="math notranslate nohighlight">\(r \dot{\theta}\)</span> and since <span class="math notranslate nohighlight">\(h = r^2 \dot{\theta}\)</span>, we get:</p>
 <div class="math notranslate nohighlight" id="equation-l5-7">
-<span class="eqno">(134)<a class="headerlink" href="#equation-l5-7" title="Permalink to this equation">#</a></span>\[v_\theta = r \dot{\theta} = \frac{h}{r} = \frac{h \left(1 + e \cos \left(\theta\right)\right)}{h^2 / \mu} = \frac{\mu}{h} \left(1 + e \cos \left(\theta\right)\right)\]</div>
-<p><strong>Note:</strong> These derivations are valid for all <span class="math notranslate nohighlight">\(e\)</span>, not only for ellipses.</p>
+<span class="eqno">(137)<a class="headerlink" href="#equation-l5-7" title="Permalink to this equation">#</a></span>\[v_\theta = r \dot{\theta} = \frac{h}{r} = \frac{h \left(1 + e \cos \theta\right)}{h^2 / \mu} = \frac{\mu}{h} \left(1 + e \cos \theta\right)\]</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>These derivations are valid for all <span class="math notranslate nohighlight">\(e\)</span>, not only for ellipses.</p>
+</div>
+</section>
 <section id="flight-path-angle">
-<h3>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this heading">#</a></h3>
-<figure class="align-center" id="fig1">
+<h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this heading">#</a></h2>
+<p>Using the expressions for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> derived above, we can define the flight path angle, denoted by <span class="math notranslate nohighlight">\(\gamma\)</span>, which is shown in the schematic below:</p>
+<figure class="align-center" id="fig5-1">
 <a class="reference internal image-reference" href="../../_images/L5fig1.png"><img alt="../../_images/L5fig1.png" src="../../_images/L5fig1.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text"><strong>Figure 1:</strong> Illustration of an orbital path in polar coordinates showing the radial and tangential components of velocity.</span><a class="headerlink" href="#fig1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Polar coordinate velocity components and the flight path angle.</span><a class="headerlink" href="#fig5-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In the above figure, the angle marked <span class="math notranslate nohighlight">\(\gamma\)</span> is the <strong>flight path angle</strong>; the angle between the tangential component and the resultant velocity vector. A trigonometric relationship for the flight path angle can be expressed as follows:</p>
+<p>In the above figure, the angle marked <span class="math notranslate nohighlight">\(\gamma\)</span> is the <strong>flight path angle</strong>; the angle between the tangential velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}_\theta\)</span> and the velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>. A trigonometric relationship between the flight path angle and the velocity components can be expressed using <a class="reference internal" href="#fig5-1"><span class="std std-numref">Fig. 12</span></a>:</p>
 <div class="math notranslate nohighlight" id="equation-l5-8">
-<span class="eqno">(135)<a class="headerlink" href="#equation-l5-8" title="Permalink to this equation">#</a></span>\[\tan \left(\gamma\right) = \frac{v_r}{v_\theta}\]</div>
-<p>By substituting Equations <a class="reference internal" href="#equation-l5-6">(133)</a> and <a class="reference internal" href="#equation-l5-7">(134)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively and simplifying, we obtain:</p>
+<span class="eqno">(138)<a class="headerlink" href="#equation-l5-8" title="Permalink to this equation">#</a></span>\[\tan \gamma = \frac{v_r}{v_\theta}\]</div>
+<p>By substituting Equations <a class="reference internal" href="#equation-l5-6">(136)</a> and <a class="reference internal" href="#equation-l5-7">(137)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively and simplifying, we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-l5-9">
-<span class="eqno">(136)<a class="headerlink" href="#equation-l5-9" title="Permalink to this equation">#</a></span>\[\tan \left(\gamma\right) = \frac{e \sin \left(\theta\right)}{1 + \cos \left(\theta\right)}\]</div>
-<p><strong>Additionally,</strong></p>
+<span class="eqno">(139)<a class="headerlink" href="#equation-l5-9" title="Permalink to this equation">#</a></span>\[\tan \gamma = \frac{e \sin \theta}{1 + \cos \theta}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Additionally, we can make the following observations:</p>
 <ol class="arabic simple">
 <li><p>Tangential Component, <span class="math notranslate nohighlight">\(v_\theta\)</span></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(v_\theta &gt;= 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_\theta \geq 0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(v_\theta\)</span> is at its maximum when <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> (perigee)</p></li>
 <li><p><span class="math notranslate nohighlight">\(v_\theta\)</span> is at its minimum when <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> (apogee)</p></li>
 </ul>
 </li>
 <li><p>Radial Component, <span class="math notranslate nohighlight">\(v_r\)</span></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(v_r &gt;= 0\)</span> when <span class="math notranslate nohighlight">\(0^\circ &lt;= \theta &lt;= 180^\circ\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_r \geq 0\)</span> when <span class="math notranslate nohighlight">\(0^\circ \leq \theta \leq 180^\circ\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(v_r &lt; 0\)</span> when <span class="math notranslate nohighlight">\(180^\circ &lt; \theta &lt; 360^\circ\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(v_r = 0\)</span> at <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> (perigee) and <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> (apogee). At these points, the motion is purely tangential.</p></li>
 </ul>
 </li>
 </ol>
-</section>
+</div>
 </section>
 <section id="the-perifocal-frame">
 <span id="content-the-perifocal-frame"></span><h2>The Perifocal Frame<a class="headerlink" href="#the-perifocal-frame" title="Permalink to this heading">#</a></h2>
-<p>The unit vectors (<span class="math notranslate nohighlight">\(\mathbf{\hat{e}}_r\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\hat{e}}_\theta\)</span>) in the polar coordinate system change along the orbital path, varying from point to point. To establish a more stable reference frame, we can create a new inertial perifocal frame using three mutually perpendicular vectors that remain fixed relative to the orbital path.</p>
+<p>The unit vectors (<span class="math notranslate nohighlight">\(\mathbf{\hat{e}}_r\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\hat{e}}_\theta\)</span>) in the polar coordinate system change along the orbital path, varying from point to point. A non-accelerating (i.e., inertial) reference frame can be established using three mutually perpendicular vectors that remain fixed relative to the orbital path. We have actually already identified two of these over the course of the previous discussions; they are</p>
 <p><strong>Recall:</strong></p>
 <ul class="simple">
-<li><p>The specific angular momentum vector (<span class="math notranslate nohighlight">\(\mathbf{h}\)</span>) is a constant and is orthogonal to the plane of motion (i.e., pointing out of the plane).</p></li>
-<li><p>The eccentricity vector (<span class="math notranslate nohighlight">\(\mathbf{e}\)</span>) is in the plane of motion and in the direction of perigee.</p></li>
+<li><p>The specific angular momentum vector (<span class="math notranslate nohighlight">\(\mathbf{h}\)</span>) is a constant and is orthogonal to the plane of motion (i.e., the orbital plane).</p></li>
+<li><p>The eccentricity vector (<span class="math notranslate nohighlight">\(\mathbf{e}\)</span>) lies in the plane of motion and is directed towards the perigee.</p></li>
 </ul>
-<figure class="align-center" id="id1">
+<p>A third vector, <span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>, can be defined as the cross product of <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> which together with <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> forms a set of three mutually perpendicular vectors. This set of vectors constitutes a frame fixed in the orbit known as the ** perifocal frame** and is illustrated in <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 13</span></a>.</p>
+<figure class="align-center" id="fig5-2">
 <a class="reference internal image-reference" href="../../_images/L5fig2.png"><img alt="../../_images/L5fig2.png" src="../../_images/L5fig2.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Illustration of an elliptical orbit with the perifocal reference frame.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Illustration of an elliptical orbit with the perifocal reference frame.</span><a class="headerlink" href="#fig5-2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Creating the Perifocal Frame:</strong></p>
-<p>The following three vectors form a fixed, inertial reference frame, centered at the focus of the orbit:</p>
+<p>The following three unit vectors form an inertial reference frame, centered at the focus of the orbit:</p>
 <ol class="arabic simple">
 <li><p>The first vector, <span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span>, is the unit vector in the direction of the eccentricity vector (<span class="math notranslate nohighlight">\(\mathbf{e}\)</span>).</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-l5-10">
-<span class="eqno">(137)<a class="headerlink" href="#equation-l5-10" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{p}} = \frac{\mathbf{e}}{|\mathbf{e}|} = \frac{\mathbf{e}}{e}\]</div>
+<span class="eqno">(140)<a class="headerlink" href="#equation-l5-10" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{p}} = \frac{\mathbf{e}}{|\mathbf{e}|} = \frac{\mathbf{e}}{e}\]</div>
 <ol class="arabic simple" start="2">
 <li><p>The second vector,  <span class="math notranslate nohighlight">\(\mathbf{\hat{w}}\)</span>, is the unit vector in the direction of the specific angular momentum vector (<span class="math notranslate nohighlight">\(\mathbf{h}\)</span>), perpendicular to the plane of motion.</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-l5-11">
-<span class="eqno">(138)<a class="headerlink" href="#equation-l5-11" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{w}} = \frac{\mathbf{h}}{\left|\mathbf{h}\right|} = \frac{\mathbf{h}}{h}\]</div>
+<span class="eqno">(141)<a class="headerlink" href="#equation-l5-11" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{w}} = \frac{\mathbf{h}}{\left|\mathbf{h}\right|} = \frac{\mathbf{h}}{h}\]</div>
 <ol class="arabic simple" start="3">
 <li><p>The third vector,  <span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>, is obtained by taking the cross product of  <span class="math notranslate nohighlight">\(\mathbf{\hat{w}}\)</span> and  <span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span>. Recall that the cross product of two vectors yields a vector that is perpendicular to both, ensuring that (<span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span>,<span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>,<span class="math notranslate nohighlight">\(\mathbf{\hat{w}}\)</span>) is a set of three mutually perpendicular vectors.</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-l5-12">
-<span class="eqno">(139)<a class="headerlink" href="#equation-l5-12" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{q}} = \mathbf{\hat{w}} \times \mathbf{\hat{p}}\]</div>
-<p><strong>Position Vector in the Perifocal Frame:</strong></p>
-<p>From Figure 2,</p>
+<span class="eqno">(142)<a class="headerlink" href="#equation-l5-12" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{q}} = \mathbf{\hat{w}} \times \mathbf{\hat{p}}\]</div>
+<section id="position-vector-in-the-perifocal-frame">
+<h3>Position Vector in the Perifocal Frame<a class="headerlink" href="#position-vector-in-the-perifocal-frame" title="Permalink to this heading">#</a></h3>
+<p>From <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 13</span></a>,</p>
 <div class="math notranslate nohighlight" id="equation-l5-13">
-<span class="eqno">(140)<a class="headerlink" href="#equation-l5-13" title="Permalink to this equation">#</a></span>\[\mathbf{r} = r \cos(\theta) \mathbf{\hat{p}} + r \sin(\theta) \mathbf{\hat{q}}\]</div>
-<p>By substituting Equation <a class="reference internal" href="#equation-l5-2">(129)</a> for <span class="math notranslate nohighlight">\(r\)</span> into the above equation and using the definition <span class="math notranslate nohighlight">\(p = \frac{h^2}{\mu}\)</span>, we obtain:</p>
+<span class="eqno">(143)<a class="headerlink" href="#equation-l5-13" title="Permalink to this equation">#</a></span>\[\mathbf{r} = r \cos\theta \mathbf{\hat{p}} + r \sin\theta \mathbf{\hat{q}}\]</div>
+<div class="important admonition">
+<p class="admonition-title">Position Vector in the Perifocal Frame</p>
+<p>By substituting Equation <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-4">(81)</a> for <span class="math notranslate nohighlight">\(r\)</span> into the above equation, we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-l5-14">
-<span class="eqno">(141)<a class="headerlink" href="#equation-l5-14" title="Permalink to this equation">#</a></span>\[\mathbf{r} = \frac{h^2 / \mu}{1 + e \cos(\theta)} \left[ \cos(\theta) \mathbf{\hat{p}} + \sin(\theta) \mathbf{\hat{q}} \right]\]</div>
-<p><strong>Velocity Vector in the Perifocal Frame:</strong></p>
-<p>The velocity vector (in the perifocal frame) is obtained by differentiating the position vector (in the perifocal frame), Equation <a class="reference internal" href="#equation-l5-13">(140)</a>, with respect to time.</p>
+<span class="eqno">(144)<a class="headerlink" href="#equation-l5-14" title="Permalink to this equation">#</a></span>\[\mathbf{r} = \frac{h^2 / \mu}{1 + e \cos\theta} \left( \cos\theta \mathbf{\hat{p}} + \sin\theta \mathbf{\hat{q}} \right)\]</div>
+</div>
+</section>
+<section id="velocity-vector-in-the-perifocal-frame">
+<h3>Velocity Vector in the Perifocal Frame<a class="headerlink" href="#velocity-vector-in-the-perifocal-frame" title="Permalink to this heading">#</a></h3>
+<p>The velocity vector can be obtained by differentiating the position vector (expressed in the perifocal frame, Equation <a class="reference internal" href="#equation-l5-14">(144)</a>), with respect to time.</p>
 <div class="math notranslate nohighlight" id="equation-l5-15">
-<span class="eqno">(142)<a class="headerlink" href="#equation-l5-15" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{d \mathbf{r}}{dt} = \frac{d}{dt} \left( r \cos(\theta) \mathbf{\hat{p}} \right) + \frac{d}{dt} \left( r \sin(\theta) \mathbf{\hat{q}} \right)\]</div>
+<span class="eqno">(145)<a class="headerlink" href="#equation-l5-15" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \frac{\mathrm{d}}{\mathrm{d} t} \left( r \cos\theta \mathbf{\hat{p}} \right) + \frac{\mathrm{d}}{\mathrm{d} t} \left( r \sin\theta \mathbf{\hat{q}} \right)\]</div>
 <p>Applying the product rule to each term:</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dt} \left( r \cos(\theta) \mathbf{\hat{p}} \right) = \dot{r} \cos(\theta) \mathbf{\hat{p}} + r \left( -\sin(\theta) \dot{\theta} \right) \mathbf{\hat{p}}\]</div>
+\[\frac{\mathrm{d}}{\mathrm{d} t} \left( r \cos\theta \mathbf{\hat{p}} \right) = \dot{r} \cos\theta \mathbf{\hat{p}} + r \left( -\sin\theta \dot{\theta} \right) \mathbf{\hat{p}}\]</div>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dt} \left( r \sin(\theta) \mathbf{\hat{q}} \right) = \dot{r} \sin(\theta) \mathbf{\hat{q}} + r \left( \cos(\theta) \dot{\theta} \right) \mathbf{\hat{q}}\]</div>
+\[\frac{\mathrm{d}}{\mathrm{d} t} \left( r \sin\theta \mathbf{\hat{q}} \right) = \dot{r} \sin\theta \mathbf{\hat{q}} + r \left( \cos\theta \dot{\theta} \right) \mathbf{\hat{q}}\]</div>
 <p>Combining these results:</p>
 <div class="math notranslate nohighlight">
-\[\frac{d \mathbf{r}}{dt} = \left( \dot{r} \cos(\theta) - r \dot{\theta} \sin(\theta) \right) \mathbf{\hat{p}} + \left( \dot{r} \sin(\theta) + r \dot{\theta} \cos(\theta) \right) \mathbf{\hat{q}}\]</div>
+\[\frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \left( \dot{r} \cos\theta - r \dot{\theta} \sin\theta \right) \mathbf{\hat{p}} + \left( \dot{r} \sin\theta + r \dot{\theta} \cos\theta \right) \mathbf{\hat{q}}\]</div>
 <p>Recalling that, <span class="math notranslate nohighlight">\(v_r = \dot{r}\)</span> and <span class="math notranslate nohighlight">\(v_\theta = r \dot{\theta}\)</span>, from Equation <a class="reference internal" href="#equation-l5-1">(128)</a>, the expression for the velocity vector becomes:</p>
 <div class="math notranslate nohighlight">
-\[\frac{d \mathbf{r}}{dt} = \left( v_r \cos(\theta) - v_\theta \sin(\theta) \right) \mathbf{\hat{p}} + \left( v_r \sin(\theta) + v_\theta \cos(\theta) \right) \mathbf{\hat{q}}\]</div>
-<p>By subsituting Equations <a class="reference internal" href="#equation-l5-6">(133)</a> and <a class="reference internal" href="#equation-l5-7">(134)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively, and simplifying, we arrive at:</p>
+\[\frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \left( v_r \cos\theta - v_\theta \sin\theta \right) \mathbf{\hat{p}} + \left( v_r \sin\theta + v_\theta \cos\theta \right) \mathbf{\hat{q}}\]</div>
+<p>By subsituting Equations <a class="reference internal" href="#equation-l5-6">(136)</a> and <a class="reference internal" href="#equation-l5-7">(137)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively, and simplifying, we arrive at:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Note again that the velocity vector is the perifocal frame is also two-dimensional.</p>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Velocity Vector in the Perifocal Frame</p>
 <div class="math notranslate nohighlight" id="equation-l5-16">
-<span class="eqno">(143)<a class="headerlink" href="#equation-l5-16" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{d \mathbf{r}}{dt} = \frac{\mu}{h} \left( -\sin(\theta) \mathbf{\hat{p}} + \left(e + \cos(\theta) \right) \mathbf{\hat{q}} \right)\]</div>
-<p>With Equations <a class="reference internal" href="#equation-l5-14">(141)</a> and <a class="reference internal" href="#equation-l5-16">(143)</a>, we can express the position and velocity of the spacecraft in an inertial frame of reference.</p>
+<span class="eqno">(146)<a class="headerlink" href="#equation-l5-16" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \frac{\mu}{h} \left( -\sin\theta \mathbf{\hat{p}} + \left(e + \cos\theta \right) \mathbf{\hat{q}} \right)\]</div>
+</div>
+<p>With Equations <a class="reference internal" href="#equation-l5-14">(144)</a> and <a class="reference internal" href="#equation-l5-16">(146)</a>, we can express the position and velocity of the spacecraft in the perifocal frame, which is an inertial frame of reference.</p>
+</section>
 </section>
 <section id="the-eci-reference-frame">
 <span id="content-the-eci-reference-frame"></span><h2>The ECI Reference Frame<a class="headerlink" href="#the-eci-reference-frame" title="Permalink to this heading">#</a></h2>
 <p>Up to this point, we’ve described the orbit in its orbital plane, which is a 2D description. Although the perifocal frame is 3D, it is orbit-dependent. We seek a more general description. To define an inertial frame, we need:</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>An origin</p></li>
-<li><p>The direction of two fixed normal vectors (the third is automatically determined by the cross product of the two known vectors).</p></li>
-</ul>
-<p><strong>Earth Centred Interial (ECI) Frame:</strong></p>
+<li><p>The direction of two fixed normal vectors (the third is automatically determined by the cross product of the two known vectors).
+Based on this, we define the <strong>Earth Centred Interial (ECI) Frame</strong>.</p></li>
+</ol>
+<div class="important admonition">
+<p class="admonition-title">Earth Centred Interial (ECI) Frame</p>
+<p>ECI frame is an inertial frame of reference with:</p>
 <ul class="simple">
 <li><p>Origin at the Earth’s centre of mass</p></li>
 <li><p><span class="math notranslate nohighlight">\(z\)</span>-axis aligned with the Earth’s spin axis</p></li>
 <li><p><span class="math notranslate nohighlight">\(x\)</span>-axis aligned with the first the <strong>First Point of Aries</strong>, <span class="math notranslate nohighlight">\(\gamma\)</span></p></li>
 </ul>
+</div>
+<p><strong>Key Terms:</strong></p>
+<ul class="simple">
+<li><p>Ecliptic Plane: the plane of the Earth’s orbit around the Sun</p></li>
+<li><p>Equatorial Plane: the imaginary plane extending outwards from the Earth’s celestial equator</p></li>
+<li><p><strong>Vernal Equinox</strong>:  the intersection line of the Earth’s equatorial plane and the ecliptic plane, indicating the direction of the First Point of Aries</p></li>
+<li><p>Obliquity (<span class="math notranslate nohighlight">\(\epsilon\)</span>): the angle between the Earth’s spin axis (normal to the equatorial plane) and the normal to the ecliptic plane</p></li>
+</ul>
+<p>These are illustrated in <a class="reference internal" href="#l5-fig3"><span class="std std-numref">Fig. 14</span></a>.</p>
 <figure class="align-center" id="l5-fig3">
 <a class="reference internal image-reference" href="../../_images/L5fig3.png"><img alt="../../_images/L5fig3.png" src="../../_images/L5fig3.png" style="width: 80%;" /></a>
 <figcaption>
@@ -706,12 +756,9 @@ document.write(`
     <img src="images/L5fig3.png" alt="Figure 3" style="width:60%;">
     <p><strong>Figure 3:</strong> Diagram of the Earth's orbit around the Sun, showing the ecliptic and equatorial planes (the plane formed when the green line is extended radially outwards), the direction of the First Point of Aries, and the obliquity angle. 
 </p>
-</div> --><p><strong>Key Terms:</strong></p>
-<ul class="simple">
-<li><p>Ecliptic Plane: the plane of the Earth’s orbit around the Sun</p></li>
-<li><p>Equatorial Plane: the imaginary plane extending outwards from the Earth’s celestial equator</p></li>
-<li><p><strong>Vernal Equinox</strong>:  the intersection line of the Earth’s equatorial plane and the ecliptic plane, indicating the direction of the First Point of Aries</p></li>
-<li><p>Obliquity (<span class="math notranslate nohighlight">\(\epsilon\)</span>): the angle between the Earth’s spin axis (normal to the equatorial plane) and the normal to the ecliptic plane</p></li>
+</div> --><ul class="simple">
+<li><p>As seen from Earth, the sun moves on the ecliptic counterclockwise as shown in <a class="reference internal" href="#l5-fig4"><span class="std std-numref">Fig. 15</span></a>.</p></li>
+<li><p>The direction of the First Point of Aries is defined when the Sun crosses the equatorial plane from south to north.</p></li>
 </ul>
 <figure class="align-center" id="l5-fig4">
 <a class="reference internal image-reference" href="../../_images/L5fig4.png"><img alt="../../_images/L5fig4.png" src="../../_images/L5fig4.png" style="width: 80%;" /></a>
@@ -723,21 +770,17 @@ document.write(`
     <img src="images/L5fig4.png" alt="Figure 4" style="width:40%;">
     <p><strong>Figure 4:</strong> Diagram of Earth's orbit, illustrating ecliptic plane and celestial equator on the celestial sphere. The three orthogonal vectors that define the ECI frame have also been labelled.
 </p>
-</div> --><ul class="simple">
-<li><p>As seen from Earth, the sun moves on the ecliptic counterclockwise.</p></li>
-<li><p>The direction of the First Point of Aries is defined when the Sun crosses the equatorial plane from south to north.</p></li>
-</ul>
-<p><strong>Problem:</strong></p>
-<p>The coordinate system <span class="math notranslate nohighlight">\((x,y,z)\)</span> is not entirely inertial, due to:</p>
+</div> --><p><strong>Problem:</strong></p>
+<p>The coordinate system <span class="math notranslate nohighlight">\(x-y-z\)</span> show in <a class="reference internal" href="#l5-fig4"><span class="std std-numref">Fig. 15</span></a> is not inertial, due to:</p>
 <ul class="simple">
 <li><p>Precession (and nutation) of the spin axis: Caused by the gravitational pull of the Sun and Moon combined with the Earth’s oblateness.</p></li>
 <li><p>Precession of the ecliptic plane: Due to the gravitational pull exerted by other planets on the Earth.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\gamma\)</span> completes a full revolution in approximately 26,000 years, with a superimposed nutation of about 0.005° with a period of 18.6 years.</p></li>
 </ul>
 <p><strong>Solution:</strong></p>
-<p>To address this, we work with <span class="math notranslate nohighlight">\((x,y,z)\)</span> axes at a given epoch, for example, the ECI J2000 (or J2K) reference frame.</p>
+<p>To address this, we work with <span class="math notranslate nohighlight">\(x-y-z\)</span> axes at a given epoch, for example, the ECI J2000 (or J2K) reference frame.</p>
 <p><strong>The Celestial Sphere</strong></p>
-<p>The celestial sphere is an imaginary, infinitely large sphere centered on the Earth, onto which all celestial objects are projected. The positions of these objects are defined by:</p>
+<p>The celestial sphere is an imaginary, infinitely large sphere (shown in <a class="reference internal" href="#l5-fig4"><span class="std std-numref">Fig. 15</span></a> and <a class="reference internal" href="#l5-fig5"><span class="std std-numref">Fig. 16</span></a>) centered on the Earth, onto which all celestial objects are projected. The positions of these objects are defined by:</p>
 <ol class="arabic simple">
 <li><p><strong>Right Ascension</strong> (<span class="math notranslate nohighlight">\(\alpha\)</span>): measured in the positive (+) direction eastward along the celestial equator from the vernal equinox.</p></li>
 <li><p><strong>Declination</strong> (<span class="math notranslate nohighlight">\(\delta\)</span>): measured in the positive (+) direction northward from the celestial equator.</p></li>
@@ -771,8 +814,9 @@ document.write(`
 <p><span class="caption-number">Fig. 17 </span><span class="caption-text">Diagram illustrating the classical orbital parameters.</span><a class="headerlink" href="#l5-fig6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>For a complete 3D representation, two additional parameters define the orbital plane, and another parameter specifies the orientation of the line of apsides within that plane.</p>
-<p>The Orientiation of the Plane:</p>
+<p>For a complete 3D representation, two additional parameters define the orbital plane, and another parameter specifies the orientation of the line of apsides within that plane. All of these orbital parameters can be seen in  <a class="reference internal" href="#l5-fig6"><span class="std std-numref">Fig. 17</span></a> and are discussed in further detail below.</p>
+<section id="the-orientiation-of-the-plane">
+<h3>1. The Orientiation of the Plane<a class="headerlink" href="#the-orientiation-of-the-plane" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Right Ascension of Ascending Node</strong> (<span class="math notranslate nohighlight">\(\Omega\)</span>, also referred to as the Longitude of Ascending Node), represents the angle from the
 <span class="math notranslate nohighlight">\(x\)</span>-axis to the intersection point (the ascending node) of the equatorial and orbital planes. It varies between <span class="math notranslate nohighlight">\(0^\circ\)</span> and <span class="math notranslate nohighlight">\(360^\circ\)</span> (i.e., <span class="math notranslate nohighlight">\(\epsilon[0,360]\)</span>).</p></li>
@@ -783,7 +827,9 @@ document.write(`
 </ul>
 </li>
 </ul>
-<p>The Direction of Perigee:</p>
+</section>
+<section id="the-direction-of-perigee">
+<h3>2. The Direction of Perigee<a class="headerlink" href="#the-direction-of-perigee" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Argument of perigee</strong> (<span class="math notranslate nohighlight">\(\omega\)</span>), is the angle between the ascending node and the perigee. Remember when <span class="math notranslate nohighlight">\(e=0\)</span>, there is not a single point in the orbit closest to the central body as it’s a circular orbit. <span class="math notranslate nohighlight">\(\epsilon[0,360]\)</span></p></li>
 </ul>
@@ -795,10 +841,10 @@ document.write(`
 <figure class="align-center" id="l5-fig7">
 <a class="reference internal image-reference" href="../../_images/L5fig7.png"><img alt="../../_images/L5fig7.png" src="../../_images/L5fig7.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Diagram illustrating the key parameters and angles used to describe an orbital plane in a three-dimensional coordinate system.</span><a class="headerlink" href="#l5-fig7" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Diagram illustrating the key parameters and angles used in the context of a satellite orbiting the Earth.</span><a class="headerlink" href="#l5-fig7" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Using Figure 7,</p>
+<p><a class="reference internal" href="#l5-fig7"><span class="std std-numref">Fig. 18</span></a> shows some of these parameters for an Earth-orbiting satellite.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{\hat{I}}\)</span> and the line of nodes <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span>. Recall that the line of nodes connects the ascending and descending nodes, which are the points where the orbital plane intersects the equatorial reference frame. Therefore, the line of nodes lies in both planes and is perpendicular to the normal vectors of both the reference plane and the orbital plane. In other words:</p></li>
 </ul>
@@ -814,6 +860,7 @@ document.write(`
 <li><p>Given <span class="math notranslate nohighlight">\(h, e = const\)</span>, we are able to say <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span> and <span class="math notranslate nohighlight">\(\Omega\)</span> are all constants.</p></li>
 <li><p>The only orbital parameter that varies with time is <span class="math notranslate nohighlight">\(\theta\)</span>, which is determined by solving Kepler’s equation.</p></li>
 </ul>
+</section>
 </section>
 </section>
 
@@ -880,13 +927,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-velocity-component">Determination of Velocity Component</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flight-path-angle">Flight Path Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-velocity-component">Determination of Velocity Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flight-path-angle">Flight Path Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perifocal-frame">The Perifocal Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-vector-in-the-perifocal-frame">Position Vector in the Perifocal Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-vector-in-the-perifocal-frame">Velocity Vector in the Perifocal Frame</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perifocal-frame">The Perifocal Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eci-reference-frame">The ECI Reference Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-orbital-parameters">Classical Orbital Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-orbital-parameters">Classical Orbital Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-orientiation-of-the-plane">1. The Orientiation of the Plane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-direction-of-perigee">2. The Direction of Perigee</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
