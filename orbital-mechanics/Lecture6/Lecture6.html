@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Determining Orbital Paths &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Orbital Elements (Part 2) &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -187,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Determining Orbital Paths</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Orbital Elements (Part 2)</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
@@ -512,7 +512,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Determining Orbital Paths</h1>
+    <h1>Orbital Elements (Part 2)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -522,7 +522,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Determining Orbital Paths</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Orbital Elements (Part 2)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-from-position-and-velocity-vectors">Orbital Elements from Position and Velocity Vectors</a></li>
 </ul>
 </li>
@@ -537,7 +537,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composition-of-rotations">Composition of Rotations:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris-position-and-velocity-vector-as-function-of-time">Ephemeris: Position and Velocity Vector as Function of Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris">Ephemeris</a></li>
 </ul>
 </li>
 </ul>
@@ -552,15 +552,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="determining-orbital-paths">
-<h1>Determining Orbital Paths<a class="headerlink" href="#determining-orbital-paths" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="orbital-elements-part-2">
+<h1>Orbital Elements (Part 2)<a class="headerlink" href="#orbital-elements-part-2" title="Permalink to this heading">#</a></h1>
 <p><em>Prepared by</em>: <a class="reference external" href="https://github.com/nozzington">Noah Leigh</a>, <a class="reference external" href="https://github.com/thedukeofeelam">Ilanthiraiyan Sivagnanamoorthy</a>, and <a class="reference external" href="https://www.angadh.com/">Angadh Nanjangud</a></br></p>
 <p>In this lecture we aim to cover the following topics:</br></p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#content-orbital-elements-from-position-and-velocity-vectors"><span class="std std-ref">Orbital Elements from Position and Velocity Vectors</span></a></br></p></li>
 <li><p><a class="reference internal" href="#content-rotation-matrix-elements"><span class="std std-ref">Rotation Matrix (Direction Cosines Matrix)</span></a></br></p></li>
 <li><p><a class="reference internal" href="#content-eci-to-perifocal-frame"><span class="std std-ref">ECI to Perifocal Frame</span></a></br></p></li>
-<li><p><a class="reference internal" href="#content-ephemeris-position-and-velocity-vector-as-function-of-time"><span class="std std-ref">Ephemeris: Position and Velocity Vector as Function of Time</span></a></p></li>
+<li><p><a class="reference internal" href="#content-ephemeris-position-and-velocity-vector-as-function-of-time"><span class="std std-ref">Ephemeris</span></a></p></li>
 </ol>
 <section id="orbital-elements-from-position-and-velocity-vectors">
 <span id="content-orbital-elements-from-position-and-velocity-vectors"></span><h2>Orbital Elements from Position and Velocity Vectors<a class="headerlink" href="#orbital-elements-from-position-and-velocity-vectors" title="Permalink to this heading">#</a></h2>
@@ -803,37 +803,41 @@ $<span class="math notranslate nohighlight">\(
 </ul>
 </section>
 </section>
-<section id="ephemeris-position-and-velocity-vector-as-function-of-time">
-<span id="content-ephemeris-position-and-velocity-vector-as-function-of-time"></span><h2>Ephemeris: Position and Velocity Vector as Function of Time<a class="headerlink" href="#ephemeris-position-and-velocity-vector-as-function-of-time" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Computing r and v at time, t, in ECI frame:</strong></p></li>
-</ul>
+<section id="ephemeris">
+<span id="content-ephemeris-position-and-velocity-vector-as-function-of-time"></span><h2>Ephemeris<a class="headerlink" href="#ephemeris" title="Permalink to this heading">#</a></h2>
+<p>Ephemeris are the position and velocity vectors as a function of time. They are typically
+provided as: <span class="math notranslate nohighlight">\(t_0, a, e, i, \Omega, \omega, M_0\)</span>. Except for <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(M_0\)</span>,
+all the other parameters are constant.</p>
+<p><strong>Problem</strong>: We wish to compute <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> at a general time, <span class="math notranslate nohighlight">\(t\)</span>, in ECI frame.</p>
+<p><strong>Solution</strong>:</p>
 <ol class="arabic">
-<li><p>Compute the mean anomaly <span class="math notranslate nohighlight">\(M = n(t - t_0) + M_0\)</span>, (<span class="math notranslate nohighlight">\(n = \sqrt\frac{\mu}{a^3}\)</span>).</p></li>
-<li><p>Solve Kepler’s equation <span class="math notranslate nohighlight">\(M = E - e\sin(E)\)</span> for <span class="math notranslate nohighlight">\(E\)</span> (the eccentric anomaly).</p></li>
+<li><p>First, we compute <span class="math notranslate nohighlight">\(n = \sqrt\frac{\mu}{a^3}\)</span>.</p></li>
+<li><p>Then we calculate the current mean anomaly <span class="math notranslate nohighlight">\(M = n(t - t_0) + M_0\)</span>.</p></li>
+<li><p>Solve Kepler’s equation, given by <span class="math notranslate nohighlight">\(M = E - e\sin(E)\)</span>, for <span class="math notranslate nohighlight">\(E\)</span> (the <a class="reference external" href="https://en.wikipedia.org/wiki/Eccentric_anomaly">eccentric anomaly</a>).</p></li>
 <li><p>Find the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-8">
-<span class="eqno">(154)<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{\nu}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan \frac{E}{2}\]</div>
+<span class="eqno">(154)<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{E}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan\left( \frac{\theta}{2} \right)\]</div>
 </li>
+<li><p>Find <span class="math notranslate nohighlight">\(h\)</span> from <span class="math notranslate nohighlight">\(h = \sqrt{p \mu} = \sqrt{a(1-e^2)\mu}\)</span>.</p></li>
 </ol>
-<ol class="arabic" start="4">
+<ol class="arabic" start="6">
 <li><p>Compute the position vector in the perifocal frame:</p>
 <div class="math notranslate nohighlight" id="equation-l6-9">
-<span class="eqno">(155)<a class="headerlink" href="#equation-l6-9" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{r}_{perifocal} = \frac{a(1 - e^2)}{1 + e \cos \left( \theta \right)} \begin{bmatrix} \cos (\theta) \\ \sin (\theta) \\ 0 \end{bmatrix}\end{split}\]</div>
+<span class="eqno">(155)<a class="headerlink" href="#equation-l6-9" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{perifocal} = \frac{\frac{h^2}{\mu}}{1 + e \cos \theta } \bigr( \cos \theta \mathbf{\hat{p}} + \sin \theta \mathbf{\hat{q}} \bigr)\]</div>
 </li>
 </ol>
 <ol class="arabic" start="5">
 <li><p>Compute the velocity vector in the perifocal frame:</p>
 <div class="math notranslate nohighlight" id="equation-l6-10">
-<span class="eqno">(156)<a class="headerlink" href="#equation-l6-10" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{v}_{perifocal} = \sqrt{\frac{\mu}{a(1 - e^2)}} \begin{bmatrix} -\sin (\theta) \\ e + \cos (\theta) \\ 0 \end{bmatrix}\end{split}\]</div>
+<span class="eqno">(156)<a class="headerlink" href="#equation-l6-10" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{perifocal} = \frac{\mu}{h} \bigr( -\sin \theta \mathbf{\hat{p}} + (e + \cos \theta) \mathbf{\hat{q}} \bigr)\]</div>
 </li>
 </ol>
 <ol class="arabic" start="6">
 <li><p>Transform the position and velocity vectors from the perifocal frame to the ECI frame using the inverse rotation matrices:</p>
 <div class="math notranslate nohighlight" id="equation-l6-11">
-<span class="eqno">(157)<a class="headerlink" href="#equation-l6-11" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{r}_{perifocal}\]</div>
+<span class="eqno">(157)<a class="headerlink" href="#equation-l6-11" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_3(-\Omega) A_2(-i) A_1(-\omega) \mathbf{r}_{perifocal}\]</div>
 <div class="math notranslate nohighlight" id="equation-l6-12">
-<span class="eqno">(158)<a class="headerlink" href="#equation-l6-12" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{ECI} = A_3(\omega) A_2(i) A_1(\Omega) \mathbf{v}_{perifocal}\]</div>
+<span class="eqno">(158)<a class="headerlink" href="#equation-l6-12" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{ECI} = A_3(-\Omega) A_2(-i) A_1(-\omega) \mathbf{v}_{perifocal}\]</div>
 </li>
 </ol>
 <p><strong>Note:</strong> <span class="math notranslate nohighlight">\(\sqrt {a(1-e^2)\mu} = h\)</span>, magnitude of the specific angular momentum.</p>
@@ -903,7 +907,7 @@ $<span class="math notranslate nohighlight">\(
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Determining Orbital Paths</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Orbital Elements (Part 2)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-from-position-and-velocity-vectors">Orbital Elements from Position and Velocity Vectors</a></li>
 </ul>
 </li>
@@ -918,7 +922,7 @@ $<span class="math notranslate nohighlight">\(
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composition-of-rotations">Composition of Rotations:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris-position-and-velocity-vector-as-function-of-time">Ephemeris: Position and Velocity Vector as Function of Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ephemeris">Ephemeris</a></li>
 </ul>
 </li>
 </ul>
