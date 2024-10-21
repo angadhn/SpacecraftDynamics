@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Problem Set 3 &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Rotational dynamics &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -71,11 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unsolved_problems/PS3/PS3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'attitude-dynamics/Lecture14/rotational_dynamics';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Problem Set 4" href="../PS4/PS4.html" />
-    <link rel="prev" title="Problem Set 2" href="../PS2/PS2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,38 +195,38 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dynamics-1.html">Kinetics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PS1/PS1.html">Problem Set 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PS2/PS2.html">Problem Set 2</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
 
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Set 3</a></li>
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../PS4/PS4.html">Problem Set 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../PS5/PS5.html">Problem Set 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PS6/PS6.html">Problem Set 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PS7/PS7.html">Problem Set 7</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
@@ -314,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/unsolved_problems/PS3/PS3.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/attitude-dynamics/Lecture14/rotational_dynamics.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +330,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/unsolved_problems/PS3/PS3.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/attitude-dynamics/Lecture14/rotational_dynamics.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -398,7 +396,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Funsolved_problems/PS3/PS3.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Fattitude-dynamics/Lecture14/rotational_dynamics.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -428,7 +426,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/unsolved_problems/PS3/PS3.ipynb" target="_blank"
+      <li><a href="../../_sources/attitude-dynamics/Lecture14/rotational_dynamics.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -512,7 +510,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Problem Set 3</h1>
+    <h1>Rotational dynamics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -522,17 +520,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Your written answers go here (and create more markdown cells if you wish to)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotational-dynamics-explaination-and-derivation">Rotational Dynamics Explaination and Derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetics-summary">Kinetics Summary</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -543,80 +533,120 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="problem-set-3">
-<h1>Problem Set 3<a class="headerlink" href="#problem-set-3" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="rotational-dynamics">
+<h1>Rotational dynamics<a class="headerlink" href="#rotational-dynamics" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/Joosty">Joost Hubbard</a>, and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we aim to cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-rotational-dynamics-explaination-and-derivation"><span class="std std-ref">Rotational Dynamics Explaination and Derivation</span></a></p></li>
+<li><p><a class="reference internal" href="#content-kinetics-summary"><span class="std std-ref">Kinetics Summary</span></a></p></li>
+</ol>
+<section id="rotational-dynamics-explaination-and-derivation">
+<span id="content-rotational-dynamics-explaination-and-derivation"></span><h2>Rotational Dynamics Explaination and Derivation<a class="headerlink" href="#rotational-dynamics-explaination-and-derivation" title="Permalink to this heading">#</a></h2>
+<p>Much like how the translational dynamics inherently makes use of the concepts of linear momentum and forces, the rotational dynamics can be studied by making use of angular momentum (moment of linear momentum) and moments of forces.</p>
+<p>In this next section, we will derive the relevant equations by making use of the system of particles from before (also shown in figure below). We also introduce a point <span class="math notranslate nohighlight">\(O\)</span> as we know that the concept of a moment of a vector is defined relative to some point in space.</p>
+<figure class="align-default" id="earth-sat-13">
+<img alt="../../_images/earth-sat-13.png" src="../../_images/earth-sat-13.png" />
+</figure>
+<p>We now begin by considering the equation of translational motion for <span class="math notranslate nohighlight">\(P_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{F}}_1} + \sum_{k=1}^n {\mathbf{{f}}_{1k}} = {m_1}{{}^{N}{\mathbf{{a}}}^{p_1}} \tag{11.3}\]</div>
+<p>We can cross multiply it on both the right and left sides by <span class="math notranslate nohighlight">\({r}_1\)</span>, the position vector from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(P_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[{{r}_1} \times ({\mathbf{{F}}_1} + \sum_{k=1}^n {\mathbf{{f}}_{1k}}) = {{r}_1} \times {m_1}{{}^{N}{\mathbf{{a}}}^{p_1}} \tag{11.8}\]</div>
+<p>In essence, what we have done is taken the moment about point <span class="math notranslate nohighlight">\(O\)</span> of vectors on the right and left hand sides.</p>
+<p>We can repeat this process for the other particles <span class="math notranslate nohighlight">\(P_2\)</span>, <span class="math notranslate nohighlight">\(P_i\)</span>, and <span class="math notranslate nohighlight">\(P_n\)</span>. In other words, we can take the moment about point <span class="math notranslate nohighlight">\(O\)</span> for each particle’s translational equations, as given by equations <span class="math notranslate nohighlight">\(11.4\)</span>, <span class="math notranslate nohighlight">\(11.5\)</span>, and <span class="math notranslate nohighlight">\(11.6\)</span>.</p>
+<p><strong>For <span class="math notranslate nohighlight">\(\mathbf{P_2}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[{{r}_2} \times {\mathbf{{F}}_2} + \sum_{k=1}^n {\mathbf{{f}}_{2k}} = {{r}_2} {m_2}{{}^{N}{\mathbf{{a}}}^{p_2}} \tag{11.9}\]</div>
+<p><strong>For <span class="math notranslate nohighlight">\(\mathbf{P_i}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[{{r}_i}{\mathbf{{F}}_i} + \sum_{k=1}^n {\mathbf{{f}}_{ik}} = {{r}_i}{m_i}{{}^{N}{\mathbf{{a}}}^{p_i}} \tag{11.10}\]</div>
+<p><strong>For <span class="math notranslate nohighlight">\(\mathbf{P_n}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[{{r}_n}{\mathbf{{F}}_n} + \sum_{k=1}^n {\mathbf{{f}}_{nk}} = {{r}_n}{m_n}{{}^{N}{\mathbf{{a}}}^{p_n}}\tag{11.11}\]</div>
+<p>We can now add up equations <span class="math notranslate nohighlight">\(11.8\)</span> and <span class="math notranslate nohighlight">\(11.11\)</span> to get:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=1}^n {\mathbf{{r}}_{j}} \times {\mathbf{{F}}_{j}} + \sum_{j=1}^n \sum_{k=1}^n {\mathbf{{r}}_{j}} \times {\mathbf{{f}}_{jk}} = \sum_{j=1}^n {\mathbf{{r}}_{j}} \times ({m_j}{{}^{N}\mathbf{{a}}^{p_j}}) \tag{11.12}\]</div>
+<p>Let’s examine each term of equation <span class="math notranslate nohighlight">\(11.12\)</span>:</p>
+<p>The first term, <span class="math notranslate nohighlight">\(\sum_{j=1}^n {\mathbf{{r}}_{j}} \times {\mathbf{{F}}_{j}}\)</span>, is the sum of moments of the external forces about the point <span class="math notranslate nohighlight">\(O\)</span>.</p>
+<p>The second term, <span class="math notranslate nohighlight">\(\sum_{j=1}^n \sum_{k=1}^n {\mathbf{{r}}_{j}} \times {\mathbf{{f}}_{jk}}\)</span>, can be proven to be zero. Take time to do this independently to help with your understanding.</p>
+<!-- do this proof ^^ put in dropdown -->
+<p>The third term, <span class="math notranslate nohighlight">\(\sum_{j=1}^n {\mathbf{{r}}_{j}} \times ({m_j}{{}^{N}\mathbf{{a}}^{p_j}})\)</span>, is a more complex term. Examination starts by looking at the defination of angular  of a syetm of particles, given below:</p>
+<div class="math notranslate nohighlight">
+\[{}^{N}{\mathbf{{H}}}^{S/O} = \sum_{j=1}^n {{\mathbf{{r}}}_j} \times {m_j}{{}^{N}\mathbf{{v}}^{p_j}}\]</div>
+<p>So, the time derivative of this system’s angular momentum vector taken from the inertial frame <span class="math notranslate nohighlight">\(N\)</span> is given as:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{S/O} = \left(\sum_{j=1}^n \frac{{}^N d} {\mathrm{d}t} {{\mathbf{{r}}}_j} \times {m_j}{{}^{N}\mathbf{{v}}^{p_j}}\right) + \left(\sum_{j=1}^n {}^{N}{{\mathbf{{r}}}_j} \times {m_j}{{}^{N}\mathbf{{a}}^{p_j}}\right) \]</div>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{j=1}^n {}^{N}{{\mathbf{{r}}}_j} \times {m_j}{{}^{N}\mathbf{{a}}^{p_j}}\right) = \frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{S/O} + \left(\sum_{j=1}^n {{\mathbf{{r}}}_j} \times {m_j}{{}^{N}\mathbf{{a}}^{p_j}}\right) \tag{11.13}\]</div>
+<p>So, <span class="math notranslate nohighlight">\(11.12\)</span> becomes:</p>
+<div class="math notranslate nohighlight">
+\[\sum {\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/O} = {\frac d {\mathrm{d}t}} {}^{N}{\mathbf{{H}}}^{S/O} + \left(\sum_{j=1}^n {{\mathbf{{r}}}_j} \times {m_j}{{}^{N}\mathbf{{a}}^{p_j}}\right) \tag{11.13}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\sum {\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/O}\)</span> is the sum of moments of the external forces about the point <span class="math notranslate nohighlight">\(O\)</span>.</p>
+<p>By introdcuing a point, <span class="math notranslate nohighlight">\(Q\)</span>, fixed in inertial frame <span class="math notranslate nohighlight">\(N\)</span> and defining two new position vectors as shown below, we can further synthesise the expression <span class="math notranslate nohighlight">\({{}^{N}\mathbf{{a}}^{p_j}}\)</span> in terms of mass centres.</p>
+<figure class="align-default" id="earth-sat-20">
+<img alt="../../_images/earth-sat-20_cut.png" src="../../_images/earth-sat-20_cut.png" />
+</figure>
+<p>Hence we can see:</p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{r}}}_j = {\mathbf{{R}}}_j - {\mathbf{{r}}}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[{\frac d {\mathrm{d}t}} {\mathbf{{r}}}_j = {}^{N}{\mathbf{{v}}}^{p_j} - {}^{N}{\mathbf{{v}}}^{O}\]</div>
+<p>So, <span class="math notranslate nohighlight">\(11.13\)</span> can now be rewritten finally in a much simpler form as:</p>
+<div class="math notranslate nohighlight">
+\[\sum{\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/{O}} = \frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{S/O} - \left(\sum_{j=1}^n m_j {}^{N}{\mathbf{{v}}}^{p_j}\right) \times {}^{N}{\mathbf{{v}}}^{O}\]</div>
+<p>Or…</p>
+<div class="math notranslate nohighlight">
+\[\sum{\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/{O}} = {}^{N}{\frac d {\mathrm{d}t}} {}^{N}{\mathbf{{H}}}^{S/O} - \left(m {}^{N}{\mathbf{{v}}}^{S^*}\right) \times {}^{N}{\mathbf{{v}}}^{O}\]</div>
+<p>It is important to note two special cases:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(O\)</span> is fixed in <span class="math notranslate nohighlight">\(N\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\sum{\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/{O}} = \frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{S/O}\]</div>
+<ol class="arabic simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(O\)</span> is the mass centre <span class="math notranslate nohighlight">\(S^*\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\sum{\mathbf{{M}}}^{{{{\mathbf{{F}}}_i}/{S^*}}} = \frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{S/{S^*}}\]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-1">
-<h1>Question 1<a class="headerlink" href="#question-1" title="Permalink to this heading">#</a></h1>
-<p>In November <span class="math notranslate nohighlight">\(1998\)</span>, a satellite was discovered orbiting the <span class="math notranslate nohighlight">\(215\)</span> <span class="math notranslate nohighlight">\(km\)</span> diameter asteroid (<span class="math notranslate nohighlight">\(45\)</span>) Eugenia. The measured orbital radius and period of the satellite’s orbit, assumed circular, was <span class="math notranslate nohighlight">\(1200\)</span> <span class="math notranslate nohighlight">\(km\)</span> and
-<span class="math notranslate nohighlight">\(4.7\)</span> days respectively.</p>
+<section id="kinetics-summary">
+<span id="content-kinetics-summary"></span><h2>Kinetics Summary<a class="headerlink" href="#kinetics-summary" title="Permalink to this heading">#</a></h2>
+<p>The topics covered up until this point are briefly summarised in this section as a refresher to help with understanding.</p>
+<p>We began by examining the equations of motion of a single particle <span class="math notranslate nohighlight">\(P\)</span> by Newton’s second law:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{{F}} = m^N\mathbf{{a}}^p
+\]</div>
+<p>Then, we looked at a system of two particles and used that as a stepping stone towards deriving a generalised Newton’s second law for a system of any number of particles. This resulted in:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{{F}} = m{}^N\mathbf{{a}}^{S^*}
+\]</div>
+<p>Where:</p>
 <ul class="simple">
-<li><p>Assuming the satellite to be massless, compute a mass estimate for Eugenia and hence derive an estimate of its density assuming it is spherical.</p></li>
-<li><p>For a measurement error of 0.1 days in the orbital period, what is the resulting percent relative error in the estimated mass?</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{{F}}\)</span> is the resultant force on the system,</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the total mass,</p></li>
+<li><p><span class="math notranslate nohighlight">\({}^N\mathbf{{a}}^{S^*}\)</span> is the acceleration of the mass centre.</p></li>
 </ul>
+<p>We then used the generalized Newton’s second law to derive the rotational dynamics of the system relative to a frame <span class="math notranslate nohighlight">\(N\)</span> by taking the moment of the translational motion about some arbitrary point <span class="math notranslate nohighlight">\(O\)</span>. The equations for rotational motion were then found to be:</p>
+<div class="math notranslate nohighlight">
+\[\sum{\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/{O}} = \frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{S/O} - \left(m {}^{N}{\mathbf{{v}}}^{S^*}\right) \times {}^{N}{\mathbf{{v}}}^{O}\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sum{\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/{O}}\)</span> is the sum of moments from external forces,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{S/O}\)</span> is the rate of change of <span class="math notranslate nohighlight">\({\mathbf{{H}}}\)</span> of <span class="math notranslate nohighlight">\(S\)</span> about <span class="math notranslate nohighlight">\(O\)</span>.
+As this rotational equation was derived from the generalized Newton’s law, this result is also general. By that, we mean that this applies to general 3D rotational motion of a system of particles, <span class="math notranslate nohighlight">\(S\)</span>, relative to an inertial frame, <span class="math notranslate nohighlight">\(N\)</span>. Therefore, it can be easily used to study more specific types of planar motion (e.g., rotation about a fixed axis and general plane motion) by starting from this general set of equations and applying appropriate analysis to the given problem.</p></li>
+</ul>
+<p>Lastly, we saw that the above equation simplifies when the point <span class="math notranslate nohighlight">\(O\)</span> is either:</p>
+<ul class="simple">
+<li><p><strong>case 1</strong>: a point that is fixed in an inertial frame; and/or</p></li>
+<li><p><strong>case 2</strong>: the mass centre.</p></li>
+</ul>
+<p>In both cases, the last term involving cross products on the right-end side of the rotational equation drop out.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-2">
-<h1>Question 2<a class="headerlink" href="#question-2" title="Permalink to this heading">#</a></h1>
-<p>In a geocentric equatorial coordinate system the location of a satellite is <span class="math notranslate nohighlight">\(r = (1165.77, -3016.32, -6364.18)\)</span> <span class="math notranslate nohighlight">\(km\)</span>. The satellite is travelling with a velocity vector <span class="math notranslate nohighlight">\(v =  (9.63, 1.92, 0.44)\)</span> <span class="math notranslate nohighlight">\(kms^{-1}\)</span>. Compute the specific energy and the semi-major axis of the orbit.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-3">
-<h1>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h1>
-<p>For the same satellite as in the previous question, compute the components of the angular momentum and the inclination of the orbit.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-4">
-<h1>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h1>
-<p>A LEO satellite is in a circular orbit of altitude 650 km. How long does it take to go round the
-Earth? How many orbits will it complete in one day? If we want the satellite to perform exactly 16
-orbits per day, what altitude would the satellite need to be at?
-<strong>Earth data</strong>
-$<span class="math notranslate nohighlight">\(
-R_{Earth} = 6378.14 km
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-\mu = 3.986 \times 10^5 km^3s^{-2}
-\)</span>$</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id3">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-<span class="n">R_Earth</span> <span class="o">=</span> <span class="mf">6378.14</span> <span class="c1"># in km</span>
-<span class="n">mu_Earth</span> <span class="o">=</span> <span class="mf">3.986</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span> <span class="c1"># in km**3 s**(-2)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -632,7 +662,7 @@ R_{Earth} = 6378.14 km
         },
         kernelOptions: {
             name: "python3",
-            path: "./unsolved_problems/PS3"
+            path: "./attitude-dynamics/Lecture14"
         },
         predefinedOutput: true
     }
@@ -649,24 +679,6 @@ R_{Earth} = 6378.14 km
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../PS2/PS2.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Problem Set 2</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../PS4/PS4.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Problem Set 4</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -682,17 +694,9 @@ R_{Earth} = 6378.14 km
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Your written answers go here (and create more markdown cells if you wish to)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotational-dynamics-explaination-and-derivation">Rotational Dynamics Explaination and Derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetics-summary">Kinetics Summary</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Problem Set 3 &#8212; Introduction to Spacecraft Dynamics</title>
+    <title>Translational and Rotational Kinetics &#8212; Introduction to Spacecraft Dynamics</title>
   
   
   
@@ -71,11 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unsolved_problems/PS3/PS3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'attitude-dynamics/Lecture14/six_DoF';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Problem Set 4" href="../PS4/PS4.html" />
-    <link rel="prev" title="Problem Set 2" href="../PS2/PS2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,38 +195,38 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dynamics-1.html">Kinetics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PS1/PS1.html">Problem Set 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PS2/PS2.html">Problem Set 2</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
 
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Set 3</a></li>
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../PS4/PS4.html">Problem Set 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../PS5/PS5.html">Problem Set 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PS6/PS6.html">Problem Set 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PS7/PS7.html">Problem Set 7</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
@@ -314,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/unsolved_problems/PS3/PS3.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/attitude-dynamics/Lecture14/six_DoF.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +330,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/unsolved_problems/PS3/PS3.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/attitude-dynamics/Lecture14/six_DoF.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -398,7 +396,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Funsolved_problems/PS3/PS3.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Fattitude-dynamics/Lecture14/six_DoF.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -428,7 +426,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/unsolved_problems/PS3/PS3.ipynb" target="_blank"
+      <li><a href="../../_sources/attitude-dynamics/Lecture14/six_DoF.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -512,7 +510,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Problem Set 3</h1>
+    <h1>Translational and Rotational Kinetics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -522,17 +520,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Your written answers go here (and create more markdown cells if you wish to)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#translational-and-rotational-kinetics-of-a-rigid-body">Translational and Rotational Kinetics of a Rigid Body</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -543,80 +532,147 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="problem-set-3">
-<h1>Problem Set 3<a class="headerlink" href="#problem-set-3" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="translational-and-rotational-kinetics">
+<h1>Translational and Rotational Kinetics<a class="headerlink" href="#translational-and-rotational-kinetics" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/Joosty">Joost Hubbard</a>, and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we aim to cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-translational-and-rotational-dynamics-of-a-rigid-body"><span class="std std-ref">Translational and Rotational Kinetics of a Rigid Body</span></a></p></li>
+</ol>
+<section id="translational-and-rotational-kinetics-of-a-rigid-body">
+<span id="content-translational-and-rotational-dynamics-of-a-rigid-body"></span><h2>Translational and Rotational Kinetics of a Rigid Body<a class="headerlink" href="#translational-and-rotational-kinetics-of-a-rigid-body" title="Permalink to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The generalized equations of translational and rotational motion that have been stated above for a system of particles are equally valid for the rigid body; shown below is a rigid body <span class="math notranslate nohighlight">\(B\)</span> in general 3D rotation (see Lecture 4 rigid body <code class="docutils literal notranslate"><span class="pre">kinematics_</span> <span class="pre">orientations.pdf</span></code> for classification of types of motion).</p>
+</div>
+<p>The equations of motion this body are given as follows:</p>
+<p><strong>Translational:</strong></p>
+<div class="math notranslate nohighlight">
+\[\sum \mathbf{{F}}_i = m_B {}^{N}{\mathbf{{a}}}^{B^*} \]</div>
+<p><strong>Rotational:</strong></p>
+<div class="math notranslate nohighlight">
+\[\sum{\mathbf{{M}}}^{{{\mathbf{{F}}}_i}/{B^*}} + \sum \mathbf{{M}}_i = \frac{{}^N d} {\mathrm{d}t} {}^{N}{\mathbf{{H}}}^{B/{B^*}}\]</div>
+<figure class="align-default" id="earth-sat-24">
+<img alt="../../_images/earth-sat-24_cut.png" src="../../_images/earth-sat-24_cut.png" />
+</figure>
+<p>Let’s briefly examine the rotational equation further. Now, we know that:</p>
+<div class="math notranslate nohighlight">
+\[{}^{N}{\mathbf{{H}}}^{B/{B^*}} = \left[I \right]^{B/B^*}\cdot {}^{N}{\boldsymbol{{\omega}}}^B\]</div>
+<p>Now if the inertia scalars of <span class="math notranslate nohighlight">\(B\)</span> about <span class="math notranslate nohighlight">\(B^*\)</span> are defined in the <span class="math notranslate nohighlight">\(B\)</span> frame; for example:</p>
+<div class="math notranslate nohighlight">
+\[{I_{xy}}^{B/B^*} \triangleq \int {\frac d{\mathrm{d}t}}(\mathbf{{p}}\times \hat{{\mathbf b}}_x)  \cdot (\mathbf{{p}}\times \hat{{\mathbf b}}_y)\]</div>
+<div class="math notranslate nohighlight">
+\[{I_{zz}}^{B/B^*} \triangleq \int {\frac d{\mathrm{d}t}}(\mathbf{{p}}\times \hat{{b}}_z)  \cdot (\mathbf{{p}}\times \hat{{\mathbf b}}_z)\]</div>
+<div class="math notranslate nohighlight">
+\[{}^N{\boldsymbol{{\omega}}}^B = \omega_x \hat{{\mathbf b}}_x + \omega_y \hat{{\mathbf b}}_y + \omega_z \hat{{\mathbf b}}_z\]</div>
+<p>Then,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{{}^N d} {\mathrm{d}t} {}^{N}\mathbf{{H}}^{B/B^*} = {}^{B} {\frac d{\mathrm{d}t}} {}^{N}\mathbf{{H}}^{B/B^*} + {}^{N}\boldsymbol{{\omega}}^B \times {}^{N}\mathbf{{H}}^{B/B^*}
+\]</div>
+<p>Or,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{{}^N d} {\mathrm{d}t} {}^{N}\mathbf{{H}}^{B/B^*} = \left[I\right]^{B/B^*} \cdot {}^{N}\boldsymbol{{\alpha}}^{B} + {}^{N}\boldsymbol{{\omega}}^B \times (\left[I\right]^{B/B^*} \cdot {}^{N}\boldsymbol{{\omega}}^B)
+\]</div>
+<p>Where: <span class="math notranslate nohighlight">\({}^{N}\boldsymbol{{\alpha}}^{B} = \alpha_x \hat{{\mathbf b}}_x + \alpha_y \hat{{\mathbf b}}_y + \alpha_z \hat{{\mathbf b}}_z\)</span>.</p>
+<p>So, now we can look at what happens to the scalar equations of motion in each of the directions. We do so for two
+cases:</p>
+<p><strong>Case 1: No products of inertia</strong></p>
+<p>In this case, <span class="math notranslate nohighlight">\(I_{xy}=I_{yz}=I_{zx}=0\)</span>. Therefore:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{{}^N d} {\mathrm{d}t} {}^{N}\mathbf{{H}}^{B/B^*} =
+\begin{cases}
+    \left[ I_x {\alpha}_x - (I_y - I_z) \omega_y \omega_z \right] \hat{\mathbf b}_x \\
+    \left[ I_y {\alpha}_y - (I_z - I_x) \omega_z \omega_x \right] \hat{\mathbf b}_y \\
+    \left[ I_z {\omega}_z - (I_x - I_y) \omega_x \omega_y \right] \hat{\mathbf b}_z \\
+\end{cases}
+\end{split}\]</div>
+<p><strong>Case 2: No products of inertia and simple roatation.</strong></p>
+<p>In other words, <span class="math notranslate nohighlight">\(I_{xy}=I_{yz}=I_{zx}=0\)</span> and there is only one angula vecolity component.</p>
+<p><strong>Example 1: Simple pendulum</strong></p>
+<figure class="align-default" id="earth-sat-28">
+<img alt="../../_images/earth-sat-28_cut.png" src="../../_images/earth-sat-28_cut.png" />
+</figure>
+<div class="math notranslate nohighlight">
+\[{}^{N}\boldsymbol{{\omega}}^{B} = \omega_z \hat{\mathbf b}_z \rightarrow {}^{N}\boldsymbol{{\alpha}}^{B} = \alpha_z \hat{\mathbf b}_z\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[\frac{{}^N d} {\mathrm{d}t} {}^{N}\mathbf{{H}}^{B/B^*} = I_Z \alpha_z \hat{\mathbf b}_z\]</div>
+<p>Then, we can derive the equations of motion.</p>
+<p><strong>Example 2: Pulley</strong></p>
+<figure class="align-default" id="earth-sat-29">
+<img alt="../../_images/earth-sat-29.png" src="../../_images/earth-sat-29.png" />
+</figure>
+<p>The system shown in the figure above
+consists of a pulley constrained to rotate
+about its centre of mass <span class="math notranslate nohighlight">\(G\)</span>. A light cord
+is wrapped around the pulley and the
+free end is attached to a mass of <span class="math notranslate nohighlight">\(10\;kg\)</span>.
+The radius of the pulley is <span class="math notranslate nohighlight">\(0.15\;m\)</span> and its
+moment of inertia about <span class="math notranslate nohighlight">\(G\)</span> is <span class="math notranslate nohighlight">\(0.4\;kgm^2\)</span>.</p>
+<p>If the mass is released from rest what
+will be its velocity after one revolution of
+the pulley.</p>
+<figure class="align-default" id="earth-sat-30">
+<img alt="../../_images/earth-sat-30.png" src="../../_images/earth-sat-30.png" />
+</figure>
+<p>With reference to the free body diagram
+above, the pulley is constrained to rotate
+about its centre of mass, <span class="math notranslate nohighlight">\(G\)</span>. Therefore
+the only equation of motion of
+importance is the balance of moments
+about the pulleys centre of mass as
+follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum|\mathrm{\boldsymbol{M}_G}| = \bar{I}\alpha = \bar{I}\ddot{\theta}
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+Tr=\bar{I}\ddot{\theta}
+\]</div>
+<p>And for the mass, motion is in the
+x-direction only with no rotation.</p>
+<div class="math notranslate nohighlight">
+\[
+Mg-T=M\ddot{x}
+\]</div>
+<p>Finally, from geometry,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta = \frac{x}{r}
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta} = \frac{\dot{x}}{r}
+\]</div>
+<p>And</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta} = \frac{\ddot{x}}{r}
+\]</div>
+<p>Hence we have three equations and three unknowns, <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(\ddot{x}\)</span> and <span class="math notranslate nohighlight">\(\ddot{\theta}\)</span>.</p>
+<p>Eliminating <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(\ddot{\theta}\)</span> leaves:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x} = \frac{Mg}{\left(\frac{\bar{I}}{r^2} + M\right)} = \frac{10\times9.81}{\left(\frac{0.14}{0.15^2} + 10\right)} = 3.52 \;m/s^2 = \mathrm{constant}
+\]</div>
+<p>After one revolution, the mass will have
+traveled a distance, <span class="math notranslate nohighlight">\(s = 2\times S \times 0.15
+= 0.942\;m\)</span>. For constant acceleration
+and zero initial velocity,</p>
+<div class="math notranslate nohighlight">
+\[
+\nu = \sqrt{2as} = \sqrt{2 \times 3.53 \times 0.942} = 2.58\;m/s
+\]</div>
+<figure class="align-default" id="earth-sat-31">
+<img alt="../../_images/earth-sat-31.png" src="../../_images/earth-sat-31.png" />
+</figure>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-1">
-<h1>Question 1<a class="headerlink" href="#question-1" title="Permalink to this heading">#</a></h1>
-<p>In November <span class="math notranslate nohighlight">\(1998\)</span>, a satellite was discovered orbiting the <span class="math notranslate nohighlight">\(215\)</span> <span class="math notranslate nohighlight">\(km\)</span> diameter asteroid (<span class="math notranslate nohighlight">\(45\)</span>) Eugenia. The measured orbital radius and period of the satellite’s orbit, assumed circular, was <span class="math notranslate nohighlight">\(1200\)</span> <span class="math notranslate nohighlight">\(km\)</span> and
-<span class="math notranslate nohighlight">\(4.7\)</span> days respectively.</p>
-<ul class="simple">
-<li><p>Assuming the satellite to be massless, compute a mass estimate for Eugenia and hence derive an estimate of its density assuming it is spherical.</p></li>
-<li><p>For a measurement error of 0.1 days in the orbital period, what is the resulting percent relative error in the estimated mass?</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-2">
-<h1>Question 2<a class="headerlink" href="#question-2" title="Permalink to this heading">#</a></h1>
-<p>In a geocentric equatorial coordinate system the location of a satellite is <span class="math notranslate nohighlight">\(r = (1165.77, -3016.32, -6364.18)\)</span> <span class="math notranslate nohighlight">\(km\)</span>. The satellite is travelling with a velocity vector <span class="math notranslate nohighlight">\(v =  (9.63, 1.92, 0.44)\)</span> <span class="math notranslate nohighlight">\(kms^{-1}\)</span>. Compute the specific energy and the semi-major axis of the orbit.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-3">
-<h1>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h1>
-<p>For the same satellite as in the previous question, compute the components of the angular momentum and the inclination of the orbit.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="question-4">
-<h1>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h1>
-<p>A LEO satellite is in a circular orbit of altitude 650 km. How long does it take to go round the
-Earth? How many orbits will it complete in one day? If we want the satellite to perform exactly 16
-orbits per day, what altitude would the satellite need to be at?
-<strong>Earth data</strong>
-$<span class="math notranslate nohighlight">\(
-R_{Earth} = 6378.14 km
-\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(
-\mu = 3.986 \times 10^5 km^3s^{-2}
-\)</span>$</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id3">
-<h1>Your written answers go here (and create more markdown cells if you wish to)<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-<span class="n">R_Earth</span> <span class="o">=</span> <span class="mf">6378.14</span> <span class="c1"># in km</span>
-<span class="n">mu_Earth</span> <span class="o">=</span> <span class="mf">3.986</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span> <span class="c1"># in km**3 s**(-2)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -632,7 +688,7 @@ R_{Earth} = 6378.14 km
         },
         kernelOptions: {
             name: "python3",
-            path: "./unsolved_problems/PS3"
+            path: "./attitude-dynamics/Lecture14"
         },
         predefinedOutput: true
     }
@@ -649,24 +705,6 @@ R_{Earth} = 6378.14 km
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../PS2/PS2.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Problem Set 2</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../PS4/PS4.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Problem Set 4</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -682,17 +720,8 @@ R_{Earth} = 6378.14 km
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#your-written-answers-go-here-and-create-more-markdown-cells-if-you-wish-to">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Your written answers go here (and create more markdown cells if you wish to)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Your written answers go here (and create more markdown cells if you wish to)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#translational-and-rotational-kinetics-of-a-rigid-body">Translational and Rotational Kinetics of a Rigid Body</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
