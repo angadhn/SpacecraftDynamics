@@ -15,9 +15,11 @@ parts:
     - file: orbital-mechanics/Lecture10/Lecture10      
     - file: orbital-mechanics/Lecture11/Lecture11
     - file: orbital-mechanics/Lecture12/Lecture12
-  - caption: Attitude Dynamics
+  - caption: Attitude Dynamics (WIP so do not use!)
     chapters:
     - file: attitude-dynamics/Lecture14/dynamics-1
+    - file: attitude-dynamics/Lecture14/rotational_dynamics
+    - file: attitude-dynamics/Lecture14/six_DoF
   - caption: Problem Sets
     chapters:
     - file: unsolved_problems/PS1/PS1
@@ -35,4 +37,4 @@ parts:
     - file: solutions/PS1/Answer_PS1
     - file: solutions/PS2/Answer_PS2
     - file: solutions/PS3/Answer_PS3
-    - file: solutions/PS4/Answer_PS4      
+    - file: solutions/PS4/Answer_PS4
