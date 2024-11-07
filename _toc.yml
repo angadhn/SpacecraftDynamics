@@ -38,3 +38,6 @@ parts:
     - file: solutions/PS2/Answer_PS2
     - file: solutions/PS3/Answer_PS3
     - file: solutions/PS4/Answer_PS4
+  - caption: Appendix
+    chapters:
+    - file: appendix/Introduction-To-LaTeX.ipynb
