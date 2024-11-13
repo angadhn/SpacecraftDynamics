@@ -41,3 +41,5 @@ parts:
   - caption: Appendix
     chapters:
     - file: appendix/Introduction-To-LaTeX.ipynb
+    - file: appendix/VideoResources.ipynb
+    
