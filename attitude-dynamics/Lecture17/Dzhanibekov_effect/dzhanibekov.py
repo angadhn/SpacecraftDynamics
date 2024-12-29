@@ -6,7 +6,7 @@ from matplotlib.animation import FuncAnimation
 # Define the physical parameters
 lambda1 = 0.2  # kg-m^2
 lambda2 = 0.3  # kg-m^2
-lambda3 = 0.2  # kg-m^2
+lambda3 = 0.4  # kg-m^2
 
 # Simulation parameters
 tf = 10  # s
