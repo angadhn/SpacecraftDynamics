@@ -713,7 +713,7 @@ A_x(\alpha) =
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{r'} = A_x(\alpha)\mathbf{r}\)</span></p></li>
 <li><p><strong>Inverse</strong> - <span class="math notranslate nohighlight">\(\mathbf{r}=A_x(\alpha)^T\mathbf{r'}=A_x(-\alpha)\mathbf{r'}\)</span></p></li>
-<li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\mathbf{\omega}=\alpha\mathbf{\hat{I}}\)</span>.</p></li>
+<li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\boldsymbol{\omega}=\dot{\alpha}\mathbf{\hat{I}}\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="fig2">
 <a class="reference internal image-reference" href="../../_images/rotation_about_I_L6.png"><img alt="../../_images/rotation_about_I_L6.png" src="../../_images/rotation_about_I_L6.png" style="width: 45%;" /></a>
@@ -734,7 +734,7 @@ A_y(\alpha) =
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{r'} = A_y(\alpha)\mathbf{r}\)</span></p></li>
 <li><p><strong>Inverse</strong> - <span class="math notranslate nohighlight">\(\mathbf{r}=A_y(\alpha)^T\mathbf{r'}=A_y(-\alpha)\mathbf{r'}\)</span></p></li>
-<li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\mathbf{\omega}=\alpha\mathbf{\hat{J}}\)</span>.</p></li>
+<li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\boldsymbol{\omega}=\dot{\alpha}\mathbf{\hat{J}}\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="fig3">
 <a class="reference internal image-reference" href="../../_images/rotation_about_J_L6.png"><img alt="../../_images/rotation_about_J_L6.png" src="../../_images/rotation_about_J_L6.png" style="width: 45%;" /></a>
@@ -755,7 +755,7 @@ A_z(\alpha) =
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{r'} = A_z(\alpha)\mathbf{r}\)</span></p></li>
 <li><p><strong>Inverse</strong> - <span class="math notranslate nohighlight">\(\mathbf{r}=A_z(\alpha)^T\mathbf{r'}=A_z(-\alpha)\mathbf{r'}\)</span></p></li>
-<li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\mathbf{\omega}=\alpha\mathbf{\hat{K}}\)</span>.</p></li>
+<li><p>We can also associate an angular velocity to this rotation <span class="math notranslate nohighlight">\(\boldsymbol{\omega}=\dot{\alpha}\mathbf{\hat{K}}\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="fig4">
 <a class="reference internal image-reference" href="../../_images/rotation_about_K_L6.png"><img alt="../../_images/rotation_about_K_L6.png" src="../../_images/rotation_about_K_L6.png" style="width: 45%;" /></a>
@@ -776,13 +776,19 @@ A_z(\alpha) =
 <section id="composition-of-rotations">
 <h3>Composition of Rotations:<a class="headerlink" href="#composition-of-rotations" title="Permalink to this heading">#</a></h3>
 <p>To rotate from the <strong>ECI</strong> (Earth-Centered Inertial) frame to the <strong>perifocal frame</strong>, we use three successive rotations:</p>
-<ol class="arabic simple">
-<li><p>Rotation by <span class="math notranslate nohighlight">\(\Omega\)</span> about the z-axis:
-$<span class="math notranslate nohighlight">\( A_z(\Omega) \)</span>$</p></li>
-<li><p>Rotation by <span class="math notranslate nohighlight">\(i\)</span> about the x-axis:
-$<span class="math notranslate nohighlight">\( A_x(i) \)</span>$</p></li>
-<li><p>Rotation by <span class="math notranslate nohighlight">\(\omega\)</span> about the z-axis:
-$<span class="math notranslate nohighlight">\( A_z(\omega) \)</span>$</p></li>
+<ol class="arabic">
+<li><p>Rotation by <span class="math notranslate nohighlight">\(\Omega\)</span> about the z-axis:</p>
+<div class="math notranslate nohighlight">
+\[ A_z(\Omega) \]</div>
+</li>
+<li><p>Rotation by <span class="math notranslate nohighlight">\(i\)</span> about the x-axis:</p>
+<div class="math notranslate nohighlight">
+\[ A_x(i) \]</div>
+</li>
+<li><p>Rotation by <span class="math notranslate nohighlight">\(\omega\)</span> about the z-axis:</p>
+<div class="math notranslate nohighlight">
+\[ A_z(\omega) \]</div>
+</li>
 </ol>
 <p>The total transformation matrix, using successive rotations <a class="reference internal" href="#equation-l6-5">(152)</a>, is:</p>
 <div class="math notranslate nohighlight">
@@ -801,12 +807,13 @@ A = A_z(\omega)A_x(i)A_z(\Omega)
 </li>
 <li><p><strong>Inverse Transformation:</strong></p>
 <ul class="simple">
-<li><p>To transform from the perifocal frame back to ECI:
-$<span class="math notranslate nohighlight">\(
-\mathbf{r}_{ECI}=\left[A_z(\omega)A_x(i)A_z(\Omega)\right]^T\mathbf{r}_{perifocal}
-=A^T_z(\Omega)A^T_x(i)A^T_z(\omega)\mathbf{r}_{perifocal}
-\)</span>$</p></li>
+<li><p>To transform from the perifocal frame back to ECI:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[
+   \mathbf{r}_{ECI}=\left[A_z(\omega)A_x(i)A_z(\Omega)\right]^T\mathbf{r}_{perifocal}
+   =A^T_z(\Omega)A^T_x(i)A^T_z(\omega)\mathbf{r}_{perifocal}
+   \]</div>
 <div class="math notranslate nohighlight" id="equation-l6-7">
 <span class="eqno">(154)<a class="headerlink" href="#equation-l6-7" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_z(-\Omega) A_x(-i) A_z(-\omega) \mathbf{r}_{perifocal}\]</div>
 </li>
@@ -826,7 +833,7 @@ provided as: <span class="math notranslate nohighlight">\(t_0, a, e, i, \Omega, 
 <li><p>Solve Kepler’s equation, given by <span class="math notranslate nohighlight">\(M = E - e\sin(E)\)</span>, for <span class="math notranslate nohighlight">\(E\)</span> (the <a class="reference external" href="https://en.wikipedia.org/wiki/Eccentric_anomaly">eccentric anomaly</a>).</p></li>
 <li><p>Find the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-8">
-<span class="eqno">(155)<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{E}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan\left( \frac{\theta}{2} \right)\]</div>
+<span class="eqno">(155)<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{\theta}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan\left( \frac{E}{2} \right)\]</div>
 </li>
 <li><p>Find <span class="math notranslate nohighlight">\(h\)</span> from <span class="math notranslate nohighlight">\(h = \sqrt{p \mu} = \sqrt{a(1-e^2)\mu}\)</span>.</p></li>
 </ol>
