@@ -593,13 +593,13 @@ document.write(`
 <ul>
 <li><p>Compute the inclination <span class="math notranslate nohighlight">\(i\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-1">
-<span class="eqno">(147)<a class="headerlink" href="#equation-l6-1" title="Permalink to this equation">#</a></span>\[h_z=h \cos i\]</div>
+<span class="eqno">(148)<a class="headerlink" href="#equation-l6-1" title="Permalink to this equation">#</a></span>\[h_z=h \cos i\]</div>
 </li>
 </ul>
 <ul>
 <li><p>Compute the line of nodes from <span class="math notranslate nohighlight">\({\mathbf{n}} = \hat{\mathbf k} \times {\mathbf h}\)</span> and then the right ascension of the ascending node <span class="math notranslate nohighlight">\(\Omega\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-2">
-<span class="eqno">(148)<a class="headerlink" href="#equation-l6-2" title="Permalink to this equation">#</a></span>\[n_x = n \cos \Omega\]</div>
+<span class="eqno">(149)<a class="headerlink" href="#equation-l6-2" title="Permalink to this equation">#</a></span>\[n_x = n \cos \Omega\]</div>
 <p>where <span class="math notranslate nohighlight">\(n_x\)</span> is the x-component of <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> and <span class="math notranslate nohighlight">\(n\)</span> is the magnitude of <span class="math notranslate nohighlight">\(\mathbf{n}\)</span>. The following logic determines the correct quadrant for <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(n_y \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\Omega = \cos^{-1} \left( \frac{n_x}{n} \right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\Omega \in [0, 180^\circ]\)</span></p></li>
@@ -610,7 +610,7 @@ document.write(`
 <ul>
 <li><p>Compute the argument of perigee <span class="math notranslate nohighlight">\(\omega\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-3">
-<span class="eqno">(149)<a class="headerlink" href="#equation-l6-3" title="Permalink to this equation">#</a></span>\[\cos \left(\omega\right) = \frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}| |\mathbf{e}|}\]</div>
+<span class="eqno">(150)<a class="headerlink" href="#equation-l6-3" title="Permalink to this equation">#</a></span>\[\cos \left(\omega\right) = \frac{\mathbf{n} \cdot \mathbf{e}}{|\mathbf{n}| |\mathbf{e}|}\]</div>
 <p>To determine the correct quadrant for <span class="math notranslate nohighlight">\(\omega\)</span>, one examines the sign of <span class="math notranslate nohighlight">\(e_z\)</span>, the z-component of the eccentricity vector <span class="math notranslate nohighlight">\(\mathbf{e}\)</span>:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(e_z \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\omega = \cos^{-1}\left(\frac{\mathbf{n} \cdot \mathbf{e}}{ne}\right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\omega \in [0, 180^\circ]\)</span>.</p></li>
@@ -621,7 +621,7 @@ document.write(`
 <ul>
 <li><p>Compute the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-4">
-<span class="eqno">(150)<a class="headerlink" href="#equation-l6-4" title="Permalink to this equation">#</a></span>\[\mathbf{r}\cdot\mathbf{e} = |\mathbf{r}||\mathbf{e}|\cos \left( \theta \right)\]</div>
+<span class="eqno">(151)<a class="headerlink" href="#equation-l6-4" title="Permalink to this equation">#</a></span>\[\mathbf{r}\cdot\mathbf{e} = |\mathbf{r}||\mathbf{e}|\cos \left( \theta \right)\]</div>
 <p>To determine the correct quadrant for <span class="math notranslate nohighlight">\(\theta\)</span>, one needs to calculate <span class="math notranslate nohighlight">\(v_r = \mathbf{v}\cdot\hat{\mathbf{r}}\)</span>:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(v_r \geq 0, \theta = \cos^{-1}\left(\frac{\mathbf{r}\cdot\mathbf{e}}{|\mathbf{r}||\mathbf{e}|}\right)\)</span>. In this case, <span class="math notranslate nohighlight">\(\theta \in [0, 180^\circ]\)</span>.</p></li>
@@ -695,7 +695,7 @@ A^TA = I
 <h3>Successive Rotations:<a class="headerlink" href="#successive-rotations" title="Permalink to this heading">#</a></h3>
 <p>If two successive rotations are performed, say <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span>, the net transformation matrix <span class="math notranslate nohighlight">\(A\)</span> is the product of the two:</p>
 <div class="math notranslate nohighlight" id="equation-l6-5">
-<span class="eqno">(151)<a class="headerlink" href="#equation-l6-5" title="Permalink to this equation">#</a></span>\[A = A_2A_1\]</div>
+<span class="eqno">(152)<a class="headerlink" href="#equation-l6-5" title="Permalink to this equation">#</a></span>\[A = A_2A_1\]</div>
 <p>This allows us to deal with complex rotations as a <strong>series of simpler rotations</strong>.</p>
 </section>
 <section id="rotation-about-a-single-axis">
@@ -784,7 +784,7 @@ $<span class="math notranslate nohighlight">\( A_x(i) \)</span>$</p></li>
 <li><p>Rotation by <span class="math notranslate nohighlight">\(\omega\)</span> about the z-axis:
 $<span class="math notranslate nohighlight">\( A_z(\omega) \)</span>$</p></li>
 </ol>
-<p>The total transformation matrix, using successive rotations <a class="reference internal" href="#equation-l6-5">(151)</a>, is:</p>
+<p>The total transformation matrix, using successive rotations <a class="reference internal" href="#equation-l6-5">(152)</a>, is:</p>
 <div class="math notranslate nohighlight">
 \[
 A = A_z(\omega)A_x(i)A_z(\Omega)
@@ -795,7 +795,7 @@ A = A_z(\omega)A_x(i)A_z(\Omega)
 <ul>
 <li><p>Passage from the ECI frame to the perifocal frame is given by the composition of three rotations:</p>
 <div class="math notranslate nohighlight" id="equation-l6-6">
-<span class="eqno">(152)<a class="headerlink" href="#equation-l6-6" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{perifocal} = A_z(\omega) A_x(i) A_z(\Omega) \mathbf{r}_{ECI}\]</div>
+<span class="eqno">(153)<a class="headerlink" href="#equation-l6-6" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{perifocal} = A_z(\omega) A_x(i) A_z(\Omega) \mathbf{r}_{ECI}\]</div>
 </li>
 </ul>
 </li>
@@ -808,7 +808,7 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l6-7">
-<span class="eqno">(153)<a class="headerlink" href="#equation-l6-7" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_z(-\Omega) A_x(-i) A_z(-\omega) \mathbf{r}_{perifocal}\]</div>
+<span class="eqno">(154)<a class="headerlink" href="#equation-l6-7" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_z(-\Omega) A_x(-i) A_z(-\omega) \mathbf{r}_{perifocal}\]</div>
 </li>
 </ul>
 </section>
@@ -826,28 +826,28 @@ provided as: <span class="math notranslate nohighlight">\(t_0, a, e, i, \Omega, 
 <li><p>Solve Kepler’s equation, given by <span class="math notranslate nohighlight">\(M = E - e\sin(E)\)</span>, for <span class="math notranslate nohighlight">\(E\)</span> (the <a class="reference external" href="https://en.wikipedia.org/wiki/Eccentric_anomaly">eccentric anomaly</a>).</p></li>
 <li><p>Find the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> from:</p>
 <div class="math notranslate nohighlight" id="equation-l6-8">
-<span class="eqno">(154)<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{E}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan\left( \frac{\theta}{2} \right)\]</div>
+<span class="eqno">(155)<a class="headerlink" href="#equation-l6-8" title="Permalink to this equation">#</a></span>\[\tan \left(\frac{E}{2}\right) = \sqrt{\frac{1+e}{1-e}} \tan\left( \frac{\theta}{2} \right)\]</div>
 </li>
 <li><p>Find <span class="math notranslate nohighlight">\(h\)</span> from <span class="math notranslate nohighlight">\(h = \sqrt{p \mu} = \sqrt{a(1-e^2)\mu}\)</span>.</p></li>
 </ol>
 <ol class="arabic" start="6">
 <li><p>Compute the position vector in the perifocal frame:</p>
 <div class="math notranslate nohighlight" id="equation-l6-9">
-<span class="eqno">(155)<a class="headerlink" href="#equation-l6-9" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{perifocal} = \frac{\frac{h^2}{\mu}}{1 + e \cos \theta } \bigr( \cos \theta \mathbf{\hat{p}} + \sin \theta \mathbf{\hat{q}} \bigr)\]</div>
+<span class="eqno">(156)<a class="headerlink" href="#equation-l6-9" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{perifocal} = \frac{\frac{h^2}{\mu}}{1 + e \cos \theta } \bigr( \cos \theta \mathbf{\hat{p}} + \sin \theta \mathbf{\hat{q}} \bigr)\]</div>
 </li>
 </ol>
 <ol class="arabic" start="7">
 <li><p>Compute the velocity vector in the perifocal frame:</p>
 <div class="math notranslate nohighlight" id="equation-l6-10">
-<span class="eqno">(156)<a class="headerlink" href="#equation-l6-10" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{perifocal} = \frac{\mu}{h} \bigr( -\sin \theta \mathbf{\hat{p}} + (e + \cos \theta) \mathbf{\hat{q}} \bigr)\]</div>
+<span class="eqno">(157)<a class="headerlink" href="#equation-l6-10" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{perifocal} = \frac{\mu}{h} \bigr( -\sin \theta \mathbf{\hat{p}} + (e + \cos \theta) \mathbf{\hat{q}} \bigr)\]</div>
 </li>
 </ol>
 <ol class="arabic" start="8">
 <li><p>Transform the position and velocity vectors from the perifocal frame to the ECI frame using the inverse rotation matrices:</p>
 <div class="math notranslate nohighlight" id="equation-l6-11">
-<span class="eqno">(157)<a class="headerlink" href="#equation-l6-11" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_3(-\Omega) A_2(-i) A_1(-\omega) \mathbf{r}_{perifocal}\]</div>
+<span class="eqno">(158)<a class="headerlink" href="#equation-l6-11" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{ECI} = A_3(-\Omega) A_2(-i) A_1(-\omega) \mathbf{r}_{perifocal}\]</div>
 <div class="math notranslate nohighlight" id="equation-l6-12">
-<span class="eqno">(158)<a class="headerlink" href="#equation-l6-12" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{ECI} = A_3(-\Omega) A_2(-i) A_1(-\omega) \mathbf{v}_{perifocal}\]</div>
+<span class="eqno">(159)<a class="headerlink" href="#equation-l6-12" title="Permalink to this equation">#</a></span>\[\mathbf{v}_{ECI} = A_3(-\Omega) A_2(-i) A_1(-\omega) \mathbf{v}_{perifocal}\]</div>
 </li>
 </ol>
 </section>

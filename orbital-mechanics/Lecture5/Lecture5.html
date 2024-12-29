@@ -666,7 +666,7 @@ document.write(`
 <li><p>The specific angular momentum vector (<span class="math notranslate nohighlight">\(\mathbf{h}\)</span>) is a constant and is orthogonal to the plane of motion (i.e., the orbital plane).</p></li>
 <li><p>The eccentricity vector (<span class="math notranslate nohighlight">\(\mathbf{e}\)</span>) lies in the plane of motion and is directed towards the perigee.</p></li>
 </ul>
-<p>A third vector, <span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>, can be defined as the cross product of <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> which together with <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> forms a set of three mutually perpendicular vectors. This set of vectors constitutes a frame fixed in the orbit known as the ** perifocal frame** and is illustrated in <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 13</span></a>.</p>
+<p>A third vector, <span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>, can be defined as the cross product of <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> which together with <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> forms a set of three mutually perpendicular vectors. This set of vectors constitutes a frame fixed in the orbit known as the <strong>perifocal frame</strong> and is illustrated in <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 13</span></a>.</p>
 <figure class="align-center" id="fig5-2">
 <a class="reference internal image-reference" href="../../_images/L5fig2.png"><img alt="../../_images/L5fig2.png" src="../../_images/L5fig2.png" style="width: 50%;" /></a>
 <figcaption>
@@ -716,8 +716,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \left( \dot{r} \cos\theta - r \dot{\theta} \sin\theta \right) \mathbf{\hat{p}} + \left( \dot{r} \sin\theta + r \dot{\theta} \cos\theta \right) \mathbf{\hat{q}}\]</div>
 <p>Recalling that, <span class="math notranslate nohighlight">\(v_r = \dot{r}\)</span> and <span class="math notranslate nohighlight">\(v_\theta = r \dot{\theta}\)</span>, from Equation <a class="reference internal" href="#equation-l5-1">(128)</a>, the expression for the velocity vector becomes:</p>
-<div class="math notranslate nohighlight">
-\[\frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \left( v_r \cos\theta - v_\theta \sin\theta \right) \mathbf{\hat{p}} + \left( v_r \sin\theta + v_\theta \cos\theta \right) \mathbf{\hat{q}}\]</div>
+<div class="math notranslate nohighlight" id="equation-l5-15a">
+<span class="eqno">(146)<a class="headerlink" href="#equation-l5-15a" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \left( v_r \cos\theta - v_\theta \sin\theta \right) \mathbf{\hat{p}} + \left( v_r \sin\theta + v_\theta \cos\theta \right) \mathbf{\hat{q}}\]</div>
 <p>By subsituting Equations <a class="reference internal" href="#equation-l5-6">(136)</a> and <a class="reference internal" href="#equation-l5-7">(137)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively, and simplifying, we arrive at:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -726,9 +726,9 @@ document.write(`
 <div class="important admonition">
 <p class="admonition-title">Velocity Vector in the Perifocal Frame</p>
 <div class="math notranslate nohighlight" id="equation-l5-16">
-<span class="eqno">(146)<a class="headerlink" href="#equation-l5-16" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \frac{\mu}{h} \left( -\sin\theta \mathbf{\hat{p}} + \left(e + \cos\theta \right) \mathbf{\hat{q}} \right)\]</div>
+<span class="eqno">(147)<a class="headerlink" href="#equation-l5-16" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \frac{\mu}{h} \left( -\sin\theta \mathbf{\hat{p}} + \left(e + \cos\theta \right) \mathbf{\hat{q}} \right)\]</div>
 </div>
-<p>With Equations <a class="reference internal" href="#equation-l5-14">(144)</a> and <a class="reference internal" href="#equation-l5-16">(146)</a>, we can express the position and velocity of the spacecraft in the perifocal frame, which is an inertial frame of reference.</p>
+<p>With Equations <a class="reference internal" href="#equation-l5-14">(144)</a> and <a class="reference internal" href="#equation-l5-16">(147)</a>, we can express the position and velocity of the spacecraft in the perifocal frame, which is an inertial frame of reference.</p>
 </section>
 </section>
 <section id="the-eci-reference-frame">
@@ -737,10 +737,10 @@ document.write(`
 <ol class="arabic simple">
 <li><p>An origin</p></li>
 <li><p>The direction of two fixed normal vectors (the third is automatically determined by the cross product of the two known vectors).
-Based on this, we define the <strong>Earth Centred Interial (ECI) Frame</strong>.</p></li>
+Based on this, we define the <strong>Earth Centred Inertial (ECI) Frame</strong>.</p></li>
 </ol>
 <div class="important admonition">
-<p class="admonition-title">Earth Centred Interial (ECI) Frame</p>
+<p class="admonition-title">Earth Centred Inertial (ECI) Frame</p>
 <p>ECI frame is an inertial frame of reference with:</p>
 <ul class="simple">
 <li><p>Origin at the Earth’s centre of mass</p></li>
@@ -857,10 +857,10 @@ Based on this, we define the <strong>Earth Centred Interial (ECI) Frame</strong>
 </figure>
 <p><a class="reference internal" href="#l5-fig7"><span class="std std-numref">Fig. 18</span></a> shows some of these parameters for an Earth-orbiting satellite.</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{\hat{I}}\)</span> and the line of nodes <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span>. Recall that the line of nodes connects the ascending and descending nodes, which are the points where the orbital plane intersects the equatorial reference frame. Therefore, the line of nodes lies in both planes and is perpendicular to the normal vectors of both the reference plane and the orbital plane. In other words:</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{\hat{I}}\)</span> and the line of nodes <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> (which has a unit vector <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span> along it). Recall that the line of nodes connects the ascending and descending nodes, which are the points where the orbital plane intersects the equatorial reference frame. Therefore, the line of nodes lies in both planes and is perpendicular to the normal vectors of both the reference plane and the orbital plane. In other words:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\mathbf{\hat{n}} = \mathbf{\hat{K}} \times \mathbf{h}\]</div>
+\[\mathbf{n} = \mathbf{\hat{K}} \times \mathbf{h}\]</div>
 <p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(i\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\hat{K}}\)</span></p></li>
