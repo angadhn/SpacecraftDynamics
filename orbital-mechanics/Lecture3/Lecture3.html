@@ -544,8 +544,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-orbit">Determination of the Orbit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vis-viva-equation">Vis-Viva Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-orbital-radius">Admissible Orbital Radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vis-viva-equation">Vis-Viva Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
@@ -566,6 +566,7 @@ document.write(`
 <li><p><a class="reference internal" href="#content-the-eccentricity-vector"><span class="std std-ref">The Eccentricity Vector</span></a></p></li>
 <li><p><a class="reference internal" href="#content-the-equation-of-the-orbit"><span class="std std-ref">The Equation of the Orbit</span></a></p></li>
 <li><p><a class="reference internal" href="#content-elliptic-orbits"><span class="std std-ref">Elliptic Orbits</span></a></p></li>
+<li><p><a class="reference internal" href="#content-admissible-orbital-radius"><span class="std std-ref">Admissible Orbital Radius</span></a></p></li>
 <li><p><a class="reference internal" href="#content-vis-viva-equation"><span class="std std-ref">Vis-Viva Equation</span></a></p></li>
 </ol>
 <section id="the-eccentricity-vector">
@@ -740,55 +741,14 @@ for doing so is:</p>
 </ol>
 </section>
 </section>
-<section id="vis-viva-equation">
-<span id="content-vis-viva-equation"></span><h2>Vis-Viva Equation<a class="headerlink" href="#vis-viva-equation" title="Permalink to this heading">#</a></h2>
-<p>The Vis-Viva Equation is one of the most useful equations in space mission design as it is used to find the
-velocity at any given <span class="math notranslate nohighlight">\(r\)</span> when a maneuver is planned.</p>
-<p>The total energy of the orbit is the sum of the kinetic energy and the potential energies of the orbit.
-The sum of the potential energies is the effective potential energy, <span class="math notranslate nohighlight">\(\phi_{eff}\)</span>:</p>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Recall that <span class="math notranslate nohighlight">\({\bf v} = \dot{r}\hat{\bf e}_r + r\dot{\theta}\hat{\bf e}_\theta\)</span>. In terms of
-<span class="math notranslate nohighlight">\(h\)</span>, this becomes <span class="math notranslate nohighlight">\({\bf v} = \dot{r}\hat{\bf e}_r + \frac{h}{r}\hat{\bf e}_\theta\)</span>. From this, we can now easily compute the magnitude of the velocity as seen in Equation <a class="reference internal" href="#equation-l3-7a">(83)</a>.</p>
-</div>
-</aside>
-<div class="math notranslate nohighlight" id="equation-l3-7a">
-<span class="eqno">(83)<a class="headerlink" href="#equation-l3-7a" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2} v^2-\frac{\mu}{r}\\
-&amp;= \frac{1}{2} \dot{r^2} + \frac{1}{2}  \frac{h^2}{r^2} - \frac{\mu}{r}\\
-&amp;= \frac{1}{2} \dot{r^2} + \phi_{eff}\end{split}\]</div>
-<p>At perigee, <span class="math notranslate nohighlight">\(r_p\)</span>, and apogee, <span class="math notranslate nohighlight">\(r_a\)</span>, the velocity term (in Equation <a class="reference internal" href="#equation-l3-7a">(83)</a>) <span class="math notranslate nohighlight">\(\dot r = 0\)</span> so
-<span class="math notranslate nohighlight">\(E=\phi_{eff}\)</span>. Thus, we can derive an equation for the specific orbital energy as a function of <span class="math notranslate nohighlight">\(a\)</span>.</p>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>We make use of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(p\)</span> defined in Equations <a class="reference internal" href="#equation-l3-7">(82)</a> and <a class="reference internal" href="#equation-l3-5b">(80)</a>, respectively.</p>
-</div>
-</aside>
-<div class="math notranslate nohighlight" id="equation-l3-8">
-<span class="eqno">(84)<a class="headerlink" href="#equation-l3-8" title="Permalink to this equation">#</a></span>\[\begin{split}E({r_p})&amp;=\phi_{eff}({r_p})\\
-&amp;= \frac{1}{2} \frac{h^2}{r_p^2} - \frac{\mu}{r_p}\\
-&amp;= \frac{1}{2} \frac{\mu p}{r_p^2} - \frac{\mu}{r_p}\\
-&amp;= -\frac{\mu(1-e)}{2a (1-e)}\\
-E&amp;=-\frac{\mu}{2a}\end{split}\]</div>
-<p>The specific orbital energy is thus solely a function of <span class="math notranslate nohighlight">\(a\)</span>. Orbits with the same semi-major axis have the same specific orbital energy.</p>
-<p>The <strong>Vis-Viva Equation</strong> is  obtained by equating Equations <a class="reference internal" href="#equation-l3-7a">(83)</a> and <a class="reference internal" href="#equation-l3-8">(84)</a> as</p>
-<div class="important admonition">
-<p class="admonition-title">Vis Viva Equation</p>
-<div class="math notranslate nohighlight" id="equation-l3-9">
-<span class="eqno">(85)<a class="headerlink" href="#equation-l3-9" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2 - \frac{\mu}{r}= -\frac{\mu}{2a}\]</div>
-</div>
-</section>
 <section id="admissible-orbital-radius">
 <span id="content-admissible-orbital-radius"></span><h2>Admissible Orbital Radius<a class="headerlink" href="#admissible-orbital-radius" title="Permalink to this heading">#</a></h2>
 <p>Starting from Equation <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l2-36a">(69)</a>, we can rewrite <span class="math notranslate nohighlight">\(E\)</span> as</p>
 <div class="math notranslate nohighlight" id="equation-l2-37">
-<span class="eqno">(86)<a class="headerlink" href="#equation-l2-37" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2}v^2- \Bigl(\frac{\mu}{r}\Bigr)\\
+<span class="eqno">(83)<a class="headerlink" href="#equation-l2-37" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2}v^2- \Bigl(\frac{\mu}{r}\Bigr)\\
 \Rightarrow E &amp;= \frac{1}{2}{\dot r}^2+\frac{1}{2}r^2 \dot{\theta}^2-\Bigl(\frac{\mu}{r}\Bigr)\\
 \Rightarrow E &amp;= \frac{1}{2}{\dot r}^2+\Bigl(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\Bigr)\end{split}\]</div>
-<p>Focusing on the terms within the brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(86)</a>, we can define a few terms:</p>
+<p>Focusing on the terms within the brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(83)</a>, we can define a few terms:</p>
 <ul class="simple">
 <li><p>the entire collection of terms <span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\)</span> is called the effective potential and denoted by <span class="math notranslate nohighlight">\(\phi_{eff}(r)\)</span>.</p></li>
 <li><p>the first of these terms, <span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}\)</span>, is known as the potential of the centrifugal force; and</p></li>
@@ -800,13 +760,13 @@ shapes the effective potential.</p>
 <figure class="align-default" id="admissible-radius">
 <a class="reference internal image-reference" href="../../_images/L2_4.png"><img alt="../../_images/L2_4.png" src="../../_images/L2_4.png" style="height: 350px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Qualitative depiction of <span class="math notranslate nohighlight">\(\phi_{eff}(r)\)</span> and its contributions from the two terms in brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(86)</a>.</span><a class="headerlink" href="#admissible-radius" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Qualitative depiction of <span class="math notranslate nohighlight">\(\phi_{eff}(r)\)</span> and its contributions from the two terms in brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(83)</a>.</span><a class="headerlink" href="#admissible-radius" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The effective potential can take positive or negative values over a range of values of <span class="math notranslate nohighlight">\(r\)</span> given its definition.</p>
-<p>Now, Equation <a class="reference internal" href="#equation-l2-37">(86)</a> can be written as</p>
+<p>Now, Equation <a class="reference internal" href="#equation-l2-37">(83)</a> can be written as</p>
 <div class="math notranslate nohighlight" id="equation-l2-37b">
-<span class="eqno">(87)<a class="headerlink" href="#equation-l2-37b" title="Permalink to this equation">#</a></span>\[E = \frac{1}{2}{\dot r}^2 + \phi_{eff}(r) = constant\]</div>
+<span class="eqno">(84)<a class="headerlink" href="#equation-l2-37b" title="Permalink to this equation">#</a></span>\[E = \frac{1}{2}{\dot r}^2 + \phi_{eff}(r) = constant\]</div>
 <p>From this equation, we can infer that:</p>
 <ul class="simple">
 <li><p>the kinetic energy term <span class="math notranslate nohighlight">\(\frac{1}{2}{\dot r}^2 \geq 0\)</span>.</p></li>
@@ -842,17 +802,58 @@ can easily be computed from the initial conditions of the system.
 <li><p>Specific angular momentum <span class="math notranslate nohighlight">\(\bf{h}\)</span> as shown below:</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-l2-38">
-<span class="eqno">(88)<a class="headerlink" href="#equation-l2-38" title="Permalink to this equation">#</a></span>\[{\bf h}={\bf h_0}=constant\]</div>
+<span class="eqno">(85)<a class="headerlink" href="#equation-l2-38" title="Permalink to this equation">#</a></span>\[{\bf h}={\bf h_0}=constant\]</div>
 <p>which is orthogonal to the orbital plane. The intial values also tells us that the constant areal velocity is <span class="math notranslate nohighlight">\(r_0^2\dot \theta_0\)</span>.</p>
 <ol class="arabic simple" start="2">
 <li><p>Specific orbital energy <span class="math notranslate nohighlight">\(E\)</span> as shown below</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-l2-39">
-<span class="eqno">(89)<a class="headerlink" href="#equation-l2-39" title="Permalink to this equation">#</a></span>\[E_0=\frac{1}{2}v_0^2 - \frac{\mu}{r_0}\]</div>
+<span class="eqno">(86)<a class="headerlink" href="#equation-l2-39" title="Permalink to this equation">#</a></span>\[E_0=\frac{1}{2}v_0^2 - \frac{\mu}{r_0}\]</div>
 <p>where <span class="math notranslate nohighlight">\(E_0\)</span> is the specific orbital energy at computed from the initial conditions. If <span class="math notranslate nohighlight">\(E&lt;0\)</span>, we have a bounded orbit but if <span class="math notranslate nohighlight">\(E\geq0\)</span> we have unbounded motion.</p>
 <ol class="arabic simple" start="3">
 <li><p>Compute the minimum or maximum values of <span class="math notranslate nohighlight">\(r\)</span> when <span class="math notranslate nohighlight">\(\phi_{eff}=E=E_0\)</span>.</p></li>
 </ol>
+</div>
+</section>
+<section id="vis-viva-equation">
+<span id="content-vis-viva-equation"></span><h2>Vis-Viva Equation<a class="headerlink" href="#vis-viva-equation" title="Permalink to this heading">#</a></h2>
+<p>The Vis-Viva Equation is one of the most useful equations in space mission design as it is used to find the
+velocity at any given <span class="math notranslate nohighlight">\(r\)</span> when a maneuver is planned.</p>
+<p>The total energy of the orbit is the sum of the kinetic energy and the potential energies of the orbit.
+The sum of the potential energies is the effective potential energy, <span class="math notranslate nohighlight">\(\phi_{eff}\)</span>:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall that <span class="math notranslate nohighlight">\({\bf v} = \dot{r}\hat{\bf e}_r + r\dot{\theta}\hat{\bf e}_\theta\)</span>. In terms of
+<span class="math notranslate nohighlight">\(h\)</span>, this becomes <span class="math notranslate nohighlight">\({\bf v} = \dot{r}\hat{\bf e}_r + \frac{h}{r}\hat{\bf e}_\theta\)</span>. From this, we can now easily compute the magnitude of the velocity as seen in Equation <a class="reference internal" href="#equation-l3-7a">(87)</a>.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l3-7a">
+<span class="eqno">(87)<a class="headerlink" href="#equation-l3-7a" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2} v^2-\frac{\mu}{r}\\
+&amp;= \frac{1}{2} \dot{r^2} + \frac{1}{2}  \frac{h^2}{r^2} - \frac{\mu}{r}\\
+&amp;= \frac{1}{2} \dot{r^2} + \phi_{eff}\end{split}\]</div>
+<p>At perigee, <span class="math notranslate nohighlight">\(r_p\)</span>, and apogee, <span class="math notranslate nohighlight">\(r_a\)</span>, the velocity term (in Equation <a class="reference internal" href="#equation-l3-7a">(87)</a>) <span class="math notranslate nohighlight">\(\dot r = 0\)</span> so
+<span class="math notranslate nohighlight">\(E=\phi_{eff}\)</span>. Thus, we can derive an equation for the specific orbital energy as a function of <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We make use of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(p\)</span> defined in Equations <a class="reference internal" href="#equation-l3-7">(82)</a> and <a class="reference internal" href="#equation-l3-5b">(80)</a>, respectively.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l3-8">
+<span class="eqno">(88)<a class="headerlink" href="#equation-l3-8" title="Permalink to this equation">#</a></span>\[\begin{split}E({r_p})&amp;=\phi_{eff}({r_p})\\
+&amp;= \frac{1}{2} \frac{h^2}{r_p^2} - \frac{\mu}{r_p}\\
+&amp;= \frac{1}{2} \frac{\mu p}{r_p^2} - \frac{\mu}{r_p}\\
+&amp;= -\frac{\mu(1-e)}{2a (1-e)}\\
+E&amp;=-\frac{\mu}{2a}\end{split}\]</div>
+<p>The specific orbital energy is thus solely a function of <span class="math notranslate nohighlight">\(a\)</span>. Orbits with the same semi-major axis have the same specific orbital energy.</p>
+<p>The <strong>Vis-Viva Equation</strong> is  obtained by equating Equations <a class="reference internal" href="#equation-l3-7a">(87)</a> and <a class="reference internal" href="#equation-l3-8">(88)</a> as</p>
+<div class="important admonition">
+<p class="admonition-title">Vis Viva Equation</p>
+<div class="math notranslate nohighlight" id="equation-l3-9">
+<span class="eqno">(89)<a class="headerlink" href="#equation-l3-9" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2 - \frac{\mu}{r}= -\frac{\mu}{2a}\]</div>
 </div>
 </section>
 <section id="conclusion">
@@ -860,7 +861,7 @@ can easily be computed from the initial conditions of the system.
 <ul class="simple">
 <li><p>The eccentricity vector is a constant vector in orbital mechanics.</p></li>
 <li><p>The orbit equation describes different conic sections based on the magnitude of the eccentricity vector.</p></li>
-<li><p>The Vis Viva equation <a class="reference internal" href="#equation-l3-9">(85)</a> is a crucial tool in mission planning for calculating velocities at various points in an orbit.</p></li>
+<li><p>The Vis Viva equation <a class="reference internal" href="#equation-l3-9">(89)</a> is a crucial tool in mission planning for calculating velocities at various points in an orbit.</p></li>
 </ul>
 </section>
 </section>
@@ -939,8 +940,8 @@ can easily be computed from the initial conditions of the system.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-orbit">Determination of the Orbit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vis-viva-equation">Vis-Viva Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-orbital-radius">Admissible Orbital Radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vis-viva-equation">Vis-Viva Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
