@@ -539,7 +539,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-mathbf-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> and transfer time</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bi-elliptic-transfer">Bi-elliptic transfer</a></li>
@@ -558,7 +558,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="orbital-maneuvers">
 <h1>Orbital Maneuvers<a class="headerlink" href="#orbital-maneuvers" title="Permalink to this heading">#</a></h1>
-<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/mitanshc">Mitansh Choksi</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/mitanshc">Mitansh Choksi</a>, <a class="reference external" href="https://github.com/adrulpz">Adriana Lopez</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
 <p>In this lecture we aim to cover the following topics:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#content-orbit-maneuvers"><span class="std std-ref">Orbit Maneuvers</span></a></p></li>
@@ -574,7 +574,7 @@ Orbital changes can have different objectives:</p>
 <ul class="simple">
 <li><p>Inject the probe into an interplanetary transfer</p></li>
 <li><p>Move the spacecraft from a parking orbit to an operetive one ( e.g. LEO to GEO)</p></li>
-<li><p>Rendezvous end dock with another spececraft ( e.g. with the ISS)</p></li>
+<li><p>Rendezvous and dock with another spececraft ( e.g. with the ISS)</p></li>
 <li><p>Compensate for the effect of perturbations (e.g. N-S, E-W station keeping of GEO)</p></li>
 </ul>
 <p>Manuevers are implemented by firing the propulsion system, we can see this as an addtional term in the equations of motion:</p>
@@ -588,7 +588,7 @@ Orbital changes can have different objectives:</p>
 </ul>
 <section id="effect-of-a-delta-mathbf-v-on-orbital-energy">
 <h3>Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on orbital energy<a class="headerlink" href="#effect-of-a-delta-mathbf-v-on-orbital-energy" title="Permalink to this heading">#</a></h3>
-<p><img alt="Figure 1" src="../../_images/L7img1.png" /></p>
+<p><img alt="Figure 1" src="../../_images/L7-1.png" /></p>
 <ul class="simple">
 <li><p><em>Before</em> the maneuver:</p></li>
 </ul>
@@ -598,7 +598,7 @@ Orbital changes can have different objectives:</p>
 <li><p><em>After</em> the maneuver:</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-l7-3">
-<span class="eqno">(162)<a class="headerlink" href="#equation-l7-3" title="Permalink to this equation">#</a></span>\[E_1 = \frac{1}{2}(\mathbf {v_0^2}+\Delta \mathbf{v}) \cdot(\mathbf{v_0} + \Delta \mathbf{v}) - \frac{\mu}{r} = \frac{1}{2} v_0^2 - \Delta \mathbf{v} + {\frac{1}{2} \Delta v^2 - \frac{\mu}{r}}\]</div>
+<span class="eqno">(162)<a class="headerlink" href="#equation-l7-3" title="Permalink to this equation">#</a></span>\[E_1 = \frac{1}{2}(\mathbf {v_0}+\Delta \mathbf{v}) \cdot(\mathbf{v_0} + \Delta \mathbf{v}) - \frac{\mu}{r} = \frac{1}{2} v_0^2 + \mathbf {v_0} \cdot\Delta \mathbf{v} + {\frac{1}{2} \Delta v^2 - \frac{\mu}{r}}\]</div>
 <ul class="simple">
 <li><p><em>Change</em> in Energy</p></li>
 </ul>
@@ -617,7 +617,7 @@ Orbital changes can have different objectives:</p>
 </section>
 <section id="effect-of-a-delta-mathbf-v-on-angular-momentum">
 <h3>Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum<a class="headerlink" href="#effect-of-a-delta-mathbf-v-on-angular-momentum" title="Permalink to this heading">#</a></h3>
-<p><img alt="Figure 2" src="../../_images/L7img2.png" /></p>
+<p><img alt="Figure 2" src="../../_images/L7-2.png" /></p>
 <ul class="simple">
 <li><p><em>Before</em> the maneuver:</p></li>
 </ul>
@@ -647,7 +647,7 @@ Orbital changes can have different objectives:</p>
 </section>
 <section id="hohmann-transfer">
 <span id="content-hohmann-transfer"></span><h2>Hohmann Transfer<a class="headerlink" href="#hohmann-transfer" title="Permalink to this heading">#</a></h2>
-<p><img alt="Figure 3" src="../../_images/L7img3.png" /></p>
+<p><img alt="Figure 3" src="../../_images/L7-3.png" /></p>
 <p>The problem is that we need the <strong>most efficient</strong>, <strong>bi-impulsive</strong> transfer between <strong>two circular coplanar</strong> orbits.</p>
 <p><strong>Problem</strong></p>
 <p>We need to transfer the spacecraft from an initial orbit with semi-major axis <span class="math notranslate nohighlight">\(a_1\)</span> to a final orbit with semi-major axis <span class="math notranslate nohighlight">\(a_3\)</span>. The most optimal solution for <span class="math notranslate nohighlight">\(\Delta E\)</span> are tangential maneuvers.</p>
@@ -660,9 +660,9 @@ Orbital changes can have different objectives:</p>
 <p>Form <span class="math notranslate nohighlight">\(a_2\)</span>, <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span> the eccentricity of the transfer orbit can be found to be:</p>
 <div class="math notranslate nohighlight" id="equation-l7-11">
 <span class="eqno">(170)<a class="headerlink" href="#equation-l7-11" title="Permalink to this equation">#</a></span>\[e_2  = \frac{r_a - r_p}{r_a+r_p}\]</div>
-<section id="hohmann-transfer-delta-v-and-transfer-time">
-<h3>Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time<a class="headerlink" href="#hohmann-transfer-delta-v-and-transfer-time" title="Permalink to this heading">#</a></h3>
-<p>We use the Vis-Viva equation: <span class="math notranslate nohighlight">\(\frac{1}{2}v^2-\frac{\mu}{2a}\)</span> (<strong>Hint: We ALWAYS use this to compute</strong> <span class="math notranslate nohighlight">\(\Delta V\)</span>). The steps for calcualting <span class="math notranslate nohighlight">\(\Delta V\)</span> are:</p>
+<section id="hohmann-transfer-delta-mathbf-v-and-transfer-time">
+<h3>Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> and transfer time<a class="headerlink" href="#hohmann-transfer-delta-mathbf-v-and-transfer-time" title="Permalink to this heading">#</a></h3>
+<p>We use the Vis-Viva equation: <span class="math notranslate nohighlight">\(\frac{1}{2}v^2-\frac{\mu}{2a}\)</span> (<strong>Hint: We ALWAYS use this to compute</strong> <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> ). The steps for calcualting <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span>  are:</p>
 <ol class="arabic">
 <li><p>Initial circular velocity :</p>
 <div class="math notranslate nohighlight" id="equation-l7-12">
@@ -681,7 +681,7 @@ Orbital changes can have different objectives:</p>
 </ol>
 <div class="math notranslate nohighlight">
 \[\begin{split}\frac{1}{2}v_{B_2}^2-\frac{\mu}{a_3} = -\frac{\mu}{2a_2} 
-\\ \rightarrow v_{B_2} = \sqrt{\frac{2\mu}{a_3}-\frac{\mu}{a_2}} \\ \rightarrow v_{B_2} = \sqrt{\frac{\mu}{a_3}}\sqrt{2-\frac{a_3} {a_2}} \\ \rightarrow v_{B_2} = v_{B_3}\sqrt{\frac{a_1}{a_2}} &lt;v_{B_3}\end{split}\]</div>
+\\ \rightarrow v_{B_2}\sqrt{\frac{2\mu}{a_3}-\frac{\mu}{a_2}} \\ \rightarrow v_{B_2} = \sqrt{\frac{\mu}{a_3}}\sqrt{2-\frac{a3} {a_2}} \\ \rightarrow v_{B_2} = v_{B_3}\sqrt{\frac{a_1}{a_2}} &lt;v_{B_3}\end{split}\]</div>
 <ul>
 <li><p>Total <span class="math notranslate nohighlight">\(\Delta v\)</span> (Both maneuvers to increase the velocity):</p>
 <div class="math notranslate nohighlight" id="equation-l7-14">
@@ -696,24 +696,24 @@ Orbital changes can have different objectives:</p>
 </section>
 <section id="bi-elliptic-transfer">
 <span id="content-bi-elliptic-transfer"></span><h2>Bi-elliptic transfer<a class="headerlink" href="#bi-elliptic-transfer" title="Permalink to this heading">#</a></h2>
-<p>When the ratio etween the final and starting semi-major axes is high (approximately <strong>11.94</strong>) we use a bi-elliptic transfer to reduce the <span class="math notranslate nohighlight">\(\Delta V\)</span></p>
+<p>When the ratio etween the final and starting semi-major axes is high (approximately <strong>11.94</strong>) we use a bi-elliptic transfer to reduce the <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span></p>
 <p>A bi-elliptic transfer is a <em>three-impulse</em> transfer in which first we inject the spacecraft into an ellipse with a very high apogee.</p>
 <p>Let us look at the figure below:</p>
-<p><img alt="Figure 4" src="../../_images/L7img4.png" /></p>
+<p><img alt="Figure 4" src="../../_images/L7-4.png" /></p>
 <p>The figure shows a bi-elliptic transfer. The spacecraft starts at point <strong>A</strong>, with orbit <strong>1</strong>, then a tangential velocity is applied at A which causes the spacecraft to transfer into elliptic orbit <strong>2</strong>, when it reaches point <strong>B</strong> another tangential velocity is applied which causes the spacecraft to enter orbit <strong>3</strong>. As it reaches point <strong>C</strong>, reverse velocity is applied to enter stable orbit <strong>4</strong>.</p>
 <p>The dotted line from <strong>A</strong> to <strong>D</strong> shows the transfer if a Hohmann Transfer was to be used.</p>
 <ul class="simple">
-<li><p>If B is very far then the velocuty in B is very low and <em><span class="math notranslate nohighlight">\(\Delta V_{B} \approx 0\)</span></em></p></li>
-<li><p>Both <span class="math notranslate nohighlight">\(\Delta V_A\)</span> and <span class="math notranslate nohighlight">\(\Delta V_c\)</span> are performed at perigee where the velocity is maximum</p></li>
+<li><p>If B is very far then the velocuty in B is very low and <em><span class="math notranslate nohighlight">\(\Delta \mathbf{v_B}\approx 0\)</span></em></p></li>
+<li><p>Both <span class="math notranslate nohighlight">\(\Delta \mathbf{v_A}\)</span>  and <span class="math notranslate nohighlight">\(\Delta \mathbf{v_C}\)</span>  are performed at perigee where the velocity is maximum</p></li>
 </ul>
 <p>The downside to a bi-elliptic transfer is the long transfer time. This raises the question, why use bi-elliptic transfer at all?</p>
-<p>The reason we use bi-elliptic transfer is when the ratio between semi-major axes between the starting and ending point is high it is more fuel efficient to use a Hohmann transfer. For longer missions where time is not of the essence it makes more sense to use the most fuel efficient method for transfering spacecraft.</p>
+<p>The reason we use bi-elliptic transfer is when the ratio between semi-major axes between the starting and ending point is high, it is more fuel efficient than using a Hohmann transfer. For longer missions where time is not of the essence it makes more sense to use the most fuel efficient method for transfering spacecraft.</p>
 </section>
 <section id="non-tangential-transfer">
 <span id="content-non-tangential-transfer"></span><h2>Non tangential transfer<a class="headerlink" href="#non-tangential-transfer" title="Permalink to this heading">#</a></h2>
-<p>Having looked at fuel efficient transfers we now look to time efficient transfers. To reduce the Time of Flight we need to use more propellant and this involves a non-tangential <strong><span class="math notranslate nohighlight">\(\Delta \mathbf{V}\)</span></strong>.</p>
+<p>Having looked at fuel efficient transfers we now look to time efficient transfers. To reduce the Time of Flight we need to use more propellant and this involves a non-tangential <strong><span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span></strong>.</p>
 <p>Have a look at the figure below:</p>
-<p><img alt="Figure 5" src="../../_images/L7img5.png" /></p>
+<p><img alt="Figure 5" src="../../_images/L7-5.png" /></p>
 <p>Solution Procedure:</p>
 <ol class="arabic">
 <li><p>Take the selected <span class="math notranslate nohighlight">\(r_{a_2}\)</span> and calculate</p>
@@ -740,16 +740,16 @@ Orbital changes can have different objectives:</p>
 </li>
 <li><p>Calculate:</p>
 <div class="math notranslate nohighlight" id="equation-l7-22">
-<span class="eqno">(181)<a class="headerlink" href="#equation-l7-22" title="Permalink to this equation">#</a></span>\[\mathbf{v_{B_2}}=\frac{\mu}{h_2} (e_2 \sin(\theta_2))\mathbf{e_r} + \frac{\mu}{h_2} (1+\cos(\theta_2)) \mathbf{e_{\theta}}\]</div>
+<span class="eqno">(181)<a class="headerlink" href="#equation-l7-22" title="Permalink to this equation">#</a></span>\[\mathbf{v_{B_2}}=\frac{\mu}{h_2} (e_2 \sin\theta_2)\mathbf{e_r} + \frac{\mu}{h_2} (1+\cos\theta_2) \mathbf{e_{\theta}}\]</div>
 <p>Here:</p>
 <div class="math notranslate nohighlight" id="equation-l7-23">
-<span class="eqno">(182)<a class="headerlink" href="#equation-l7-23" title="Permalink to this equation">#</a></span>\[v_r = \frac{\mu}{h_2} (e_2 \sin(\theta_2))e_r\]</div>
+<span class="eqno">(182)<a class="headerlink" href="#equation-l7-23" title="Permalink to this equation">#</a></span>\[v_r = \frac{\mu}{h_2} (e_2 \sin\theta_2)\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-l7-24">
-<span class="eqno">(183)<a class="headerlink" href="#equation-l7-24" title="Permalink to this equation">#</a></span>\[v_{\theta}=\frac{\mu}{h_2} (1+\cos(\theta_2)e_{\theta})\]</div>
+<span class="eqno">(183)<a class="headerlink" href="#equation-l7-24" title="Permalink to this equation">#</a></span>\[v_{\theta}=\frac{\mu}{h_2} (1+\cos\theta_2)\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-l7-25">
-<span class="eqno">(184)<a class="headerlink" href="#equation-l7-25" title="Permalink to this equation">#</a></span>\[\Delta \mathbf{v_B} = \Delta \mathbf{v_{B_3}}-\Delta \mathbf{v_{B_2}}\]</div>
+<span class="eqno">(184)<a class="headerlink" href="#equation-l7-25" title="Permalink to this equation">#</a></span>\[\Delta \mathbf{v_B} = \mathbf{v_{B_3}}-\mathbf{v_{B_2}}\]</div>
 <p>with
 <span class="math notranslate nohighlight">\(\mathbf{v_{B_3}} = v_{B_3}\mathbf{e_{\theta}}\)</span></p>
 </li>
@@ -767,16 +767,16 @@ Orbital changes can have different objectives:</p>
 <p>The <strong>Solution</strong>:</p>
 <p>To change the inclination without changing the orbit shape we need to rotate <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> while keeping E and <span class="math notranslate nohighlight">\(h\)</span> fixed (thus keeping the orbit shape fixed).</p>
 <ul class="simple">
-<li><p>If E is fixed then v is unchanged</p></li>
-<li><p>If h is fixed then <span class="math notranslate nohighlight">\(v_\theta\)</span> is unchanged
+<li><p>If E is fixed then <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is unchanged</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(h\)</span> is fixed then <span class="math notranslate nohighlight">\(\mathbf{v_\theta}\)</span> is unchanged
 <br/> The above two bullet points shows rotation about <strong>r</strong> of <span class="math notranslate nohighlight">\(\Delta i\)</span></p></li>
 </ul>
 <p>Let’s take a look at a figure to help visualise things.</p>
-<p><img alt="Figure 6" src="../../_images/L7img6.png" /></p>
+<p><img alt="Figure 6" src="../../_images/L7-6.png" /></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Delta v =2 v_{\theta}\)</span> sin <span class="math notranslate nohighlight">\(\frac{\Delta i}{2}\)</span></p></li>
-<li><p>If circular then <span class="math notranslate nohighlight">\(v=v_\theta \rightarrow \Delta v = 2v \sin\frac{\Delta i}{2}\)</span></p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\Delta i\)</span> is small then sin <span class="math notranslate nohighlight">\(\frac{\Delta i}{2} \approx \frac{\Delta i}{2} \rightarrow \Delta v = v \Delta i\)</span></p>
+<li><p><span class="math notranslate nohighlight">\(\Delta \mathbf{v} =2 \mathbf{v_{\theta}}\)</span> sin <span class="math notranslate nohighlight">\(\frac{\Delta i}{2}\)</span></p></li>
+<li><p>If circular then <span class="math notranslate nohighlight">\(\mathbf{v}=\mathbf{v_\theta \rightarrow} \Delta \mathbf{v} = 2\mathbf{v} \sin\frac{\Delta i}{2}\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\Delta i\)</span> is small then sin <span class="math notranslate nohighlight">\(\frac{\Delta i}{2} \approx \frac{\Delta i}{2} \rightarrow \Delta \mathbf{v} = \mathbf{v} \Delta i\)</span></p>
 <ul>
 <li><p>When possible change <em>i</em> when <em>v</em> is low</p></li>
 </ul>
@@ -854,7 +854,7 @@ Orbital changes can have different objectives:</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta V\)</span> and transfer time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-mathbf-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> and transfer time</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bi-elliptic-transfer">Bi-elliptic transfer</a></li>
