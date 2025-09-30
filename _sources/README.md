@@ -44,12 +44,16 @@ If you would like to work with a clean build, you can empty the build folder by 
 
 Run `ghp-import -n -p -f _build/html`
 
-## Instructor/Author:
+## Instructor/Author
 
 - [Dr. Angadh Nanjangud](https://www.sems.qmul.ac.uk/staff/a.nanjangud)
 
-## QMUL Student Contributors:
+## QMUL Student Contributors
 - [Mitansh Choksi](https://github.com/mitanshc)
 - [Emmanuel Airiofolo](https://www.angadhn.com/SpacecraftDynamics/orbital-mechanics/Lecture12/Lecture12.html)
 - [Ilanthiraiyan Sivagnanamoorthy](https://github.com/thedukeofeelam)
-- [Joost Hubbard](https://github.com/Joosty) (Reviewer)
+- [Joost Hubbard](https://github.com/Joosty)
+- [Noah Leigh](https://github.com/nozzington)
+- [Adriana Lopez](https://github.com/adrulpz)
+- [Hardit Saini](https://github.com/Hardit-Saini)
+- [Ceyda Alan](https://github.com/calan04)
