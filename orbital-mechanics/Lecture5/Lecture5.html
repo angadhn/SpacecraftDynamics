@@ -613,7 +613,7 @@ document.write(`
 <p>From Equation <a class="reference internal" href="#equation-l5-1">(128)</a>, the radial component of velocity is simply <span class="math notranslate nohighlight">\(\dot r\)</span>. So:</p>
 <div class="math notranslate nohighlight" id="equation-l5-6">
 <span class="eqno">(136)<a class="headerlink" href="#equation-l5-6" title="Permalink to this equation">#</a></span>\[v_r = \dot{r} = \frac{\mu}{h} e \sin \theta\]</div>
-<p>Similarly, the tangential component is simply <span class="math notranslate nohighlight">\(r \dot{\theta}\)</span> and since <span class="math notranslate nohighlight">\(h = r^2 \dot{\theta}\)</span>, we get:</p>
+<p>Similarly, the component along the <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span> (i.e., as defined by increasing <span class="math notranslate nohighlight">\(\theta\)</span> (also called the polar angle or azimuth) is given by <span class="math notranslate nohighlight">\(r \dot{\theta}\)</span>. Further, as <span class="math notranslate nohighlight">\(h = r^2 \dot{\theta}\)</span>, we get:</p>
 <div class="math notranslate nohighlight" id="equation-l5-7">
 <span class="eqno">(137)<a class="headerlink" href="#equation-l5-7" title="Permalink to this equation">#</a></span>\[v_\theta = r \dot{\theta} = \frac{h}{r} = \frac{h \left(1 + e \cos \theta\right)}{h^2 / \mu} = \frac{\mu}{h} \left(1 + e \cos \theta\right)\]</div>
 </div>
@@ -631,7 +631,7 @@ document.write(`
 <p><span class="caption-number">Fig. 12 </span><span class="caption-text">Polar coordinate velocity components and the flight path angle.</span><a class="headerlink" href="#fig5-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In the above figure, the angle marked <span class="math notranslate nohighlight">\(\gamma\)</span> is the <strong>flight path angle</strong>; the angle between the tangential velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}_\theta\)</span> and the velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>. A trigonometric relationship between the flight path angle and the velocity components can be expressed using <a class="reference internal" href="#fig5-1"><span class="std std-numref">Fig. 12</span></a>:</p>
+<p>In the above figure, the angle marked <span class="math notranslate nohighlight">\(\gamma\)</span> is the <strong>flight path angle</strong>; the angle between the velocity vector directed purely along <span class="math notranslate nohighlight">\(\mathbf{e}_\theta\)</span> direction, <span class="math notranslate nohighlight">\(\mathbf{v}_\theta\)</span>, and the velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>. A trigonometric relationship between the flight path angle and the velocity components can be expressed using <a class="reference internal" href="#fig5-1"><span class="std std-numref">Fig. 12</span></a>:</p>
 <div class="math notranslate nohighlight" id="equation-l5-8">
 <span class="eqno">(138)<a class="headerlink" href="#equation-l5-8" title="Permalink to this equation">#</a></span>\[\tan \gamma = \frac{v_r}{v_\theta}\]</div>
 <p>By substituting Equations <a class="reference internal" href="#equation-l5-6">(136)</a> and <a class="reference internal" href="#equation-l5-7">(137)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively and simplifying, we obtain:</p>
@@ -641,7 +641,7 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>Additionally, we can make the following observations:</p>
 <ol class="arabic simple">
-<li><p>Tangential Component, <span class="math notranslate nohighlight">\(v_\theta\)</span></p>
+<li><p>velocity component along the <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span>, <span class="math notranslate nohighlight">\(v_\theta\)</span></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(v_\theta \geq 0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(v_\theta\)</span> is at its maximum when <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> (perigee)</p></li>
@@ -652,7 +652,7 @@ document.write(`
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(v_r \geq 0\)</span> when <span class="math notranslate nohighlight">\(0^\circ \leq \theta \leq 180^\circ\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(v_r &lt; 0\)</span> when <span class="math notranslate nohighlight">\(180^\circ &lt; \theta &lt; 360^\circ\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(v_r = 0\)</span> at <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> (perigee) and <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> (apogee). At these points, the motion is purely tangential.</p></li>
+<li><p><span class="math notranslate nohighlight">\(v_r = 0\)</span> at <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> (perigee) and <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> (apogee). At these points, the motion is purely along <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span>.</p></li>
 </ul>
 </li>
 </ol>
