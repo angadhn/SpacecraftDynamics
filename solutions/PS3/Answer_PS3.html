@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Problem Set 3 &#8212; Introduction to Spacecraft Dynamics</title>
   
@@ -600,7 +600,7 @@ where \)</span>R<span class="math notranslate nohighlight">\( is Eugenia’s rad
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
 <span class="n">diameter_of_Eugenia</span> <span class="o">=</span> <span class="mi">215</span>
 <span class="n">radius_of_Eugenia</span> <span class="o">=</span> <span class="n">diameter_of_Eugenia</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">n_Eugenia</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>
@@ -676,7 +676,7 @@ a = -\frac{\mu}{2E} = 26472.3  \quad km.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="c1"># Data</span>
 <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1165.77</span><span class="p">,</span> <span class="o">-</span><span class="mf">3016.32</span><span class="p">,</span> <span class="o">-</span><span class="mf">6364.18</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.63</span><span class="p">,</span> <span class="mf">1.92</span><span class="p">,</span> <span class="mf">0.44</span><span class="p">)</span>
@@ -731,7 +731,7 @@ H_z =  x \dot y - y \dot yx = 31285.44 \quad km^2s^{-1}
 <span class="n">H_magnitude</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">H_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">H_y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">H_z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the magnitude of angular momentum is&quot;</span><span class="p">,</span> <span class="n">H_magnitude</span><span class="p">,</span> <span class="s2">&quot;km^2/s&quot;</span><span class="p">)</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">acos</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">acos</span>
 <span class="n">i</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="n">H_z</span><span class="o">/</span><span class="n">H_magnitude</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the inclination is&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">,</span> <span class="s2">&quot;degrees.&quot;</span><span class="p">)</span>
 </pre></div>

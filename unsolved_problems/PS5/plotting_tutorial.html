@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Tutorial: Python-based plot generation &#8212; Introduction to Spacecraft Dynamics</title>
   
@@ -571,7 +571,7 @@ document.write(`
 <p>Let’s say I want to plot the <span class="math notranslate nohighlight">\(\sin\)</span> of an angle <span class="math notranslate nohighlight">\(\theta\)</span>, how can I do that? Well, first, I suggest you attempt doing this with a pencil and paper- see if you are able to answer to yourself how many axes you need and what each axis represents. Give this a go before reading further.</p>
 <p>Now, if you tried the above, you would have seen that you need to have a numerical value for <span class="math notranslate nohighlight">\(\theta\)</span> to compute <span class="math notranslate nohighlight">\(\sin(\theta)\)</span>; if you have one value for <span class="math notranslate nohighlight">\(\theta\)</span> then you get a single numerical value for <span class="math notranslate nohighlight">\(\sin(\theta)\)</span>. However, a plot should typically allow us to know what the value might be for several values of <span class="math notranslate nohighlight">\(\theta\)</span>. So, we should probably have a two-dimensional plot where the x-axis captures the different values of <span class="math notranslate nohighlight">\(\theta\)</span> and the y-axis shows the rage of values for <span class="math notranslate nohighlight">\(\sin\theta\)</span>. In the context of our class, we know that a satellite in an elliptical or circular orbit traces a closed curve where <span class="math notranslate nohighlight">\(\theta\)</span> can take values between <span class="math notranslate nohighlight">\(0^o\)</span> and <span class="math notranslate nohighlight">\(360^o\)</span>.</p>
 <p>Now, try to generate a hand-drawn plot for theta going from <span class="math notranslate nohighlight">\(0^o\)</span> to <span class="math notranslate nohighlight">\(360^o\)</span> for values of theta increasing by <span class="math notranslate nohighlight">\(90^o\)</span> (i.e. for a total of 5-values of <span class="math notranslate nohighlight">\(\theta\)</span>). This will involve generating a table such as this one:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Theta (degrees)</p></th>
 <th class="head"><p>sin(Theta)</p></th>
@@ -608,8 +608,14 @@ document.write(`
 <p>The second import is for <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>- it is a library tgat allows us to instruct the computer to make plots using table of values for  <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\sin\theta\)</span>. In this case, are specifically importing a subcomponent called <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>, which we give a nickname of <code class="docutils literal notranslate"><span class="pre">plotter</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plotter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plotter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
 </pre></div>
 </div>
 </div>
@@ -685,7 +691,7 @@ current value of i 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ec6fd4bc7f0e0be22d830fb6396f220e73c8cdbe2068c118e23f90c39a0b94e8.png" src="../../_images/ec6fd4bc7f0e0be22d830fb6396f220e73c8cdbe2068c118e23f90c39a0b94e8.png" />
+<img alt="../../_images/d30cb4f425b806e695eee4aa219a2c2f890ac3052d18b329f3066f04e5eff22d.png" src="../../_images/d30cb4f425b806e695eee4aa219a2c2f890ac3052d18b329f3066f04e5eff22d.png" />
 </div>
 </div>
 </section>
@@ -719,7 +725,7 @@ current value of i 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a6a6d9e24ec8e708c0cef53247eb60f3fd7af0b081fd1f3a6c96532b5cf1cd9b.png" src="../../_images/a6a6d9e24ec8e708c0cef53247eb60f3fd7af0b081fd1f3a6c96532b5cf1cd9b.png" />
+<img alt="../../_images/786f3245a3616d7407e2db018ba7b126521ade6b71b1754ba68ebabff1931d26.png" src="../../_images/786f3245a3616d7407e2db018ba7b126521ade6b71b1754ba68ebabff1931d26.png" />
 </div>
 </div>
 </section>
@@ -752,7 +758,7 @@ $<span class="math notranslate nohighlight">\(
 <p>Note also that in the second line code in the function <code class="docutils literal notranslate"><span class="pre">simple_pendulum_first_order_EoMS</span></code>, we clearly say that the states are going to be <code class="docutils literal notranslate"><span class="pre">theta</span></code> and <code class="docutils literal notranslate"><span class="pre">omega</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simple_pendulum_first_order_EoMS</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_pendulum_first_order_EoMS</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
     <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">states</span>
     <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">omega</span>
     <span class="n">omega_dot</span> <span class="o">=</span> <span class="o">-</span><span class="n">g</span><span class="o">/</span><span class="n">l</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
@@ -774,7 +780,7 @@ $<span class="math notranslate nohighlight">\(
 <p>As the differential equations we aim to solve are functions of time, we need to specify the start and end-times that we want to examine- this is stored in . I have chosen start time of</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="n">start_time</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">simulation_end_time</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">g</span><span class="p">)</span>
 <span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">simulation_end_time</span><span class="p">)</span>
@@ -791,7 +797,7 @@ $<span class="math notranslate nohighlight">\(
 <p>I save the numerical solution in a long but explanatory variable name <code class="docutils literal notranslate"><span class="pre">numerical_solution_to_differential_equations</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 <span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># theta_0, omega_0</span>
 <span class="n">numerical_solution_to_differential_equations</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">simple_pendulum_first_order_EoMS</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">initial_conditions</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">constants</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
 </pre></div>
@@ -821,7 +827,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8956ffff24b1591be2e75b66339cefecfc9e2392a6e4bb40adf97427e771b17a.png" src="../../_images/8956ffff24b1591be2e75b66339cefecfc9e2392a6e4bb40adf97427e771b17a.png" />
+<img alt="../../_images/eef2295877e2701668e6308f7f879cb9a79962058a8bf5ede092465dd85c893e.png" src="../../_images/eef2295877e2701668e6308f7f879cb9a79962058a8bf5ede092465dd85c893e.png" />
 </div>
 </div>
 </section>

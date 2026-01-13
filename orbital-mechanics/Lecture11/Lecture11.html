@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Ground Tracks and Orbit Perturbations &#8212; Introduction to Spacecraft Dynamics</title>
   
@@ -669,8 +669,8 @@ The motion of a spacecraft around the Earth is much more complex!</p>
         <span class="s2">&quot;hide-input&quot;</span><span class="p">,</span>
     <span class="p">]</span>
 <span class="p">}</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">x1</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
@@ -708,7 +708,11 @@ The motion of a spacecraft around the Earth is much more complex!</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c595c1ccbd8b67fbaaa4ae0bc2b11e9167438fe61506877bb778ef10f8f4e962.png" src="../../_images/c595c1ccbd8b67fbaaa4ae0bc2b11e9167438fe61506877bb778ef10f8f4e962.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+</pre></div>
+</div>
+<img alt="../../_images/9864239a4b2b1d8d0fb8ffa4f4b6298643b68b2fdae65e89cad9c23d052eff32.png" src="../../_images/9864239a4b2b1d8d0fb8ffa4f4b6298643b68b2fdae65e89cad9c23d052eff32.png" />
 </div>
 </div>
 <p>The above graphs help to illustrate the effect of <em>no perturbations</em> on the left graph and the effect of <em>perturbations</em> on the right graph on the orbital parameter <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
