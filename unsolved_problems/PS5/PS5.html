@@ -1,0 +1,744 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Problem Set 5 &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unsolved_problems/PS5/PS5';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Problem Set 6" href="../PS6/PS6.html" />
+    <link rel="prev" title="Problem Set 4" href="../PS4/PS4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/unsolved_problems/PS5/PS5.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/unsolved_problems/PS5/PS5.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Funsolved_problems/PS5/PS5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/unsolved_problems/PS5/PS5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Problem Set 5</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-1">Problem 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-2">Problem 5.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-3">Problem 5.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-4">Problem 5.4</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="problem-set-5">
+<h1>Problem Set 5<a class="headerlink" href="#problem-set-5" title="Permalink to this heading">#</a></h1>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\mu_{\odot} &amp;= 1.327 \times 10^{11} \, \text{km}^3 \, \text{s}^{-2} \\
+\mu_{\oplus} &amp;= 3.986 \times 10^{5} \, \text{km}^3 \, \text{s}^{-2} \\
+\mu_{venus} &amp;= 3.249 \times 10^{5} \, \text{km}^3 \, \text{s}^{-2} \\
+\text{Earth orbital radius} \, r_{\oplus} &amp;= 1.496 \times 10^{8} \, \text{km} \\
+\text{Venus orbital radius} \, r_{venus} &amp;= 1.082 \times 10^{8} \, \text{km} \\
+\text{Radius of Earth} \, R_{\oplus} &amp;= 6378 \, \text{km} \\
+\text{Radius of Venus} \, R_{venus} &amp;= 6052 \, \text{km} \\
+\end{align*}
+\end{split}\]</div>
+</section>
+<section id="problem-5-1">
+<h2>Problem 5.1<a class="headerlink" href="#problem-5-1" title="Permalink to this heading">#</a></h2>
+<p>A satellite is to travel from the Earth to Venus using a Hohmann transfer. Calculate the semi-major axis of the transfer orbit. Using the vis-viva equation, compute the heliocentric velocity of the satellite as it leaves the Earth. Compute the orbital velocity of the Earth and hence show that the satellite leaves the Earth with velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_\infty^+ = 2.50 \, \text{km} \, \text{s}^{-1}
+\]</div>
+<p>in the opposite direction to the Earth’s orbital motion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-5-2">
+<h2>Problem 5.2<a class="headerlink" href="#problem-5-2" title="Permalink to this heading">#</a></h2>
+<p>The satellite is launched into a circular parking orbit of altitude <span class="math notranslate nohighlight">\(200\)</span> <span class="math notranslate nohighlight">\(\text{km}\)</span>. From here, it fires an upper stage to put it into a hyperbolic escape trajectory to Venus. Use the result above to compute the semi-major axis and eccentricity of this hyperbolic orbit and hence the velocity at perigee the satellite needs to have. Show that the satellite needs to be accelerated by <span class="math notranslate nohighlight">\(\Delta v = 3.50 \, \text{km} \, \text{s}^{-1}\)</span> from its circular parking orbit. Compute the turning angle <span class="math notranslate nohighlight">\(\delta\)</span> and the angle between the Earth’s orbital vector and the phase of the parking orbit at which this acceleration needs to be applied. Draw a diagram of this transfer orbit indicating the direction of the Earth’s orbital motion and the direction of the Sun.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-5-3">
+<h2>Problem 5.3<a class="headerlink" href="#problem-5-3" title="Permalink to this heading">#</a></h2>
+<p>Compute the orbital velocities of the Earth and Venus. Using the result from question <span class="math notranslate nohighlight">\(5.1\)</span>, find the heliocentric velocity of the spacecraft when it leaves the Earth. Use conservation of angular momentum to compute the approach velocity at Venus. Hence, show that the relative velocity at approach will be <span class="math notranslate nohighlight">\(v_\infty = 2.71 \, \text{km} \, \text{s}^{-1}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-5-4">
+<h2>Problem 5.4<a class="headerlink" href="#problem-5-4" title="Permalink to this heading">#</a></h2>
+<p>The spacecraft is adjusted so that it will pass within <span class="math notranslate nohighlight">\(500\)</span> <span class="math notranslate nohighlight">\(\text{km}\)</span> of the surface of Venus just ahead of it in its orbit. Calculate the eccentricity of the hyperbolic flyby orbit and hence show that the deflection angle <span class="math notranslate nohighlight">\(\delta = 60.60^\circ\)</span>.</p>
+<p>The approach of the spacecraft is on the sunward side of Venus. Draw a diagram from the Venus frame of the approach and swingby of the spacecraft. Compute the angle between the approach and pericentre passage of this orbit.</p>
+<p>At pericentre passage, the spacecraft fires a thruster to reduce its transverse velocity by <span class="math notranslate nohighlight">\(2\)</span> <span class="math notranslate nohighlight">\(\text{km} \text{s}^{-1}\)</span>. Compute the energy of the new orbit and show that it is bound, and hence show that the semi-major axis of this orbit is <span class="math notranslate nohighlight">\(a_B = 10,847.70 \, \text{km}\)</span>. Use the fact that the pericentre passage of this new orbit is the same as for the hyperbolic inbound trajectory to show that the eccentricity of the orbit is <span class="math notranslate nohighlight">\(e_B = 0.4\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unsolved_problems/PS5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../PS4/PS4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Problem Set 4</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../PS6/PS6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Problem Set 6</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-1">Problem 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-2">Problem 5.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-3">Problem 5.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-4">Problem 5.4</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

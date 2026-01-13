@@ -1,0 +1,960 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Kinetics &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'attitude-dynamics/Lecture14/dynamics-1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Rotational dynamics" href="rotational_dynamics.html" />
+    <link rel="prev" title="Special Orbits" href="../../orbital-mechanics/Lecture12/Lecture12.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/attitude-dynamics/Lecture14/dynamics-1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/attitude-dynamics/Lecture14/dynamics-1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Fattitude-dynamics/Lecture14/dynamics-1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/attitude-dynamics/Lecture14/dynamics-1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kinetics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-kinetics">Introduction To Kinetics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concept-the-inertial-frame">Key Concept: The Inertial Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion">Equations of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-body-diagrams-to-determine-forces">Free Body Diagrams to Determine Forces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-motion">Types of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetics-of-a-single-particle-unconstrained-motion">Kinetics of a Single Particle: Unconstrained Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalised-newtons-second-law">Generalised Newton’s Second Law</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kinetics">
+<h1>Kinetics<a class="headerlink" href="#kinetics" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/Joosty">Joost Hubbard</a>, and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we aim to cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-introduction-to-kinetics"><span class="std std-ref">Introduction To Kinetics</span></a></p></li>
+<li><p><a class="reference internal" href="#content-the-inertial-frame"><span class="std std-ref">Key Concept: The Inertial Frame</span></a></p></li>
+<li><p><a class="reference internal" href="#content-equations-of-motion"><span class="std std-ref">Equations of Motion</span></a></p></li>
+<li><p><a class="reference internal" href="#content-free-body-diagrams-to-determine-forces"><span class="std std-ref">Free Body Diagrams to Determine Forces</span></a></p></li>
+<li><p><a class="reference internal" href="#content-types-of-motion"><span class="std std-ref">Types of Motion</span></a></p></li>
+<li><p><a class="reference internal" href="#content-kinetics-of-a-single-particle-unconstrained-motion"><span class="std std-ref">Kinetics of a Single Particle: Unconstrained Motion</span></a></p></li>
+<li><p><a class="reference internal" href="#content-generalised-newtons-second-law"><span class="std std-ref">Generalised Newton’s Second Law</span></a></p></li>
+</ol>
+<section id="introduction-to-kinetics">
+<span id="content-introduction-to-kinetics"></span><h2>Introduction To Kinetics<a class="headerlink" href="#introduction-to-kinetics" title="Permalink to this heading">#</a></h2>
+<p>You may recall that dynamics was principally divided into two key parts: <strong>kinematics</strong> and <strong>kinetics</strong>. If you’ve followed along this far, here’s a recap of our journey:</p>
+<ol class="arabic simple">
+<li><p>We have already examined kinematics in some detail. One must pause to take note here that, in this case, motion was investigated without considering the forces causing it.</p></li>
+<li><p>Then, we introduced concepts such as mass/inertia scalars.</p></li>
+<li><p>Next we focused on forces; moments; and the various types of momenta.</p></li>
+</ol>
+<p>This leads up to the final act: <strong>kinetics</strong>, which is the piece of the puzzle that relates the causes of motion (forces and moments) to the bodies. The law that connects them is one that you are likely already familiar with - Newton’s Second Law. Quite simply put, this law states that the acceleration of a particle <span class="math notranslate nohighlight">\(P\)</span> (for now, denoted as <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>) is directly proportional to the force <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> acting on it. One may have also seen this law written as the following equation:</p>
+<div class="math notranslate nohighlight" id="equation-dynamics1-newtonslawbasic">
+<span class="eqno">(257)<a class="headerlink" href="#equation-dynamics1-newtonslawbasic" title="Permalink to this equation">#</a></span>\[{\mathbf F} = m{\mathbf a}\]</div>
+<p>In the following discussion, we dive deeper into this equation. A keen reader of this text may have already taken note that the vectors written here are incomplete when compared to our approach so far, i.e., our typical vector notations make use of super-scripts (and subscripts, in some cases) to specify reference frames, particles, bodies, etc.</p>
+<!--   This is what we will expound on that permits us to precisely -->
+<!--   define the dynamics in a manner consistent with what we have followed so far. -->
+</section>
+<section id="key-concept-the-inertial-frame">
+<span id="content-the-inertial-frame"></span><h2>Key Concept: The Inertial Frame<a class="headerlink" href="#key-concept-the-inertial-frame" title="Permalink to this heading">#</a></h2>
+<p>In our discussions within kinematics, we have described positions in space of objects (i.e., points and reference frames) relative to some other reference frame by means of linear and angular measurements. In many cases, we made use of reference frames that were fixed (i.e., the ground).</p>
+<p>Newton’s laws of mechanics are valid in a frame known as an <strong>inertial reference frame</strong> (or <strong>inertial frame</strong> or <strong>Newtonian frame</strong>).</p>
+<ul class="simple">
+<li><p><strong>Definition 1</strong>: Textbooks often define something known as a primary inertial system, which is a reference frame that is neither translating nor rotating in space. The laws of Newton are said to hold in this frame; experiments show that the laws are valid in such a frame as long as the velocities involved are negligible compared with the speed of light, which is 300,000 km/s. Consequently, for several engineering problems, the Earth can be approximated to an inertial frame in studying the motion of objects moving on it (like cars) and close to it (spacecraft in Low Earth Orbit).</p></li>
+<li><p><strong>Definition 2</strong>: It is also seen that Newton’s laws hold in any non-rotating reference frame that moves with a constant velocity; the time derivative of a constant velocity leads to zero acceleration. Thus, another definition emerges for an inertial frame as a frame which has zero acceleration (or is a non-accelerating reference frame).</p></li>
+</ul>
+<p>As a result of the two definitions above, you will also commonly see books define an inertial frame in a rather circuitous manner as a frame in which Newton’s second law is valid. Now you know why.</p>
+</section>
+<section id="equations-of-motion">
+<span id="content-equations-of-motion"></span><h2>Equations of Motion<a class="headerlink" href="#equations-of-motion" title="Permalink to this heading">#</a></h2>
+<p>Newton’s second law (as stated above) is a vector equation; indeed, they can be written as 3 scalar equations called <strong>Equations of Motion</strong>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \mathbf{{F}} = m\mathbf {{a}} \Longrightarrow
+    \begin{cases}
+      \mathbf{F_x} = m\mathbf{a_x} \\
+      \mathbf{F_y} = m\mathbf{a_y} \\
+      \mathbf{F_z} = m\mathbf{a_z} \\
+    \end{cases}       
+\end{split}\]</div>
+<p>The above equations can be used to solve two types of problems:</p>
+<ul class="simple">
+<li><p><strong>Acceleration is known and we have to calculate the forces</strong>: Acceleration is either specified or can be determined directly from known kinematic conditions. The corresponding forces on the particle can then be directly determined from Newton’s Second Law.</p></li>
+<li><p><strong>Forces are known and motion needs to be determined</strong>:</p>
+<ul>
+<li><p><strong>Case 1</strong>: If the forces are constant, the acceleration is also constant and is easily found using the equations of motion.</p></li>
+<li><p><strong>Case 2</strong>: In the most general case, forces are functions of time, position, or velocity; so the above set of equations are differential equations. These are more challenging problems. Deriving these general equations is the goal of this portion of the module.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="free-body-diagrams-to-determine-forces">
+<span id="content-free-body-diagrams-to-determine-forces"></span><h2>Free Body Diagrams to Determine Forces<a class="headerlink" href="#free-body-diagrams-to-determine-forces" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Developing equations of motion requires that you account correctly for all forces acting on any object.</p></li>
+<li><p>The only reliable way to account for every force is to isolate the particle under consideration from all contacting and influencing bodies and replace the bodies removed by the forces they exert on the particle isolated.</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Note that not all the forces are known in terms of their magnitude e.g., reaction forces (this will become clearer later); but we need to account for all forces at a qualitative level in our free-body diagram.</p>
+</div>
+<p>The types of forces to account for are:</p>
+<!-- This part may need to be fixed, need to ask questions -->
+<p><strong>Gravitational Forces</strong>:</p>
+<p>The gravitational force between two masses is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+F = \frac{Gm_1m_2}{r^2}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(G\)</span> is the gravitational constant, <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> are the masses of the objects, and <span class="math notranslate nohighlight">\(r\)</span> is the distance between their centers.</p>
+<p><strong>Friction Forces</strong>:</p>
+<ul>
+<li><p><strong>Dynamic</strong> friction forces are those that oppose the movement of an object already in motion. They are generally less than static friction forces and are described by:</p>
+<div class="math notranslate nohighlight">
+\[
+  F_{\text{dynamic}} = \mu_d N
+  \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_d\)</span> is the coefficient of dynamic friction and <span class="math notranslate nohighlight">\(N\)</span> is the normal force.</p>
+</li>
+<li><p><strong>Static</strong> friction forces prevent an object from moving while it is at rest. The maximum static friction force is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+  F_{\text{static}} \leq \mu_s N
+  \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_s\)</span> is the coefficient of static friction.</p>
+</li>
+</ul>
+<p><strong>Spring Forces</strong>:</p>
+<p>The force exerted by a linear spring is described by <a class="reference external" href="https://en.wikipedia.org/wiki/Hooke's_law"><strong>Hooke’s Law</strong></a>:</p>
+<div class="math notranslate nohighlight">
+\[
+F = -k x
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the spring constant and <span class="math notranslate nohighlight">\(x\)</span> is the displacement from the equilibrium position.</p>
+<!-- Improve this part -->
+<figure class="align-default" id="spring-forces">
+<img alt="../../_images/spring-forces.png" src="../../_images/spring-forces.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Spring forces</span><a class="headerlink" href="#spring-forces" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="types-of-motion">
+<span id="content-types-of-motion"></span><h2>Types of Motion<a class="headerlink" href="#types-of-motion" title="Permalink to this heading">#</a></h2>
+<p>There are two physically distinct types of motion:</p>
+<ul class="simple">
+<li><p><strong>Unconstrained motion</strong>: where the moving object is free of mechanical guides and follows a path determined by its initial motion and by the forces which are applied to it from external sources. An example here is the motion of a satellite or a rocket in flight.</p></li>
+<li><p><strong>Constrained motion</strong>: where the moving object is partially or totally restrained by guides. Thus, in addition to external forces, there are also reaction forces that emerge. An example of fully constrained motion is of a train moving along a track. The motion of a car is another example as it is constrained to move on the horizontal plane.</p></li>
+</ul>
+</section>
+<section id="kinetics-of-a-single-particle-unconstrained-motion">
+<span id="content-kinetics-of-a-single-particle-unconstrained-motion"></span><h2>Kinetics of a Single Particle: Unconstrained Motion<a class="headerlink" href="#kinetics-of-a-single-particle-unconstrained-motion" title="Permalink to this heading">#</a></h2>
+<p>For a particle <span class="math notranslate nohighlight">\(P\)</span>, moving relative to a frame <span class="math notranslate nohighlight">\(N\)</span> under the influence of an external force <span class="math notranslate nohighlight">\(F\)</span>, we have Newton’s second law:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{{F}} = m^{N}\mathbf{{a}}^P\]</div>
+<p><strong>Practical example</strong>: The case of motion of a <span class="math notranslate nohighlight">\(S\)</span>, a spacecraft, about the Earth:</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p><strong>GOAL</strong>: To find the equations of motion of <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</div>
+<p>Prior to any equations, each term required must be defined.</p>
+<p><span class="math notranslate nohighlight">\(m_1\)</span> = Mass of the Earth</p>
+<p><span class="math notranslate nohighlight">\(m_2\)</span> = Mass of the Spacecraft</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{{r}}\)</span> = Position vector from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(S\)</span></p>
+<p><span class="math notranslate nohighlight">\(\theta\)</span> = Inclination of position vector</p>
+<p><span class="math notranslate nohighlight">\(N\)</span> = Earth’s inertial reference frame</p>
+<p><strong>Free Body Diagram</strong></p>
+<figure class="align-default" id="earth-sat-1">
+<img alt="../../_images/earth-sat-1_cut.png" src="../../_images/earth-sat-1_cut.png" />
+</figure>
+<p>Using <strong>Cartesian coordinates</strong> the position and velocity vectors can be defined.</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{{r}} = x\hat{\mathbf n_x}+y\hat{\mathbf n_y}\]</div>
+<div class="math notranslate nohighlight">
+\[{}^{N}{\mathbf{{v}}}^{S} =  \frac{{}^N d} {\mathrm{d}t} \mathbf{{r}} = \dot{x}\hat{\mathbf n_x}+\dot{y}\hat{\mathbf n_y}\]</div>
+<p>The acceleration vector can then be defined as:</p>
+<div class="math notranslate nohighlight">
+\[{}^{N}{\mathbf{{a}}}^{S} = \frac{{}^N d} {\mathrm{d}t}{}^{N}{\mathbf{{v}}}^{S} =  \frac{{}^N d} {\mathrm{d}t}(\dot{x}\hat{\mathbf n_x}+\dot{y}\hat{\mathbf n_y})\]</div>
+<div class="math notranslate nohighlight">
+\[{}^{N}{\mathbf{{a}}}^{S} = \ddot{x}\hat{\mathbf n_x}+\ddot{y}\hat{\mathbf n_y}\]</div>
+<div class="math notranslate nohighlight">
+\[{F_g}=\frac{G{m_1}{m_2}}{|\mathbf{{r}}|^{2}}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{{F}} = -{F_g}(cos\theta\hat{\mathbf n_x}+sin\theta\hat{\mathbf n_y})\]</div>
+<p>From this it can be seen that <span class="math notranslate nohighlight">\(\mathbf{{F}} = m\mathbf{{a}}\)</span> gives two scalar equations - displayed below.</p>
+<p>x Direction:</p>
+<div class="math notranslate nohighlight">
+\[-{F_g}cos\theta = \ddot{x}{m_2}\]</div>
+<p>y Direction:</p>
+<div class="math notranslate nohighlight">
+\[-{F_g}sin\theta = \ddot{y}{m_2}\]</div>
+<figure class="align-default" id="earth-sat-3">
+<img alt="../../_images/earth-sat-3_cut.png" src="../../_images/earth-sat-3_cut.png" />
+</figure>
+<p>Now, making use of <strong>Polar Coordinates</strong>…</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{{r}}=r{\hat{\mathbf e_r}}\]</div>
+<div class="math notranslate nohighlight">
+\[{}^{N}\mathbf{{v}}^{S} \triangleq \frac{{}^N d} {\mathrm{d}t}{}^{N}\mathbf{{r}}^{S} = \frac{{}^N d} {\mathrm{d}t}r{\hat{\mathbf e_r}}\]</div>
+<figure class="align-default" id="earth-sat-4">
+<img alt="../../_images/earth-sat-4_cut.png" src="../../_images/earth-sat-4_cut.png" />
+</figure>
+<p>The velocity vector,<span class="math notranslate nohighlight">\({}^{N}\mathbf{{v}}^{S}\)</span> , can be determined as:</p>
+<div class="math notranslate nohighlight">
+\[{}^{N}\mathbf{{v}}^{S} \triangleq \frac{{}^N d} {\mathrm{d}t}{}^{N}\mathbf{{r}}^{S} = {}^{N}{\frac d {\mathrm{d}t}}r{\hat{\mathbf e_r}}\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{{}^E d} {\mathrm{d}t}(r{\hat{\mathbf e_r}})+{}^{N}\boldsymbol{{\omega}}^{E} \times r{\hat{\mathbf e_r}}\]</div>
+<div class="math notranslate nohighlight">
+\[= \dot{r}{\hat{\mathbf e_r}}+\dot{\theta}{\hat{\mathbf e_z}} \times {r}{\hat{\mathbf e_r}}\]</div>
+<div class="math notranslate nohighlight">
+\[= \dot{r}{\hat{\mathbf e_r}}+r\dot{\theta}{\hat{\mathbf e_\theta}}\]</div>
+<p>The acceleration vector,<span class="math notranslate nohighlight">\({}^{N}\mathbf{{a}}^{S}\)</span>, can be determined as:</p>
+<div class="math notranslate nohighlight">
+\[{}^{N}\mathbf{{a}}^{S} = \frac{{}^N d} {\mathrm{d}t}\mathbf{{v}}^{S} = \frac{{}^E d} {\mathrm{d}t}{}^{N}\mathbf{{v}}^{S} + {}^{N}\boldsymbol{{\omega}}^{E} \times {}^{N}\mathbf{{v}}^{S}\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{{}^E d} {\mathrm{d}t}(\dot{r}{\hat{\mathbf e_r}} + {r}\dot{\theta}{\hat{\mathbf e_\theta}}) + \dot{\theta}{\hat{\mathbf e_z}} \times (\dot{r}{\hat{\mathbf e_r}} + {r}\dot{\theta}{\hat{\mathbf e_\theta}})\]</div>
+<div class="math notranslate nohighlight">
+\[{}^{N}\mathbf{{a}}^{S} = (\ddot{r}-r{\dot{\theta}^2}){\hat{\mathbf e_r}} + (2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\mathbf e_\theta}\]</div>
+<p>Next, since <span class="math notranslate nohighlight">\(\mathbf{{F}} = {m_2} {}^{N}\mathbf{{a}}^{S}\)</span> for this satellite…</p>
+<div class="math notranslate nohighlight">
+\[-F_g = {m_2}(\ddot{r}-\dot{r}\theta^2) \rightarrow \hat{\mathbf e_r} \text{ direction}\]</div>
+<div class="math notranslate nohighlight">
+\[0 = {m_2}(2{\dot{r}\dot{\theta}}-{r}\ddot{\theta}) \rightarrow \hat{\mathbf e_\theta} \text{ direction}\]</div>
+<figure class="align-default" id="earth-sat-6">
+<img alt="../../_images/earth-sat-6_cut.png" src="../../_images/earth-sat-6_cut.png" />
+</figure>
+<p>The force equations for the Earth and satellite can be given as follows:</p>
+<p><strong>For the Earth:</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{{F}_{Earth}} = {m_1} \frac{{}^A d^2} {\mathrm{d}t^2}\mathbf{{r}_{1}} = m_1\ddot{\mathbf{{r}}}_{1} + {F_g}{\hat{\mathbf e_r}} = m_1\ddot{\mathbf{{r}}}_{1}\]</div>
+<p><strong>For the Spacecraft:</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{{F}_{Spacecraft}} = {m_2} \frac{{}^A d^2} {\mathrm{d}t^2}\mathbf{{r}_{2}} = m_2\ddot{\mathbf{{r}}}_{2} - {F_g}{\hat{\mathbf e_r}} = m_2\ddot{\mathbf{{r}}}_{2}\]</div>
+<p>Now you can add both equations. This gives a combined force equation equal to zero:</p>
+<div class="math notranslate nohighlight">
+\[{F_g}{\hat{\mathbf e_r}} - {F_g}{\hat{\mathbf e_r}} = m_1\ddot{\mathbf{{r}}}_{1} + m_2\ddot{\mathbf{{r}}}_{2}\]</div>
+<div class="math notranslate nohighlight">
+\[ 0 = m_1\ddot{\mathbf{{r}}}_{1} + m_2\ddot{\mathbf{{r}}}_{2}\]</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Recall that, systems of particles have a fictitious point called the mass centre; let’s call it <span class="math notranslate nohighlight">\(G\)</span> in this case (see figure). In this scenario, we have the definition of the mass centre as:</p>
+</div>
+<div class="math notranslate nohighlight">
+\[{m_1} {\mathbf{{r}}}_{1} + {m_2} {\mathbf{{r}}}_{2} = \left(\sum_{i=1}^2 m_i\right) {\mathbf{{r}}}_{G}\]</div>
+<p>Consequently, we can get:</p>
+<div class="math notranslate nohighlight">
+\[{m_1} \frac{{}^A d} {\mathrm{d}t} \mathbf{{r}} {\mathbf{{r}}}_{1} + {m_2}  \frac{{}^A d} {\mathrm{d}t} {\mathbf{{r}}}_{2} = \left(\sum_{i=1}^2 m_i\right) \frac{{}^A d} {\mathrm{d}t} {\mathbf{{r}}}_{G}\]</div>
+<p>And:</p>
+<div class="math notranslate nohighlight">
+\[{m_1} \frac{{}^A d} {\mathrm{d}t} {\mathbf{{r}}}_{1} + {m_2}  \frac{{}^A d} {\mathrm{d}t} {\mathbf{{r}}}_{2} = \left(\sum_{i=1}^2 m_i\right) \frac{{}^A d} {\mathrm{d}t} {\mathbf{{r}}}_{G}\]</div>
+<div class="math notranslate nohighlight">
+\[{m_1} \frac{{}^A d^2} {\mathrm{d}t} {\mathbf{{r}}}_{1} + {m_2}  \frac{{}^A d^2} {\mathrm{d}t} {\mathbf{{r}}}_{2} = \left(\sum_{i=1}^2 m_i\right) \frac{{}^A d^2} {\mathrm{d}t} {\mathbf{{r}}}_{G} \tag{11.2}\]</div>
+<figure class="align-default" id="earth-sat-8">
+<img alt="../../_images/earth-sat-8_cut.png" src="../../_images/earth-sat-8_cut.png" />
+</figure>
+<p>Equation <span class="math notranslate nohighlight">\(11.2\)</span> can be rewritten using <span class="math notranslate nohighlight">\(11.1\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{i=1}^2 m_i\right) {}^{A}{\mathbf{{a}}}_{G}\]</div>
+<p>or:</p>
+<div class="math notranslate nohighlight">
+\[{}^{A}{\mathbf{{a}}}_{G} = 0\]</div>
+<p>Which also implies:</p>
+<div class="math notranslate nohighlight">
+\[{}^{A}{\mathbf{{v}}}_{G} = \text{constant}\]</div>
+<p>In this second discussion, we have considered the motion of a system containing two particles: one being the spacecraft and the other being the Earth. First, we studied the motion of each particle from an inertial frame. Subsequently, we combined this information to study the motion of the two-particle system from its combined mass centre, denoted as <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<p>It turns out that this development of Newton’s second law for two-particles actually generalizes to a system comprising <span class="math notranslate nohighlight">\(n\)</span> particles and also to a rigid body. We examine this further in teh following section.</p>
+</section>
+<section id="generalised-newtons-second-law">
+<span id="content-generalised-newtons-second-law"></span><h2>Generalised Newton’s Second Law<a class="headerlink" href="#generalised-newtons-second-law" title="Permalink to this heading">#</a></h2>
+<p>Consider a system of <span class="math notranslate nohighlight">\(n\)</span> particles and an inertial frame <span class="math notranslate nohighlight">\(N\)</span>. Each particle experiences an external resultant force and a set of internal forces. The internal forces are reaction forces applied by each particle on all other particles within the boundary.</p>
+<figure class="align-default" id="earth-sat-10">
+<img alt="../../_images/earth-sat-10.png" src="../../_images/earth-sat-10.png" />
+</figure>
+<p>We can now write the equations of motion for each of the particles:</p>
+<p><strong>For <span class="math notranslate nohighlight">\(\mathbf{P_1}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{F}}_1} + {\mathbf{{f}}_12} + {\mathbf{{F}}_1n} + {\mathbf{{F}}_1i} = {m_1}{}^{N}{\mathbf{a}}^{p_1}\]</div>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{F}}_1} + \sum_{k=1}^n {\mathbf{{f}}_{1k}} = {m_1}{{}^{N}{\mathbf{{a}}}^{p_1}} \tag{11.3}\]</div>
+<p><strong>For <span class="math notranslate nohighlight">\(\mathbf{P_2}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{F}}_2} + \sum_{k=1}^n {\mathbf{{f}}_{2k}} = {m_2}{{}^{N}{\mathbf{{a}}}^{p_2}} \tag{11.4}\]</div>
+<p><strong>For <span class="math notranslate nohighlight">\(\mathbf{P_i}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{F}}_i} + \sum_{k=1}^n {\mathbf{{f}}_{ik}} = {m_i}{{}^{N}{\mathbf{{a}}}^{p_i}} \tag{11.5}\]</div>
+<p><strong>For <span class="math notranslate nohighlight">\(\mathbf{P_n}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{F}}_n} + \sum_{k=1}^n {\mathbf{{f}}_{nk}} = {m_n}{{}^{N}{\mathbf{{a}}}^{p_n}}\tag{11.6}\]</div>
+<p>We can now add up all the equations form <span class="math notranslate nohighlight">\(11.3\)</span> to <span class="math notranslate nohighlight">\(11.6\)</span> to get…</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=1}^n {\mathbf{{f}}_{k}} + \sum_{j=1}^n {\mathbf{{f}}} \sum_{k=1}^n {\mathbf{{f}}_{jk}} = \sum_{k=1}^n ({m_k}{{}^{N}{\mathbf{{a}}}^{p_k}}) \tag{11.6}\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sum_{k=1}^n {\mathbf{{f}}_{k}}\)</span> is the resultant external force on the system.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum_{j=1}^n {\mathbf{{f}}} \sum_{k=1}^n {\mathbf{{f}}_{jk}}\)</span> is the sum of all internal forces.</p></li>
+</ul>
+<p>If the sum of all internal forces is deemed to be zero..</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=1}^n {\mathbf{{f}}_{k}} + \cancel{\sum_{j=1}^n {\mathbf{{f}}} \sum_{k=1}^n {\mathbf{{f}}_{jk}}} = \sum_{k=1}^n ({m_k}{{}^{N}{\mathbf{{a}}}^{p_k}})\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=1}^n {\mathbf{{f}}_{k}} = \sum_{k=1}^n ({m_k}{{}^{N}{\mathbf{{a}}}^{p_k}})\]</div>
+<p>Or,</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=1}^n {\mathbf{{f}}_{k}} = \left(\sum_{k=1}^n {m_k}\right) {{}^{N}{\mathbf{{a}}}^{S^*}}\]</div>
+<div class="math notranslate nohighlight">
+\[{\mathbf{{f}}} = {m} {{}^{N}{\mathbf{{a}}}^{S^*}}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(S^*\)</span> is the mass centre of the system of particles.</p>
+<p>So far, everything we have studied addresses the kinetics of a point mass; the point mass was either a particle (e.g., a satellite) or a mass centre of a system of particles. This only describes the translational motion or the translational dynamics, which is based on Newton’s second law (the time derivative of linear momentum is equal to forces acting on a system). So what about the rotational dynamics?</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./attitude-dynamics/Lecture14"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../orbital-mechanics/Lecture12/Lecture12.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Special Orbits</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rotational_dynamics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Rotational dynamics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-kinetics">Introduction To Kinetics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concept-the-inertial-frame">Key Concept: The Inertial Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion">Equations of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-body-diagrams-to-determine-forces">Free Body Diagrams to Determine Forces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-motion">Types of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetics-of-a-single-particle-unconstrained-motion">Kinetics of a Single Particle: Unconstrained Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalised-newtons-second-law">Generalised Newton’s Second Law</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

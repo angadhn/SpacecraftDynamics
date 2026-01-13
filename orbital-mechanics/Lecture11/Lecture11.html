@@ -1,0 +1,887 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Ground Tracks and Orbit Perturbations &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture11/Lecture11';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Special Orbits" href="../Lecture12/Lecture12.html" />
+    <link rel="prev" title="Time, Calendars and Launch Windows" href="../Lecture10/Lecture10.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/orbital-mechanics/Lecture11/Lecture11.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/orbital-mechanics/Lecture11/Lecture11.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Forbital-mechanics/Lecture11/Lecture11.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/orbital-mechanics/Lecture11/Lecture11.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ground Tracks and Orbit Perturbations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ground-tracks">Ground Tracks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-semi-major-axis-circular-orbits">Impact of Semi-major Axis (circular orbits)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-eccentricity-and-argument-of-perigee">Effect of eccentricity and argument of perigee</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-inclination">Effect of inclination</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbit-perturbations">Orbit Perturbations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-perturbations-examples">Effect of perturbations: Examples</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ground-tracks-and-orbit-perturbations">
+<h1>Ground Tracks and Orbit Perturbations<a class="headerlink" href="#ground-tracks-and-orbit-perturbations" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/mitanshc">Mitansh Choksi</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we aim to cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-ground-tracks"><span class="std std-ref">Ground Tracks</span></a></p></li>
+<li><p><a class="reference internal" href="#content-orbit-perturbations"><span class="std std-ref">Orbit Perturbations</span></a></p></li>
+</ol>
+<section id="ground-tracks">
+<span id="content-ground-tracks"></span><h2>Ground Tracks<a class="headerlink" href="#ground-tracks" title="Permalink to this heading">#</a></h2>
+<p>A groundtrack is the locus of points on the Earth’s surface <u>directly below</u> a satellite as it travels through the orbit.</p>
+<p>Mathematically it is computed by a rotation of the spacecraft position vector around the Earth spin axis (z) to transform t from ECI (earth centered inertial) to <u>Earth Centred Earth Fixed</u> (ECEF).</p>
+<p><img alt="Figure 1" src="../../_images/L11img1.png" /></p>
+<p>Having a look at the above figure we can convert between the <u>ECEF</u> and <u>ECI</u> frames.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{r}_{ECEF} = A_3 (\theta_G) \mathbf{r}_{ECI}\)</span>
+<br> Here <span class="math notranslate nohighlight">\(\theta_G\)</span> is the <u>sidereal time of Greenwich</u>. This the angle between <span class="math notranslate nohighlight">\(\gamma\)</span> and the meridian of Greenwich.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda = tan^{-1} \frac{y_{ECEF}}{x_{ECEF}}\)</span>     This represents longitude</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi = sin^{-1} \frac{z_{ECEF}}{r}\)</span>      This represents latitude</p></li>
+</ul>
+<p>Groundtracks are very important. They provide information on the spacecraft orbit and are very useful for coverage and acess to ground stations.</p>
+<p><img alt="Figure 2" src="../../_images/L11img2.png" /></p>
+<p>The figure on the left shows 3D groundtracks and the image on the left shows 2D groundtracks.</p>
+<ul>
+<li><p>The earth rotates counterclockwise so we see the <u>groundtrack drifting west</u> with each revolution by an amount <span class="math notranslate nohighlight">\(\Delta \lambda\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-l11-1">
+<span class="eqno">(238)<a class="headerlink" href="#equation-l11-1" title="Permalink to this equation">#</a></span>\[\Delta \lambda = T \cdot \omega_{e} = T \frac{2 \pi}{T_{\gamma}}\]</div>
+</li>
+</ul>
+<p></br> Here, <span class="math notranslate nohighlight">\(T\)</span> is the orbital period, <span class="math notranslate nohighlight">\(T_{\gamma}\)</span> is the sidereal day and <span class="math notranslate nohighlight">\(\omega_{e}\)</span> is the angular velocity of the earth. </br></p>
+<ul class="simple">
+<li><p>From <span class="math notranslate nohighlight">\(\Delta \lambda\)</span> <u>we can estimate T</u>.</p></li>
+<li><p>The maximum latitude reached is equal to the orbit inclination. (If it is a retrograde orbit then “<span class="math notranslate nohighlight">\(180^\circ\)</span>-<em>i</em>” )</p>
+<ul>
+<li><p>From <span class="math notranslate nohighlight">\(\phi_{max}\)</span> <u> we can estimate <em>i</em></u></p></li>
+</ul>
+</li>
+<li><p><u>Circular orbits</u> have ground tracks with <u>symmetry</u> about <u>a line of longitude</u> (e.g. greenwich meridian) and <u>hinge symmetry</u>.</p></li>
+</ul>
+<section id="impact-of-semi-major-axis-circular-orbits">
+<h3>Impact of Semi-major Axis (circular orbits)<a class="headerlink" href="#impact-of-semi-major-axis-circular-orbits" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 3" src="../../_images/L11img3.png" /></p>
+<p>From the above figure we can see as the altitude increases the ground track drifts west more and <span class="math notranslate nohighlight">\(\Delta \lambda\)</span> increases.</p>
+<ol class="arabic simple">
+<li><p>When <u>a increases</u>, T increases and <span class="math notranslate nohighlight">\(\Delta \lambda\)</span> increases.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(T = T_\gamma \rightarrow \Delta \lambda = 360^\circ\)</span> and the ground track closes: <u>This is called a geosynchronous orbit</u></p></li>
+<li><p>When <span class="math notranslate nohighlight">\(T&gt;T_\gamma \rightarrow \Delta \lambda&gt;360^\circ\)</span></p></li>
+</ol>
+<p>Why a Figure of 8?</p>
+<ol class="arabic simple">
+<li><p>The velocity of a point on Earth’s surface decreases with latitude: <span class="math notranslate nohighlight">\(v_{G} = \omega_{e} R_{e}cos{\phi}\)</span> where “<span class="math notranslate nohighlight">\(R_e cos\phi\)</span>” is the distance from the spin axis.</p></li>
+<li><p>The velocity of the subsatellite point increases with latitude</p></li>
+</ol>
+<ul class="simple">
+<li><p>When the subsatellite point is slower, the groundtrack drifts west, when it is faster it drifts east.</p></li>
+</ul>
+</section>
+<section id="effect-of-eccentricity-and-argument-of-perigee">
+<h3>Effect of eccentricity and argument of perigee<a class="headerlink" href="#effect-of-eccentricity-and-argument-of-perigee" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 4" src="../../_images/L11img4.png" /></p>
+<ol class="arabic simple">
+<li><p>Close to perigee the sbsatellite point is faster hence a larger drift towards the East</p></li>
+<li><p>Close to the apogee the subsatellite point is slower hence lower drift towards the East</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(\omega = 90^\circ\)</span> or <span class="math notranslate nohighlight">\(270^\circ\)</span> groundtracks become symmetric about the longitudinal axis</p></li>
+</ol>
+</section>
+<section id="effect-of-inclination">
+<h3>Effect of inclination<a class="headerlink" href="#effect-of-inclination" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 5" src="../../_images/L11img5.png" /></p>
+<ol class="arabic simple">
+<li><p>The inclination determins the maximum latitude <span class="math notranslate nohighlight">\(\phi_{max}\)</span></p></li>
+<li><p>For prograde orbits: <span class="math notranslate nohighlight">\(\phi_{max} = i\)</span></p></li>
+<li><p>For retrograde orbits: <span class="math notranslate nohighlight">\(\phi_{max} = 180^\circ - i\)</span></p></li>
+</ol>
+</section>
+</section>
+<section id="orbit-perturbations">
+<span id="content-orbit-perturbations"></span><h2>Orbit Perturbations<a class="headerlink" href="#orbit-perturbations" title="Permalink to this heading">#</a></h2>
+<p>Let us come back to our favourite two body dynamics equation:</p>
+<div class="math notranslate nohighlight" id="equation-l11-2">
+<span class="eqno">(239)<a class="headerlink" href="#equation-l11-2" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are constant.
+</br>
+If <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> are constant then in an ideal world <span class="math notranslate nohighlight">\(a,e, i,  \Omega, \omega \)</span> (recall Lecture 5) are all a constant.
+</br>
+The motion of a spacecraft around the Earth is much more complex!</p>
+<div class="math notranslate nohighlight" id="equation-l11-3">
+<span class="eqno">(240)<a class="headerlink" href="#equation-l11-3" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + \mathbf{p}(\mathbf{r}, \dot{\mathbf{r}}, t)\]</div>
+<p><span class="math notranslate nohighlight">\(\mathbf{p}\)</span> is a perturbation acceleration</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{p}\)</span> can occur due to:</p>
+<ol class="arabic simple">
+<li><p><u>Atmospheric Drag:</u> The interaction of the spacecraft and the Earth’s atmosphere</p></li>
+<li><p><u>Solar Radiation:</u> The interaction of the spacecraft with photons emitted from the sun</p></li>
+<li><p><u>Third-body Gravity:</u> Gravitational pull of other bodies (e.g. Sun, Moon, etc.)</p></li>
+<li><p><u>Earth’s geopotential:</u> Due to the oblateness of the earth the gravitational field is different from the one generated by a point mass. (we typically assume the earth is a point mass), hence the acceleration is not aligned with <span class="math notranslate nohighlight">\(\mathbf{r}\)</span></p></li>
+</ol>
+<p>The magnitude of the perturbations strongly depend on the postion of the spacecraft relative to the celestial bodies in question.</p>
+<p><img alt="Figure 6" src="../../_images/L11img6.png" /></p>
+<p>The above figure shows the relation betweeen the order of magnitude of the perturbation and the distance from the earth’s center.</p>
+<ol class="arabic simple">
+<li><p>The <u>J terms</u> are related to the Earth asphericity. <span class="math notranslate nohighlight">\(J_2\)</span> describes the Earth’s Oblateness.</p></li>
+<li><p><u>Drag</u> is dominant <u>at low altitude</u> (&lt; 800 km) but the magnitude depends on the shape of the spacecraft and solar activity.</p></li>
+<li><p><u>Solar radiation pressure (SRP)</u>: the only <u>constant</u> with altitude.</p></li>
+<li><p><u>At high altitudes the luni-solar perturbations are dominant.</u></p></li>
+</ol>
+<ul class="simple">
+<li><p>General effect on orbital parameter <span class="math notranslate nohighlight">\(x_i\)</span>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:[</span>
+        <span class="s2">&quot;hide-input&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x1</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">y2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span><span class="mi">20</span>
+
+<span class="n">y3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="mf">0.8</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span><span class="mf">9.1</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span><span class="mi">10</span>
+
+<span class="n">y4</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="mf">0.8</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span><span class="mf">9.1</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span><span class="mi">10</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">x1</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_i$&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;No perturbations&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_i$&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Perturbations&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span> <span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;secular variation (non-periodic)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span> <span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;long-term variation (period &gt; orbital period)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span> <span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;short term variation (period &lt; orbital period)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c595c1ccbd8b67fbaaa4ae0bc2b11e9167438fe61506877bb778ef10f8f4e962.png" src="../../_images/c595c1ccbd8b67fbaaa4ae0bc2b11e9167438fe61506877bb778ef10f8f4e962.png" />
+</div>
+</div>
+<p>The above graphs help to illustrate the effect of <em>no perturbations</em> on the left graph and the effect of <em>perturbations</em> on the right graph on the orbital parameter <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<section id="effect-of-perturbations-examples">
+<h3>Effect of perturbations: Examples<a class="headerlink" href="#effect-of-perturbations-examples" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Drag: Force in the orbit plane in the opposite direction of the velocity</br></p>
+<div class="math notranslate nohighlight" id="equation-l11-4">
+<span class="eqno">(241)<a class="headerlink" href="#equation-l11-4" title="Permalink to this equation">#</a></span>\[\mathbf{F_D} = \frac{1}{2}\rho s c_D v \mathbf{v}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\rho\)</span> as atmospheric density, <em>s</em> as the reference surface, <span class="math notranslate nohighlight">\(c_D\)</span> as the drag coefficient. A <u>secular decrease</u> of <u>a</u> and <u>e</u> results in spiralling down towards Earth’s surface.</p>
+</li>
+<li><p><u>Earth’s Oblateness</u> <span class="math notranslate nohighlight">\(J_2\)</span>:</p>
+<ul class="simple">
+<li><p>Short term variation of all orbital parameters</p></li>
+<li><p>Secular variation of <span class="math notranslate nohighlight">\(\Omega\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Figure 7" src="../../_images/L11img7.png" /></p>
+<p>As seen in the agove figure, the graviational pull is no longer aligned with <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> at the blue arrows.</p>
+<div class="math notranslate nohighlight" id="equation-l11-5">
+<span class="eqno">(242)<a class="headerlink" href="#equation-l11-5" title="Permalink to this equation">#</a></span>\[\dot \Omega =- \frac{3}{2} \frac{\sqrt{\mu}J_2 R_E}{(1-e^2)^2 a^{7/2}} \cos {i}\]</div>
+<div class="math notranslate nohighlight" id="equation-l11-6">
+<span class="eqno">(243)<a class="headerlink" href="#equation-l11-6" title="Permalink to this equation">#</a></span>\[\dot \omega = -\frac{3}{2} \frac{\sqrt{\mu}J_2 R_E}{(1-e^2)^2 a^{7/2}} (\frac{5}{2} \sin^2{i} -2)\]</div>
+<p></br>Here <span class="math notranslate nohighlight">\(R_E = 6378.14\)</span> km (earth’s radius) and <span class="math notranslate nohighlight">\(J_2 = 1.082 \times 10^{-3}\)</span></p>
+<ul class="simple">
+<li><p>Secular variation of <span class="math notranslate nohighlight">\(\Omega\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> due to <span class="math notranslate nohighlight">\(J_2\)</span> (as a function of the inclination)</p></li>
+</ul>
+</br>
+<p>The above two equations can be shown further in the diagrams below.
+<img alt="Figure 8" src="../../_images/L11img8.png" /></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot \Omega &lt; 0\)</span> (clockwise) for <span class="math notranslate nohighlight">\( i &lt; 90^\circ\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot \Omega = 0\)</span> for <span class="math notranslate nohighlight">\(i = 90^\circ\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot \Omega &gt; 0\)</span> (counterclockwise) for <span class="math notranslate nohighlight">\(i &gt; 90^\circ\)</span></p></li>
+</ul>
+</br>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot \omega &gt; 0\)</span> for <span class="math notranslate nohighlight">\( i &lt; 63.4^\circ\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot \omega = 0\)</span> for <span class="math notranslate nohighlight">\(i = 63.4^\circ\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot \omega &gt; 0\)</span> for <span class="math notranslate nohighlight">\(i &gt; 63.4^\circ\)</span></p></li>
+</ul>
+</br>
+<p><span class="math notranslate nohighlight">\(i = 63.4^\circ\)</span> is reffered to as <strong>critical inclination</strong></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./orbital-mechanics/Lecture11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture10/Lecture10.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Time, Calendars and Launch Windows</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture12/Lecture12.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Special Orbits</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ground-tracks">Ground Tracks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-semi-major-axis-circular-orbits">Impact of Semi-major Axis (circular orbits)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-eccentricity-and-argument-of-perigee">Effect of eccentricity and argument of perigee</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-inclination">Effect of inclination</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbit-perturbations">Orbit Perturbations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-perturbations-examples">Effect of perturbations: Examples</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

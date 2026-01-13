@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Elliptic Orbits &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture3/Lecture3';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Circular and More Results on Elliptical Orbits" href="../Lecture4/Lecture4.html" />
+    <link rel="prev" title="Two-Body Dynamics" href="../Lecture2/Lecture2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/orbital-mechanics/Lecture3/Lecture3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/orbital-mechanics/Lecture3/Lecture3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Forbital-mechanics/Lecture3/Lecture3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/orbital-mechanics/Lecture3/Lecture3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Elliptic Orbits</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eccentricity-vector">The Eccentricity Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-eccentricity-vector">Deriving The Eccentricity Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-bf-e">Properties of <span class="math notranslate nohighlight">\(\bf e\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-the-orbit">The Equation of the Orbit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-elliptic-orbits">Elliptic Orbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters-of-elliptic-orbits">Key Parameters of Elliptic Orbits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-orbit">Determination of the Orbit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-orbital-radius">Admissible Orbital Radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vis-viva-equation">Vis-Viva Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="elliptic-orbits">
+<h1>Elliptic Orbits<a class="headerlink" href="#elliptic-orbits" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by</em>: <a class="reference external" href="https://github.com/nozzington">Noah Leigh</a>, <a class="reference external" href="https://github.com/thedukeofeelam">Ilanthiraiyan Sivaganamoorthy</a>, <a class="reference external" href="https://github.com/adrulpz">Adriana Lopez</a>, and <a class="reference external" href="https://www.angadh.com">Angadh Nanjangud</a></p>
+<p>So far, we have studied some general aspects of orbital dynamics without focusing on any specifics shapes of orbits. Here, our main goal is to address this by diving deeper into elliptic orbits. The following sections will support us in learning about elliptic orbits:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-the-eccentricity-vector"><span class="std std-ref">The Eccentricity Vector</span></a></p></li>
+<li><p><a class="reference internal" href="#content-the-equation-of-the-orbit"><span class="std std-ref">The Equation of the Orbit</span></a></p></li>
+<li><p><a class="reference internal" href="#content-elliptic-orbits"><span class="std std-ref">Elliptic Orbits</span></a></p></li>
+<li><p><a class="reference internal" href="#content-admissible-orbital-radius"><span class="std std-ref">Admissible Orbital Radius</span></a></p></li>
+<li><p><a class="reference internal" href="#content-vis-viva-equation"><span class="std std-ref">Vis-Viva Equation</span></a></p></li>
+</ol>
+<section id="the-eccentricity-vector">
+<span id="content-the-eccentricity-vector"></span><h2>The Eccentricity Vector<a class="headerlink" href="#the-eccentricity-vector" title="Permalink to this heading">#</a></h2>
+<section id="deriving-the-eccentricity-vector">
+<h3>Deriving The Eccentricity Vector<a class="headerlink" href="#deriving-the-eccentricity-vector" title="Permalink to this heading">#</a></h3>
+<p>The Eccentricity vector <span class="math notranslate nohighlight">\({\bf e}\)</span> helps us describe the shape of an orbit and its direction. We can find it by taking the cross product of Equation <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l1-30">(31)</a> with the specific angular momentum <span class="math notranslate nohighlight">\(\bf h\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-l3-1">
+<span class="eqno">(70)<a class="headerlink" href="#equation-l3-1" title="Permalink to this equation">#</a></span>\[\ddot{{\bf r}}\times{\bf h} = - \frac{\mu}{r^3} {\bf r}\times{\bf h}\]</div>
+<p>Using the product rule for differentiation, we see that</p>
+<div class="math notranslate nohighlight" id="equation-l3-1a">
+<span class="eqno">(71)<a class="headerlink" href="#equation-l3-1a" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{d}{dt}(\dot{{\bf r}} \times {\bf h}) &amp;= \ddot{{\bf r}} \times {\bf h} + \dot{{\bf r}} \times \dot{{\bf h}} \\
+&amp;= \ddot{{\bf r}} \times {\bf h},\end{split}\]</div>
+<p>where we note that <span class="math notranslate nohighlight">\(\dot{\bf{h}} = 0\)</span> because <span class="math notranslate nohighlight">\(\bf{h}\)</span> is constant, as shown previously. Therefore, we have shown that the left-hand side of Equation <a class="reference internal" href="#equation-l3-1">(70)</a> can be written as:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{{\bf r}} \times {\bf h} = \frac{d}{dt}(\dot{{\bf r}} \times {\bf h})\]</div>
+<p>Now, we focus on the RHS of Equation <a class="reference internal" href="#equation-l3-1">(70)</a>, which can be written as a vector triple product by substituting <span class="math notranslate nohighlight">\({\bf h}\)</span> as <span class="math notranslate nohighlight">\({\bf r}\cdot\dot{{\bf r}}\)</span>:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The general form of the vector triple product <span class="math notranslate nohighlight">\({\bf a}\times ({\bf b}\times{\bf c} )\)</span> is rewritten as <span class="math notranslate nohighlight">\(({\bf c}\cdot{\bf a}){\bf b} - ({\bf b}\cdot{\bf a}){\bf c}\)</span>.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l3-1b">
+<span class="eqno">(72)<a class="headerlink" href="#equation-l3-1b" title="Permalink to this equation">#</a></span>\[\begin{split}- \frac{\mu}{r^3} {\bf r}\times{\bf h} &amp;= - \frac{\mu}{r^3} {\bf r} \times\Bigl( {\bf r} \times \dot{\bf r}\Bigr)\\
+&amp;=-\frac{\mu}{r^3} \Bigl[ (\dot{{\bf r}}\cdot{\bf r}){\bf r}-({\bf r}\cdot{\bf r})\dot{{\bf r}} \Bigr]\\
+&amp;=-\frac{\mu}{r^3}(\dot{r}r{\bf r}-r^2\dot{{\bf r}})\\
+&amp;=-\frac{\mu}{r^2}(\dot{r}{\bf r}-r\dot{{\bf r}})\end{split}\]</div>
+<p>Now, take a moment to consider the time derivative of the RHS of Equation <a class="reference internal" href="#equation-l3-1">(70)</a> (and remembering that <span class="math notranslate nohighlight">\(\mu\)</span> is
+constant) gives the same result as Equation <a class="reference internal" href="#equation-l3-1b">(72)</a></p>
+<div class="math notranslate nohighlight" id="equation-l3-1c">
+<span class="eqno">(73)<a class="headerlink" href="#equation-l3-1c" title="Permalink to this equation">#</a></span>\[\frac{d}{dt} (\mu \frac{\bf r}{r} ) = - \frac{\mu}{r^2}(\dot{r}{\bf r} - r\dot{\bf r})\]</div>
+<p>thus showing that the RHS of Equation <a class="reference internal" href="#equation-l3-1">(70)</a> is the same as the LHS of Equation <a class="reference internal" href="#equation-l3-1b">(72)</a>. That is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}(\dot{{\bf r}} \times {\bf h}) = \frac{d}{dt} (\mu \frac{\bf r}{r} )\]</div>
+<p>or that</p>
+<div class="math notranslate nohighlight" id="equation-l3-1d">
+<span class="eqno">(74)<a class="headerlink" href="#equation-l3-1d" title="Permalink to this equation">#</a></span>\[\dot{{\bf r}}\times{\bf h} - \mu\frac{{\bf r}}{r} = constant.\]</div>
+<p>We call this entire vectors that results on the LHS of Equation <a class="reference internal" href="#equation-l3-1d">(74)</a> as the eccentricty vector <span class="math notranslate nohighlight">\(\bf e\)</span>, which can also be written as:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have divided throughout Equation <a class="reference internal" href="#equation-l3-1d">(74)</a> by <span class="math notranslate nohighlight">\(\mu\)</span>, as this doesn’t really affect things on either side of the equation.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l3-2">
+<span class="eqno">(75)<a class="headerlink" href="#equation-l3-2" title="Permalink to this equation">#</a></span>\[{\bf e}=\frac{\dot{{\bf r}}\times{\bf h}}{\mu}-\frac{{\bf r}}{r} \]</div>
+</section>
+<section id="properties-of-bf-e">
+<h3>Properties of <span class="math notranslate nohighlight">\(\bf e\)</span><a class="headerlink" href="#properties-of-bf-e" title="Permalink to this heading">#</a></h3>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Can you explain why <span class="math notranslate nohighlight">\({\bf e}\)</span> lies in the plane of motion?</p>
+</div>
+</aside>
+<ol class="arabic simple">
+<li><p>Again, we remind you that we have derived that <span class="math notranslate nohighlight">\({\bf e}\)</span> is a constant vector. This is implying it is both constant in direction and magnitude. Further, <span class="math notranslate nohighlight">\({\bf e}\)</span> lies in the plane of motion and is fixed. Thus we can arbitrarily choose a direction <span class="math notranslate nohighlight">\(\hat{i}\)</span> t be aligned with <span class="math notranslate nohighlight">\({\bf e}\)</span>.</p></li>
+<li><p>Further, <span class="math notranslate nohighlight">\(e = |{\bf e}| \geq 0\)</span>, by definition.</p></li>
+</ol>
+</section>
+</section>
+<section id="the-equation-of-the-orbit">
+<span id="content-the-equation-of-the-orbit"></span><h2>The Equation of the Orbit<a class="headerlink" href="#the-equation-of-the-orbit" title="Permalink to this heading">#</a></h2>
+<p>We derive the equation to the orbit using the eccentricity vector. We begin by taking the dot product of <span class="math notranslate nohighlight">\({\bf e}\)</span> with
+<span class="math notranslate nohighlight">\({\bf r}\)</span>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>recall <span class="math notranslate nohighlight">\({\bf a}\cdot({\bf b}\times{\bf c})=({\bf a}\times{\bf b})\cdot{\bf c}\)</span></p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l3-3">
+<span class="eqno">(76)<a class="headerlink" href="#equation-l3-3" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf r}\cdot{\bf e} &amp;= \frac{{\bf r}\cdot(\dot{{\bf r}}\times{{\bf h}})}{\mu}-\frac{{\bf r}\cdot{\bf r}}{r}\\
+&amp;=\frac{({\bf r}\times\dot{{\bf r}})\cdot{\bf h}}{\mu} - \frac{r^2}{r}\\
+&amp;= \frac{h^2}{\mu}-r\end{split}\]</div>
+<p>But we also know that <span class="math notranslate nohighlight">\({\bf r}\cdot{\bf e}= r e \cos(\theta)\)</span>, where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\({\bf r}\)</span> and <span class="math notranslate nohighlight">\({\bf e}\)</span>
+and is called the true anomaly. Then, we can rewrite Equation <a class="reference internal" href="#equation-l3-3">(76)</a> as</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some textbooks, <span class="math notranslate nohighlight">\(\theta\)</span> is written by other symbols such as <span class="math notranslate nohighlight">\(\nu\)</span> or <span class="math notranslate nohighlight">\(f\)</span>.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight">
+\[r e \cos(\theta) = \frac{h^2}{\mu}-r\]</div>
+<p>or we can solve for <span class="math notranslate nohighlight">\(r\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-l3-4">
+<span class="eqno">(77)<a class="headerlink" href="#equation-l3-4" title="Permalink to this equation">#</a></span>\[r = \frac{\frac{h^2}{\mu}}{1+ e \cos\left(\theta\right)}\]</div>
+<p>This shows that <span class="math notranslate nohighlight">\(r\)</span> is the equation to an ellipse and, in fact, yields <strong>Kepler’s 1st Law</strong> which states that
+the orbit of a planet is an ellipse with the sun at one of the two focii.</p>
+<p>Actually, <span class="math notranslate nohighlight">\(r\)</span> describes a different conic depending on the eccentricity (a constant that is determined by initial conditions). The eccentricity, <span class="math notranslate nohighlight">\(e=|{\bf e}| \geq 0\)</span>, determines the shape of the orbit. Substituting for the different
+values of <span class="math notranslate nohighlight">\(e\)</span>, as given below, into Equation <a class="reference internal" href="#equation-l3-4">(77)</a> can yield different orbits:</p>
+<ul class="simple">
+<li><p><strong>Circular orbit</strong>: <span class="math notranslate nohighlight">\(e = 0 \Rightarrow r = h^2/\mu = const\)</span></p></li>
+<li><p><strong>Elliptic orbit</strong>: <span class="math notranslate nohighlight">\(0 &lt; e &lt; 1 \Rightarrow r_{min} &lt; r &lt; r_{max} \)</span></p></li>
+<li><p><strong>Parabolic orbit</strong>: <span class="math notranslate nohighlight">\(e = 1 \Rightarrow \frac{1}{2}h^2/\mu \leq r \leq \infty\)</span></p></li>
+<li><p><strong>Hyperbolic orbit</strong>: <span class="math notranslate nohighlight">\(e &gt; 1 \Rightarrow  \frac{h^2/\mu}{1+e} \leq r \leq \infty \)</span></p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>Operative orbits are always circular or elliptic so as to keep a satellite close to the planet of interest for as
+long as possible.</p></li>
+<li><p>Hyperbolic orbits are essentially maneuvers for interplanetary missions, typically to reduce propellant use by using the
+gravity of a body to reach another target body (also known as gravity assist maneuver).</p></li>
+</ul>
+</div>
+</section>
+<section id="content-elliptic-orbits">
+<span id="id1"></span><h2>Elliptic Orbits<a class="headerlink" href="#content-elliptic-orbits" title="Permalink to this heading">#</a></h2>
+<figure class="align-center" id="figl3-2">
+<a class="reference internal image-reference" href="../../_images/L3_elliptic_orbit.png"><img alt="../../_images/L3_elliptic_orbit.png" src="../../_images/L3_elliptic_orbit.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">An ellipse demostrating the different properties of an elliptical orbit, all shown in different colours.</span><a class="headerlink" href="#figl3-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><span style="color:#6A73D9">a = semi-major axis</span> <br>
+<span style="color:#009600">b = semi-minor axis</span> <br>
+<span style="color:#ff801f">p = semi-latus rectum</span> <br>
+<span class="math notranslate nohighlight">\(\textcolor{#646464}{{\bf e}}\)</span><span style="color:#646464"> is aligned with the apsides and point towards the perigee</span></p>
+<section id="key-parameters-of-elliptic-orbits">
+<h3>Key Parameters of Elliptic Orbits<a class="headerlink" href="#key-parameters-of-elliptic-orbits" title="Permalink to this heading">#</a></h3>
+<p>Aside from the equations shown within <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 6</span></a>, we also can determine three other parameters:</p>
+<ol class="arabic">
+<li><p><strong>Semi-latus rectum</strong>(<span class="math notranslate nohighlight">\(p\)</span>):
+This is the distance from the foci (orbitted body) to the orbit measured perpendicular to the semi-major axis.
+It can be computed from Equation <a class="reference internal" href="#equation-l3-4">(77)</a> by setting <span class="math notranslate nohighlight">\(\theta = 90^\circ\)</span></p>
+<div class="math notranslate nohighlight" id="equation-l3-5">
+<span class="eqno">(78)<a class="headerlink" href="#equation-l3-5" title="Permalink to this equation">#</a></span>\[r = \frac{h^2}{\mu} = p\]</div>
+<p>More generally, we can then rewrite Equation <a class="reference internal" href="#equation-l3-4">(77)</a> using <span class="math notranslate nohighlight">\(p\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-l3-5a">
+<span class="eqno">(79)<a class="headerlink" href="#equation-l3-5a" title="Permalink to this equation">#</a></span>\[r = \frac{p}{1 + e \cos\theta} = \frac{a(1 - e^2)}{1 + e \cos\theta}\]</div>
+<p>where,</p>
+<div class="math notranslate nohighlight" id="equation-l3-5b">
+<span class="eqno">(80)<a class="headerlink" href="#equation-l3-5b" title="Permalink to this equation">#</a></span>\[p = a(1 - e^2)\]</div>
+</li>
+</ol>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a satellite is orbiting the moon (mass <span class="math notranslate nohighlight">\(m_2\)</span> in <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 6</span></a>), then we specifically use terms perilune and apolune instead of periapsis and apoapsis. If <span class="math notranslate nohighlight">\(m_2\)</span> is the Earth, then we use the terms perigee and apogee.</p>
+</div>
+</aside>
+<ol class="arabic" start="2">
+<li><p><strong>Periapsis</strong> is the value of <span class="math notranslate nohighlight">\(r\)</span> at <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> and is denoted <span class="math notranslate nohighlight">\(r_p\)</span>. It can be obtained from Equation
+<a class="reference internal" href="#equation-l3-5a">(79)</a> as</p>
+<div class="math notranslate nohighlight" id="equation-l3-6">
+<span class="eqno">(81)<a class="headerlink" href="#equation-l3-6" title="Permalink to this equation">#</a></span>\[r_p = \frac{p}{1+e}= a(1 - e)\]</div>
+</li>
+<li><p><strong>Apoapsis</strong> is the value of <span class="math notranslate nohighlight">\(r\)</span> at <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> and is denoted <span class="math notranslate nohighlight">\(r_a\)</span>. . It can be obtained from Equation
+<a class="reference internal" href="#equation-l3-5a">(79)</a> as</p>
+<div class="math notranslate nohighlight" id="equation-l3-7">
+<span class="eqno">(82)<a class="headerlink" href="#equation-l3-7" title="Permalink to this equation">#</a></span>\[r_a = a(1 + e)\]</div>
+</li>
+</ol>
+</section>
+<section id="determination-of-the-orbit">
+<h3>Determination of the Orbit<a class="headerlink" href="#determination-of-the-orbit" title="Permalink to this heading">#</a></h3>
+<p>Typically you will be given <span class="math notranslate nohighlight">\({\bf r_o}\)</span> and <span class="math notranslate nohighlight">\({\bf v_o}\)</span> and will be asked to compute <span class="math notranslate nohighlight">\({\bf h}\)</span> and <span class="math notranslate nohighlight">\({\bf e}\)</span>. The process
+for doing so is:</p>
+<ol class="arabic simple">
+<li><p>Compute the semi-latus rectum <span class="math notranslate nohighlight">\(p\)</span> from Equation <a class="reference internal" href="#equation-l3-5">(78)</a>.</p></li>
+<li><p>Compute the semi-major axis, <span class="math notranslate nohighlight">\(a\)</span>, using <span class="math notranslate nohighlight">\(a=\frac{p}{1-e^2}\)</span> (shown in <a class="reference internal" href="#figl3-2"><span class="std std-numref">Fig. 6</span></a>).</p></li>
+<li><p>Compute the apsides points (most extreme points in the orbit) using <a class="reference internal" href="#equation-l3-6">(81)</a> and <a class="reference internal" href="#equation-l3-7">(82)</a> .</p></li>
+</ol>
+</section>
+</section>
+<section id="admissible-orbital-radius">
+<span id="content-admissible-orbital-radius"></span><h2>Admissible Orbital Radius<a class="headerlink" href="#admissible-orbital-radius" title="Permalink to this heading">#</a></h2>
+<p>Starting from Equation <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l2-36a">(69)</a>, we can rewrite <span class="math notranslate nohighlight">\(E\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-l2-37">
+<span class="eqno">(83)<a class="headerlink" href="#equation-l2-37" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2}v^2- \Bigl(\frac{\mu}{r}\Bigr)\\
+\Rightarrow E &amp;= \frac{1}{2}{\dot r}^2+\frac{1}{2}r^2 \dot{\theta}^2-\Bigl(\frac{\mu}{r}\Bigr)\\
+\Rightarrow E &amp;= \frac{1}{2}{\dot r}^2+\Bigl(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\Bigr)\end{split}\]</div>
+<p>Focusing on the terms within the brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(83)</a>, we can define a few terms:</p>
+<ul class="simple">
+<li><p>the entire collection of terms <span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}-\frac{\mu}{r}\)</span> is called the effective potential and denoted by <span class="math notranslate nohighlight">\(\phi_{eff}(r)\)</span>.</p></li>
+<li><p>the first of these terms, <span class="math notranslate nohighlight">\(\frac{1}{2}\frac{h^2}{r^2}\)</span>, is known as the potential of the centrifugal force; and</p></li>
+<li><p>the second of these terms, <span class="math notranslate nohighlight">\(-\frac{\mu}{r}\)</span>, is referred to as the potential of the gravitational force.</p></li>
+</ul>
+<p><a class="reference internal" href="#admissible-radius"><span class="std std-numref">Fig. 7</span></a> shows a qualitative depiction of the contribution
+of each of these terms to the effective potential separately and how their sum
+shapes the effective potential.</p>
+<figure class="align-default" id="admissible-radius">
+<a class="reference internal image-reference" href="../../_images/L2_4.png"><img alt="../../_images/L2_4.png" src="../../_images/L2_4.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Qualitative depiction of <span class="math notranslate nohighlight">\(\phi_{eff}(r)\)</span> and its contributions from the two terms in brackets on the RHS of Equation <a class="reference internal" href="#equation-l2-37">(83)</a>.</span><a class="headerlink" href="#admissible-radius" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The effective potential can take positive or negative values over a range of values of <span class="math notranslate nohighlight">\(r\)</span> given its definition.</p>
+<p>Now, Equation <a class="reference internal" href="#equation-l2-37">(83)</a> can be written as</p>
+<div class="math notranslate nohighlight" id="equation-l2-37b">
+<span class="eqno">(84)<a class="headerlink" href="#equation-l2-37b" title="Permalink to this equation">#</a></span>\[E = \frac{1}{2}{\dot r}^2 + \phi_{eff}(r) = constant\]</div>
+<p>From this equation, we can infer that:</p>
+<ul class="simple">
+<li><p>the kinetic energy term <span class="math notranslate nohighlight">\(\frac{1}{2}{\dot r}^2 \geq 0\)</span>.</p></li>
+<li><p>therefore <span class="math notranslate nohighlight">\(E\geq\phi_{eff}(r)\)</span>.</p></li>
+</ul>
+<p>Thus motion is only possible for those values of <span class="math notranslate nohighlight">\(r\)</span> such that <span class="math notranslate nohighlight">\(E\geq\phi_{eff}\)</span>.</p>
+<p><a class="reference internal" href="#admissible-radius2"><span class="std std-numref">Fig. 8</span></a> is a qualitative depiction of the <span class="math notranslate nohighlight">\(\phi_{eff}\)</span> as a function of <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<figure class="align-default" id="admissible-radius2">
+<a class="reference internal image-reference" href="../../_images/L2_5.png"><img alt="../../_images/L2_5.png" src="../../_images/L2_5.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text"><span class="math notranslate nohighlight">\(\phi_{eff}\)</span> as a function of <span class="math notranslate nohighlight">\(r\)</span>.</span><a class="headerlink" href="#admissible-radius2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This is a more detailed depiction of <a class="reference internal" href="#admissible-radius"><span class="std std-numref">Fig. 7</span></a>, which also shows the
+constant specific energy <span class="math notranslate nohighlight">\(E\)</span> as a blue horizontal line. Indeed, as <span class="math notranslate nohighlight">\(E\)</span> is constant, it
+can easily be computed from the initial conditions of the system.
+<span class="math notranslate nohighlight">\(E\)</span> can take on various values, each corresponding to a different orbit:</p>
+<ul class="simple">
+<li><p>When <span class="math notranslate nohighlight">\(E&lt;0\)</span>, the motion occurs between <span class="math notranslate nohighlight">\(r_{min}\)</span> and <span class="math notranslate nohighlight">\(r_{max}\)</span> telling us that the motion is bounded. More specifically, it is an elliptical orbit; this condition is shown clearly in <a class="reference internal" href="#admissible-radius2"><span class="std std-numref">Fig. 8</span></a>.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(E\geq0\)</span> the motion is unbounded; this case is shown in the right side of <a class="reference internal" href="#admissible-radius3"><span class="std std-numref">Fig. 9</span></a>.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(E=\min{\phi(r)}\)</span>, we get the condition that <span class="math notranslate nohighlight">\(r_{min}=r_{max}\)</span> resulting in a circular orbit. This case is shown in the left side of<a class="reference internal" href="#admissible-radius3"><span class="std std-numref">Fig. 9</span></a>.</p></li>
+</ul>
+<figure class="align-default" id="admissible-radius3">
+<a class="reference internal image-reference" href="../../_images/L2_6.png"><img alt="../../_images/L2_6.png" src="../../_images/L2_6.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">On the left plot, we see that <span class="math notranslate nohighlight">\(E\)</span> aligns with the minimum value of <span class="math notranslate nohighlight">\(\phi_{eff}\)</span> at <span class="math notranslate nohighlight">\(r_{min}\)</span> and <span class="math notranslate nohighlight">\(r_{max}\)</span>. On the right plot, we see that for <span class="math notranslate nohighlight">\(E\geq0\)</span>, the motion is unbounded.</span><a class="headerlink" href="#admissible-radius3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-key-points admonition">
+<p class="admonition-title">Key points</p>
+<p>Key takeaways from the discussion so far are that when we are given the initial position <span class="math notranslate nohighlight">\(\bf{r_0}\)</span> and velocity <span class="math notranslate nohighlight">\(\bf{v_0}\)</span> we can compute:</p>
+<ol class="arabic simple">
+<li><p>Specific angular momentum <span class="math notranslate nohighlight">\(\bf{h}\)</span> as shown below:</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-l2-38">
+<span class="eqno">(85)<a class="headerlink" href="#equation-l2-38" title="Permalink to this equation">#</a></span>\[{\bf h}={\bf h_0}=constant\]</div>
+<p>which is orthogonal to the orbital plane. The intial values also tells us that the constant areal velocity is <span class="math notranslate nohighlight">\(\frac{1}{2}r_0^2\dot \theta_0\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Specific orbital energy <span class="math notranslate nohighlight">\(E\)</span> as shown below</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-l2-39">
+<span class="eqno">(86)<a class="headerlink" href="#equation-l2-39" title="Permalink to this equation">#</a></span>\[E_0=\frac{1}{2}v_0^2 - \frac{\mu}{r_0}\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_0\)</span> is the specific orbital energy at computed from the initial conditions. If <span class="math notranslate nohighlight">\(E&lt;0\)</span>, we have a bounded orbit but if <span class="math notranslate nohighlight">\(E\geq0\)</span> we have unbounded motion.</p>
+<ol class="arabic simple" start="3">
+<li><p>Compute the minimum or maximum values of <span class="math notranslate nohighlight">\(r\)</span> when <span class="math notranslate nohighlight">\(\phi_{eff}=E=E_0\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="vis-viva-equation">
+<span id="content-vis-viva-equation"></span><h2>Vis-Viva Equation<a class="headerlink" href="#vis-viva-equation" title="Permalink to this heading">#</a></h2>
+<p>The Vis-Viva Equation is one of the most useful equations in space mission design as it is used to find the
+velocity at any given <span class="math notranslate nohighlight">\(r\)</span> when a maneuver is planned.</p>
+<p>The total energy of the orbit is the sum of the kinetic energy and the potential energies of the orbit.
+The sum of the potential energies is the effective potential energy, <span class="math notranslate nohighlight">\(\phi_{eff}\)</span>:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall that <span class="math notranslate nohighlight">\({\bf v} = \dot{r}\hat{\bf e}_r + r\dot{\theta}\hat{\bf e}_\theta\)</span>. In terms of
+<span class="math notranslate nohighlight">\(h\)</span>, this becomes <span class="math notranslate nohighlight">\({\bf v} = \dot{r}\hat{\bf e}_r + \frac{h}{r}\hat{\bf e}_\theta\)</span>. From this, we can now easily compute the magnitude of the velocity as seen in Equation <a class="reference internal" href="#equation-l3-7a">(87)</a>.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l3-7a">
+<span class="eqno">(87)<a class="headerlink" href="#equation-l3-7a" title="Permalink to this equation">#</a></span>\[\begin{split}E &amp;= \frac{1}{2} v^2-\frac{\mu}{r}\\
+&amp;= \frac{1}{2} \dot{r^2} + \frac{1}{2}  \frac{h^2}{r^2} - \frac{\mu}{r}\\
+&amp;= \frac{1}{2} \dot{r^2} + \phi_{eff}\end{split}\]</div>
+<p>At perigee, <span class="math notranslate nohighlight">\(r_p\)</span>, and apogee, <span class="math notranslate nohighlight">\(r_a\)</span>, the radial component of velocity in Equation <a class="reference internal" href="#equation-l3-7a">(87)</a>, <span class="math notranslate nohighlight">\(\dot r = 0\)</span>;
+at these points, <span class="math notranslate nohighlight">\(E=\phi_{eff}\)</span> which allows us to derive E as a function of the semi-major axis, <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We make use of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(p\)</span> defined in Equations <a class="reference internal" href="#equation-l3-7">(82)</a> and <a class="reference internal" href="#equation-l3-5b">(80)</a>, respectively.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l3-8">
+<span class="eqno">(88)<a class="headerlink" href="#equation-l3-8" title="Permalink to this equation">#</a></span>\[\begin{split}E({r_p})&amp;=\phi_{eff}({r_p})\\
+&amp;= \frac{1}{2} \frac{h^2}{r_p^2} - \frac{\mu}{r_p}\\
+&amp;= \frac{1}{2} \frac{\mu p}{r_p^2} - \frac{\mu}{r_p}\\
+&amp;= -\frac{\mu(1-e)}{2a (1-e)}\\
+E&amp;=-\frac{\mu}{2a}\end{split}\]</div>
+<p>The specific orbital energy is thus solely a function of <span class="math notranslate nohighlight">\(a\)</span>. Orbits with the same semi-major axis have the same specific orbital energy.</p>
+<p>The <strong>Vis-Viva Equation</strong> is  obtained by equating Equations <a class="reference internal" href="#equation-l3-7a">(87)</a> and <a class="reference internal" href="#equation-l3-8">(88)</a> as</p>
+<div class="important admonition">
+<p class="admonition-title">Vis Viva Equation</p>
+<div class="math notranslate nohighlight" id="equation-l3-9">
+<span class="eqno">(89)<a class="headerlink" href="#equation-l3-9" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2 - \frac{\mu}{r}= -\frac{\mu}{2a}\]</div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The eccentricity vector is a constant vector in orbital mechanics.</p></li>
+<li><p>The orbit equation describes different conic sections based on the magnitude of the eccentricity vector.</p></li>
+<li><p>The Vis Viva equation <a class="reference internal" href="#equation-l3-9">(89)</a> is a crucial tool in mission planning for calculating velocities at various points in an orbit.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./orbital-mechanics/Lecture3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture2/Lecture2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Two-Body Dynamics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture4/Lecture4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Circular and More Results on Elliptical Orbits</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eccentricity-vector">The Eccentricity Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-eccentricity-vector">Deriving The Eccentricity Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-bf-e">Properties of <span class="math notranslate nohighlight">\(\bf e\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-equation-of-the-orbit">The Equation of the Orbit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-elliptic-orbits">Elliptic Orbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters-of-elliptic-orbits">Key Parameters of Elliptic Orbits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-orbit">Determination of the Orbit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admissible-orbital-radius">Admissible Orbital Radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vis-viva-equation">Vis-Viva Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

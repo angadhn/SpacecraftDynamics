@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Special Orbits &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture12/Lecture12';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Kinetics" href="../../attitude-dynamics/Lecture14/dynamics-1.html" />
+    <link rel="prev" title="Ground Tracks and Orbit Perturbations" href="../Lecture11/Lecture11.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/orbital-mechanics/Lecture12/Lecture12.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/orbital-mechanics/Lecture12/Lecture12.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Forbital-mechanics/Lecture12/Lecture12.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/orbital-mechanics/Lecture12/Lecture12.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Special Orbits</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sun-synchronous-orbit">Sun Synchronous Orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#j2-perturbations">J2 Perturbations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-groundtrack-orbits">Repeat Groundtrack Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geosynchronous-orbits">Geosynchronous Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geostationary-orbits-geo">Geostationary Orbits (GEO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunsynchronous-repeat-groundtrack-orbits">Sunsynchronous Repeat Groundtrack Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molniya-orbits">Molniya Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tundra-orbits">Tundra Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="special-orbits">
+<h1>Special Orbits<a class="headerlink" href="#special-orbits" title="Permalink to this heading">#</a></h1>
+<p>Prepared by: <a class="reference external" href="https://github.com/Emma-airi">Emmanuel Airiofolo</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-sun-synchronous-orbit"><span class="std std-ref">Sun Synchronous Orbit</span></a></p></li>
+<li><p><a class="reference internal" href="#content-j2-perturbations"><span class="std std-ref">J2 Perturbations</span></a></p></li>
+<li><p><a class="reference internal" href="#content-repeat-groundtrack-orbits"><span class="std std-ref">Repeat Groundtrack Orbits</span></a></p></li>
+<li><p><a class="reference internal" href="#content-geosynchronous-orbits"><span class="std std-ref">Geosynchronous Orbits</span></a></p></li>
+<li><p><a class="reference internal" href="#content-geostationary-orbits-geo"><span class="std std-ref">Geostationary Orbits (GEO)</span></a></p></li>
+<li><p><a class="reference internal" href="#content-sunsynchronous-repeat-groundtrack-orbits"><span class="std std-ref">Sunsynchronous Repeat Groundtrack Orbits</span></a></p></li>
+<li><p><a class="reference internal" href="#content-molniya-orbits"><span class="std std-ref">Molniya Orbits</span></a></p></li>
+<li><p><a class="reference internal" href="#content-tundra-orbits"><span class="std std-ref">Tundra Orbits</span></a></p></li>
+<li><p><a class="reference internal" href="#content-references"><span class="std std-ref">References</span></a></p></li>
+</ol>
+<section id="sun-synchronous-orbit">
+<span id="content-sun-synchronous-orbit"></span><h2>Sun Synchronous Orbit<a class="headerlink" href="#sun-synchronous-orbit" title="Permalink to this heading">#</a></h2>
+<p>Exploits the secular variation of <span class="math notranslate nohighlight">\(\Omega\)</span> due to <span class="math notranslate nohighlight">\(J_2\)</span> such that space craft arrives over a particular location at the same local solar time at each pass.</p>
+<p>The relative geometry between the orbit plane and the Sun-Earth vector (<span class="math notranslate nohighlight">\(\alpha\)</span>), remains approximately constant over the year:</p>
+<p><strong>Sun Synchronous Orbit</strong></p>
+<p><img alt="Figure 1" src="../../_images/SSO.jpg" /></p>
+<div class="math notranslate nohighlight" id="equation-l12-1">
+<span class="eqno">(244)<a class="headerlink" href="#equation-l12-1" title="Permalink to this equation">#</a></span>\[\Omega = \alpha_s + \alpha\]</div>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\alpha\)</span> = constant;</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l12-2">
+<span class="eqno">(245)<a class="headerlink" href="#equation-l12-2" title="Permalink to this equation">#</a></span>\[⇒\dot {\Omega} = \dot {\alpha}_s = \frac{360}{365.25} {^\circ/day} \]</div>
+<ul class="simple">
+<li><p>This is acheved by exploiting <span class="math notranslate nohighlight">\(J_2\)</span> perturbation selecting a proper value for the inclination;</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l12-3">
+<span class="eqno">(246)<a class="headerlink" href="#equation-l12-3" title="Permalink to this equation">#</a></span>\[⇒\dot {\Omega} = -\frac{3}{2} \frac{\sqrt\mu J_2 R_E}{(1-e^2)^2a^\frac{7}{2}}\cos i = \frac{360}{365.25} {^\circ/day}\]</div>
+<ul class="simple">
+<li><p>As we want <span class="math notranslate nohighlight">\(\dot {\Omega} &gt; 0\)</span> ⇒ i &gt; <span class="math notranslate nohighlight">\(90^\circ\)</span> ⇒ Sun-Synchronous orbits are retrograde!</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\alpha_s\)</span> = The right ascension of the Sun.</p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span> = Hour angle with respect to the ascending node.</p>
+<p><span class="math notranslate nohighlight">\(\gamma\)</span> = Reference angle.</p>
+<section id="j2-perturbations">
+<span id="content-j2-perturbations"></span><h3>J2 Perturbations<a class="headerlink" href="#j2-perturbations" title="Permalink to this heading">#</a></h3>
+<p>The earth is geometrically an oblate shere, due to the centrifical forces generated by its rotation. This oblateness results in the diameter of the earth at the equator to be larger than at the poles.
+The perturbating force that results from the Earth’s oblateness is known as the <span class="math notranslate nohighlight">\(J_2\)</span> perturbation. There are other perturbation factors, however <span class="math notranslate nohighlight">\(J_2\)</span> is the strongest pertubating factors on orbits.</p>
+<p><span class="math notranslate nohighlight">\(J_2\)</span> perturbations will move the Right Ascension of the Asceending Node (RAAN) over time at a constant rate depending on the orbit’s size, shape, and inclination. Using this property of <span class="math notranslate nohighlight">\(J_2\)</span> perturbations, we can manipulate our orbit so that the RAAN changes at a rate of 360 <span class="math notranslate nohighlight">\({^\circ}\)</span>/year, keeping the orbit in the same orientation with respect to the Sun. This manipulation would result in the sun syncronous orbit as shown in the green orbit. However, if we did not account for <span class="math notranslate nohighlight">\(J_2\)</span>, would have the red orbit in the picture below:</p>
+<p><strong>Sun-Synchronous Orbit vs Non Sun-Synchronous Orbit</strong></p>
+<p><img alt="Figure 2" src="../../_images/sunsync.png" /></p>
+<ul class="simple">
+<li><p>Sunsynchronous orbits are typically Low Earth Orbits (LEO) used for remote sensing. LEO orbits are typically between 400 km and 800 km above the earth’s surface. Properties include:</p>
+<ul>
+<li><p>Low altitude for better image resolution.</p></li>
+<li><p>The Altitude is high enough to limit atmospheric drag.</p></li>
+<li><p>Low eccentricity for uniform resolution.</p></li>
+<li><p>Almost polar orbits that are good for global mapping (Typical inclination at Low Earth Orbits).</p></li>
+<li><p>Retrograde for constant illumination condition.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Typical inclination at Low Earth Orbits</strong></p>
+<p><img alt="Figure 3" src="../../_images/incheight.jpg" /></p>
+</section>
+</section>
+<section id="repeat-groundtrack-orbits">
+<span id="content-repeat-groundtrack-orbits"></span><h2>Repeat Groundtrack Orbits<a class="headerlink" href="#repeat-groundtrack-orbits" title="Permalink to this heading">#</a></h2>
+<p>This Orbit is designed such that the groundtrack repeats after <span class="math notranslate nohighlight">\(n\)</span> orbits and <span class="math notranslate nohighlight">\(m\)</span> days often to access the same targets.</p>
+<p>It is a constraint on orbit period ⇒ on the semi-major axis:</p>
+<div class="math notranslate nohighlight" id="equation-l12-4">
+<span class="eqno">(247)<a class="headerlink" href="#equation-l12-4" title="Permalink to this equation">#</a></span>\[n\Delta\lambda = m2\pi ⇒ \Delta\lambda = T\omega_E = T\frac{2\pi}{T_\gamma}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_E\)</span> = Angular momentum of the Earth.</p></li>
+</ul>
+<p>The simplification of both equations results in the ratio between the orbit period (<span class="math notranslate nohighlight">\(T\)</span>) and sidereal day (<span class="math notranslate nohighlight">\(T_\gamma\)</span>):</p>
+<div class="math notranslate nohighlight" id="equation-l12-5">
+<span class="eqno">(248)<a class="headerlink" href="#equation-l12-5" title="Permalink to this equation">#</a></span>\[nT = mT_\gamma ⇒ \frac{T}{T_\gamma} = \frac{m}{n}\]</div>
+<p>This ratio is a rational number.</p>
+<p><strong>Make reference to solar vs sidereal day.</strong></p>
+</section>
+<section id="geosynchronous-orbits">
+<span id="content-geosynchronous-orbits"></span><h2>Geosynchronous Orbits<a class="headerlink" href="#geosynchronous-orbits" title="Permalink to this heading">#</a></h2>
+<p>Here <span class="math notranslate nohighlight">\(n = m = 1\)</span>, where an orbit is completed as one day is completed.</p>
+<div class="math notranslate nohighlight" id="equation-l12-6">
+<span class="eqno">(249)<a class="headerlink" href="#equation-l12-6" title="Permalink to this equation">#</a></span>\[T = T_\gamma   ⇒   2\pi \sqrt\frac{a^3}{\mu} = T_\gamma\]</div>
+<p>We can simplify this to get the semi-major axis for a Geosynchronous orbit:</p>
+<div class="math notranslate nohighlight" id="equation-l12-7">
+<span class="eqno">(250)<a class="headerlink" href="#equation-l12-7" title="Permalink to this equation">#</a></span>\[a = (\frac{T_\gamma^2\mu}{4\pi^2})^\frac{1}{3} = 42,164 km\]</div>
+<p>The groundtrack of this orbit is the figure 8.</p>
+</section>
+<section id="geostationary-orbits-geo">
+<span id="content-geostationary-orbits-geo"></span><h2>Geostationary Orbits (GEO)<a class="headerlink" href="#geostationary-orbits-geo" title="Permalink to this heading">#</a></h2>
+<p>This orbit has the same parameters as the Geosynchronous Orbit with the inclination of the orbit set at Zero. Hence:</p>
+<ul class="simple">
+<li><p>The subsatellite point is fixed.</p></li>
+<li><p>The orbit is equitorial, and high latitudes are not covered.</p></li>
+</ul>
+</section>
+<section id="sunsynchronous-repeat-groundtrack-orbits">
+<span id="content-sunsynchronous-repeat-groundtrack-orbits"></span><h2>Sunsynchronous Repeat Groundtrack Orbits<a class="headerlink" href="#sunsynchronous-repeat-groundtrack-orbits" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The Sunsynchronous orbit where the RAAN (<span class="math notranslate nohighlight">\(\Omega\)</span>) precesses East at approximately <span class="math notranslate nohighlight">\(1^\circ\)</span>/day</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l12-8">
+<span class="eqno">(251)<a class="headerlink" href="#equation-l12-8" title="Permalink to this equation">#</a></span>\[\Delta\lambda = T(\omega_E - \dot\Omega) = T(\frac{2\pi}{T_\gamma} - \frac{2\pi}{(Y + 1)T_\gamma}) = 2\pi T(\frac{Y + 1 -1}{T_\gamma(Y + 1)}) = 2\pi T(\frac{Y}{T_\odot Y}) = 2\pi\frac{T}{T_\odot}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T_\odot\)</span> = Solar day = 86,400 seconds.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y\)</span> = the number of solar days in a year = 365.256 days.</p></li>
+<li><p>Note that there are (Y + 1) sidereal days in 1 year.</p></li>
+<li><p>The semi-major axis is known for given <span class="math notranslate nohighlight">\(n,m\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l12-9">
+<span class="eqno">(252)<a class="headerlink" href="#equation-l12-9" title="Permalink to this equation">#</a></span>\[n\Delta\lambda = m2\pi ⇒ T = \frac{m}{n}T_\odot\]</div>
+<ul class="simple">
+<li><p>The minimum groundtrack seperation (<span class="math notranslate nohighlight">\(\Delta\lambda_{min}\)</span>) is gven by:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l12-10">
+<span class="eqno">(253)<a class="headerlink" href="#equation-l12-10" title="Permalink to this equation">#</a></span>\[\Delta\lambda_{min} = \frac{2\pi}{n} (radians)\]</div>
+<div class="math notranslate nohighlight" id="equation-l12-11">
+<span class="eqno">(254)<a class="headerlink" href="#equation-l12-11" title="Permalink to this equation">#</a></span>\[d_{min} = \frac{2\pi}{n}R_E (km)\]</div>
+<ul>
+<li><p>Typical Design Procedures:</p>
+<ol class="arabic simple">
+<li><p>Given instrument and resoultion (i.e: FOV and Pixels), <span class="math notranslate nohighlight">\(a^*\)</span> and <span class="math notranslate nohighlight">\(T^*\)</span> can be approximated. (The ‘*’ are there to signify approximated values)</p></li>
+<li><p>For global coverage, <span class="math notranslate nohighlight">\(d_{min} &lt; swath\)</span> ⇒ lower bound for <span class="math notranslate nohighlight">\(n^*\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(m\)</span> from <span class="math notranslate nohighlight">\(m^*\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-l12-12">
+<span class="eqno">(255)<a class="headerlink" href="#equation-l12-12" title="Permalink to this equation">#</a></span>\[m^* = \frac{T^*n^*}{T\odot}\]</div>
+<ol class="arabic simple" start="4">
+<li><p>From <span class="math notranslate nohighlight">\(m^*,n^*\)</span> compute the new <span class="math notranslate nohighlight">\(T^*\)</span>. Then test for <span class="math notranslate nohighlight">\(a^*\)</span> from point 1.</p></li>
+</ol>
+</li>
+</ul>
+<p><strong>Make reference to solar vs sidereal day.</strong></p>
+</section>
+<section id="molniya-orbits">
+<span id="content-molniya-orbits"></span><h2>Molniya Orbits<a class="headerlink" href="#molniya-orbits" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Repeat grountrack, where <span class="math notranslate nohighlight">\(n = 2, m = 1\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l12-13">
+<span class="eqno">(256)<a class="headerlink" href="#equation-l12-13" title="Permalink to this equation">#</a></span>\[T = \frac{1}{2}T_\gamma ⇒ a = 26,554 km\]</div>
+<ul class="simple">
+<li><p>Eccentricity is high enough such that the subsatellite point is almost fixed at <span class="math notranslate nohighlight">\(e = 0.72\)</span>.</p></li>
+<li><p>The almost fixed area is more common at higher latitudes which are mainly used for telecommunication ⇒ <span class="math notranslate nohighlight">\(\omega\)</span> = <span class="math notranslate nohighlight">\(-90^\circ\)</span>.</p></li>
+<li><p>To avoid the precession of Argument of Perigee (AOP), the critical inclination is defined by ⇒ <span class="math notranslate nohighlight">\(i = 63.4^\circ\)</span></p></li>
+</ul>
+<p><strong>Molniya Orbit</strong></p>
+<p><img alt="Figure 4" src="../../_images/molniya.jpg" /></p>
+<p><strong>Groundtrack of Molniya Orbits</strong></p>
+<p><img alt="Figure 5" src="../../_images/molniya2.jpg" /></p>
+</section>
+<section id="tundra-orbits">
+<span id="content-tundra-orbits"></span><h2>Tundra Orbits<a class="headerlink" href="#tundra-orbits" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Same as molniya, but <span class="math notranslate nohighlight">\(n = m = 1\)</span> making it a Geosynchronous orbit.</p></li>
+<li><p>Eccentricity is set at 0.825.</p></li>
+</ul>
+<p><strong>Groundtrack of Tundra Orbits</strong></p>
+<p><img alt="Figure 6" src="../../_images/tundra.jpg" /></p>
+</section>
+<section id="references">
+<span id="content-references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://ai-solutions.com">ai-solutions.com</a>. (n.d.). J2 Perturbation. [online] Available at: <a class="reference external" href="https://ai-solutions.com/_freeflyeruniversityguide/j2_perturbation.htm#:~:text=J2%20perturbations%20will%20imove%20the">https://ai-solutions.com/_freeflyeruniversityguide/j2_perturbation.htm#:~:text=J2 perturbations will imove the</a></p></li>
+<li><p><a class="reference external" href="http://alfonsogonzalez.github.io">alfonsogonzalez.github.io</a>. (n.d.). Astrodynamics Interactive Demo. [online] Available at: <a class="reference external" href="https://alfonsogonzalez.github.io/AWP/#">https://alfonsogonzalez.github.io/AWP/#</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./orbital-mechanics/Lecture12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture11/Lecture11.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ground Tracks and Orbit Perturbations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../attitude-dynamics/Lecture14/dynamics-1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kinetics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sun-synchronous-orbit">Sun Synchronous Orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#j2-perturbations">J2 Perturbations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-groundtrack-orbits">Repeat Groundtrack Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geosynchronous-orbits">Geosynchronous Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geostationary-orbits-geo">Geostationary Orbits (GEO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sunsynchronous-repeat-groundtrack-orbits">Sunsynchronous Repeat Groundtrack Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molniya-orbits">Molniya Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tundra-orbits">Tundra Orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

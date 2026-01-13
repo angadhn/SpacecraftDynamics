@@ -1,0 +1,917 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Orbital Maneuvers &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture7/Lecture7';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hyperbolic Orbits and Interplanetary Trajectories" href="../Lecture8/Lecture8.html" />
+    <link rel="prev" title="Orbital Elements (Part 2)" href="../Lecture6/Lecture6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/orbital-mechanics/Lecture7/Lecture7.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/orbital-mechanics/Lecture7/Lecture7.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Forbital-mechanics/Lecture7/Lecture7.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/orbital-mechanics/Lecture7/Lecture7.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Orbital Maneuvers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbit-maneuvers">Orbit Maneuvers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-orbital-energy">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on orbital energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-angular-momentum">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-mathbf-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> and transfer time</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bi-elliptic-transfer">Bi-elliptic transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-tangential-transfer">Non tangential transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-change-maneuver">Plane Change maneuver</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="orbital-maneuvers">
+<h1>Orbital Maneuvers<a class="headerlink" href="#orbital-maneuvers" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/mitanshc">Mitansh Choksi</a>, <a class="reference external" href="https://github.com/adrulpz">Adriana Lopez</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we aim to cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-orbit-maneuvers"><span class="std std-ref">Orbit Maneuvers</span></a></p></li>
+<li><p><a class="reference internal" href="#content-hohmann-transfer"><span class="std std-ref">Hohmann Transfer</span></a></p></li>
+<li><p><a class="reference internal" href="#content-bi-elliptic-transfer"><span class="std std-ref">Bi-elliptic transfer</span></a></p></li>
+<li><p><a class="reference internal" href="#content-non-tangential-transfer"><span class="std std-ref">Non tangential transfer</span></a></p></li>
+<li><p><a class="reference internal" href="#content-plane-change-maneuver"><span class="std std-ref">Plane Change maneuver</span></a></p></li>
+</ol>
+<section id="orbit-maneuvers">
+<span id="content-orbit-maneuvers"></span><h2>Orbit Maneuvers<a class="headerlink" href="#orbit-maneuvers" title="Permalink to this heading">#</a></h2>
+<p>Manuevers are implemented to transfer the spacecraft from one orbit to another.
+Orbital changes can have different objectives:</p>
+<ul class="simple">
+<li><p>Inject the probe into an interplanetary transfer</p></li>
+<li><p>Move the spacecraft from a parking orbit to an operetive one ( e.g. LEO to GEO)</p></li>
+<li><p>Rendezvous and dock with another spececraft ( e.g. with the ISS)</p></li>
+<li><p>Compensate for the effect of perturbations (e.g. N-S, E-W station keeping of GEO)</p></li>
+</ul>
+<p>Manuevers are implemented by firing the propulsion system, we can see this as an addtional term in the equations of motion:</p>
+<div class="math notranslate nohighlight" id="equation-l7-1">
+<span class="eqno">(160)<a class="headerlink" href="#equation-l7-1" title="Permalink to this equation">#</a></span>\[\ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} + c(\mathbf{r}, \dot{\mathbf{r}}, t)\]</div>
+<ul class="simple">
+<li><p>Firing the propulsion system means need propellant. As launching mass is expensive we need to design control laws that allow the operator to implement the transfer with <strong>minimum propellant</strong>: optimal control theory</p></li>
+<li><p>With <u>high thrust rocket</u> engines the firing time is short and the maneuver can be modelled as an <u>instantaneous change in the velocity</u>: impulsive <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span></p></li>
+<li><p>We search for minimum <span class="math notranslate nohighlight">\(|{\Delta \mathbf{v}}|\)</span> maneuver because they require minimum propellant mass!</p></li>
+<li><p>Frequently an orbital maneuver has the objective of changing (increasing) the orbital energy (e.g. moving from a Low-Earth orbit to a GEO, compensate for atmospheric drag,…)</p></li>
+</ul>
+<section id="effect-of-a-delta-mathbf-v-on-orbital-energy">
+<h3>Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on orbital energy<a class="headerlink" href="#effect-of-a-delta-mathbf-v-on-orbital-energy" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 1" src="../../_images/L7-1.png" /></p>
+<ul class="simple">
+<li><p><em>Before</em> the maneuver:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l7-2">
+<span class="eqno">(161)<a class="headerlink" href="#equation-l7-2" title="Permalink to this equation">#</a></span>\[E_0 = \frac{1}{2}v_0^2 - \frac{\mu}{r}\]</div>
+<ul class="simple">
+<li><p><em>After</em> the maneuver:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l7-3">
+<span class="eqno">(162)<a class="headerlink" href="#equation-l7-3" title="Permalink to this equation">#</a></span>\[E_1 = \frac{1}{2}(\mathbf {v_0}+\Delta \mathbf{v}) \cdot(\mathbf{v_0} + \Delta \mathbf{v}) - \frac{\mu}{r} = \frac{1}{2} v_0^2 + \mathbf {v_0} \cdot\Delta \mathbf{v} + {\frac{1}{2} \Delta v^2 - \frac{\mu}{r}}\]</div>
+<ul class="simple">
+<li><p><em>Change</em> in Energy</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l7-4">
+<span class="eqno">(163)<a class="headerlink" href="#equation-l7-4" title="Permalink to this equation">#</a></span>\[\Delta E = E_1 - E_0 = \frac{1}{2}\Delta v^2 + v_0\Delta v \cos(\alpha)\]</div>
+<p>Here <span class="math notranslate nohighlight">\(v_0\Delta v \cos(\alpha)\)</span> is the dominant term.</p>
+<p>For a given <span class="math notranslate nohighlight">\(\Delta v\)</span> (i.e. propellant) how can we maximise the energy change <span class="math notranslate nohighlight">\(\Delta E\)</span>?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta E\)</span> is maximised when:</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(v_0\)</span> is high <span class="math notranslate nohighlight">\(\mathbf{\rightarrow}\)</span> applying the maneuver when <span class="math notranslate nohighlight">\(v_0\)</span> is high (e.g. at perigee)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos(\alpha) = 1\)</span> <span class="math notranslate nohighlight">\( \rightarrow\)</span> <span class="math notranslate nohighlight">\(\alpha = 0\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\Delta v}\)</span> are aligned <span class="math notranslate nohighlight">\(\rightarrow\)</span> tangential burn</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\bf Note\)</span>: <span class="math notranslate nohighlight">\(v_0\Delta v \cos(\alpha)\)</span> can be negative <span class="math notranslate nohighlight">\(\rightarrow\)</span> it is possible to reduce E</p>
+</section>
+<section id="effect-of-a-delta-mathbf-v-on-angular-momentum">
+<h3>Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum<a class="headerlink" href="#effect-of-a-delta-mathbf-v-on-angular-momentum" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 2" src="../../_images/L7-2.png" /></p>
+<ul class="simple">
+<li><p><em>Before</em> the maneuver:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l7-5">
+<span class="eqno">(164)<a class="headerlink" href="#equation-l7-5" title="Permalink to this equation">#</a></span>\[\mathbf{h_0} = \mathbf{r} \times \mathbf{v_0}\]</div>
+<ul class="simple">
+<li><p><em>After</em> the maneuver:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l7-6">
+<span class="eqno">(165)<a class="headerlink" href="#equation-l7-6" title="Permalink to this equation">#</a></span>\[\mathbf{h_1} = \mathbf{r} \times (\mathbf{v_0} + \Delta \mathbf{v})\]</div>
+<ul class="simple">
+<li><p><em>Change in angular momentum</em></p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l7-7">
+<span class="eqno">(166)<a class="headerlink" href="#equation-l7-7" title="Permalink to this equation">#</a></span>\[\Delta \mathbf{h} = \mathbf{h_1} - \mathbf{h_0} = \mathbf{r} \times \Delta \mathbf{v}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-8">
+<span class="eqno">(167)<a class="headerlink" href="#equation-l7-8" title="Permalink to this equation">#</a></span>\[\Delta h = r \Delta v \sin(\beta)=r \Delta v_{\theta}\]</div>
+<p>For a given <span class="math notranslate nohighlight">\(\Delta v\)</span> (i.e. propellant) how can we maximise <span class="math notranslate nohighlight">\(\Delta\)</span> <span class="math notranslate nohighlight">\(h\)</span>?</p>
+<ol class="arabic simple">
+<li><p>Execute the maneuver when <span class="math notranslate nohighlight">\(r\)</span> is big (e.g. at the apogee)</p></li>
+<li><p>Change the transverse velocity: <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> aligned with <span class="math notranslate nohighlight">\(\mathbf {v_{\theta}}\)</span></p></li>
+</ol>
+<p><strong>Note</strong>: A radial maneuver does not change the angular momentum as <span class="math notranslate nohighlight">\(\beta = 0^{\circ}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-l7-9">
+<span class="eqno">(168)<a class="headerlink" href="#equation-l7-9" title="Permalink to this equation">#</a></span>\[\Delta h = r \Delta v \sin(0)=0\]</div>
+</section>
+</section>
+<section id="hohmann-transfer">
+<span id="content-hohmann-transfer"></span><h2>Hohmann Transfer<a class="headerlink" href="#hohmann-transfer" title="Permalink to this heading">#</a></h2>
+<p><img alt="Figure 3" src="../../_images/L7-3.png" /></p>
+<p>The problem is that we need the <strong>most efficient</strong>, <strong>bi-impulsive</strong> transfer between <strong>two circular coplanar</strong> orbits.</p>
+<p><strong>Problem</strong></p>
+<p>We need to transfer the spacecraft from an initial orbit with semi-major axis <span class="math notranslate nohighlight">\(a_1\)</span> to a final orbit with semi-major axis <span class="math notranslate nohighlight">\(a_3\)</span>. The most optimal solution for <span class="math notranslate nohighlight">\(\Delta E\)</span> are tangential maneuvers.</p>
+<p><strong>Solution:</strong></p>
+<p>We draw an ellipse tangent to both the circular orbits and compute the <span class="math notranslate nohighlight">\(\Delta \mathbf{v}_{s}\)</span>!</p>
+<p><strong>Transfer Orbit:</strong></p>
+<p>The transfer orbit <span class="math notranslate nohighlight">\(2\)</span> has perigee radius <span class="math notranslate nohighlight">\(r_p = a_1\)</span> and apogee radius <span class="math notranslate nohighlight">\(r_a  = a_3\)</span>. The semi-major axis is:</p>
+<div class="math notranslate nohighlight" id="equation-l7-10">
+<span class="eqno">(169)<a class="headerlink" href="#equation-l7-10" title="Permalink to this equation">#</a></span>\[a_2 = \frac{r_p+r_a}{2}\]</div>
+<p>Form <span class="math notranslate nohighlight">\(a_2\)</span>, <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span> the eccentricity of the transfer orbit can be found to be:</p>
+<div class="math notranslate nohighlight" id="equation-l7-11">
+<span class="eqno">(170)<a class="headerlink" href="#equation-l7-11" title="Permalink to this equation">#</a></span>\[e_2  = \frac{r_a - r_p}{r_a+r_p}\]</div>
+<section id="hohmann-transfer-delta-mathbf-v-and-transfer-time">
+<h3>Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> and transfer time<a class="headerlink" href="#hohmann-transfer-delta-mathbf-v-and-transfer-time" title="Permalink to this heading">#</a></h3>
+<p>We use the Vis-Viva equation: <span class="math notranslate nohighlight">\(\frac{1}{2}v^2-\frac{\mu}{2a}\)</span> (<strong>Hint: We ALWAYS use this to compute</strong> <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> ). The steps for calcualting <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span>  are:</p>
+<ol class="arabic">
+<li><p>Initial circular velocity :</p>
+<div class="math notranslate nohighlight" id="equation-l7-12">
+<span class="eqno">(171)<a class="headerlink" href="#equation-l7-12" title="Permalink to this equation">#</a></span>\[v_{A_1} = \sqrt{\frac{\mu}{a1}}\]</div>
+</li>
+<li><p>Final circular velocity :</p>
+<div class="math notranslate nohighlight" id="equation-l7-13">
+<span class="eqno">(172)<a class="headerlink" href="#equation-l7-13" title="Permalink to this equation">#</a></span>\[v_{B_3} = \sqrt{\frac{\mu}{a3}}\]</div>
+</li>
+<li><p>Initial transfer velocity:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{1}{2}v_{A2}^2-\frac{\mu}{a_1} = -\frac{\mu}{2a_2} \\ \rightarrow v_{A_2} = \sqrt{\frac{2\mu}{a_1}-\frac{\mu}{a_2}} \\ \rightarrow v_{A_2} = \sqrt{\frac{\mu}{a_1}}\sqrt{2-\frac{a1} {a_2}} \\ \rightarrow v_{A_2} = v_{A_1}\sqrt{\frac{a_3 + a_1 - a_1}{a_2}} \\ = v_{A_1}\sqrt{\frac{a_3}{a_2}} &gt;v_{A_1}\end{split}\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Final transfer velocity:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{1}{2}v_{B_2}^2-\frac{\mu}{a_3} = -\frac{\mu}{2a_2} 
+\\ \rightarrow v_{B_2}\sqrt{\frac{2\mu}{a_3}-\frac{\mu}{a_2}} \\ \rightarrow v_{B_2} = \sqrt{\frac{\mu}{a_3}}\sqrt{2-\frac{a3} {a_2}} \\ \rightarrow v_{B_2} = v_{B_3}\sqrt{\frac{a_1}{a_2}} &lt;v_{B_3}\end{split}\]</div>
+<ul>
+<li><p>Total <span class="math notranslate nohighlight">\(\Delta v\)</span> (Both maneuvers to increase the velocity):</p>
+<div class="math notranslate nohighlight" id="equation-l7-14">
+<span class="eqno">(173)<a class="headerlink" href="#equation-l7-14" title="Permalink to this equation">#</a></span>\[\Delta v  = \Delta v_1 + \Delta v_2 = (v_{A2}- v_{A1})+(v_{B3}-v_{B2}) = v_{A1}(\sqrt{\frac{a_3}{a_2}}-1)+ v_{B3}(1-\sqrt{\frac{a_1}{a_2}})\]</div>
+</li>
+<li><p>Time of flight (ToF) =</p>
+<div class="math notranslate nohighlight" id="equation-l7-15">
+<span class="eqno">(174)<a class="headerlink" href="#equation-l7-15" title="Permalink to this equation">#</a></span>\[\frac{1}{2}T_2 = \frac{1}{2}2 \pi \sqrt{\frac{a_2^3}{\mu}} = \pi \sqrt{\frac{a_2^3}{\mu}}\]</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="bi-elliptic-transfer">
+<span id="content-bi-elliptic-transfer"></span><h2>Bi-elliptic transfer<a class="headerlink" href="#bi-elliptic-transfer" title="Permalink to this heading">#</a></h2>
+<p>When the ratio etween the final and starting semi-major axes is high (approximately <strong>11.94</strong>) we use a bi-elliptic transfer to reduce the <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span></p>
+<p>A bi-elliptic transfer is a <em>three-impulse</em> transfer in which first we inject the spacecraft into an ellipse with a very high apogee.</p>
+<p>Let us look at the figure below:</p>
+<p><img alt="Figure 4" src="../../_images/L7-4.png" /></p>
+<p>The figure shows a bi-elliptic transfer. The spacecraft starts at point <strong>A</strong>, with orbit <strong>1</strong>, then a tangential velocity is applied at A which causes the spacecraft to transfer into elliptic orbit <strong>2</strong>, when it reaches point <strong>B</strong> another tangential velocity is applied which causes the spacecraft to enter orbit <strong>3</strong>. As it reaches point <strong>C</strong>, reverse velocity is applied to enter stable orbit <strong>4</strong>.</p>
+<p>The dotted line from <strong>A</strong> to <strong>D</strong> shows the transfer if a Hohmann Transfer was to be used.</p>
+<ul class="simple">
+<li><p>If B is very far then the velocuty in B is very low and <em><span class="math notranslate nohighlight">\(\Delta \mathbf{v_B}\approx 0\)</span></em></p></li>
+<li><p>Both <span class="math notranslate nohighlight">\(\Delta \mathbf{v_A}\)</span>  and <span class="math notranslate nohighlight">\(\Delta \mathbf{v_C}\)</span>  are performed at perigee where the velocity is maximum</p></li>
+</ul>
+<p>The downside to a bi-elliptic transfer is the long transfer time. This raises the question, why use bi-elliptic transfer at all?</p>
+<p>The reason we use bi-elliptic transfer is when the ratio between semi-major axes between the starting and ending point is high, it is more fuel efficient than using a Hohmann transfer. For longer missions where time is not of the essence it makes more sense to use the most fuel efficient method for transfering spacecraft.</p>
+</section>
+<section id="non-tangential-transfer">
+<span id="content-non-tangential-transfer"></span><h2>Non tangential transfer<a class="headerlink" href="#non-tangential-transfer" title="Permalink to this heading">#</a></h2>
+<p>Having looked at fuel efficient transfers we now look to time efficient transfers. To reduce the Time of Flight we need to use more propellant and this involves a non-tangential <strong><span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span></strong>.</p>
+<p>Have a look at the figure below:</p>
+<p><img alt="Figure 5" src="../../_images/L7-5.png" /></p>
+<p>Solution Procedure:</p>
+<ol class="arabic">
+<li><p>Take the selected <span class="math notranslate nohighlight">\(r_{a_2}\)</span> and calculate</p>
+<div class="math notranslate nohighlight" id="equation-l7-16">
+<span class="eqno">(175)<a class="headerlink" href="#equation-l7-16" title="Permalink to this equation">#</a></span>\[a_2 = \frac{r_{a_2} + a_1}{2}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-l7-17">
+<span class="eqno">(176)<a class="headerlink" href="#equation-l7-17" title="Permalink to this equation">#</a></span>\[e_2 = \frac{r_{a_2}-a_1}{r_{a_2}+a_1}\]</div>
+</li>
+<li><p>Use the <strong>orbit equation</strong> (see below) to compute <span class="math notranslate nohighlight">\(\theta_2\)</span></p>
+<div class="math notranslate nohighlight" id="equation-l7-18">
+<span class="eqno">(177)<a class="headerlink" href="#equation-l7-18" title="Permalink to this equation">#</a></span>\[r_2 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta}\]</div>
+<div class="math notranslate nohighlight" id="equation-l7-19">
+<span class="eqno">(178)<a class="headerlink" href="#equation-l7-19" title="Permalink to this equation">#</a></span>\[r_2(\theta_2) = a_3 = \frac{a_2(1-e_{2}^2)}{1 + e_2 cos\theta_2}\]</div>
+</li>
+<li><p>From <span class="math notranslate nohighlight">\(\theta_2\)</span> compute TOF with Kepler’s Equation</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\Delta v_{A_2}\)</span> from:</p>
+<div class="math notranslate nohighlight" id="equation-l7-20">
+<span class="eqno">(179)<a class="headerlink" href="#equation-l7-20" title="Permalink to this equation">#</a></span>\[\frac{1}{2} v_{A_2}^2 -\frac{\mu}{a_1} = \frac{-\mu}{2a_2}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-l7-21">
+<span class="eqno">(180)<a class="headerlink" href="#equation-l7-21" title="Permalink to this equation">#</a></span>\[\Delta v_A = v_{A_2}-v_{A_1}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta v_A\)</span> is a <em>scalar value</em></p>
+</li>
+<li><p>Calculate:</p>
+<div class="math notranslate nohighlight" id="equation-l7-22">
+<span class="eqno">(181)<a class="headerlink" href="#equation-l7-22" title="Permalink to this equation">#</a></span>\[\mathbf{v_{B_2}}=\frac{\mu}{h_2} (e_2 \sin\theta_2)\mathbf{e_r} + \frac{\mu}{h_2} (1+\cos\theta_2) \mathbf{e_{\theta}}\]</div>
+<p>Here:</p>
+<div class="math notranslate nohighlight" id="equation-l7-23">
+<span class="eqno">(182)<a class="headerlink" href="#equation-l7-23" title="Permalink to this equation">#</a></span>\[v_r = \frac{\mu}{h_2} (e_2 \sin\theta_2)\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-l7-24">
+<span class="eqno">(183)<a class="headerlink" href="#equation-l7-24" title="Permalink to this equation">#</a></span>\[v_{\theta}=\frac{\mu}{h_2} (1+\cos\theta_2)\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-l7-25">
+<span class="eqno">(184)<a class="headerlink" href="#equation-l7-25" title="Permalink to this equation">#</a></span>\[\Delta \mathbf{v_B} = \mathbf{v_{B_3}}-\mathbf{v_{B_2}}\]</div>
+<p>with
+<span class="math notranslate nohighlight">\(\mathbf{v_{B_3}} = v_{B_3}\mathbf{e_{\theta}}\)</span></p>
+</li>
+</ol>
+</section>
+<section id="plane-change-maneuver">
+<span id="content-plane-change-maneuver"></span><h2>Plane Change maneuver<a class="headerlink" href="#plane-change-maneuver" title="Permalink to this heading">#</a></h2>
+<p>For plane change maneuvers we are interested in two things:</p>
+<ol class="arabic simple">
+<li><p>We need a change in the orbital inclination <em>i</em></p></li>
+<li><p>We need a change in <span class="math notranslate nohighlight">\(\Omega\)</span></p></li>
+</ol>
+<p><u>Plane change manuevers are very expensive</u> as they require a rotation of the entire velocity vector.</p>
+<p><strong>Problem</strong>: Pure Inclination change.</p>
+<p>The <strong>Solution</strong>:</p>
+<p>To change the inclination without changing the orbit shape we need to rotate <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> while keeping E and <span class="math notranslate nohighlight">\(h\)</span> fixed (thus keeping the orbit shape fixed).</p>
+<ul class="simple">
+<li><p>If E is fixed then <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is unchanged</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(h\)</span> is fixed then <span class="math notranslate nohighlight">\(\mathbf{v_\theta}\)</span> is unchanged
+<br/> The above two bullet points shows rotation about <strong>r</strong> of <span class="math notranslate nohighlight">\(\Delta i\)</span></p></li>
+</ul>
+<p>Let’s take a look at a figure to help visualise things.</p>
+<p><img alt="Figure 6" src="../../_images/L7-6.png" /></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta \mathbf{v} =2 \mathbf{v_{\theta}}\)</span> sin <span class="math notranslate nohighlight">\(\frac{\Delta i}{2}\)</span></p></li>
+<li><p>If circular then <span class="math notranslate nohighlight">\(\mathbf{v}=\mathbf{v_\theta \rightarrow} \Delta \mathbf{v} = 2\mathbf{v} \sin\frac{\Delta i}{2}\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\Delta i\)</span> is small then sin <span class="math notranslate nohighlight">\(\frac{\Delta i}{2} \approx \frac{\Delta i}{2} \rightarrow \Delta \mathbf{v} = \mathbf{v} \Delta i\)</span></p>
+<ul>
+<li><p>When possible change <em>i</em> when <em>v</em> is low</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./orbital-mechanics/Lecture7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture6/Lecture6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Orbital Elements (Part 2)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture8/Lecture8.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hyperbolic Orbits and Interplanetary Trajectories</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbit-maneuvers">Orbit Maneuvers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-orbital-energy">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on orbital energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-a-delta-mathbf-v-on-angular-momentum">Effect of a <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> on angular momentum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer">Hohmann Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hohmann-transfer-delta-mathbf-v-and-transfer-time">Hohmann transfer, <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> and transfer time</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bi-elliptic-transfer">Bi-elliptic transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-tangential-transfer">Non tangential transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plane-change-maneuver">Plane Change maneuver</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

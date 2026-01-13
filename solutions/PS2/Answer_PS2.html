@@ -1,0 +1,979 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Problem Set 2 &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'solutions/PS2/Answer_PS2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Problem Set 3" href="../PS3/Answer_PS3.html" />
+    <link rel="prev" title="Problem Set 1" href="../PS1/Answer_PS1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../orbital-mechanics/Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/solutions/PS2/Answer_PS2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/solutions/PS2/Answer_PS2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Fsolutions/PS2/Answer_PS2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/solutions/PS2/Answer_PS2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Problem Set 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-4">Solution 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-compute-v-p">Part a: Compute <span class="math notranslate nohighlight">\(v_p\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-compute-dot-theta">Part b: Compute <span class="math notranslate nohighlight">\(\dot\theta\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-computing-the-time-for-which-an-observer-below-perigee-can-see-the-satellite">Part c: Computing the time for which an observer below perigee can see the satellite</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="problem-set-2">
+<h1>Problem Set 2<a class="headerlink" href="#problem-set-2" title="Permalink to this heading">#</a></h1>
+<p><strong>Earth data</strong>
+$<span class="math notranslate nohighlight">\(
+R^{Equator} = 6384 km
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+R^{Pole} = 6353 km
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\mu = 3.986 \times 10^5 km^3s^{-2}
+\)</span>$</p>
+<section id="question-1">
+<h2>Question 1<a class="headerlink" href="#question-1" title="Permalink to this heading">#</a></h2>
+<p>A remote sensing satellite is in a polar orbit with its line of apsides on the equator. The perigee of the orbit is at altitude of <span class="math notranslate nohighlight">\(620\)</span> <span class="math notranslate nohighlight">\(km\)</span> and the eccentricity of the orbit is <span class="math notranslate nohighlight">\(e = 0.04\)</span>. Calculate the semi-major axis of this orbit and show that the altitude at apogee is approximately <span class="math notranslate nohighlight">\(1200\)</span> <span class="math notranslate nohighlight">\(km\)</span>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solution-1">
+<h1>Solution 1<a class="headerlink" href="#solution-1" title="Permalink to this heading">#</a></h1>
+<p>We are told that <span class="math notranslate nohighlight">\(e\)</span>, the eccentricity of the orbit, is 0.04. And that the altitude at perigee, denoted by <span class="math notranslate nohighlight">\(h_p\)</span>, is <span class="math notranslate nohighlight">\(620\)</span> <span class="math notranslate nohighlight">\(km\)</span>. We are asked to determine <span class="math notranslate nohighlight">\(a\)</span> (semi-major axis of the orbit) and the altitude at perigee, which we shall denote as <span class="math notranslate nohighlight">\(h_p\)</span>. For this purpose, we will also create the following symobls:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_p\)</span> is the satellite’s perigee;</p></li>
+<li><p><span class="math notranslate nohighlight">\(r_a\)</span> is the satellite’s apogee.</p></li>
+</ul>
+<p>For an elliptic orbit, the satellite’s perigee point is given by
+$<span class="math notranslate nohighlight">\(
+r_p = a(1-e)
+\tag{2.1}
+\)</span><span class="math notranslate nohighlight">\(
+or
+\)</span><span class="math notranslate nohighlight">\(
+a = \frac{r_p}{1-e}
+\tag{2.2}
+\)</span><span class="math notranslate nohighlight">\(.
+By rewriting \)</span>r_p<span class="math notranslate nohighlight">\( as a sum of \)</span>R^{Equator}<span class="math notranslate nohighlight">\( and \)</span>h_p<span class="math notranslate nohighlight">\(, we can rewrite the above equation as
+\)</span><span class="math notranslate nohighlight">\(
+a = \frac{R^{Equator} + h_p}{1-e}.
+\tag{2.3}
+\)</span><span class="math notranslate nohighlight">\(
+Then, we substitute for the above to get that \)</span>a = 7295.83<span class="math notranslate nohighlight">\( \)</span>km$.</p>
+<p>It is easier and clearer to do the above work with a computer; in this module, we make use of the <code class="docutils literal notranslate"><span class="pre">Python</span></code> programming language.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+<span class="n">R_Equator</span> <span class="o">=</span> <span class="mi">6384</span>
+<span class="n">h_p</span> <span class="o">=</span> <span class="mi">620</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mf">0.04</span>
+<span class="n">r_p</span> <span class="o">=</span> <span class="n">R_Equator</span> <span class="o">+</span> <span class="n">h_p</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_p</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7295.833333333334
+</pre></div>
+</div>
+</div>
+</div>
+<p>The altitude at apogee, <span class="math notranslate nohighlight">\(h_a\)</span>, is given by
+$<span class="math notranslate nohighlight">\(
+h_a = r_a - R^{Equator}
+\tag{2.4}
+\)</span><span class="math notranslate nohighlight">\(
+or
+\)</span><span class="math notranslate nohighlight">\(
+h_a = a(1+e) - R^{Equator}
+\tag{2.5}
+\)</span><span class="math notranslate nohighlight">\(
+which gives \)</span>h_a = 1203.66$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h_a</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">e</span><span class="p">)</span> <span class="o">-</span> <span class="n">R_Equator</span>
+<span class="n">h_a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1203.6666666666679
+</pre></div>
+</div>
+</div>
+</div>
+<section id="question-2">
+<h2>Question 2<a class="headerlink" href="#question-2" title="Permalink to this heading">#</a></h2>
+<p>The satellite carries a camera with a field of view of <span class="math notranslate nohighlight">\(26^o\)</span>. The camera has a CCD array of <span class="math notranslate nohighlight">\(1000\)</span> pixels. Compute the resolution per pixel of this camera at perigee and apogee.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solution-2">
+<h1>Solution 2<a class="headerlink" href="#solution-2" title="Permalink to this heading">#</a></h1>
+<p>The resolution, which has units of <span class="math notranslate nohighlight">\(m/ pixel\)</span>, is a function of a parameter called swath; a schematic to understand this is sketched out below.</p>
+<p><img alt="Figure 1" src="../../_images/Soln2_swath_schematic.png" /></p>
+<p>In the above <span class="math notranslate nohighlight">\(FoV\)</span> is the field of view of the imaging system (i.e., CCD array), which is in radians.
+Form this, we can see that swath, <span class="math notranslate nohighlight">\(s\)</span>, can be calucalted easily. For example, the swath from perigee, <span class="math notranslate nohighlight">\(s_p\)</span>,
+$<span class="math notranslate nohighlight">\(
+s_p = 2*h_p*\tan(FoV/2).
+\tag{2.6}
+\)</span><span class="math notranslate nohighlight">\(
+You should be able to justify to yourselves why the above formula is correct based on fundamental trigonometry.
+Once \)</span>s_p<span class="math notranslate nohighlight">\( is known, we can calculate the resolution from perigee, \)</span>r_p<span class="math notranslate nohighlight">\(:
+\)</span><span class="math notranslate nohighlight">\(
+r_p = \frac{s_p}{\textrm{number of pixels}}
+\tag{2.7}
+\)</span><span class="math notranslate nohighlight">\(
+You can repeat this process for to determine \)</span>r_a<span class="math notranslate nohighlight">\(, (where the subscript \)</span>a$ corresponds to apogee). It is easier and clearer to do the above work with a computer; in this module, we make use of the <code class="docutils literal notranslate"><span class="pre">Python</span></code> programming language. To aid our computations, <code class="docutils literal notranslate"><span class="pre">Python</span></code> has a <code class="docutils literal notranslate"><span class="pre">mathz</span> <span class="pre">library</span> <span class="pre">from</span> <span class="pre">which</span> <span class="pre">we</span> <span class="pre">can</span> <span class="pre">import</span> <span class="pre">the</span> </code>tan<code class="docutils literal notranslate"><span class="pre">and</span></code>pi` functions for accurate calculations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">tan</span><span class="p">,</span> <span class="n">pi</span>
+<span class="n">pixelCount</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">field_of_view_in_degrees</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">field_of_view_in_radians</span> <span class="o">=</span> <span class="n">field_of_view_in_degrees</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="n">swath_from_perigee</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">h_p</span><span class="o">*</span><span class="n">tan</span><span class="p">(</span><span class="n">field_of_view_in_radians</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">swath_from_apogee</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">h_a</span><span class="o">*</span><span class="n">tan</span><span class="p">(</span><span class="n">field_of_view_in_radians</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">resolution_from_perigee</span> <span class="o">=</span> <span class="n">swath_from_perigee</span><span class="o">/</span><span class="n">pixelCount</span>
+<span class="n">resolution_from_apogee</span> <span class="o">=</span> <span class="n">swath_from_apogee</span><span class="o">/</span><span class="n">pixelCount</span>
+<span class="p">(</span><span class="s2">&quot;The resolutions from perigeed and apogee, respectively, in km/pixel are&quot;</span><span class="p">,</span> <span class="n">resolution_from_perigee</span><span class="p">,</span> <span class="n">resolution_from_apogee</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;The resolutions from perigeed and apogee, respectively, in km/pixel are&#39;,
+ 0.28627655699569826,
+ 0.5557766921029395)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the handwritten solutions provide the solutions in the <span class="math notranslate nohighlight">\(m/pixel\)</span>.</p>
+<section id="question-3">
+<h2>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h2>
+<p>Find the altitude of the satellite as it passes over the poles. For the camera onboard the satellite, compute the image resolution over the poles.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solution-3">
+<h1>Solution 3<a class="headerlink" href="#solution-3" title="Permalink to this heading">#</a></h1>
+<p>We know that the general relationship to compute the satellite’s position, <span class="math notranslate nohighlight">\(r\)</span>, is
+$<span class="math notranslate nohighlight">\(
+r = \frac{a(1-e^2)}{1+e\cos(\theta)}.
+\tag{2.8}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span>\theta = 90^o<span class="math notranslate nohighlight">\( at the poles, so 
+\)</span><span class="math notranslate nohighlight">\(
+r_{poles} = a(1-e^2).
+\tag{2.9}
+\)</span><span class="math notranslate nohighlight">\(
+The height at the poles is then given by
+\)</span><span class="math notranslate nohighlight">\(
+h_{poles} = p - r_{poles}.
+\tag{2.10}
+\)</span>$</p>
+<p>We can then compute the resolution at the poles using a procedure identical to that shown in Solution 2 for the perigee and apogee. This is illustrated in <code class="docutils literal notranslate"><span class="pre">Python</span></code> code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+<span class="n">r_poles</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Radius_of_Earth_at_poles</span> <span class="o">=</span> <span class="mi">6353</span>
+<span class="n">h_poles</span> <span class="o">=</span> <span class="n">r_poles</span> <span class="o">-</span> <span class="n">Radius_of_Earth_at_poles</span>
+
+<span class="n">swath_from_poles</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">h_poles</span><span class="o">*</span><span class="n">tan</span><span class="p">(</span><span class="n">field_of_view_in_radians</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">resolution_from_poles</span> <span class="o">=</span> <span class="n">swath_from_poles</span><span class="o">/</span><span class="n">pixelCount</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The altitude at the poles in km is &quot;</span><span class="p">,</span> <span class="n">h_poles</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resolution from the poles in km/pixel is&quot;</span><span class="p">,</span> <span class="n">resolution_from_poles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The altitude at the poles in km is  931.1599999999999
+The resolution from the poles in km/pixel is 0.4299504496969586
+</pre></div>
+</div>
+</div>
+</div>
+<section id="question-4">
+<h2>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h2>
+<p>Calculate the velocity of this spacecraft at perigee, and the angular velocity. Neglecting the eccentricity of the orbit and taking the Earth as a sphere, how long will it take for the spacecraft to
+disappear over the horizon of an observer directly below the perigee point?</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solution-4">
+<h1>Solution 4<a class="headerlink" href="#solution-4" title="Permalink to this heading">#</a></h1>
+<section id="part-a-compute-v-p">
+<h2>Part a: Compute <span class="math notranslate nohighlight">\(v_p\)</span><a class="headerlink" href="#part-a-compute-v-p" title="Permalink to this heading">#</a></h2>
+<p>We make us of the vis-viva equation as shown below,
+$<span class="math notranslate nohighlight">\(
+\frac{1}{2}v_p^2 - \frac{\mu}{r_p} = -\frac{\mu}{2a},
+\tag{2.11}
+\)</span><span class="math notranslate nohighlight">\(
+where the subscript \)</span>p<span class="math notranslate nohighlight">\( indicates that the point of interest is the satellite's perigee. We can then solve for \)</span>v_p<span class="math notranslate nohighlight">\( as
+\)</span><span class="math notranslate nohighlight">\(
+v_p =  \sqrt{\frac{2\mu}{r_p} -\frac{\mu}{a}}
+\tag{2.12}
+\)</span><span class="math notranslate nohighlight">\(
+which, upon substituting for the known terms, give us \)</span>v_p = 7.69<span class="math notranslate nohighlight">\( \)</span>km/s$.</p>
+</section>
+<section id="part-b-compute-dot-theta">
+<h2>Part b: Compute <span class="math notranslate nohighlight">\(\dot\theta\)</span><a class="headerlink" href="#part-b-compute-dot-theta" title="Permalink to this heading">#</a></h2>
+<p>Further, at perigee, we know that there is no radial component to velocity; so, considering the velcoity vector
+$<span class="math notranslate nohighlight">\(
+{\bf v} = \dot r {\bf  \hat e}_r + r \dot \theta{\bf \hat e}_\theta.
+\tag{2.13}
+\)</span><span class="math notranslate nohighlight">\(,
+we can write the following scalar equations,
+\)</span><span class="math notranslate nohighlight">\(
+\dot r = 0
+\tag{2.14}
+\)</span><span class="math notranslate nohighlight">\(
+and
+\)</span><span class="math notranslate nohighlight">\(
+v_p = r \dot\theta.
+\tag{2.15}
+\)</span>$</p>
+<p>The angular velocity at perigee can then be computed by rewriting Equation <span class="math notranslate nohighlight">\((2.15)\)</span> as
+$<span class="math notranslate nohighlight">\(
+\dot\theta = \frac{v_p}{r_p}
+\tag{2.16}
+\)</span><span class="math notranslate nohighlight">\(
+which gives \)</span>\dot\theta = 1.09 \times 10^{-3}<span class="math notranslate nohighlight">\( \)</span>rad/s$.</p>
+</section>
+<section id="part-c-computing-the-time-for-which-an-observer-below-perigee-can-see-the-satellite">
+<h2>Part c: Computing the time for which an observer below perigee can see the satellite<a class="headerlink" href="#part-c-computing-the-time-for-which-an-observer-below-perigee-can-see-the-satellite" title="Permalink to this heading">#</a></h2>
+<p>Note that if the eccenticity is ignored, then the satellite is on a circular orbit; this means that it has the same altitude at any orbit (or <span class="math notranslate nohighlight">\(r=r_p\)</span> at all points on the orbit).
+To determine the time of disappearance, we first need to know the half-angle at which the satellite is no longer visible to the observer on the surface of the Earth and below perigee; this is shown as <span class="math notranslate nohighlight">\(\alpha\)</span> in the schematic below.</p>
+<p><img alt="Figure 1" src="../../_images/Soln2_observer_schematic.png" /></p>
+<div class="math notranslate nohighlight">
+\[
+\alpha = \cos^{-1}\bigg(\frac{R_{Equator}}{r_p}\bigg)
+\]</div>
+<p>Once <span class="math notranslate nohighlight">\(\alpha\)</span> is known, we can compute the duration of observation of the satellite by this oberver, <span class="math notranslate nohighlight">\(t_{obsv}\)</span>, by
+$<span class="math notranslate nohighlight">\(
+t_{obsv} = 2\frac{\alpha}{\dot\theta}.
+\tag{2.17}
+\)</span><span class="math notranslate nohighlight">\(
+Can you explain to yourselves why we there is a doubling term (i.e. scaling factor of \)</span>2<span class="math notranslate nohighlight">\() in the RHS of Equation \)</span>(2.17)$?</p>
+<p>We present the computation with <code class="docutils literal notranslate"><span class="pre">Python</span></code> below’; <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> helps in computing the square-root and <code class="docutils literal notranslate"><span class="pre">acos</span></code> helps in computing the inverse cosine value of a function (i.e. <span class="math notranslate nohighlight">\(\cos^{-1}\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your coded answers here (and create more Code cells if you wish to)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">acos</span>
+<span class="c1"># Part a: Compute $v_p$</span>
+<span class="n">mu_Earth</span> <span class="o">=</span> <span class="mf">3.986</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span>
+<span class="n">v_p</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">mu_Earth</span> <span class="o">/</span><span class="n">r_p</span> <span class="o">-</span> <span class="n">mu_Earth</span><span class="o">/</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Velocity at perigee is &quot;</span><span class="p">,</span> <span class="n">v_p</span><span class="p">,</span> <span class="s2">&quot;km/s&quot;</span><span class="p">)</span>
+
+<span class="c1"># Part b: Compute $\dot\theta$</span>
+<span class="n">angular_velocity</span> <span class="o">=</span> <span class="n">v_p</span><span class="o">/</span><span class="n">r_p</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angular velocity at perigee is&quot;</span><span class="p">,</span> <span class="n">angular_velocity</span><span class="p">,</span> <span class="s2">&quot;rad/s&quot;</span><span class="p">)</span>
+
+<span class="c1"># Part c: Computing the time for which an observer below perigee can see the satellite</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="n">R_Equator</span><span class="o">/</span><span class="n">r_p</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">alpha</span><span class="o">/</span><span class="n">angular_velocity</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The satellite can be observed by the obersver for&quot;</span><span class="p">,</span> <span class="n">t</span> <span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Velocity at perigee is  7.693292560947274 km/s
+Angular velocity at perigee is 0.001098414129204351 rad/s
+The satellite can be observed by the obersver for 771.8957207955966 s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./solutions/PS2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../PS1/Answer_PS1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Problem Set 1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../PS3/Answer_PS3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Problem Set 3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problem Set 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1">Solution 1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2">Solution 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3">Solution 3</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-4">Solution 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-compute-v-p">Part a: Compute <span class="math notranslate nohighlight">\(v_p\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-compute-dot-theta">Part b: Compute <span class="math notranslate nohighlight">\(\dot\theta\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-computing-the-time-for-which-an-observer-below-perigee-can-see-the-satellite">Part c: Computing the time for which an observer below perigee can see the satellite</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

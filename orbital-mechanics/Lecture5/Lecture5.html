@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Orbital Elements (Part 1) &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture5/Lecture5';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Orbital Elements (Part 2)" href="../Lecture6/Lecture6.html" />
+    <link rel="prev" title="Circular and More Results on Elliptical Orbits" href="../Lecture4/Lecture4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/orbital-mechanics/Lecture5/Lecture5.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/orbital-mechanics/Lecture5/Lecture5.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Forbital-mechanics/Lecture5/Lecture5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/orbital-mechanics/Lecture5/Lecture5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Orbital Elements (Part 1)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-velocity-component">Determination of Velocity Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flight-path-angle">Flight Path Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perifocal-frame">The Perifocal Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-vector-in-the-perifocal-frame">Position Vector in the Perifocal Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-vector-in-the-perifocal-frame">Velocity Vector in the Perifocal Frame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eci-reference-frame">The ECI Reference Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-orbital-parameters">Classical Orbital Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-orientiation-of-the-plane">1. The Orientiation of the Plane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-direction-of-perigee">2. The Direction of Perigee</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="orbital-elements-part-1">
+<h1>Orbital Elements (Part 1)<a class="headerlink" href="#orbital-elements-part-1" title="Permalink to this heading">#</a></h1>
+<p><em>Prepared by:</em> <a class="reference external" href="https://github.com/thedukeofeelam">Ilanthiraiyan Sivagnanamoorthy</a>, <a class="reference external" href="https://github.com/Joosty">Joost Hubbard</a>, and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we aim to cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-determination-of-velocity-component"><span class="std std-ref">Determination of Velocity Component</span></a></p></li>
+<li><p><a class="reference internal" href="#content-the-perifocal-frame"><span class="std std-ref">The Perifocal Frame</span></a></p></li>
+<li><p><a class="reference internal" href="#content-the-eci-reference-frame"><span class="std std-ref">The ECI Reference Frame</span></a></p></li>
+<li><p><a class="reference internal" href="#content-classical-orbital-parameters"><span class="std std-ref">Classical Orbital Parameters</span></a></p></li>
+</ol>
+<section id="determination-of-velocity-component">
+<span id="content-determination-of-velocity-component"></span><h2>Determination of Velocity Component<a class="headerlink" href="#determination-of-velocity-component" title="Permalink to this heading">#</a></h2>
+<p>Recall from Equations <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l2-polar-velocity-vectors">(47)</a> and <a class="reference internal" href="../Lecture2/Lecture2.html#equation-l2-21">(53)</a> that, the polar coordinate form of the velocity vector can be written in various forms:</p>
+<div class="math notranslate nohighlight" id="equation-l5-1">
+<span class="eqno">(128)<a class="headerlink" href="#equation-l5-1" title="Permalink to this equation">#</a></span>\[\begin{split}\mathbf{v} &amp;= \dot{\mathbf{r}}\\ 
+&amp;= v_r \mathbf{e}_r + v_\theta \mathbf{e}_\theta\\
+&amp;= \dot{r} \mathbf{e}_r + r \dot{\theta} \mathbf{e}_\theta\end{split}\]</div>
+<p>Also recall that the <strong>equation of the orbit</strong> when given the semi-latus rectum (<span class="math notranslate nohighlight">\(p\)</span>), is given by Equation <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-5a">(79)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-l5-2">
+<span class="eqno">(129)<a class="headerlink" href="#equation-l5-2" title="Permalink to this equation">#</a></span>\[r = \frac{p}{1 + e \cos\theta}\]</div>
+<p>which can also be used to compute velocity (its magnitude). We do so using the chain rule, differentating <span class="math notranslate nohighlight">\(r\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span> and then multiplying by <span class="math notranslate nohighlight">\(\dot \theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\dot{r} &amp;= \frac{dr}{dt}\\
+&amp;= \frac{\mathrm{d} r}{\mathrm{d} \theta} \frac{\mathrm{d} \theta}{\mathrm{d} t}\end{split}\]</div>
+<p>To differentiate <span class="math notranslate nohighlight">\(r\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span>, we define <span class="math notranslate nohighlight">\(u \triangleq 1 + e \cos \theta\)</span> which allows us to rewrite <span class="math notranslate nohighlight">\(r\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{p}{u}\]</div>
+<p>that allows us to again apply the chain rule:</p>
+<div class="math notranslate nohighlight" id="equation-l5-2a">
+<span class="eqno">(130)<a class="headerlink" href="#equation-l5-2a" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} r}{\mathrm{d} \theta} = \frac{\mathrm{d} r}{\mathrm{d} u} \frac{\mathrm{d} u}{\mathrm{d} \theta}\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d} r}{\mathrm{d} u} = \frac{-p}{u^2}\]</div>
+<p>and:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d} u}{\mathrm{d} \theta} = -e \sin\theta\]</div>
+<p>thus giving us in Equation <a class="reference internal" href="#equation-l5-2a">(130)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-l5-2b">
+<span class="eqno">(131)<a class="headerlink" href="#equation-l5-2b" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} r}{\mathrm{d} \theta} = \frac{p}{u^2} e \sin\theta\]</div>
+<p>which, after substituting back <span class="math notranslate nohighlight">\(u = 1 + e \cos \theta\)</span>, gives us:</p>
+<div class="math notranslate nohighlight" id="equation-l5-2c">
+<span class="eqno">(132)<a class="headerlink" href="#equation-l5-2c" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} r}{\mathrm{d} \theta} = \frac{pe \sin \theta}{\left(1 + e \cos \theta\right)^2}\]</div>
+<p>This results in the following derivative of Equation <a class="reference internal" href="#equation-l5-2">(129)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-l5-3">
+<span class="eqno">(133)<a class="headerlink" href="#equation-l5-3" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{pe \sin \theta}{\left(1 + e \cos \theta\right)^2} \dot{\theta}\]</div>
+<p>Substituting Equation <a class="reference internal" href="#equation-l5-2">(129)</a> into <a class="reference internal" href="#equation-l5-3">(133)</a> gives us:</p>
+<div class="math notranslate nohighlight" id="equation-l5-4">
+<span class="eqno">(134)<a class="headerlink" href="#equation-l5-4" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{r^2 \dot{\theta}}{p} e \sin \theta\]</div>
+<p>which, given <span class="math notranslate nohighlight">\(h = r^2\dot\theta\)</span> and <span class="math notranslate nohighlight">\(p = h^2/\mu\)</span>, can be expressed as:</p>
+<div class="math notranslate nohighlight" id="equation-l5-5">
+<span class="eqno">(135)<a class="headerlink" href="#equation-l5-5" title="Permalink to this equation">#</a></span>\[\dot{r} = \frac{\mu}{h} e \sin \theta\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Expressions for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span></p>
+<p>From Equation <a class="reference internal" href="#equation-l5-1">(128)</a>, the radial component of velocity is simply <span class="math notranslate nohighlight">\(\dot r\)</span>. So:</p>
+<div class="math notranslate nohighlight" id="equation-l5-6">
+<span class="eqno">(136)<a class="headerlink" href="#equation-l5-6" title="Permalink to this equation">#</a></span>\[v_r = \dot{r} = \frac{\mu}{h} e \sin \theta\]</div>
+<p>Similarly, the component along the <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span> (i.e., as defined by increasing <span class="math notranslate nohighlight">\(\theta\)</span> (also called the polar angle or azimuth) is given by <span class="math notranslate nohighlight">\(r \dot{\theta}\)</span>. Further, as <span class="math notranslate nohighlight">\(h = r^2 \dot{\theta}\)</span>, we get:</p>
+<div class="math notranslate nohighlight" id="equation-l5-7">
+<span class="eqno">(137)<a class="headerlink" href="#equation-l5-7" title="Permalink to this equation">#</a></span>\[v_\theta = r \dot{\theta} = \frac{h}{r} = \frac{h \left(1 + e \cos \theta\right)}{h^2 / \mu} = \frac{\mu}{h} \left(1 + e \cos \theta\right)\]</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>These derivations are valid for all <span class="math notranslate nohighlight">\(e\)</span>, not only for ellipses.</p>
+</div>
+</section>
+<section id="flight-path-angle">
+<h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this heading">#</a></h2>
+<p>Using the expressions for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> derived above, we can define the flight path angle, denoted by <span class="math notranslate nohighlight">\(\gamma\)</span>, which is shown in the schematic below:</p>
+<figure class="align-center" id="fig5-1">
+<a class="reference internal image-reference" href="../../_images/L5fig1.png"><img alt="../../_images/L5fig1.png" src="../../_images/L5fig1.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Polar coordinate velocity components and the flight path angle.</span><a class="headerlink" href="#fig5-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In the above figure, the angle marked <span class="math notranslate nohighlight">\(\gamma\)</span> is the <strong>flight path angle</strong>; the angle between the velocity vector directed purely along <span class="math notranslate nohighlight">\(\mathbf{e}_\theta\)</span> direction, <span class="math notranslate nohighlight">\(\mathbf{v}_\theta\)</span>, and the velocity vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>. A trigonometric relationship between the flight path angle and the velocity components can be expressed using <a class="reference internal" href="#fig5-1"><span class="std std-numref">Fig. 12</span></a>:</p>
+<div class="math notranslate nohighlight" id="equation-l5-8">
+<span class="eqno">(138)<a class="headerlink" href="#equation-l5-8" title="Permalink to this equation">#</a></span>\[\tan \gamma = \frac{v_r}{v_\theta}\]</div>
+<p>By substituting Equations <a class="reference internal" href="#equation-l5-6">(136)</a> and <a class="reference internal" href="#equation-l5-7">(137)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively and simplifying, we obtain:</p>
+<div class="math notranslate nohighlight" id="equation-l5-9">
+<span class="eqno">(139)<a class="headerlink" href="#equation-l5-9" title="Permalink to this equation">#</a></span>\[\tan \gamma = \frac{e \sin \theta}{1 + \cos \theta}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Additionally, we can make the following observations:</p>
+<ol class="arabic simple">
+<li><p>velocity component along the <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span>, <span class="math notranslate nohighlight">\(v_\theta\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(v_\theta \geq 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_\theta\)</span> is at its maximum when <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> (perigee)</p></li>
+<li><p><span class="math notranslate nohighlight">\(v_\theta\)</span> is at its minimum when <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> (apogee)</p></li>
+</ul>
+</li>
+<li><p>Radial Component, <span class="math notranslate nohighlight">\(v_r\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(v_r \geq 0\)</span> when <span class="math notranslate nohighlight">\(0^\circ \leq \theta \leq 180^\circ\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_r &lt; 0\)</span> when <span class="math notranslate nohighlight">\(180^\circ &lt; \theta &lt; 360^\circ\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_r = 0\)</span> at <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span> (perigee) and <span class="math notranslate nohighlight">\(\theta = 180^\circ\)</span> (apogee). At these points, the motion is purely along <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+<section id="the-perifocal-frame">
+<span id="content-the-perifocal-frame"></span><h2>The Perifocal Frame<a class="headerlink" href="#the-perifocal-frame" title="Permalink to this heading">#</a></h2>
+<p>The unit vectors (<span class="math notranslate nohighlight">\(\mathbf{\hat{e}}_r\)</span>, <span class="math notranslate nohighlight">\(\mathbf{\hat{e}}_\theta\)</span>) in the polar coordinate system change along the orbital path, varying from point to point. A non-accelerating (i.e., inertial) reference frame can be established using three mutually perpendicular vectors that remain fixed relative to the orbital path. We have actually already identified two of these over the course of the previous discussions; they are</p>
+<p><strong>Recall:</strong></p>
+<ul class="simple">
+<li><p>The specific angular momentum vector (<span class="math notranslate nohighlight">\(\mathbf{h}\)</span>) is a constant and is orthogonal to the plane of motion (i.e., the orbital plane).</p></li>
+<li><p>The eccentricity vector (<span class="math notranslate nohighlight">\(\mathbf{e}\)</span>) lies in the plane of motion and is directed towards the perigee.</p></li>
+</ul>
+<p>A third vector, <span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>, can be defined as the cross product of <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> which together with <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> forms a set of three mutually perpendicular vectors. This set of vectors constitutes a frame fixed in the orbit known as the <strong>perifocal frame</strong> and is illustrated in <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 13</span></a>.</p>
+<figure class="align-center" id="fig5-2">
+<a class="reference internal image-reference" href="../../_images/L5fig2.png"><img alt="../../_images/L5fig2.png" src="../../_images/L5fig2.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Illustration of an elliptical orbit with the perifocal reference frame.</span><a class="headerlink" href="#fig5-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Creating the Perifocal Frame:</strong></p>
+<p>The following three unit vectors form an inertial reference frame, centered at the focus of the orbit:</p>
+<ol class="arabic simple">
+<li><p>The first vector, <span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span>, is the unit vector in the direction of the eccentricity vector (<span class="math notranslate nohighlight">\(\mathbf{e}\)</span>).</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-l5-10">
+<span class="eqno">(140)<a class="headerlink" href="#equation-l5-10" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{p}} = \frac{\mathbf{e}}{|\mathbf{e}|} = \frac{\mathbf{e}}{e}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>The second vector,  <span class="math notranslate nohighlight">\(\mathbf{\hat{w}}\)</span>, is the unit vector in the direction of the specific angular momentum vector (<span class="math notranslate nohighlight">\(\mathbf{h}\)</span>), perpendicular to the plane of motion.</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-l5-11">
+<span class="eqno">(141)<a class="headerlink" href="#equation-l5-11" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{w}} = \frac{\mathbf{h}}{\left|\mathbf{h}\right|} = \frac{\mathbf{h}}{h}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>The third vector,  <span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>, is obtained by taking the cross product of  <span class="math notranslate nohighlight">\(\mathbf{\hat{w}}\)</span> and  <span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span>. Recall that the cross product of two vectors yields a vector that is perpendicular to both, ensuring that (<span class="math notranslate nohighlight">\(\mathbf{\hat{p}}\)</span>,<span class="math notranslate nohighlight">\(\mathbf{\hat{q}}\)</span>,<span class="math notranslate nohighlight">\(\mathbf{\hat{w}}\)</span>) is a set of three mutually perpendicular vectors.</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-l5-12">
+<span class="eqno">(142)<a class="headerlink" href="#equation-l5-12" title="Permalink to this equation">#</a></span>\[\mathbf{\hat{q}} = \mathbf{\hat{w}} \times \mathbf{\hat{p}}\]</div>
+<section id="position-vector-in-the-perifocal-frame">
+<h3>Position Vector in the Perifocal Frame<a class="headerlink" href="#position-vector-in-the-perifocal-frame" title="Permalink to this heading">#</a></h3>
+<p>From <a class="reference internal" href="#fig5-2"><span class="std std-numref">Fig. 13</span></a>,</p>
+<div class="math notranslate nohighlight" id="equation-l5-13">
+<span class="eqno">(143)<a class="headerlink" href="#equation-l5-13" title="Permalink to this equation">#</a></span>\[\mathbf{r} = r \cos\theta \mathbf{\hat{p}} + r \sin\theta \mathbf{\hat{q}}\]</div>
+<div class="important admonition">
+<p class="admonition-title">Position Vector in the Perifocal Frame</p>
+<p>By substituting Equation <a class="reference internal" href="../Lecture3/Lecture3.html#equation-l3-4">(77)</a> for <span class="math notranslate nohighlight">\(r\)</span> into the above equation, we obtain:</p>
+<div class="math notranslate nohighlight" id="equation-l5-14">
+<span class="eqno">(144)<a class="headerlink" href="#equation-l5-14" title="Permalink to this equation">#</a></span>\[\mathbf{r} = \frac{h^2 / \mu}{1 + e \cos\theta} \left( \cos\theta \mathbf{\hat{p}} + \sin\theta \mathbf{\hat{q}} \right)\]</div>
+</div>
+</section>
+<section id="velocity-vector-in-the-perifocal-frame">
+<h3>Velocity Vector in the Perifocal Frame<a class="headerlink" href="#velocity-vector-in-the-perifocal-frame" title="Permalink to this heading">#</a></h3>
+<p>The velocity vector can be obtained by differentiating the position vector (expressed in the perifocal frame, Equation <a class="reference internal" href="#equation-l5-14">(144)</a>), with respect to time.</p>
+<div class="math notranslate nohighlight" id="equation-l5-15">
+<span class="eqno">(145)<a class="headerlink" href="#equation-l5-15" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \frac{\mathrm{d}}{\mathrm{d} t} \left( r \cos\theta \mathbf{\hat{p}} \right) + \frac{\mathrm{d}}{\mathrm{d} t} \left( r \sin\theta \mathbf{\hat{q}} \right)\]</div>
+<p>Applying the product rule to each term:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}}{\mathrm{d} t} \left( r \cos\theta \mathbf{\hat{p}} \right) = \dot{r} \cos\theta \mathbf{\hat{p}} + r \left( -\sin\theta \dot{\theta} \right) \mathbf{\hat{p}}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}}{\mathrm{d} t} \left( r \sin\theta \mathbf{\hat{q}} \right) = \dot{r} \sin\theta \mathbf{\hat{q}} + r \left( \cos\theta \dot{\theta} \right) \mathbf{\hat{q}}\]</div>
+<p>Combining these results:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \left( \dot{r} \cos\theta - r \dot{\theta} \sin\theta \right) \mathbf{\hat{p}} + \left( \dot{r} \sin\theta + r \dot{\theta} \cos\theta \right) \mathbf{\hat{q}}\]</div>
+<p>Recalling that, <span class="math notranslate nohighlight">\(v_r = \dot{r}\)</span> and <span class="math notranslate nohighlight">\(v_\theta = r \dot{\theta}\)</span>, from Equation <a class="reference internal" href="#equation-l5-1">(128)</a>, the expression for the velocity vector becomes:</p>
+<div class="math notranslate nohighlight" id="equation-l5-15a">
+<span class="eqno">(146)<a class="headerlink" href="#equation-l5-15a" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \left( v_r \cos\theta - v_\theta \sin\theta \right) \mathbf{\hat{p}} + \left( v_r \sin\theta + v_\theta \cos\theta \right) \mathbf{\hat{q}}\]</div>
+<p>By subsituting Equations <a class="reference internal" href="#equation-l5-6">(136)</a> and <a class="reference internal" href="#equation-l5-7">(137)</a> for <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> respectively, and simplifying, we arrive at:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Note again that the velocity vector is the perifocal frame is also two-dimensional.</p>
+</aside>
+<div class="important admonition">
+<p class="admonition-title">Velocity Vector in the Perifocal Frame</p>
+<div class="math notranslate nohighlight" id="equation-l5-16">
+<span class="eqno">(147)<a class="headerlink" href="#equation-l5-16" title="Permalink to this equation">#</a></span>\[\mathbf{v} = \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} = \frac{\mu}{h} \left( -\sin\theta \mathbf{\hat{p}} + \left(e + \cos\theta \right) \mathbf{\hat{q}} \right)\]</div>
+</div>
+<p>With Equations <a class="reference internal" href="#equation-l5-14">(144)</a> and <a class="reference internal" href="#equation-l5-16">(147)</a>, we can express the position and velocity of the spacecraft in the perifocal frame, which is an inertial frame of reference.</p>
+</section>
+</section>
+<section id="the-eci-reference-frame">
+<span id="content-the-eci-reference-frame"></span><h2>The ECI Reference Frame<a class="headerlink" href="#the-eci-reference-frame" title="Permalink to this heading">#</a></h2>
+<p>Up to this point, we’ve described the orbit in its orbital plane, which is a 2D description. Although the perifocal frame is 3D, it is orbit-dependent. We seek a more general description. To define an inertial frame, we need:</p>
+<ol class="arabic simple">
+<li><p>An origin</p></li>
+<li><p>The direction of two fixed normal vectors (the third is automatically determined by the cross product of the two known vectors).
+Based on this, we define the <strong>Earth Centred Inertial (ECI) Frame</strong>.</p></li>
+</ol>
+<div class="important admonition">
+<p class="admonition-title">Earth Centred Inertial (ECI) Frame</p>
+<p>ECI frame is an inertial frame of reference with:</p>
+<ul class="simple">
+<li><p>Origin at the Earth’s centre of mass</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span>-axis aligned with the Earth’s spin axis</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span>-axis aligned with the first the <strong>First Point of Aries</strong>, <span class="math notranslate nohighlight">\(\gamma\)</span></p></li>
+</ul>
+</div>
+<p><strong>Key Terms:</strong></p>
+<ul class="simple">
+<li><p>Ecliptic Plane: the plane of the Earth’s orbit around the Sun</p></li>
+<li><p>Equatorial Plane: the imaginary plane extending outwards from the Earth’s celestial equator</p></li>
+<li><p><strong>Vernal Equinox</strong>:  the intersection line of the Earth’s equatorial plane and the ecliptic plane, indicating the direction of the First Point of Aries</p></li>
+<li><p>Obliquity (<span class="math notranslate nohighlight">\(\epsilon\)</span>): the angle between the Earth’s spin axis (normal to the equatorial plane) and the normal to the ecliptic plane</p></li>
+</ul>
+<p>These are illustrated in <a class="reference internal" href="#l5-fig3"><span class="std std-numref">Fig. 14</span></a>.</p>
+<figure class="align-center" id="l5-fig3">
+<a class="reference internal image-reference" href="../../_images/L5fig3.png"><img alt="../../_images/L5fig3.png" src="../../_images/L5fig3.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Diagram of the Earth’s orbit around the Sun, showing the ecliptic and equatorial planes (the plane formed when the green line is extended radially outwards), the direction of the First Point of Aries, and the obliquity angle.</span><a class="headerlink" href="#l5-fig3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- 
+<div style="text-align: center;">
+    <img src="images/L5fig3.png" alt="Figure 3" style="width:60%;">
+    <p><strong>Figure 3:</strong> Diagram of the Earth's orbit around the Sun, showing the ecliptic and equatorial planes (the plane formed when the green line is extended radially outwards), the direction of the First Point of Aries, and the obliquity angle. 
+</p>
+</div> --><ul class="simple">
+<li><p>As seen from Earth, the sun moves on the ecliptic counterclockwise as shown in <a class="reference internal" href="#l5-fig4"><span class="std std-numref">Fig. 15</span></a>.</p></li>
+<li><p>The direction of the First Point of Aries is defined when the Sun crosses the equatorial plane from south to north.</p></li>
+</ul>
+<figure class="align-center" id="l5-fig4">
+<a class="reference internal image-reference" href="../../_images/L5fig4.png"><img alt="../../_images/L5fig4.png" src="../../_images/L5fig4.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Diagram of Earth’s orbit, illustrating ecliptic plane and celestial equator on the celestial sphere. The three orthogonal vectors that define the ECI frame have also been labelled.</span><a class="headerlink" href="#l5-fig4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- <div style="text-align: center;">
+    <img src="images/L5fig4.png" alt="Figure 4" style="width:40%;">
+    <p><strong>Figure 4:</strong> Diagram of Earth's orbit, illustrating ecliptic plane and celestial equator on the celestial sphere. The three orthogonal vectors that define the ECI frame have also been labelled.
+</p>
+</div> --><p><strong>Problem:</strong></p>
+<p>The coordinate system <span class="math notranslate nohighlight">\(x-y-z\)</span> show in <a class="reference internal" href="#l5-fig4"><span class="std std-numref">Fig. 15</span></a> is not inertial, due to:</p>
+<ul class="simple">
+<li><p>Precession (and nutation) of the spin axis: Caused by the gravitational pull of the Sun and Moon combined with the Earth’s oblateness.</p></li>
+<li><p>Precession of the ecliptic plane: Due to the gravitational pull exerted by other planets on the Earth.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> completes a full revolution in approximately 26,000 years, with a superimposed nutation of about 0.005° with a period of 18.6 years.</p></li>
+</ul>
+<p><strong>Solution:</strong></p>
+<p>To address this, we work with <span class="math notranslate nohighlight">\(x-y-z\)</span> axes at a given epoch, for example, the ECI J2000 (or J2K) reference frame.</p>
+<p><strong>The Celestial Sphere</strong></p>
+<p>The celestial sphere is an imaginary, infinitely large sphere (shown in <a class="reference internal" href="#l5-fig4"><span class="std std-numref">Fig. 15</span></a> and <a class="reference internal" href="#l5-fig5"><span class="std std-numref">Fig. 16</span></a>) centered on the Earth, onto which all celestial objects are projected. The positions of these objects are defined by:</p>
+<ol class="arabic simple">
+<li><p><strong>Right Ascension</strong> (<span class="math notranslate nohighlight">\(\alpha\)</span>): measured in the positive (+) direction eastward along the celestial equator from the vernal equinox.</p></li>
+<li><p><strong>Declination</strong> (<span class="math notranslate nohighlight">\(\delta\)</span>): measured in the positive (+) direction northward from the celestial equator.</p></li>
+</ol>
+<figure class="align-center" id="l5-fig5">
+<a class="reference internal image-reference" href="../../_images/L5fig5.png"><img alt="../../_images/L5fig5.png" src="../../_images/L5fig5.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Diagram of the celestial sphere showing the right ascension and declination.</span><a class="headerlink" href="#l5-fig5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- <div style="text-align: center;">
+    <img src="images/L5fig5.png" alt="Figure 5" style="width:40%;">
+    <p><strong>Figure 5:</strong> Diagram of the celestial sphere showing the right ascension and declination. 
+</p>
+</div> --></section>
+<section id="classical-orbital-parameters">
+<span id="content-classical-orbital-parameters"></span><h2>Classical Orbital Parameters<a class="headerlink" href="#classical-orbital-parameters" title="Permalink to this heading">#</a></h2>
+<p>A general orbit can often be described using what are known as the six “classical orbital elements”.</p>
+<ul class="simple">
+<li><p>The orbit’s shape is defined entirely by the <strong>semi-major axis</strong> (<span class="math notranslate nohighlight">\(a\)</span>) and <strong>eccentricity</strong> (<span class="math notranslate nohighlight">\(e\)</span>), which are both constants.</p></li>
+<li><p>The position along the orbit is given by the <strong>true anomaly</strong>, <span class="math notranslate nohighlight">\(\theta(t)\)</span>. This is solved for with Kepler’s Equation.</p></li>
+</ul>
+<!-- <div style="text-align: center;">
+    <img src="images/L5fig6.png" alt="Figure 6" style="width:35%;">
+    <p><strong>Figure 6:</strong> Diagram illustrating the classical orbital parameters.  
+</p>
+</div> -->
+<figure class="align-center" id="l5-fig6">
+<a class="reference internal image-reference" href="../../_images/L5fig6.png"><img alt="../../_images/L5fig6.png" src="../../_images/L5fig6.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Diagram illustrating the classical orbital parameters.</span><a class="headerlink" href="#l5-fig6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For a complete 3D representation, two additional parameters define the orbital plane, and another parameter specifies the orientation of the line of apsides within that plane. All of these orbital parameters can be seen in  <a class="reference internal" href="#l5-fig6"><span class="std std-numref">Fig. 17</span></a> and are discussed in further detail below.</p>
+<section id="the-orientiation-of-the-plane">
+<h3>1. The Orientiation of the Plane<a class="headerlink" href="#the-orientiation-of-the-plane" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Right Ascension of Ascending Node</strong> (<span class="math notranslate nohighlight">\(\Omega\)</span>, also referred to as the Longitude of Ascending Node), represents the angle from the
+<span class="math notranslate nohighlight">\(x\)</span>-axis to the intersection point (the ascending node) of the equatorial and orbital planes. It varies between <span class="math notranslate nohighlight">\(0^\circ\)</span> and <span class="math notranslate nohighlight">\(360^\circ\)</span> (i.e., <span class="math notranslate nohighlight">\(\epsilon[0,360]\)</span>).</p></li>
+<li><p><strong>Inclination</strong> (<span class="math notranslate nohighlight">\(i\)</span>), is the angle between the equatorial and orbital planes. Though <span class="math notranslate nohighlight">\(\epsilon[0,180]\)</span>,</p>
+<ul>
+<li><p>the orbit is prograde when <span class="math notranslate nohighlight">\(0^\circ &lt; i &lt; 90^\circ\)</span></p></li>
+<li><p>the orbit is retrograde when <span class="math notranslate nohighlight">\(90^\circ &lt; i &lt; 180^\circ\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-direction-of-perigee">
+<h3>2. The Direction of Perigee<a class="headerlink" href="#the-direction-of-perigee" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Argument of perigee</strong> (<span class="math notranslate nohighlight">\(\omega\)</span>), is the angle between the ascending node and the perigee. Remember when <span class="math notranslate nohighlight">\(e=0\)</span>, there is not a single point in the orbit closest to the central body as it’s a circular orbit. <span class="math notranslate nohighlight">\(\epsilon[0,360]\)</span></p></li>
+</ul>
+<!-- <div style="text-align: center;">
+    <img src="images/L5fig7.png" alt="Figure 7" style="width:45%;">
+    <p><strong>Figure 7:</strong> Diagram illustrating the key parameters and angles used to describe an orbital plane in a three-dimensional coordinate system. 
+</p>
+</div> -->
+<figure class="align-center" id="l5-fig7">
+<a class="reference internal image-reference" href="../../_images/L5fig7.png"><img alt="../../_images/L5fig7.png" src="../../_images/L5fig7.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Diagram illustrating the key parameters and angles used in the context of a satellite orbiting the Earth.</span><a class="headerlink" href="#l5-fig7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#l5-fig7"><span class="std std-numref">Fig. 18</span></a> shows some of these parameters for an Earth-orbiting satellite.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{\hat{I}}\)</span> and the line of nodes <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> (which has a unit vector <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span> along it). Recall that the line of nodes connects the ascending and descending nodes, which are the points where the orbital plane intersects the equatorial reference frame. Therefore, the line of nodes lies in both planes and is perpendicular to the normal vectors of both the reference plane and the orbital plane. In other words:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathbf{n} = \mathbf{\hat{K}} \times \mathbf{h}\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(i\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\hat{K}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{n}\)</span></p></li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul class="simple">
+<li><p>Given <span class="math notranslate nohighlight">\(h, e = const\)</span>, we are able to say <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span> and <span class="math notranslate nohighlight">\(\Omega\)</span> are all constants.</p></li>
+<li><p>The only orbital parameter that varies with time is <span class="math notranslate nohighlight">\(\theta\)</span>, which is determined by solving Kepler’s equation.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./orbital-mechanics/Lecture5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture4/Lecture4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Circular and More Results on Elliptical Orbits</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture6/Lecture6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Orbital Elements (Part 2)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-velocity-component">Determination of Velocity Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flight-path-angle">Flight Path Angle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-perifocal-frame">The Perifocal Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#position-vector-in-the-perifocal-frame">Position Vector in the Perifocal Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-vector-in-the-perifocal-frame">Velocity Vector in the Perifocal Frame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eci-reference-frame">The ECI Reference Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-orbital-parameters">Classical Orbital Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-orientiation-of-the-plane">1. The Orientiation of the Plane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-direction-of-perigee">2. The Direction of Perigee</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

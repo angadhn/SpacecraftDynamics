@@ -1,0 +1,1013 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Better scientific writing &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'appendix/Introduction-To-LaTeX';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Video Resources for Orbital Mechanics" href="VideoResources.html" />
+    <link rel="prev" title="Coursework 1 (60 points; 4 questions)" href="../solutions/PS4/Answer_PS4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-mechanics/Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/appendix/Introduction-To-LaTeX.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/appendix/Introduction-To-LaTeX.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Fappendix/Introduction-To-LaTeX.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/appendix/Introduction-To-LaTeX.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Better scientific writing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Better scientific writing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-latex-and-why-is-it-amazing-for-engineering-students">What is <span class="math notranslate nohighlight">\(\LaTeX\)</span> and why is it amazing for engineering students?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gentle-introduction-to-basic-commands">Gentle Introduction to basic Commands</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-create-latex-content-in-jupyterlab">Steps to Create <span class="math notranslate nohighlight">\(\LaTeX\)</span> content in JupyterLab</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-equations-with-latex">Writing Equations with <span class="math notranslate nohighlight">\(\LaTeX\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-writing-latex-equations-in-ipynb-files">Examples of writing <span class="math notranslate nohighlight">\(\LaTeX\)</span> equations in <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-scalars-vectors-and-matrices-in-latex-for-spacecraft-dynamics">Writing Scalars, Vectors and Matrices in <span class="math notranslate nohighlight">\(\LaTeX\)</span> for Spacecraft Dynamics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#far-far-better-than-handwriting">Far far better than handwriting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-comments">Closing Comments</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="better-scientific-writing">
+<h1>Better scientific writing<a class="headerlink" href="#better-scientific-writing" title="Permalink to this heading">#</a></h1>
+<section id="what-is-latex-and-why-is-it-amazing-for-engineering-students">
+<h2>What is <span class="math notranslate nohighlight">\(\LaTeX\)</span> and why is it amazing for engineering students?<a class="headerlink" href="#what-is-latex-and-why-is-it-amazing-for-engineering-students" title="Permalink to this heading">#</a></h2>
+<p>Let me introduce <span class="math notranslate nohighlight">\(\LaTeX\)</span> in a friendly way. Imagine you’re trying to write a beautiful document with complex math equations,
+but instead of fighting with formatting like you do in Microsoft Word, you’re
+more like a composer writing a musical score. That’s <span class="math notranslate nohighlight">\(\LaTeX\)</span> (pronounced “Lay-tech” or “Lah-tech”)!
+It’s a way of writing documents where you focus on the content, and the computer
+handles making everything look perfect and beautiful. <span class="math notranslate nohighlight">\(\LaTeX\)</span> was created by computer
+scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a> because he was
+frustrated with how mathematical texts looked in regular word processors. Today, it’s
+the go-to choice for scientists, engineers, and mathematicians worldwide. While it
+might seem a bit different at first (kind of like learning to ride a bike), once you
+get the hang of it, you’ll wonder how you ever lived without it. Now, you may well say
+that you arn’t typing documents yet so a little later I also explain
+<a class="reference internal" href="#content-handwriting-math"><span class="std std-ref">why it is far superior than merely submitting handwritten explanations in your exams</span></a>.</p>
+<p>But for now, let’s get started with some basic <span class="math notranslate nohighlight">\(\LaTeX\)</span> commands.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gentle-introduction-to-basic-commands">
+<h1>Gentle Introduction to basic Commands<a class="headerlink" href="#gentle-introduction-to-basic-commands" title="Permalink to this heading">#</a></h1>
+<p>Instead of clicking buttons to make text bold or italicize a heading, you write simple
+commands like <code class="docutils literal notranslate"><span class="pre">\textbf{I</span> <span class="pre">love</span> <span class="pre">spacecraft</span> <span class="pre">dynamics}</span></code> or <code class="docutils literal notranslate"><span class="pre">\textit{My</span> <span class="pre">Project}</span></code>, and
+<span class="math notranslate nohighlight">\(\LaTeX\)</span> takes care of making it look great. To be clear, the commands in the previous
+sentence are <code class="docutils literal notranslate"><span class="pre">\textbf{}</span></code> and <code class="docutils literal notranslate"><span class="pre">\textit{}</span></code>; whatever you put within the curly braces
+will be made bold or italicized, respectively. When making use of these commands in
+an <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file, you should put dollar signs <code class="docutils literal notranslate"><span class="pre">$</span></code> around all of this <span class="math notranslate nohighlight">\(\LaTeX\)</span> content.
+So, a more complete example of commands in an <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file would be <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">\textbf{I</span> <span class="pre">love</span> <span class="pre">spacecraft</span> <span class="pre">dynamics}</span> <span class="pre">$</span></code> and
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">\textit{My</span> <span class="pre">Project}</span> <span class="pre">$</span></code> and the results look like this:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\textbf{I love spacecraft dynamics}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\textit{My Project}\)</span>.</p></li>
+</ul>
+<p>Why don’t you give it a go by creating a new markdown cell in a new <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file and using
+these commands. Stepwise instructions of how to do this are given below.</p>
+<section id="steps-to-create-latex-content-in-jupyterlab">
+<h2>Steps to Create <span class="math notranslate nohighlight">\(\LaTeX\)</span> content in JupyterLab<a class="headerlink" href="#steps-to-create-latex-content-in-jupyterlab" title="Permalink to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can skip to step 4 if you’re already familiar with how to create a markdown cell in JupyterLab.</p>
+</div>
+<ol class="arabic">
+<li><p><strong>Login to JupyterLab, which QMUL provides <a class="reference external" href="http://hub.comp-teach.qmul.ac.uk">here</a></strong>.</p></li>
+<li><p><strong>Create a New Notebook</strong></p>
+<ul class="simple">
+<li><p>In the Launcher, click on the “Python 3” icon under “Notebook”. This creates a new <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file.</p></li>
+<li><p>Alternatively, you can click on the “File” button in the top left to create a new <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file and select “Python 3” from the dropdown menu.</p></li>
+</ul>
+</li>
+<li><p><strong>Add a Markdown Cell</strong></p>
+<ul class="simple">
+<li><p>Click the “+” button to add a new cell if needed (you might need to look around as the screen is crowded with buttons). The image below has a red arrow pointing to the “+” button, for reference.
+<img alt="" src="../_images/add-cell.png" /></p></li>
+<li><p>On the far right of this image, you can see the word “Code” in the toolbar; this tells us what type of cell we currently have. Click on the word “Code” and select “Markdown” using the dropdown menu in the toolbar.</p></li>
+</ul>
+</li>
+<li><p><strong>Enter Content</strong></p>
+<ul>
+<li><p>Copy and paste this title and introduction:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># LaTeX Equations Examples</span>
+
+This notebook demonstrates how to write LaTeX equations in Jupyter. LaTeX is perfect for writing complex mathematical formulas clearly and professionally.
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Run the Cell</strong></p>
+<ul class="simple">
+<li><p>Click the “Run” button (play icon) in the toolbar</p></li>
+<li><p>Or use the keyboard shortcut <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></li>
+<li><p>The markdown will render, showing your beautifully formatted equations</p></li>
+</ul>
+</li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Greek Letters</p>
+<p>Writing Greek letters is far easier with <span class="math notranslate nohighlight">\(\LaTeX\)</span> and we have some that often appear in
+spacecraft dynamics. For example, we frequently use <span class="math notranslate nohighlight">\(\mu\)</span>, which is the Greek letter
+pronounced “mew”, for the <strong>standard gravitational parameter</strong>. In <span class="math notranslate nohighlight">\(\LaTeX\)</span>, this is
+written using the command <code class="docutils literal notranslate"><span class="pre">$\mu$</span></code>. Similarly, <span class="math notranslate nohighlight">\(\alpha\)</span> is the Greek letter pronounced
+“alpha”, and can be written as <code class="docutils literal notranslate"><span class="pre">$\alpha$</span></code>.</p>
+</div>
+<div class="admonition-activity admonition">
+<p class="admonition-title">Activity</p>
+<p>Try to experiment with the <span class="math notranslate nohighlight">\(\LaTeX\)</span> commands we saw earlier named <code class="docutils literal notranslate"><span class="pre">\textbf{}</span></code> and <code class="docutils literal notranslate"><span class="pre">\textit{}</span></code> by making some of the text in the markdown cell above bold or italicized. Can you also write a sentence with <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> rendered as Greek letters? For example, you can write “The standard gravitational parameter is <span class="math notranslate nohighlight">\(\mu\)</span>.”</p>
+</div>
+<p>Next, we will learn to add some equations to our document.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="writing-equations-with-latex">
+<h1>Writing Equations with <span class="math notranslate nohighlight">\(\LaTeX\)</span><a class="headerlink" href="#writing-equations-with-latex" title="Permalink to this heading">#</a></h1>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since we are working with an <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file’s markdown cells, we don’t use
+<span class="math notranslate nohighlight">\(\LaTeX\)</span> to add figures. Instead, you can use the <code class="docutils literal notranslate"><span class="pre">![]()</span></code> command that
+you can read about <a class="reference external" href="https://jupyterbook.org/content/figures.html">here</a>.
+You will learn about using <span class="math notranslate nohighlight">\(\LaTeX\)</span> to add figures in the third year project
+on <a class="reference external" href="https://www.angadhn.com/online_textbooks/UG_final_year_project/">space station design</a>.</p>
+</div>
+</aside>
+<p>As an engineer, you’ll eventually write lots of technical documents
+with complex mathematical equations and figures.
+While Microsoft Word feels familiar, LaTeX is a much better choice for equation writing for several key reasons:</p>
+<ol class="arabic simple">
+<li><p><strong>Perfect Mathematical Equations</strong>: LaTeX renders beautiful, professional-grade equations that are consistent throughout your document. No more fighting with Word’s equation editor!</p></li>
+<li><p><strong>Automatic Formatting</strong>: Once you set up your document style, LaTeX handles all the formatting consistently - no more manually fixing spacing or numbering.</p></li>
+<li><p><strong>Superior Reference Management</strong>: Citations, equations, figures, and sections are automatically numbered and cross-referenced, making it easy to update large documents.</p></li>
+<li><p><strong>Industry Standard</strong>: LaTeX is widely used in scientific and engineering publications, making it a valuable skill for your career.</p></li>
+<li><p><strong>Free and Platform Independent</strong>: Unlike Word, LaTeX is free and works identically across Windows, Mac, and Linux.</p></li>
+</ol>
+<section id="examples-of-writing-latex-equations-in-ipynb-files">
+<h2>Examples of writing <span class="math notranslate nohighlight">\(\LaTeX\)</span> equations in <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> files<a class="headerlink" href="#examples-of-writing-latex-equations-in-ipynb-files" title="Permalink to this heading">#</a></h2>
+<p>Broadly speaking, there are two types of equations in <span class="math notranslate nohighlight">\(\LaTeX\)</span>:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">^</span></code> to add a superscript to an equation in LaTeX. So <code class="docutils literal notranslate"><span class="pre">$x^2$</span></code> gives <span class="math notranslate nohighlight">\(x^2\)</span>; for more terms in the superscript, you can use curly braces like <code class="docutils literal notranslate"><span class="pre">$x^{2+2}$</span></code> which gives <span class="math notranslate nohighlight">\(x^{2+2}\)</span>.</p>
+</div>
+</aside>
+<ol class="arabic simple">
+<li><p><strong>Inline Equations</strong>: This is when an equation appears as part of
+the same line as some words in a sentence. For example, the following sentence
+contains an inline equation: Einstein’s famous equation <span class="math notranslate nohighlight">\(E=mc^2\)</span> shows us how
+to write a sentence with an inline equation while also adding a superscript.</p></li>
+</ol>
+<div class="admonition-activity admonition">
+<p class="admonition-title">Activity</p>
+<p>You can write this by inserting the following into a markdown cell:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>Einstein&#39;s famous equation $E=mc^2$ shows us how to write a sentence with an inline equation while also adding a superscript.
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Displayed Equations</strong>: This is when an equation is written on a line by itself,
+like in a math journal article. For example, the equation for
+<a class="reference external" href="https://en.wikipedia.org/wiki/Integration_by_parts">integrating by parts</a>
+is written below in its own line as:</p></li>
+</ol>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">\int</span></code> to write the integral symbol in <span class="math notranslate nohighlight">\(\LaTeX\)</span>. So <code class="docutils literal notranslate"><span class="pre">$\int$</span></code> gives <span class="math notranslate nohighlight">\(\int\)</span>.
+For a definite integral, you write <code class="docutils literal notranslate"><span class="pre">$\int_{0}^{1}$</span></code> which gives <span class="math notranslate nohighlight">\(\int_{0}^{1}\)</span>.
+In this example, you also see that the <code class="docutils literal notranslate"><span class="pre">_{0}^{1}</span></code> gives the lower and upper
+limit of the integral. As before, <code class="docutils literal notranslate"><span class="pre">^</span></code> is used for a superscript and <code class="docutils literal notranslate"><span class="pre">_</span></code> is used
+for a subscript.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight">
+\[
+     \int u \frac{dv}{dx} dx = uv - \int v \frac{du}{dx} dx
+\]</div>
+<p>and the command for writing this sentence in a markdown cell makes use of
+<code class="docutils literal notranslate"><span class="pre">$$...$$</span></code> and not <code class="docutils literal notranslate"><span class="pre">$...$</span></code>. The complete example for this sentence is:</p>
+<div class="admonition-activity admonition">
+<p class="admonition-title">Activity</p>
+<p>The above sentence with the displayed equation is written in a markdown cell as:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>For example, the equation for [<span class="nt">integrating by parts</span>](<span class="na">https://en.wikipedia.org/wiki/Integration_by_parts</span>) is written below in its own line as:
+
+$$
+     \int u \frac{dv}{dx} dx = uv - \int v \frac{du}{dx} dx
+$$
+
+and the command for writing this sentence in a markdown cell makes use of
+<span class="sb">`$$...$$`</span> and not <span class="sb">`$...$`</span>.
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Do you notice the difference between the inline equation and the displayed equation?
+What happens if you do not remove the empty line between the sentence and the <code class="docutils literal notranslate"><span class="pre">$$</span></code> signs?
+Sometimes, you may see the displayed equation rendered incorrectly if you do remove
+the empty line.</p></li>
+<li><p>Can you see where the command for writing fractions are? Can you write the
+equation to the orbit using this? Recall that the equation to the orbit is given by:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+r = \frac{-\frac{h^2}{\mu}}{1 + e \cos\theta}
+\]</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tips for Success</p>
+<ul class="simple">
+<li><p>Single dollar signs <code class="docutils literal notranslate"><span class="pre">$...$</span></code> are for inline equations (within text)</p></li>
+<li><p>Double dollar signs <code class="docutils literal notranslate"><span class="pre">$$...$$</span></code> are for displayed equations.</p></li>
+<li><p>If your equation doesn’t render correctly, check for missing brackets or dollar signs.</p></li>
+</ul>
+</div>
+</section>
+<section id="writing-scalars-vectors-and-matrices-in-latex-for-spacecraft-dynamics">
+<h2>Writing Scalars, Vectors and Matrices in <span class="math notranslate nohighlight">\(\LaTeX\)</span> for Spacecraft Dynamics<a class="headerlink" href="#writing-scalars-vectors-and-matrices-in-latex-for-spacecraft-dynamics" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Scalars</strong></p></li>
+</ol>
+<p>We write scalars in regular text, like <span class="math notranslate nohighlight">\(m\)</span> for mass and <span class="math notranslate nohighlight">\(g\)</span> for gravity.
+The command for writing this in <span class="math notranslate nohighlight">\(\LaTeX\)</span> is <code class="docutils literal notranslate"><span class="pre">$m$</span></code> and <code class="docutils literal notranslate"><span class="pre">$g$</span></code>.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Vectors</strong></p></li>
+</ol>
+<p>We write vectors in bold, like <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> for force and <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> for position.
+The command for writing this in LaTeX is <code class="docutils literal notranslate"><span class="pre">$\mathbf{F}$</span></code> and <code class="docutils literal notranslate"><span class="pre">$\mathbf{r}$</span></code>. Note that we use
+<code class="docutils literal notranslate"><span class="pre">\mathbf{}</span></code> to write bold letters for equations and <code class="docutils literal notranslate"><span class="pre">\textbf{}</span></code>; the latter is used in sentences.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Unit vectors</strong> are written with a little hat, like <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_x\)</span> for the unit vector
+in the x-direction. The command for writing this in <span class="math notranslate nohighlight">\(\LaTeX\)</span> is <code class="docutils literal notranslate"><span class="pre">$\hat{\mathbf{e}}_x$</span></code>.</p>
+</div>
+<div class="admonition-activity admonition">
+<p class="admonition-title">Activity</p>
+<p>Can you write the unit vectors for the polar coordinate system using <span class="math notranslate nohighlight">\(\LaTeX\)</span>, which are <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_r\)</span> and <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_\theta\)</span>?</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Matrices</strong></p></li>
+</ol>
+<p>Aside from writing simple scalar equations, we frequently need to write matrices such as
+the direction cosine matrix (DCM). Below is an example of a DCM resulting from a
+rotation about the z-axis.</p>
+<p>The Direction Cosine Matrix (DCM) for rotation about the z-axis (as shown in your image)
+is written as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A_z(\alpha) = \begin{bmatrix}
+\cos(\alpha) &amp; -\sin(\alpha) &amp; 0 \\
+\sin(\alpha) &amp; \cos(\alpha) &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>and the command for writing is given below, which makes use of the <code class="docutils literal notranslate"><span class="pre">\begin{bmatrix}</span></code>
+and <code class="docutils literal notranslate"><span class="pre">\end{bmatrix}</span></code> commands:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>A<span class="nb">_</span>z(<span class="k">\alpha</span>) = <span class="k">\begin</span><span class="nb">{</span>bmatrix<span class="nb">}</span>
+<span class="k">\cos</span>(<span class="k">\alpha</span>) <span class="nb">&amp;</span> -<span class="k">\sin</span>(<span class="k">\alpha</span>) <span class="nb">&amp;</span> 0 <span class="k">\\</span>
+<span class="k">\sin</span>(<span class="k">\alpha</span>) <span class="nb">&amp;</span> <span class="k">\cos</span>(<span class="k">\alpha</span>) <span class="nb">&amp;</span> 0 <span class="k">\\</span>
+0 <span class="nb">&amp;</span> 0 <span class="nb">&amp;</span> 1
+<span class="k">\end</span><span class="nb">{</span>bmatrix<span class="nb">}</span>
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tips for Matrix Writing</p>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to separate columns</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">\\</span></code> for new rows</p></li>
+<li><p>Different bracket styles:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pmatrix</span></code> gives ( )</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bmatrix</span></code> gives [ ]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vmatrix</span></code> gives | |</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Vmatrix</span></code> gives ∥ ∥</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="admonition-activity admonition">
+<p class="admonition-title">Activity</p>
+<p>Can you write the DCM for rotation about the x-axis by an angular amount of <span class="math notranslate nohighlight">\(\gamma\)</span> (pronounced gamma) using <span class="math notranslate nohighlight">\(\LaTeX\)</span>? This would look like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A_x(\gamma) = \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \cos(\gamma) &amp; -\sin(\gamma) \\
+0 &amp; \sin(\gamma) &amp; \cos(\gamma)
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="far-far-better-than-handwriting">
+<span id="content-handwriting-math"></span><h1>Far far better than handwriting<a class="headerlink" href="#far-far-better-than-handwriting" title="Permalink to this heading">#</a></h1>
+<p>Let me also now explain how <span class="math notranslate nohighlight">\(\LaTeX\)</span> helps avoid common
+handwriting issues/mistakes that can really impact your
+engineering work but in the short-term impact your grades.</p>
+<p>When you’re writing explanations by hand, it’s easy to get sloppy with
+mathematical notation - and in engineering, this can lead to serious
+confusion! Think about vectors and scalars, for instance. In handwriting,
+students often forget or inconsistently use the little arrow or bold
+notation above vector quantities. One minute you’re writing <span class="math notranslate nohighlight">\(\bf{F}\)</span> for
+force as a vector, the next it’s just <span class="math notranslate nohighlight">\(F\)</span>, and suddenly you’re
+mixing up scalar and vector quantities without realizing it!</p>
+<p>This is where <span class="math notranslate nohighlight">\(\LaTeX\)</span> shines beautifully! In <span class="math notranslate nohighlight">\(\LaTeX\)</span>, you have to
+explicitly tell it when something is a vector using commands like
+<code class="docutils literal notranslate"><span class="pre">\vec{F}</span></code> or <code class="docutils literal notranslate"><span class="pre">\mathbf{F}</span></code>, which produces a clear, consistent vector notation
+(<span class="math notranslate nohighlight">\(\vec{F}\)</span> or <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, respectively). You can’t accidentally
+“forget” the vector notation because the command must be there for it to
+appear- this makes a huge difference to me as a teacher as is clear to me
+that you, as a student, know what a vector is and when to use it!
+This explicit nature of <span class="math notranslate nohighlight">\(\LaTeX\)</span> helps reinforce proper mathematical
+notation and, more importantly, proper thinking about what quantities
+actually are.</p>
+<p>Some other common handwriting issues that <span class="math notranslate nohighlight">\(\LaTeX\)</span> prevents:</p>
+<ul class="simple">
+<li><p>Ambiguous Greek letters (is that <span class="math notranslate nohighlight">\(\alpha\)</span> or <span class="math notranslate nohighlight">\(a\)</span> that you wrote by hand-
+hard for me to tell but typing with <span class="math notranslate nohighlight">\(\LaTeX\)</span> makes it crystal clear!).</p></li>
+<li><p>Inconsistent vector notation (sometimes with arrows, sometimes without).</p></li>
+<li><p>Unclear subscripts and superscripts (is that <span class="math notranslate nohighlight">\(x_2\)</span> or <span class="math notranslate nohighlight">\(x_z\)</span>?).</p></li>
+<li><p>Messy fractions that make denominators and numerators unclear.</p></li>
+<li><p>Partial derivatives that look like regular d’s.</p></li>
+</ul>
+<p>This precision isn’t just about looking professional-
+it’s about developing good habits in how you think about and
+communicate engineering concepts. When you have to explicitly
+declare whether something is a vector, a scalar, or a matrix, you’re
+forced to think more carefully about the mathematical nature of
+what you’re working with!</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="closing-comments">
+<h1>Closing Comments<a class="headerlink" href="#closing-comments" title="Permalink to this heading">#</a></h1>
+<p>In this page, I have briefly introduced you to the basics of <span class="math notranslate nohighlight">\(\LaTeX\)</span> and how it can be
+used to explain your thinking in the context of the coursework project and final exam.
+This will become the stepping stone to write longer documents for your final year project
+if you choose to work with me on
+<a class="reference external" href="https://www.angadhn.com/online_textbooks/UG_final_year_project/">space station design</a>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../solutions/PS4/Answer_PS4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Coursework 1 (60 points; 4 questions)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VideoResources.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Video Resources for Orbital Mechanics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Better scientific writing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-latex-and-why-is-it-amazing-for-engineering-students">What is <span class="math notranslate nohighlight">\(\LaTeX\)</span> and why is it amazing for engineering students?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gentle-introduction-to-basic-commands">Gentle Introduction to basic Commands</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-create-latex-content-in-jupyterlab">Steps to Create <span class="math notranslate nohighlight">\(\LaTeX\)</span> content in JupyterLab</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-equations-with-latex">Writing Equations with <span class="math notranslate nohighlight">\(\LaTeX\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-writing-latex-equations-in-ipynb-files">Examples of writing <span class="math notranslate nohighlight">\(\LaTeX\)</span> equations in <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-scalars-vectors-and-matrices-in-latex-for-spacecraft-dynamics">Writing Scalars, Vectors and Matrices in <span class="math notranslate nohighlight">\(\LaTeX\)</span> for Spacecraft Dynamics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#far-far-better-than-handwriting">Far far better than handwriting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-comments">Closing Comments</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

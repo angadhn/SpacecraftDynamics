@@ -1,0 +1,910 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Time, Calendars and Launch Windows &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture10/Lecture10';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ground Tracks and Orbit Perturbations" href="../Lecture11/Lecture11.html" />
+    <link rel="prev" title="Hyperbolic Orbits and Interplanetary Trajectories" href="../Lecture8/Lecture8.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture2/Lecture2.html">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/orbital-mechanics/Lecture10/Lecture10.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/orbital-mechanics/Lecture10/Lecture10.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Forbital-mechanics/Lecture10/Lecture10.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/orbital-mechanics/Lecture10/Lecture10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Time, Calendars and Launch Windows</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidereal-time">Sidereal Time</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solar-day-vs-sidereal-day">Solar Day vs Sidereal Day</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tropical-year">Tropical year:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidereal-year">Sidereal year:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julian-calendar-46-bc">Julian Calendar (46 BC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gregorian-calendar-1582-ad">Gregorian Calendar (1582 AD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julian-day">Julian Day</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-windows">Launch Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-spherical-triangle-formulae">Right Spherical Triangle Formulae</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-window-prograde-orbit-i-90-circ-and-northern-hemisphere">Launch Window: Prograde Orbit (i &lt; <span class="math notranslate nohighlight">\(90^\circ\)</span>) and Northern Hemisphere</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-window-retrograde-orbit-i-geq-90-circ-and-northern-hemisphere">Launch Window: Retrograde Orbit <span class="math notranslate nohighlight">\(( i \geq 90^\circ )\)</span> and Northern Hemisphere</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-window-from-southern-hemisphere">Launch Window: From Southern Hemisphere</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="time-calendars-and-launch-windows">
+<h1>Time, Calendars and Launch Windows<a class="headerlink" href="#time-calendars-and-launch-windows" title="Permalink to this heading">#</a></h1>
+<p>Prepared by: <a class="reference external" href="https://github.com/Hardit-Saini">Hardit Saini</a>, <a class="reference external" href="https://github.com/Emma-airi">Emmanuel Airiofolo</a>, <a class="reference external" href="https://github.com/thedukeofeelam">Ilanthiraiyan Sivagnanamoorthy</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-sidereal-time"><span class="std std-ref">Sidereal Time</span></a></p></li>
+<li><p><a class="reference internal" href="#content-calendars"><span class="std std-ref">Calendars</span></a></p></li>
+<li><p><a class="reference internal" href="#content-launch-windows"><span class="std std-ref">Launch Windows</span></a></p></li>
+</ol>
+<hr class="docutils" />
+<section id="sidereal-time">
+<span id="content-sidereal-time"></span><h2>Sidereal Time<a class="headerlink" href="#sidereal-time" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Local apparent sidereal time</strong> (Abbreviated <strong>LAST</strong> or <strong>LST</strong>): time measure based on the hour angle of <span class="math notranslate nohighlight">\(\gamma\)</span>.</p></li>
+<li><p><strong>Sidereal day</strong>: the interval between two successive returns of <span class="math notranslate nohighlight">\(\gamma\)</span> to the same local meridian.</p></li>
+</ul>
+<p><img alt="Figure 1" src="../../_images/L10_1.png" /></p>
+<div class="math notranslate nohighlight" id="equation-l10-1">
+<span class="eqno">(214)<a class="headerlink" href="#equation-l10-1" title="Permalink to this equation">#</a></span>\[\text{LAST} = 30^\circ = \frac{30^\circ}{360^\circ} \times 24 \ \text{Hours} = 2 \ \text{Hours}\]</div>
+<p><strong>LAST</strong> coincides with the right ascension of the observer <span class="math notranslate nohighlight">\(\alpha_\Sigma\)</span>, hence;</p>
+<div class="math notranslate nohighlight" id="equation-l10-2">
+<span class="eqno">(215)<a class="headerlink" href="#equation-l10-2" title="Permalink to this equation">#</a></span>\[\text{LAST} = \alpha_\Sigma\]</div>
+<p><strong>Note</strong>: The sidereal time is measured with respect to a fixed direction, thus it is more useful for computing the time passage of spacecraft, whose orbits are defined with respect to the same fixed direction.</p>
+<section id="solar-day-vs-sidereal-day">
+<h3>Solar Day vs Sidereal Day<a class="headerlink" href="#solar-day-vs-sidereal-day" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 2" src="../../_images/L10_2.png" /></p>
+<p>Sidereal Day <span class="math notranslate nohighlight">\(T_\gamma = \frac{2 \pi}{\omega_e}\)</span>, with <span class="math notranslate nohighlight">\(\omega_e\)</span> the angular velocity of the Earth.</p>
+<p>Solar Day <span class="math notranslate nohighlight">\(T_{\circledcirc} = \frac{2 \pi + \theta}{\omega_e}\)</span></p>
+<p><strong>Note</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-l10-3">
+<span class="eqno">(216)<a class="headerlink" href="#equation-l10-3" title="Permalink to this equation">#</a></span>\[T_{\circledcirc} = \frac{2 \pi + \theta}{\omega_e} = T_\gamma + \frac{\theta}{\omega_e}\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\(T_{\circledcirc} &gt; T_\gamma\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\theta\)</span> is the angle swept by the Earth in one solar day, thus <span class="math notranslate nohighlight">\(\theta = \frac{2 \pi}{Y}\)</span> with <span class="math notranslate nohighlight">\(Y\)</span> the number of solar days in a year (<span class="math notranslate nohighlight">\(Y = 365.256\)</span> days).</p>
+<div class="math notranslate nohighlight" id="equation-l10-4">
+<span class="eqno">(217)<a class="headerlink" href="#equation-l10-4" title="Permalink to this equation">#</a></span>\[T_{\circledcirc} = T_\gamma + \frac{2 \pi}{Y\omega_e} = T_\gamma + \frac{T_\gamma}{Y} = T_\gamma \left(1 + \frac{1}{Y}\right)\]</div>
+<p>Hence:</p>
+<div class="math notranslate nohighlight" id="equation-l10-5">
+<span class="eqno">(218)<a class="headerlink" href="#equation-l10-5" title="Permalink to this equation">#</a></span>\[Y T_{\circledcirc} = (Y + 1)T_\gamma\]</div>
+<p>There are <span class="math notranslate nohighlight">\(Y + 1\)</span> sidereal days in 1 year.</p>
+<p><span class="math notranslate nohighlight">\(T_{\circledcirc}\)</span> = 24 hr <span class="math notranslate nohighlight">\(\implies T_\gamma\)</span> = 23 hr, 56 min, 4 sec.</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="calendars">
+<span id="content-calendars"></span><h2>Calendars<a class="headerlink" href="#calendars" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="tropical-year">
+<h3>Tropical year:<a class="headerlink" href="#tropical-year" title="Permalink to this heading">#</a></h3>
+<p>Interval between two successive passages of the Sun to <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-l10-6">
+<span class="eqno">(219)<a class="headerlink" href="#equation-l10-6" title="Permalink to this equation">#</a></span>\[1 \ \text{tropical year} = 365.2422 \ \text{solar days} \ (\text{Laskar 1986})\]</div>
+<p>or:</p>
+<div class="math notranslate nohighlight" id="equation-l10-7">
+<span class="eqno">(220)<a class="headerlink" href="#equation-l10-7" title="Permalink to this equation">#</a></span>\[1 \ \text{tropical year} = 366.2422 \ \text{sidereal days}\]</div>
+</section>
+<section id="sidereal-year">
+<h3>Sidereal year:<a class="headerlink" href="#sidereal-year" title="Permalink to this heading">#</a></h3>
+<p>Interval between two successive passages of the Sun to a reference star.</p>
+<p><strong>Note</strong>: Due to the precession of the equinoxes, the tropical year is shorter than the sidereal year; <span class="math notranslate nohighlight">\(\gamma\)</span> moves clockwise.</p>
+</section>
+<section id="julian-calendar-46-bc">
+<h3>Julian Calendar (46 BC)<a class="headerlink" href="#julian-calendar-46-bc" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>12 months, regular year of 365 days, with a leap day added in February every 4 years.</p>
+<ul>
+<li><p>It was estimated that a tropical year consisted of 365.25 solar days.
+To avoid a drift between the Julian calendar and the tropical year, 1 day was added every 4 years.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="gregorian-calendar-1582-ad">
+<h3>Gregorian Calendar (1582 AD)<a class="headerlink" href="#gregorian-calendar-1582-ad" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>12 months, regular year of 365 days, with a leap day added to February every 4 years except for secular years (e.g., 1700). The leap day is added to secular years that are multiples of 400 (e.g., 2000).</p>
+<ul>
+<li><p>It was estimated that a tropical year consisted of 365.2425 days, thus the Julian year accumulates a 3-day difference every 4 centuries with respect to equinox time.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>PROBLEM</strong>: Gregorian date yyyy/mm/dd hh:mm:ss is not practical for computations!</p>
+</section>
+<section id="julian-day">
+<h3>Julian Day<a class="headerlink" href="#julian-day" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Progressive number of days since noon, 1 January 4713 BC. For example:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[2016/11/08 \quad 12:00:00 \quad \rightarrow \quad 2457692.0 \ \text{JD}\]</div>
+<ul class="simple">
+<li><p>To work with smaller numbers, Modified Julian date is used:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-l10-8">
+<span class="eqno">(221)<a class="headerlink" href="#equation-l10-8" title="Permalink to this equation">#</a></span>\[\text{MJD} = \text{JD} - \text{ref}\]</div>
+<div class="math notranslate nohighlight">
+\[\text{MJD} 2000 = \text{JD} - 2451545.5 \quad \text{(Now the reference is at midnight)}\]</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="launch-windows">
+<span id="content-launch-windows"></span><h2>Launch Windows<a class="headerlink" href="#launch-windows" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>The launch window is the time when the launch site on the surface of the Earth passes through the orbital plane.</p></li>
+<li><p>Determination of launch time (sidereal time) and launch direction.</p></li>
+</ul>
+<p><img alt="Figure 3" src="../../_images/L10_3.png" /></p>
+<ul class="simple">
+<li><p>The launch site must pass through the orbit, thus three conditions:</p>
+<ol class="arabic simple">
+<li><p>No launch window:
+<span class="math notranslate nohighlight">\(
+\phi &gt; i \quad \text{or} \quad \phi &gt; 180^\circ - i \quad \text{(retrograde)}
+\)</span></p></li>
+<li><p>One launch window:
+<span class="math notranslate nohighlight">\(
+\phi = i \quad \text{or} \quad \phi = 180^\circ - i \quad \text{(retrograde)}
+\)</span></p></li>
+<li><p>Two launch windows:
+<span class="math notranslate nohighlight">\(
+\phi &lt; i \quad \text{or} \quad \phi &lt; 180^\circ - i \quad \text{(retrograde)}
+\)</span></p></li>
+</ol>
+</li>
+</ul>
+<p><img alt="Figure 4" src="../../_images/L10_4.png" /></p>
+<p><span class="math notranslate nohighlight">\(
+\text{NOTE: when } \phi = i, \text{ LAUNCH DUE EAST, we fully exploit the velocity of the launch site!}
+\)</span></p>
+<p><strong>Given Data:</strong></p>
+<p><span class="math notranslate nohighlight">\(i\)</span> is the orbit inclination.</p>
+<p><span class="math notranslate nohighlight">\(\phi\)</span> is the launch site latitude.</p>
+<p><strong>To be computed:</strong></p>
+<p><span class="math notranslate nohighlight">\(\delta\)</span>  is the window location angle.</p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span>  is the direction auxiliary angle.</p>
+<p><span class="math notranslate nohighlight">\(\beta\)</span>  is the launch azimuth: the angle from the north to the launch direction, positive clockwise.</p>
+<p><span class="math notranslate nohighlight">\(\text{NOTE: launch sites have constraints on launch azimuth}\)</span>.</p>
+<section id="right-spherical-triangle-formulae">
+<h3>Right Spherical Triangle Formulae<a class="headerlink" href="#right-spherical-triangle-formulae" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 5" src="../../_images/L10_5.png" /></p>
+</section>
+<section id="launch-window-prograde-orbit-i-90-circ-and-northern-hemisphere">
+<h3>Launch Window: Prograde Orbit (i &lt; <span class="math notranslate nohighlight">\(90^\circ\)</span>) and Northern Hemisphere<a class="headerlink" href="#launch-window-prograde-orbit-i-90-circ-and-northern-hemisphere" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 6" src="../../_images/L10_6.png" /></p>
+<div class="math notranslate nohighlight" id="equation-l10-9">
+<span class="eqno">(222)<a class="headerlink" href="#equation-l10-9" title="Permalink to this equation">#</a></span>\[\sin \gamma = \frac{\cos i}{\cos \phi}\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-10">
+<span class="eqno">(223)<a class="headerlink" href="#equation-l10-10" title="Permalink to this equation">#</a></span>\[\sin \delta = \frac{\tan \phi}{\tan i} \quad \text{or} \quad (\cos \delta = \frac{\cos \gamma}{\sin i})\]</div>
+<p><strong>① Ascending Node</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-l10-11">
+<span class="eqno">(224)<a class="headerlink" href="#equation-l10-11" title="Permalink to this equation">#</a></span>\[\beta = \delta\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-12">
+<span class="eqno">(225)<a class="headerlink" href="#equation-l10-12" title="Permalink to this equation">#</a></span>\[\text{LST}_{\text{launch}} = \Omega + \delta\]</div>
+<p><strong>② Descending Node</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-l10-13">
+<span class="eqno">(226)<a class="headerlink" href="#equation-l10-13" title="Permalink to this equation">#</a></span>\[\beta = 180^\circ - \gamma\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-14">
+<span class="eqno">(227)<a class="headerlink" href="#equation-l10-14" title="Permalink to this equation">#</a></span>\[\text{LST}_{\text{launch}} = \Omega + 180^\circ - \delta\]</div>
+<p><strong>Note from <a class="reference internal" href="#equation-l10-9">(222)</a>:</strong></p>
+<div class="math notranslate nohighlight" id="equation-l10-15">
+<span class="eqno">(228)<a class="headerlink" href="#equation-l10-15" title="Permalink to this equation">#</a></span>\[\cos (i) = \sin \gamma \cos \phi \implies \boxed{\phi \leq i}\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-16">
+<span class="eqno">(229)<a class="headerlink" href="#equation-l10-16" title="Permalink to this equation">#</a></span>\[(\sin (\gamma) \geq 1 \implies \cos (i) \leq \cos (\phi))\]</div>
+<p>A closer look at <span class="math notranslate nohighlight">\(\boxed{\phi \leq i} \)</span> suggests:</p>
+<p>a. The latitude of launch site must be less than orbit inclination for a direct launch.</p>
+<p>b. Equatorial orbit only from equatorial launch sites.</p>
+<p>c. When <span class="math notranslate nohighlight">\( \phi = i \)</span>, launch due East: optimal condition!</p>
+<section id="launch-window-retrograde-orbit-i-geq-90-circ-and-northern-hemisphere">
+<h4>Launch Window: Retrograde Orbit <span class="math notranslate nohighlight">\(( i \geq 90^\circ )\)</span> and Northern Hemisphere<a class="headerlink" href="#launch-window-retrograde-orbit-i-geq-90-circ-and-northern-hemisphere" title="Permalink to this heading">#</a></h4>
+<p><img alt="Figure 7" src="../../_images/L10_7.png" /></p>
+<div class="math notranslate nohighlight" id="equation-l10-17">
+<span class="eqno">(230)<a class="headerlink" href="#equation-l10-17" title="Permalink to this equation">#</a></span>\[\sin \gamma = \frac{\cos (180^\circ - i)}{\cos \phi} = \frac{-\cos i}{ \cos \phi}\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-18">
+<span class="eqno">(231)<a class="headerlink" href="#equation-l10-18" title="Permalink to this equation">#</a></span>\[\sin \delta = \frac{\tan \phi}{\tan (180^\circ - i)} = \frac{-\tan \phi}{\tan i}\]</div>
+<p><strong>① Ascending Node</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-l10-19">
+<span class="eqno">(232)<a class="headerlink" href="#equation-l10-19" title="Permalink to this equation">#</a></span>\[\beta = 360^\circ - \gamma\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-20">
+<span class="eqno">(233)<a class="headerlink" href="#equation-l10-20" title="Permalink to this equation">#</a></span>\[\text{LST}_{\text{launch}} = \Omega - \delta\]</div>
+<p><strong>② Descending Node</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-l10-21">
+<span class="eqno">(234)<a class="headerlink" href="#equation-l10-21" title="Permalink to this equation">#</a></span>\[\beta = 180^\circ - \delta\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-22">
+<span class="eqno">(235)<a class="headerlink" href="#equation-l10-22" title="Permalink to this equation">#</a></span>\[\text{LST}_{\text{launch}} = \Omega + 180^\circ - \delta\]</div>
+</section>
+</section>
+<section id="launch-window-from-southern-hemisphere">
+<h3>Launch Window: From Southern Hemisphere<a class="headerlink" href="#launch-window-from-southern-hemisphere" title="Permalink to this heading">#</a></h3>
+<p><img alt="Figure 8" src="../../_images/L10_8.png" /></p>
+<ul class="simple">
+<li><p>The launch azimuth is the same as the northern hemisphere.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{LST}_{\text{launch}}\)</span> is different.</p></li>
+</ul>
+<p><strong>Example: Ascending Node</strong>:</p>
+<p><img alt="Figure 9" src="../../_images/L10_9.png" /></p>
+<div class="math notranslate nohighlight" id="equation-l10-23">
+<span class="eqno">(236)<a class="headerlink" href="#equation-l10-23" title="Permalink to this equation">#</a></span>\[\text{LST}_{\text{launch}}^{\text{North}} = \Omega + \delta\]</div>
+<div class="math notranslate nohighlight" id="equation-l10-24">
+<span class="eqno">(237)<a class="headerlink" href="#equation-l10-24" title="Permalink to this equation">#</a></span>\[\text{LST}_{\text{launch}}^{\text{South}} = \Omega - \delta\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./orbital-mechanics/Lecture10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture8/Lecture8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hyperbolic Orbits and Interplanetary Trajectories</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture11/Lecture11.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ground Tracks and Orbit Perturbations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidereal-time">Sidereal Time</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solar-day-vs-sidereal-day">Solar Day vs Sidereal Day</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tropical-year">Tropical year:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidereal-year">Sidereal year:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julian-calendar-46-bc">Julian Calendar (46 BC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gregorian-calendar-1582-ad">Gregorian Calendar (1582 AD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julian-day">Julian Day</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-windows">Launch Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-spherical-triangle-formulae">Right Spherical Triangle Formulae</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-window-prograde-orbit-i-90-circ-and-northern-hemisphere">Launch Window: Prograde Orbit (i &lt; <span class="math notranslate nohighlight">\(90^\circ\)</span>) and Northern Hemisphere</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-window-retrograde-orbit-i-geq-90-circ-and-northern-hemisphere">Launch Window: Retrograde Orbit <span class="math notranslate nohighlight">\(( i \geq 90^\circ )\)</span> and Northern Hemisphere</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-window-from-southern-hemisphere">Launch Window: From Southern Hemisphere</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

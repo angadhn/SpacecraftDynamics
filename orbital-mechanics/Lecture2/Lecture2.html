@@ -1,0 +1,1048 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Two-Body Dynamics &#8212; Introduction to Spacecraft Dynamics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-PMEJXXDXF4"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-PMEJXXDXF4');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-mechanics/Lecture2/Lecture2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Elliptic Orbits" href="../Lecture3/Lecture3.html" />
+    <link rel="prev" title="Vectors (Brief Recap)" href="../Lecture1/Lecture1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../weekly-outline.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to Spacecraft Dynamics - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to Spacecraft Dynamics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../weekly-outline.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/vector.html">Fundamental concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture1/Lecture1.html">Vectors (Brief Recap)</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Two-Body Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture3/Lecture3.html">Elliptic Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture4/Lecture4.html">Circular and More Results on Elliptical Orbits</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture5/Lecture5.html">Orbital Elements (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture6/Lecture6.html">Orbital Elements (Part 2)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Lecture7/Lecture7.html">Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture8/Lecture8.html">Hyperbolic Orbits and Interplanetary Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture10/Lecture10.html">Time, Calendars and Launch Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture11/Lecture11.html">Ground Tracks and Orbit Perturbations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Lecture12/Lecture12.html">Special Orbits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Attitude Dynamics (WIP so do not use!)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/dynamics-1.html">Kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/rotational_dynamics.html">Rotational dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../attitude-dynamics/Lecture14/six_DoF.html">Translational and Rotational Kinetics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Sets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS1/PS1.html">Problem Set 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS2/PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS3/PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS4/PS4.html">Problem Set 4</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/PS5.html">Problem Set 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS6/PS6.html">Problem Set 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS7/PS7.html">Problem Set 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Plotting Tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../unsolved_problems/PS5/plotting_tutorial.html">Tutorial: Python-based plot generation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS1/Answer_PS1.html">Problem Set 1</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS2/Answer_PS2.html">Problem Set 2</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS3/Answer_PS3.html">Problem Set 3</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/PS4/Answer_PS4.html">Coursework 1 (60 points; 4 questions)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/Introduction-To-LaTeX.html">Better scientific writing</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/VideoResources.html">Video Resources for Orbital Mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/angadhn/SpacecraftDynamics/master?urlpath=tree/orbital-mechanics/Lecture2/Lecture2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/angadhn/SpacecraftDynamics/blob/master/orbital-mechanics/Lecture2/Lecture2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/angadhn/SpacecraftDynamics/issues/new?title=Issue%20on%20page%20%2Forbital-mechanics/Lecture2/Lecture2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/orbital-mechanics/Lecture2/Lecture2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Two-Body Dynamics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-gravitational-force-and-newton-s-second-law">Two-Body Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-g-and-its-derivatives">Center of Mass ( G ) and its derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force">Gravitational Force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-angular-momentum">Specific Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direction">Direction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude">Magnitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-velocity-and-kepler-s-second-law">Areal velocity and Kepler’s Second Law</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-dynamics-in-polar-coordinates">Two-body Dynamics in Polar Coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-specific-orbital-energy-e">Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="two-body-dynamics">
+<h1>Two-Body Dynamics<a class="headerlink" href="#two-body-dynamics" title="Permalink to this heading">#</a></h1>
+<p>Prepared by: <a class="reference external" href="https://github.com/Emma-airi">Emmanuel Airiofolo</a>, <a class="reference external" href="https://github.com/Joosty">Joost Hubbard</a>, <a class="reference external" href="https://github.com/calan04">Ceyda Alan</a> and <a class="reference external" href="https://www.angadhn.com/">Angadh Nanjangud</a></p>
+<p>In this lecture we cover the following topics:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#content-gravitational-force-and-newton-s-second-law"><span class="std std-ref">Two-Body Dynamics</span></a></p></li>
+<li><p><a class="reference internal" href="#content-two-body-relative-dynamics"><span class="std std-ref">Two-Body Relative Dynamics</span></a></p></li>
+<li><p><a class="reference internal" href="#content-the-specific-angular-momentum"><span class="std std-ref">Specific Angular Momentum</span></a></p></li>
+<li><p><a class="reference internal" href="#content-kepler-s-second-law"><span class="std std-ref">Kepler’s Second Law</span></a></p></li>
+<li><p><a class="reference internal" href="#content-polar-coordinates"><span class="std std-ref">Two-body Dynamics in Polar Coordinates</span></a></p></li>
+<li><p><a class="reference internal" href="#content-conservation-of-specific-orbital-energy-e"><span class="std std-ref">Conservation of Specific Orbital Energy: E</span></a></p></li>
+</ol>
+<section id="content-gravitational-force-and-newton-s-second-law">
+<span id="id1"></span><h2>Two-Body Dynamics<a class="headerlink" href="#content-gravitational-force-and-newton-s-second-law" title="Permalink to this heading">#</a></h2>
+<p><a class="reference internal" href="#l1-two-body-full-details"><span class="std std-numref">Fig. 1</span></a> allows us to model the two-body dynamics of two particles <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>. Their
+position vectors from <span class="math notranslate nohighlight">\(O\)</span> are given by <span class="math notranslate nohighlight">\({\bf{r}}_1\)</span> and <span class="math notranslate nohighlight">\({\bf{r}}_2\)</span>, respectively. Note that <span class="math notranslate nohighlight">\(O\)</span> is the origin of an
+inertial reference frame. <span class="math notranslate nohighlight">\(G\)</span> is the center of mass of the two-body system, which is located by <span class="math notranslate nohighlight">\(\bf{r}_G\)</span>. The relative
+position vector from <span class="math notranslate nohighlight">\(m_1\)</span> to <span class="math notranslate nohighlight">\(m_2\)</span> is given by <span class="math notranslate nohighlight">\({\bf{r}}\)</span>.
+The unit vectors <span class="math notranslate nohighlight">\(\hat{\bf{i}}\)</span>, <span class="math notranslate nohighlight">\(\hat{\bf{j}}\)</span>, and <span class="math notranslate nohighlight">\(\hat{\bf{k}}\)</span> form a right-handed orthonormal system for this inertial frame.</p>
+<figure class="align-default" id="l1-two-body-full-details">
+<a class="reference internal image-reference" href="../../_images/L1-two-body-full-details.png"><img alt="../../_images/L1-two-body-full-details.png" src="../../_images/L1-two-body-full-details.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The two-body dynamics of two particles <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> with position vectors <span class="math notranslate nohighlight">\({\bf{r}}_1\)</span> and <span class="math notranslate nohighlight">\({\bf{r}}_2\)</span> respectively.</span><a class="headerlink" href="#l1-two-body-full-details" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="center-of-mass-g-and-its-derivatives">
+<h3>Center of Mass ( G ) and its derivatives<a class="headerlink" href="#center-of-mass-g-and-its-derivatives" title="Permalink to this heading">#</a></h3>
+<p>The center of mass <span class="math notranslate nohighlight">\({\bf{r}}_G\)</span> of the system is given by:</p>
+<div class="math notranslate nohighlight" id="equation-l1-21">
+<span class="eqno">(20)<a class="headerlink" href="#equation-l1-21" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf{r}}_G &amp;= \frac{m_1 {\bf{r}}_1 + m_2 {\bf{r}}_2}{m_1 + m_2}\\
+\Rightarrow {\bf{v}}_G &amp;= \frac{m_1 {\dot{\bf{r}}}_1 + m_2 {\dot{\bf{r}}}_2}{m_1 + m_2}\\
+\Rightarrow {\bf{a}}_G &amp;= \frac{m_1 {\ddot{\bf{r}}}_1 + m_2 {\ddot{\bf{r}}}_2}{m_1 + m_2}\\\end{split}\]</div>
+</section>
+<section id="gravitational-force">
+<h3>Gravitational Force<a class="headerlink" href="#gravitational-force" title="Permalink to this heading">#</a></h3>
+<p>Gravitational forces exists due to the two masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> and they act on each of the particles.
+These forces are shown in the <a class="reference internal" href="#l1-6"><span class="std std-numref">Fig. 2</span></a> below as <span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> and <span class="math notranslate nohighlight">\({\bf{F}}_{21}\)</span> acting on each of the particles.</p>
+<figure class="align-default" id="l1-6">
+<a class="reference internal image-reference" href="../../_images/L1_6.png"><img alt="../../_images/L1_6.png" src="../../_images/L1_6.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Free-body diagram showing gravitational force in relative two-body dynamics of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>.</span><a class="headerlink" href="#l1-6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Here:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> represents the force on <span class="math notranslate nohighlight">\(m_1\)</span> exerted by <span class="math notranslate nohighlight">\(m_2\)</span>’s gravitational attraction.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf{F}}_{21}\)</span> represents the force on <span class="math notranslate nohighlight">\(m_2\)</span> exerted by <span class="math notranslate nohighlight">\(m_1\)</span>’s gravitational attraction.</p></li>
+</ul>
+<p>They are given by:</p>
+<div class="math notranslate nohighlight" id="equation-l1-20">
+<span class="eqno">(21)<a class="headerlink" href="#equation-l1-20" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+{\bf{F}}_{12} &amp;= \frac{G m_1 m_2}{r^2} \hat{\bf{r}} = \frac{G m_1 m_2}{r^3} {\bf{r}} \\
+{\bf{F}}_{21} &amp;= -\frac{G m_1 m_2}{r^2} \hat{\bf{r}} = -\frac{G m_1 m_2}{r^3} {\bf{r}}
+\end{aligned}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(G = 6.672 \times 10^{-11} \ \text{kg}^{-1} \ \text{m}^3 \ \text{s}^{-2}\)</span> (Universal gravitational constant). Note that in <a class="reference internal" href="#equation-l1-20">(21)</a>, <span class="math notranslate nohighlight">\({\bf{r}}\)</span> is relative position vector and can be used to rewrite
+a position vector along itself as:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\bf{r}} = \frac{{\bf{r}}}{|\bf{r}|}.
+\]</div>
+<p>Newton’s Second Law (<span class="math notranslate nohighlight">\({\bf F} = m{\bf a}\)</span>) for <span class="math notranslate nohighlight">\(m_1\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-l1-22">
+<span class="eqno">(22)<a class="headerlink" href="#equation-l1-22" title="Permalink to this equation">#</a></span>\[m_1 \ddot{\bf{r}}_1 = {\bf{F}}_{12}\]</div>
+<p>Newton’s Second Law for <span class="math notranslate nohighlight">\(m_2\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-l1-23">
+<span class="eqno">(23)<a class="headerlink" href="#equation-l1-23" title="Permalink to this equation">#</a></span>\[m_2 \ddot{\bf{r}}_2 = {\bf{F}}_{21}\]</div>
+<p>Adding equations <a class="reference internal" href="#equation-l1-22">(22)</a> and <a class="reference internal" href="#equation-l1-23">(23)</a>, then substituting for <span class="math notranslate nohighlight">\({\bf{F}}_{12}\)</span> and <span class="math notranslate nohighlight">\({\bf{F}}_{21}\)</span> from <a class="reference internal" href="#equation-l1-20">(21)</a> gives us:</p>
+<div class="math notranslate nohighlight" id="equation-l1-24">
+<span class="eqno">(24)<a class="headerlink" href="#equation-l1-24" title="Permalink to this equation">#</a></span>\[\begin{split}m_1 \ddot{\bf{r}}_1 + m_2 \ddot{\bf{r}}_2 &amp;= {\bf{F}}_{12} + {\bf{F}}_{21}\\
+m_1 \ddot{\bf{r}}_1 + m_2 \ddot{\bf{r}}_2 &amp;= \frac{G m_1 m_2 {\bf{r}}}{r^3} - \frac{G m_1 m_2 {\bf{r}}}{r^3}\\
+m_1 \ddot{\bf{r}}_1 + m_2 \ddot{\bf{r}}_2 &amp;= 0 \end{split}\]</div>
+<p>Noting that the LHS of <a class="reference internal" href="#equation-l1-24">(24)</a> is the same as the numerator of
+the acceleration of the center of mass (see the third of equations <a class="reference internal" href="#equation-l1-21">(20)</a>), we have:</p>
+<div class="math notranslate nohighlight" id="equation-l1-25">
+<span class="eqno">(25)<a class="headerlink" href="#equation-l1-25" title="Permalink to this equation">#</a></span>\[\begin{split}\ddot{\bf{r}}_G &amp;= 0\\
+\dot{\bf{r}}_G &amp;= \text{constant}\end{split}\]</div>
+<p>This implies that <span class="math notranslate nohighlight">\(G\)</span> is inertially fixed (i.e., not accelerating)
+and so it can be chosen as the origin of another inertial reference
+frame (this is diffefrent from the one written in green in <a class="reference internal" href="#l1-two-body-full-details"><span class="std std-numref">Fig. 1</span></a> above). It can also be easily inferred that the absolute (or inertial) velcoity of <span class="math notranslate nohighlight">\(G\)</span> is constant as the acceleration is zero. This is shown below and is consistent with the equation pair <a class="reference internal" href="#equation-l1-25">(25)</a> above.</p>
+<div class="math notranslate nohighlight" id="equation-l1-25-a">
+<span class="eqno">(26)<a class="headerlink" href="#equation-l1-25-a" title="Permalink to this equation">#</a></span>\[\begin{split}\bf{a}_G &amp;= 0\\
+\bf{v}_G &amp;= \text{constant}\end{split}\]</div>
+</section>
+</section>
+<section id="two-body-relative-dynamics">
+<span id="content-two-body-relative-dynamics"></span><h2>Two-Body Relative Dynamics<a class="headerlink" href="#two-body-relative-dynamics" title="Permalink to this heading">#</a></h2>
+<p>To study the relative motion of the two particles, we can subtract the equations of motion for each of the particles as given by <a class="reference internal" href="#equation-l1-22">(22)</a> and <a class="reference internal" href="#equation-l1-23">(23)</a>. Before doing that, let’s rewrite the equations of motion for each of the particles. Newton’s Second Law for <span class="math notranslate nohighlight">\(m_2\)</span> is given by <a class="reference internal" href="#equation-l1-23">(23)</a></p>
+<div class="math notranslate nohighlight" id="equation-l1-26">
+<span class="eqno">(27)<a class="headerlink" href="#equation-l1-26" title="Permalink to this equation">#</a></span>\[m_2 \ddot{\bf{r}}_2 = {\bf{F}}_{21} = - \frac{G m_1 m_2 {\bf{r}}}{r^3} \rightarrow \ddot{\bf{r}}_2 = - \frac{G m_1 {\bf{r}}}{r^3}\]</div>
+<p>Similarly, Newton’s Second Law for <span class="math notranslate nohighlight">\(m_1\)</span>, given by <a class="reference internal" href="#equation-l1-22">(22)</a>, can be rewritten as:</p>
+<div class="math notranslate nohighlight" id="equation-l1-27">
+<span class="eqno">(28)<a class="headerlink" href="#equation-l1-27" title="Permalink to this equation">#</a></span>\[m_1 \ddot{\bf{r}}_1 = {\bf{F}}_{12} = \frac{G m_1 m_2 {\bf{r}}}{r^3} \rightarrow \ddot{\bf{r}}_1 = \frac{G m_2 {\bf{r}}}{r^3}\]</div>
+<p>Subtracting <a class="reference internal" href="#equation-l1-26">(27)</a> from <a class="reference internal" href="#equation-l1-27">(28)</a> gives us the equation of motion for the relative motion of <span class="math notranslate nohighlight">\(m_2\)</span> with respect to <span class="math notranslate nohighlight">\(m_1\)</span> (the resulting is <a class="reference internal" href="#equation-l1-30">(31)</a>):</p>
+<div class="math notranslate nohighlight" id="equation-l1-28">
+<span class="eqno">(29)<a class="headerlink" href="#equation-l1-28" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = \ddot{\bf{r}}_2 - \ddot{\bf{r}}_1 = - \frac{G m_1 {\bf{r}}}{r^3} - \frac{G m_2 {\bf{r}}}{r^3} = - \frac{G (m_1 + m_2) {\bf{r}}}{r^3}\]</div>
+<div class="math notranslate nohighlight" id="equation-l1-29">
+<span class="eqno">(30)<a class="headerlink" href="#equation-l1-29" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = - \frac{G (m_1 + m_2)}{r^3} {\bf{r}}\]</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Equation <a class="reference internal" href="#equation-l1-29">(30)</a> is written more commonly in shorthand using <span class="math notranslate nohighlight">\(\mu\)</span>, the gravitational parameter, and gives the relative two-body dynamics equation</p>
+<div class="math notranslate nohighlight" id="equation-l1-30">
+<span class="eqno">(31)<a class="headerlink" href="#equation-l1-30" title="Permalink to this equation">#</a></span>\[\ddot{\bf{r}} = - \frac{\mu}{r^3}{\bf{r}}\]</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Implications of this equation of motion</p>
+<p>In most common cases of study/in this text, <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span>. For example, <span class="math notranslate nohighlight">\(m_1\)</span> is <span class="math notranslate nohighlight">\(m_\oplus = 5.974 \times 10^{24} \ \text{kg}\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> is a spacecraft, <span class="math notranslate nohighlight">\(m_2 \approx 1000 \ \text{kg}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-l1-31">
+<span class="eqno">(32)<a class="headerlink" href="#equation-l1-31" title="Permalink to this equation">#</a></span>\[{\bf{r}}_G \approx {\bf{r}}_1\]</div>
+<div class="math notranslate nohighlight" id="equation-l1-32">
+<span class="eqno">(33)<a class="headerlink" href="#equation-l1-32" title="Permalink to this equation">#</a></span>\[\mu \approx G m_1\]</div>
+<p>This is referred to as a restricted two-body problem.</p>
+</div>
+<p>Equation <a class="reference internal" href="#equation-l1-29">(30)</a> is a vector ordinary differential equation (ODE). As we are studying the motion in a 3-dimensional coordinate system, this can also be written as a system of 3 <strong>scalar</strong> second-order ODE. However, they can be further reduced to a system of 6 <strong>first-order</strong> scalar ODEs
+or, as shown below, <strong>2 first-order scalar</strong> ODEs:</p>
+<div class="math notranslate nohighlight" id="equation-l2-2">
+<span class="eqno">(34)<a class="headerlink" href="#equation-l2-2" title="Permalink to this equation">#</a></span>\[\bf{\dot r} = \bf{v}\]</div>
+<div class="math notranslate nohighlight" id="equation-l2-3">
+<span class="eqno">(35)<a class="headerlink" href="#equation-l2-3" title="Permalink to this equation">#</a></span>\[{\bf \dot v} = -\frac{\mu}{r^3} {\bf r}\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To solve a differential equation , we must know the intial values of the parameter
+we are solving for</p>
+</div>
+</aside>
+<p>To solve this system as a set of scalar ODEs, we need 6 initial conditions with <span class="math notranslate nohighlight">\(\bf{r_0}\)</span> and
+<span class="math notranslate nohighlight">\(\bf{v_0}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-l2-4">
+<span class="eqno">(36)<a class="headerlink" href="#equation-l2-4" title="Permalink to this equation">#</a></span>\[{\bf{r}} (t_0) = \bf{r_0}\]</div>
+<div class="math notranslate nohighlight" id="equation-l2-5">
+<span class="eqno">(37)<a class="headerlink" href="#equation-l2-5" title="Permalink to this equation">#</a></span>\[{\bf{v}} (t_0) = \bf{v_0}\]</div>
+<p>This system of equations can admit, at maximum, 6 independent integrals of motion</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An Integral of Motion is a function, say <span class="math notranslate nohighlight">\(f({\bf{r}} , {\bf{v}} , t )\)</span>, that is constant for all times, <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l2-6">
+<span class="eqno">(38)<a class="headerlink" href="#equation-l2-6" title="Permalink to this equation">#</a></span>\[f({\bf{r}} , {\bf{v}} , t) = constant\]</div>
+<p>The value of the constant is determined by the intial conditions that permit us to solve the ODEs.
+An integral of motion reduces the degrees-of-freedom of a problem.</p>
+</section>
+<section id="specific-angular-momentum">
+<span id="content-the-specific-angular-momentum"></span><h2>Specific Angular Momentum<a class="headerlink" href="#specific-angular-momentum" title="Permalink to this heading">#</a></h2>
+<p>The relative angular momentum of <span class="math notranslate nohighlight">\(m_2\)</span> with respect <span class="math notranslate nohighlight">\(m_1\)</span> is</p>
+<div class="math notranslate nohighlight" id="equation-l2-7">
+<span class="eqno">(39)<a class="headerlink" href="#equation-l2-7" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf H}_{2/1} = {\bf{r}}\times( m_2 {\bf{v}})\\
+\Rightarrow {\bf H}_{2/1} = {\bf{r}}\times( m_2 {\bf{\dot r}})\end{split}\]</div>
+<p>and specific angular momentum is obtained by dividing a body’s relative angular momentum from its mass. In case of <span class="math notranslate nohighlight">\(m_2\)</span>, the specific angular momentum is given by</p>
+<div class="math notranslate nohighlight" id="equation-l2-8">
+<span class="eqno">(40)<a class="headerlink" href="#equation-l2-8" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf{h}} &amp;= \frac{{\bf H}_{2/1}} {m_2}\\
+{\bf{h}} &amp;= \bf{r} \times \bf{v}
+{\bf{h}} &amp;= \bf{r} \times \bf{\dot r}\end{split}\]</div>
+<p>The time derivative of <span class="math notranslate nohighlight">\(\bf{h}\)</span> is</p>
+<div class="math notranslate nohighlight" id="equation-l2-9">
+<span class="eqno">(41)<a class="headerlink" href="#equation-l2-9" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=\frac{\mathrm{d}}{\mathrm{d}t}(\bf{r}\times\bf{\dot r})\\
+\Rightarrow \frac{d\bf{h}}{\mathrm{d}t} &amp;= \bf{\dot r}\times\bf{\dot r} + \bf{r}\times\bf{\ddot r}\\
+\Rightarrow \frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=  \bf{r}\times\bf{\ddot r}\end{split}\]</div>
+<p>From the two-body dynamics equation <a class="reference internal" href="#equation-l1-29">(30)</a>, we can rewrite the RHS of <a class="reference internal" href="#equation-l2-9">(41)</a> as:</p>
+<div class="math notranslate nohighlight" id="equation-l2-10">
+<span class="eqno">(42)<a class="headerlink" href="#equation-l2-10" title="Permalink to this equation">#</a></span>\[\begin{split}\Rightarrow \frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=\bf{r}\times-\frac{\mu}{r^3}\bf{r}\\
+\Rightarrow \frac{\mathrm{d}\bf{h}}{\mathrm{d}t} &amp;=0\end{split}\]</div>
+<p>which tells us that specific angular momentum is a constant.</p>
+<div class="math notranslate nohighlight" id="equation-l2-11">
+<span class="eqno">(43)<a class="headerlink" href="#equation-l2-11" title="Permalink to this equation">#</a></span>\[{\bf h} = \textbf{constant}\]</div>
+<p>The implication of constant specific angular momentum is that:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\({\bf{h}}({\bf{r}} , {\bf{\dot r}} , t)\)</span> = <span class="math notranslate nohighlight">\(\textbf{constant}\)</span>, which means that <span class="math notranslate nohighlight">\(\bf{h}\)</span> is an integral of motion.</p></li>
+<li><p>The 3 scalar components of <span class="math notranslate nohighlight">\(\bf h\)</span> are also constants. Or, in mathetmical terminology, we write:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}h_x({\bf{r}} , {\bf{\dot r}} , t) &amp;= \textit{constant}\\
+h_y({\bf{r}} , {\bf{\dot r}} , t) &amp;= \textit{constant}\\
+h_z({\bf{r}} , {\bf{\dot r}} , t) &amp;= \textit{constant}\end{split}\]</div>
+</section>
+<section id="kepler-s-second-law">
+<span id="content-kepler-s-second-law"></span><h2>Kepler’s Second Law<a class="headerlink" href="#kepler-s-second-law" title="Permalink to this heading">#</a></h2>
+<p>We infer Kepler’s second law based on consequences relating to the nature of
+constant specific angular momentum vector; specifically, we examine the direction
+and then the magnitude of the specific angular momentum.</p>
+<section id="direction">
+<h3>Direction<a class="headerlink" href="#direction" title="Permalink to this heading">#</a></h3>
+<p>Firstly, from</p>
+<div class="math notranslate nohighlight" id="equation-l2-13">
+<span class="eqno">(44)<a class="headerlink" href="#equation-l2-13" title="Permalink to this equation">#</a></span>\[\bf{h} = \bf{r}\times\bf{v}\]</div>
+<p>we can determine that</p>
+<div class="math notranslate nohighlight" id="equation-l2-14">
+<span class="eqno">(45)<a class="headerlink" href="#equation-l2-14" title="Permalink to this equation">#</a></span>\[\bf{h}\perp\bf{r}, \bf{v} \]</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Recall: why is <span class="math notranslate nohighlight">\(\bf{h}\)</span> prependicular to both <span class="math notranslate nohighlight">\(\bf{r}\)</span> and <span class="math notranslate nohighlight">\(\bf{v}\)</span>?</p>
+<p>This is because the result of cross-product between two vectors is a third vector
+that is orthogonal to both vectors.</p>
+</div>
+<p>Thus, <span class="math notranslate nohighlight">\(\bf{r}\)</span> and <span class="math notranslate nohighlight">\(\bf{v}\)</span> are at all times lie in a plane that is perpendicular to <span class="math notranslate nohighlight">\(\bf{h}\)</span>. This also means that the motion is planar.</p>
+</section>
+<section id="magnitude">
+<h3>Magnitude<a class="headerlink" href="#magnitude" title="Permalink to this heading">#</a></h3>
+<figure class="align-default" id="magnitude-angmom">
+<a class="reference internal image-reference" href="../../_images/L2_1.png"><img alt="../../_images/L2_1.png" src="../../_images/L2_1.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Magnitude and direction of specific angular momentum.</span><a class="headerlink" href="#magnitude-angmom" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<aside class="margin sidebar">
+<p class="sidebar-title">Polar coordinates</p>
+<p><span class="math notranslate nohighlight">\({\bf e}_r\)</span> is directled along the position vector <span class="math notranslate nohighlight">\(\bf r\)</span> and <span class="math notranslate nohighlight">\({\bf e}_{\theta}\)</span> is
+perpendicular to it. The pair of vectors lie in the plane of the paper (or screen, in this case)
+and a third unit vector is directed orthogonal to them. This set of unit vectors make up
+a polar coordinate system.</p>
+</aside>
+<p>From <a class="reference internal" href="#magnitude-angmom"><span class="std std-numref">Fig. 3</span></a>, we can make use of the polar coordinates <span class="math notranslate nohighlight">\({\bf e}_r\)</span> and
+<span class="math notranslate nohighlight">\({\bf e}_{\theta}\)</span> to write the component form of specific angular momentum.</p>
+<div class="math notranslate nohighlight" id="equation-l2-15">
+<span class="eqno">(46)<a class="headerlink" href="#equation-l2-15" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf h} &amp;= {\bf r}\times\bf{v}\\
+\Rightarrow {\bf h} &amp;= {\bf r}\times(v_{r} {\bf e}_r + v_{\theta}{\bf e}_{\theta})\\
+\Rightarrow {\bf h} &amp;={\bf r}\times(v_r{\bf e}_{r}) + {\bf r}\times(v_\theta {\bf e}_{\theta})\end{split}\]</div>
+<p>where we have written the velocity vector <span class="math notranslate nohighlight">\(\bf{v}\)</span> as a sum of its components along the radial and angular directions:</p>
+<div class="math notranslate nohighlight" id="equation-l2-polar-velocity-vectors">
+<span class="eqno">(47)<a class="headerlink" href="#equation-l2-polar-velocity-vectors" title="Permalink to this equation">#</a></span>\[{\bf v} = v_r {\bf e}_r + v_\theta {\bf e}_\theta\]</div>
+<p>noting that <span class="math notranslate nohighlight">\(v_r\)</span> is the scalar component of the velocity along the radial direction and <span class="math notranslate nohighlight">\(v_\theta\)</span> is the scalar component of the velocity along the angular direction.</p>
+<p>The first term on the RHS of the last of Equations <a class="reference internal" href="#equation-l2-15">(46)</a> is zero because <span class="math notranslate nohighlight">\(\bf{r}\)</span> and <span class="math notranslate nohighlight">\(\bf{v_r}\)</span> are parallel; thus the second term is the only term remaining. As a result, this must be directed along the angular momentum vector <span class="math notranslate nohighlight">\(\bf{h}\)</span>. It can also be written along a unit vector along the direction of <span class="math notranslate nohighlight">\(\bf{h}\)</span>, called <span class="math notranslate nohighlight">\(\bf{\hat{h}}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-l2-16">
+<span class="eqno">(48)<a class="headerlink" href="#equation-l2-16" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf h} &amp;=rv_\theta{\hat{\bf{h}}}\\
+\Rightarrow {\bf h} &amp;= h {\hat{\bf{h}}}\end{split}\]</div>
+<p>From Equation <a class="reference internal" href="#equation-l2-11">(43)</a>, we know that the angular momentum <span class="math notranslate nohighlight">\(\bf h\)</span> is constant, which further implies that <span class="math notranslate nohighlight">\(r v_\theta\)</span> is constant. Or, in other words, the scalar <span class="math notranslate nohighlight">\(h\)</span> denoting the magnitude of the specific angular momentum is a constant.</p>
+<div class="math notranslate nohighlight" id="equation-l2-17">
+<span class="eqno">(49)<a class="headerlink" href="#equation-l2-17" title="Permalink to this equation">#</a></span>\[h = rv_\theta = \textit{constant}\]</div>
+</section>
+<section id="areal-velocity-and-kepler-s-second-law">
+<h3>Areal velocity and Kepler’s Second Law<a class="headerlink" href="#areal-velocity-and-kepler-s-second-law" title="Permalink to this heading">#</a></h3>
+<figure class="align-default" id="direction-angmom">
+<a class="reference internal image-reference" href="../../_images/L2_2.png"><img alt="../../_images/L2_2.png" src="../../_images/L2_2.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The grey area is swept by the positon vector in a small interval of time <span class="math notranslate nohighlight">\(\mathrm{d}t\)</span>.</span><a class="headerlink" href="#direction-angmom" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From <a class="reference internal" href="#direction-angmom"><span class="std std-numref">Fig. 4</span></a>, we can write the infinitesimal area <span class="math notranslate nohighlight">\(\mathrm{d}A\)</span> swept by
+<span class="math notranslate nohighlight">\(\bf r\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-l2-18">
+<span class="eqno">(50)<a class="headerlink" href="#equation-l2-18" title="Permalink to this equation">#</a></span>\[\mathrm{d}A = \frac{1}{2}r\, v\, \mathrm{d}t\sin(\phi)\]</div>
+<p>wihch can be further rewritten</p>
+<div class="math notranslate nohighlight" id="equation-l2-19">
+<span class="eqno">(51)<a class="headerlink" href="#equation-l2-19" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{\mathrm{d}A}{\mathrm{d}t} &amp;= \frac{1}{2}r\, v\, \sin(\phi)\\
+\Rightarrow \frac{\mathrm{d}A}{\mathrm{d}t}&amp;= \frac{1}{2}r\, v_\theta \end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight" id="equation-l2-20">
+<span class="eqno">(52)<a class="headerlink" href="#equation-l2-20" title="Permalink to this equation">#</a></span>\[\frac{\mathrm{d}A}{\mathrm{d}t}=\frac{1}{2}h = constant\]</div>
+<p>This is essentially giving us <em>Kepler’s Second Law</em>, which tells us that areal velocity is
+constant. In other words, it tells us that equal areas are swept in equal intervals of
+time along the orbit in a body whose dynamics are governed by the simple two-body system described
+by Equation <a class="reference internal" href="#equation-l1-30">(31)</a>.</p>
+</section>
+</section>
+<section id="two-body-dynamics-in-polar-coordinates">
+<span id="content-polar-coordinates"></span><h2>Two-body Dynamics in Polar Coordinates<a class="headerlink" href="#two-body-dynamics-in-polar-coordinates" title="Permalink to this heading">#</a></h2>
+<p>If the motion is planar, we can use polar coordinates to fully describe it.
+Consider a situation where this planar motion lies in the x-y plane shown in
+<a class="reference internal" href="#polar-twobody"><span class="std std-numref">Fig. 5</span></a>.</p>
+<figure class="align-default" id="polar-twobody">
+<a class="reference internal image-reference" href="../../_images/L2_3.png"><img alt="../../_images/L2_3.png" src="../../_images/L2_3.png" style="height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Polar coordinate system (in blue) to study the two-body problem.</span><a class="headerlink" href="#polar-twobody" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Using polar coordinates shown in <a class="reference internal" href="#polar-twobody"><span class="std std-numref">Fig. 5</span></a>, we can see that <span class="math notranslate nohighlight">\({\bf r} = r{\bf e}_r\)</span>. Thus</p>
+<div class="math notranslate nohighlight" id="equation-l2-21">
+<span class="eqno">(53)<a class="headerlink" href="#equation-l2-21" title="Permalink to this equation">#</a></span>\[\frac{d\bf{r}}{dt} = {\bf v} = {\dot r}{ \bf e}_r + {r}{\dot \theta}{\bf e}_\theta \]</div>
+<p>which allows us to write</p>
+<div class="math notranslate nohighlight" id="equation-l2-22">
+<span class="eqno">(54)<a class="headerlink" href="#equation-l2-22" title="Permalink to this equation">#</a></span>\[\begin{split}{\bf h} &amp;= {\bf r} \times {\bf v}\\
+&amp;=r {\bf e}_r \times ({\dot r} {\bf e}_r + {r} \dot \theta {\bf e}_\theta)\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight" id="equation-l2-23">
+<span class="eqno">(55)<a class="headerlink" href="#equation-l2-23" title="Permalink to this equation">#</a></span>\[\begin{split} {\bf h} &amp;= r^2\dot \theta \hat{\bf{k}}\\ &amp;= rv_\theta \hat{\bf{k}} = constant\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{\bf{k}}\)</span> is a unit vector orthogonal to <span class="math notranslate nohighlight">\({\bf e}_r\)</span> and <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span>.
+Further, we can substitute for <span class="math notranslate nohighlight">\(h\)</span> from <a class="reference internal" href="#equation-l2-23">(55)</a> into to <a class="reference internal" href="#equation-l2-20">(52)</a>, which gives</p>
+<div class="math notranslate nohighlight" id="equation-l2-24">
+<span class="eqno">(56)<a class="headerlink" href="#equation-l2-24" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{\mathrm{d}A}{\mathrm{d}t} &amp;= \frac{1}{2}h\\
+\frac{\mathrm{d}A}{\mathrm{d}t} &amp;= \frac{1}{2}r^2\dot \theta\end{split}\]</div>
+<p>Taking the second derivative of <span class="math notranslate nohighlight">\(\bf r\)</span> using <a class="reference internal" href="#equation-l2-21">(53)</a>, we get</p>
+<div class="math notranslate nohighlight" id="equation-l2-25">
+<span class="eqno">(57)<a class="headerlink" href="#equation-l2-25" title="Permalink to this equation">#</a></span>\[{\frac{d^2\bf{r}}{\mathrm{d}t^2}} = \ddot{\bf r}
+= ({\ddot r} - r\dot\theta^2) {\bf{e_r}} + (r\ddot \theta+2\dot r\dot \theta) {\bf{e_\theta}}.\]</div>
+<p>We can also write the RHS of <a class="reference internal" href="#equation-l1-30">(31)</a> in polar coordinates as</p>
+<div class="math notranslate nohighlight" id="equation-l2-26">
+<span class="eqno">(58)<a class="headerlink" href="#equation-l2-26" title="Permalink to this equation">#</a></span>\[\frac{-\mu}{r^2}\bf{e_r}\]</div>
+<p>which upon comparing to <a class="reference internal" href="#equation-l2-25">(57)</a> gives the following two scalar ODEs along the <span class="math notranslate nohighlight">\({\bf e}_r\)</span> and <span class="math notranslate nohighlight">\({\bf e}_\theta\)</span> directions, respectively:</p>
+<div class="math notranslate nohighlight" id="equation-l2-27">
+<span class="eqno">(59)<a class="headerlink" href="#equation-l2-27" title="Permalink to this equation">#</a></span>\[\begin{split}{\ddot r} - r\dot \theta^2 &amp;= \frac{-\mu}{r^2}\\
+r\ddot \theta + 2{\dot r}\dot \theta &amp;= 0\end{split}\]</div>
+<p>Note that the second of Equations <a class="reference internal" href="#equation-l2-27">(59)</a> can also obtained from differentiating
+the specific angular momentum</p>
+<div class="math notranslate nohighlight" id="equation-l2-28">
+<span class="eqno">(60)<a class="headerlink" href="#equation-l2-28" title="Permalink to this equation">#</a></span>\[\begin{split}\frac{d}{dt}(h) &amp;= \frac{d}{dt}(r^2\dot \theta)\\
+\Rightarrow &amp;=2r{\dot r}\dot \theta+r^2\ddot \theta\\
+\Rightarrow &amp;=r(r\ddot \theta+2{\dot r}\dot \theta)\\
+\Rightarrow &amp;=0\end{split}\]</div>
+<p>In other words, the second of Equations <a class="reference internal" href="#equation-l2-27">(59)</a> is equivalent to <span class="math notranslate nohighlight">\(h = constant\)</span>.</p>
+</section>
+<section id="conservation-of-specific-orbital-energy-e">
+<span id="content-conservation-of-specific-orbital-energy-e"></span><h2>Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span><a class="headerlink" href="#conservation-of-specific-orbital-energy-e" title="Permalink to this heading">#</a></h2>
+<p>In this section we show that specific energies of orbits are constant, under two-body dynamics.
+To do so, we begin by computing dot product between <span class="math notranslate nohighlight">\(\bf{\dot r}\)</span> and both sides of the two-body
+dynamics equation (Equation <a class="reference internal" href="#equation-l1-30">(31)</a>):</p>
+<div class="math notranslate nohighlight" id="equation-l2-29">
+<span class="eqno">(61)<a class="headerlink" href="#equation-l2-29" title="Permalink to this equation">#</a></span>\[{\dot{\bf r}} \cdot \ddot{\bf r} = \frac{-\mu}{r^2} \hat{\bf r} \cdot{\dot{\bf r}}\]</div>
+<p>Further, we note the following</p>
+<div class="math notranslate nohighlight" id="equation-l2-30">
+<span class="eqno">(62)<a class="headerlink" href="#equation-l2-30" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{1}{2}v^2)=\frac{1}{2}\frac{d}{dt}(\bf{\dot r\cdot\dot r}).\]</div>
+<p>The derivative on the RHS of Equation <a class="reference internal" href="#equation-l2-30">(62)</a> also yields</p>
+<div class="math notranslate nohighlight" id="equation-l2-31">
+<span class="eqno">(63)<a class="headerlink" href="#equation-l2-31" title="Permalink to this equation">#</a></span>\[\frac{1}{2}{\ddot{\bf r}} {\cdot\dot{\bf r}} + \frac{1}{2}{\dot{\bf r}} \cdot {\ddot{\bf r}} = \dot{\bf r} \cdot {\ddot {\bf r}}.\]</div>
+<p>This tells us that the term on LHS of Equation <a class="reference internal" href="#equation-l2-29">(61)</a> can be written as shown below</p>
+<div class="math notranslate nohighlight" id="equation-l2-32">
+<span class="eqno">(64)<a class="headerlink" href="#equation-l2-32" title="Permalink to this equation">#</a></span>\[\dot{\bf r} \cdot \ddot{\bf r} = \frac{d}{dt}(\frac{1}{2}v^2)\]</div>
+<p>Notice that this is the derivative of a term that resembles kinetic energy (but lacking a term for mass).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In polar coordinates <span class="math notranslate nohighlight">\(v^2={v_r}^2+{v_\theta}^2={\dot r}^2+r^2\dot \theta^2\)</span></p>
+</div>
+<p>Further,</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Using the chain rule, we have written</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt} \Bigl( \frac{\mu}{r} \Bigl) = \frac{\partial}{\partial r} \Bigl( \frac{\mu}{r} \Bigr) \frac{dr}{dt}\]</div>
+<p>This means we first differentiate <span class="math notranslate nohighlight">\(\frac{\mu}{r}\)</span> with respect to <span class="math notranslate nohighlight">\(r\)</span>, and then multiply by how <span class="math notranslate nohighlight">\(r\)</span> changes with time.</p>
+</aside>
+<div class="math notranslate nohighlight" id="equation-l2-33">
+<span class="eqno">(65)<a class="headerlink" href="#equation-l2-33" title="Permalink to this equation">#</a></span>\[\frac{d}{dt} \Bigl( \frac{\mu}{r} \Bigl) = \frac{\partial}{\partial r} \Bigl( \frac{\mu}{r} \Bigr) \frac{dr}{dt} = -\frac{\mu}{r^2}{\dot r}\]</div>
+<p>Noting the above and observing that <span class="math notranslate nohighlight">\({\bf \hat{r}} \cdot {\dot{\bf r}} = v_r
+= \dot r\)</span> , the term on the RHS of Equation <a class="reference internal" href="#equation-l2-29">(61)</a> is rewritten as below</p>
+<div class="math notranslate nohighlight" id="equation-l2-34">
+<span class="eqno">(66)<a class="headerlink" href="#equation-l2-34" title="Permalink to this equation">#</a></span>\[-\frac{\mu}{r^2}{\bf{\hat{r}}}{\cdot\bf{\dot r}} = -\frac{\mu}{r^2}\dot r = \frac{d}{dt}\Bigl(\frac{\mu}{r} \Bigr)\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Notice that the term on the RHS of Equation <a class="reference internal" href="#equation-l2-29">(61)</a> has been recomputed as
+the derivative of the potential of the gravitational force.</p>
+</div>
+<p>Substituting the derivatives of kinetic Energy <a class="reference internal" href="#equation-l2-32">(64)</a> and potential of gravitationl force <a class="reference internal" href="#equation-l2-34">(66)</a> into <a class="reference internal" href="#equation-l2-29">(61)</a> gives</p>
+<div class="math notranslate nohighlight" id="equation-l2-35">
+<span class="eqno">(67)<a class="headerlink" href="#equation-l2-35" title="Permalink to this equation">#</a></span>\[\frac{d}{dt}(\frac{1}{2}v^2-\frac{\mu}{r})=0\]</div>
+<p>from which follows the Conservation of Specific Orbital Energy <a class="reference internal" href="#equation-l2-36">(68)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-l2-36">
+<span class="eqno">(68)<a class="headerlink" href="#equation-l2-36" title="Permalink to this equation">#</a></span>\[\frac{1}{2}v^2-\frac{\mu}{r} = constant\]</div>
+<p>where <span class="math notranslate nohighlight">\(E\)</span> the specific orbital energy is given by</p>
+<div class="math notranslate nohighlight" id="equation-l2-36a">
+<span class="eqno">(69)<a class="headerlink" href="#equation-l2-36a" title="Permalink to this equation">#</a></span>\[E = \frac{1}{2}v^2-\frac{\mu}{r}\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "angadhn/SpacecraftDynamics",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./orbital-mechanics/Lecture2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture1/Lecture1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Vectors (Brief Recap)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture3/Lecture3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Elliptic Orbits</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-gravitational-force-and-newton-s-second-law">Two-Body Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-of-mass-g-and-its-derivatives">Center of Mass ( G ) and its derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravitational-force">Gravitational Force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-relative-dynamics">Two-Body Relative Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-angular-momentum">Specific Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direction">Direction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude">Magnitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-velocity-and-kepler-s-second-law">Areal velocity and Kepler’s Second Law</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-body-dynamics-in-polar-coordinates">Two-body Dynamics in Polar Coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-specific-orbital-energy-e">Conservation of Specific Orbital Energy: <span class="math notranslate nohighlight">\(E\)</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Angadh Nanjangud
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
